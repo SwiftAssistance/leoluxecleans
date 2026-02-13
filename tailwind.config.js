@@ -19,10 +19,17 @@ export default {
         },
         surface: {
           black: '#0B0B0B',
-          dark: '#131313',
+          dark: '#111111',
           card: '#1A1A1A',
           border: '#262626',
+          light: '#1E1E1E',
         },
+      },
+      boxShadow: {
+        'gold-sm': '0 2px 12px rgba(200, 169, 78, 0.15)',
+        'gold': '0 4px 20px rgba(200, 169, 78, 0.25)',
+        'gold-lg': '0 8px 40px rgba(200, 169, 78, 0.3)',
+        'card': '0 4px 24px rgba(0, 0, 0, 0.4)',
       },
     },
   },
