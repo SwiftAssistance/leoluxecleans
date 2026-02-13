@@ -52,13 +52,13 @@ const App = () => {
     'Fully Insured',
     'DBS Checked',
     'Eco-Friendly Products',
-    '500+ Homes Cleaned',
-    '5-Star Rated',
     'Free Quotes',
     'Slough & Berkshire',
     'Same Week Booking',
     'Satisfaction Guaranteed',
-    '12+ Years Experience',
+    'Professional Team',
+    'No Hidden Fees',
+    'Flexible Scheduling',
   ];
 
   return (
@@ -162,9 +162,9 @@ const App = () => {
             {/* Right — floating stacked badges */}
             <div className="hidden lg:flex lg:col-span-5 flex-col gap-4 items-end">
               {[
-                { icon: <Star size={18} fill="#C8A94E" strokeWidth={0} />, value: '5.0', label: 'Average Rating', sub: '200+ reviews' },
-                { icon: <Home size={18} />, value: '500+', label: 'Homes Cleaned', sub: 'across Berkshire' },
-                { icon: <ShieldCheck size={18} />, value: '100%', label: 'Satisfaction', sub: 'guaranteed' },
+                { icon: <ShieldCheck size={18} />, value: '100%', label: 'Insured', sub: 'fully covered' },
+                { icon: <Sparkles size={18} />, value: 'Eco', label: 'Friendly Products', sub: 'safe & green' },
+                { icon: <Clock size={18} />, value: '2hr', label: 'Quote Response', sub: 'guaranteed' },
               ].map((badge, i) => (
                 <div
                   key={i}
@@ -321,10 +321,10 @@ const App = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                 </div>
 
-                {/* Overlapping experience badge — breaks out of container */}
+                {/* Overlapping badge — breaks out of container */}
                 <div className="absolute -bottom-6 -right-4 lg:-right-8 btn-gold rounded-2xl p-6 shadow-gold-lg z-10">
-                  <span className="heading-serif text-5xl block text-surface-black leading-none">12+</span>
-                  <span className="label-caps text-[10px] text-surface-black/60 mt-1 block">Years</span>
+                  <span className="heading-serif text-5xl block text-surface-black leading-none">100%</span>
+                  <span className="label-caps text-[10px] text-surface-black/60 mt-1 block">Satisfaction</span>
                 </div>
 
                 {/* Overlapping small image */}
@@ -345,10 +345,11 @@ const App = () => {
                 We Take Pride<br />in Every Clean
               </h2>
               <p className="text-neutral-400 leading-relaxed mb-10 font-light text-[15px]">
-                We're not just another cleaning company. Our team is fully trained,
-                DBS checked, and genuinely cares about doing a brilliant job.
-                Whether it's a studio flat or a five-bedroom house, we give it
-                the same attention to detail.
+                We started Leo Luxe because we believe everyone deserves a
+                properly clean home — without the premium price tag. Our team
+                is fully trained, DBS checked, and genuinely passionate about
+                what we do. Every job gets the same attention to detail,
+                whether it's a studio flat or a five-bedroom house.
               </p>
 
               {/* Feature list — 2-column staggered */}
@@ -429,7 +430,7 @@ const App = () => {
             </div>
             <div className="flex items-center gap-1 text-gold">
               {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#C8A94E" strokeWidth={0} />)}
-              <span className="text-neutral-400 text-sm ml-2">5.0 from 200+ reviews</span>
+              <span className="text-neutral-400 text-sm ml-2">5-Star Service</span>
             </div>
           </div>
 
@@ -508,10 +509,10 @@ const App = () => {
         <div className="absolute bottom-1/3 right-0 w-[400px] h-[400px] bg-gold/[0.04] rounded-full blur-[120px]"></div>
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12">
 
             {/* Left — info */}
-            <div className="lg:col-span-5">
+            <div>
               <p className="label-caps text-gold mb-4">Get Started</p>
               <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-6">
                 Get Your Free<br />
@@ -551,7 +552,7 @@ const App = () => {
             </div>
 
             {/* Right — form */}
-            <div className="lg:col-span-7">
+            <div>
               <div className="glass-card rounded-2xl p-8 lg:p-10 border-gold/15">
                 {formSubmitted ? (
                   <div className="flex flex-col items-center justify-center text-center py-16">
