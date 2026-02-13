@@ -41,7 +41,6 @@
     background: linear-gradient(90deg, #C8A94E, #E8D48B);
   }
 
-  /* Gold glow button */
   .btn-gold {
     background: linear-gradient(135deg, #C8A94E 0%, #E8D48B 50%, #C8A94E 100%);
     background-size: 200% 200%;
@@ -53,23 +52,33 @@
   .btn-gold:hover {
     background-position: 100% 100%;
     box-shadow: 0 6px 30px rgba(200, 169, 78, 0.45);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
   }
 
-  /* Glass card */
+  .btn-outline-gold {
+    border: 1px solid rgba(200, 169, 78, 0.4);
+    color: #C8A94E;
+    transition: all 0.4s ease;
+  }
+  .btn-outline-gold:hover {
+    border-color: #C8A94E;
+    background: rgba(200, 169, 78, 0.08);
+    box-shadow: 0 0 20px rgba(200, 169, 78, 0.1);
+  }
+
   .glass-card {
     background: rgba(26, 26, 26, 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(200, 169, 78, 0.1);
-    transition: all 0.5s ease;
+    border: 1px solid rgba(200, 169, 78, 0.08);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .glass-card:hover {
-    border-color: rgba(200, 169, 78, 0.35);
-    box-shadow: 0 8px 32px rgba(200, 169, 78, 0.1);
+    border-color: rgba(200, 169, 78, 0.3);
+    box-shadow: 0 8px 32px rgba(200, 169, 78, 0.08);
+    transform: translateY(-2px);
   }
 
-  /* Gold gradient text */
   .text-gold-gradient {
     background: linear-gradient(135deg, #C8A94E, #E8D48B, #C8A94E);
     -webkit-background-clip: text;
@@ -77,24 +86,17 @@
     background-clip: text;
   }
 
-  /* Radial glow background */
-  .glow-gold {
-    position: relative;
+  /* Infinite marquee */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
   }
-  .glow-gold::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(200, 169, 78, 0.08) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
 
-  /* Subtle shimmer animation for accent elements */
   .shimmer {
     background: linear-gradient(
       110deg,
@@ -107,10 +109,20 @@
     background-size: 300% 100%;
     animation: shimmer 4s ease-in-out infinite;
   }
-
   @keyframes shimmer {
     0% { background-position: 200% 0; }
     100% { background-position: -100% 0; }
+  }
+
+  /* Diagonal clip for hero bottom */
+  .clip-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  @media (min-width: 1024px) {
+    .clip-diagonal {
+      clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+    }
   }
 }
 
