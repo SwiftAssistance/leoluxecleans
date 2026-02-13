@@ -16,12 +16,17 @@ import {
   Facebook,
   Twitter,
   Sparkles,
-  Quote
+  Quote,
+  CheckCircle2,
+  Award,
+  CalendarCheck
 } from 'lucide-react';
 
 const App = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '', service: '' });
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -29,10 +34,16 @@ const App = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+    setTimeout(() => setFormSubmitted(false), 4000);
+    setFormData({ name: '', phone: '', email: '', service: '' });
+  };
+
   const navLinks = [
     { name: 'Services', href: '#services' },
     { name: 'About', href: '#about' },
-    { name: 'Process', href: '#process' },
     { name: 'Reviews', href: '#reviews' },
   ];
 
@@ -70,8 +81,11 @@ const App = () => {
                 {link.name}
               </a>
             ))}
+            <a href="tel:5551234567" className="label-caps text-neutral-400 hover:text-gold transition-colors duration-300 flex items-center gap-2">
+              <Phone size={14} /> (555) 123-4567
+            </a>
             <a href="#contact" className="label-caps text-surface-black bg-gold hover:bg-gold-dark px-6 py-2.5 transition-colors duration-300">
-              Book Now
+              Get Free Quote
             </a>
           </div>
 
@@ -93,8 +107,11 @@ const App = () => {
                   {link.name}
                 </a>
               ))}
-              <a href="#contact" className="label-caps text-surface-black bg-gold text-center py-3 mt-2">
-                Book Now
+              <a href="tel:5551234567" className="label-caps text-gold flex items-center gap-2">
+                <Phone size={14} /> (555) 123-4567
+              </a>
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="label-caps text-surface-black bg-gold text-center py-3 mt-2">
+                Get Free Quote
               </a>
             </div>
           </div>
@@ -114,23 +131,48 @@ const App = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
           <div className="max-w-2xl">
-            <div className="divider-gold mb-8"></div>
-            <p className="label-caps text-gold mb-6">Premium Cleaning Service</p>
-            <h1 className="heading-serif text-5xl sm:text-6xl lg:text-8xl text-white mb-8">
-              The Art of<br />Clean Living
+            <div className="flex items-center gap-2 mb-6">
+              <div className="flex text-gold">
+                {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#C8A94E" strokeWidth={0} />)}
+              </div>
+              <span className="text-neutral-400 text-sm">Rated 5.0 by 200+ clients</span>
+            </div>
+            <h1 className="heading-serif text-5xl sm:text-6xl lg:text-8xl text-white mb-6">
+              Your Space,<br />Perfected
             </h1>
-            <p className="text-neutral-400 text-lg leading-relaxed max-w-lg mb-12 font-light">
-              Meticulous attention to detail for residential and commercial spaces.
-              For those who refuse to compromise.
+            <p className="text-neutral-400 text-lg leading-relaxed max-w-lg mb-8 font-light">
+              Beverly Hills' trusted premium cleaning service. We handle the pristine
+              — you enjoy the result. Licensed, bonded, and 100% satisfaction guaranteed.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a href="#contact" className="label-caps bg-gold text-surface-black px-8 py-4 hover:bg-gold-dark transition-colors duration-300 text-center">
-                Schedule a Consultation
+                Get Your Free Quote
               </a>
-              <a href="#services" className="label-caps border border-neutral-600 text-white px-8 py-4 hover:border-gold hover:text-gold transition-colors duration-300 text-center">
-                Our Services
+              <a href="tel:5551234567" className="label-caps border border-neutral-600 text-white px-8 py-4 hover:border-gold hover:text-gold transition-colors duration-300 text-center flex items-center justify-center gap-2">
+                <Phone size={16} /> Call Now
               </a>
             </div>
+            <p className="text-neutral-600 text-xs">Free consultation. No obligation. Response within 2 hours.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── TRUST BAR ─── */}
+      <section className="bg-surface-dark border-y border-surface-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-0">
+            {[
+              { value: '500+', label: 'Homes Serviced', icon: <Home size={18} /> },
+              { value: '5.0', label: 'Star Rating', icon: <Star size={18} /> },
+              { value: '100%', label: 'Satisfaction Rate', icon: <Award size={18} /> },
+              { value: '24hr', label: 'Response Time', icon: <CalendarCheck size={18} /> },
+            ].map((stat, i) => (
+              <div key={i} className="py-8 lg:py-10 text-center border-r border-surface-border last:border-0 odd:border-r even:lg:border-r">
+                <div className="text-gold mb-2 flex justify-center">{stat.icon}</div>
+                <span className="heading-serif text-3xl lg:text-4xl text-white block">{stat.value}</span>
+                <span className="text-neutral-500 text-xs tracking-wide uppercase mt-1 block">{stat.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -143,25 +185,28 @@ const App = () => {
               <p className="label-caps text-gold mb-4">What We Do</p>
               <h2 className="heading-serif text-4xl lg:text-6xl text-white">Our Expertise</h2>
             </div>
-            <p className="text-neutral-500 max-w-md text-sm leading-relaxed lg:text-right">
-              Six specialized services, each delivered with the same uncompromising
-              standard of excellence.
-            </p>
+            <a href="#contact" className="label-caps text-gold hover:text-gold-light transition-colors duration-300 flex items-center gap-2 group">
+              Get a quote for any service
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+            </a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-surface-border">
             {services.map((service, i) => (
-              <div key={i} className="bg-surface-black p-8 lg:p-10 group hover:bg-surface-dark transition-colors duration-500">
+              <a key={i} href="#contact" className="bg-surface-black p-8 lg:p-10 group hover:bg-surface-dark transition-colors duration-500 block">
                 <div className="text-gold mb-6 opacity-60 group-hover:opacity-100 transition-opacity duration-500">
                   {service.icon}
                 </div>
                 <h3 className="font-sans text-white text-base font-medium mb-3 tracking-wide">
                   {service.title}
                 </h3>
-                <p className="text-neutral-500 text-sm leading-relaxed font-light">
+                <p className="text-neutral-500 text-sm leading-relaxed font-light mb-6">
                   {service.desc}
                 </p>
-              </div>
+                <span className="label-caps text-[10px] text-gold opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center gap-1">
+                  Get Quote <ArrowRight size={12} />
+                </span>
+              </a>
             ))}
           </div>
         </div>
@@ -203,15 +248,14 @@ const App = () => {
                   '100% Satisfaction Guarantee',
                 ].map((feature, i) => (
                   <div key={i} className="flex items-center gap-4">
-                    <div className="w-1.5 h-1.5 bg-gold rounded-full flex-shrink-0"></div>
+                    <CheckCircle2 size={18} className="text-gold flex-shrink-0" />
                     <span className="text-neutral-300 text-sm tracking-wide">{feature}</span>
                   </div>
                 ))}
               </div>
 
-              <a href="#contact" className="inline-flex items-center gap-3 label-caps text-gold hover:text-gold-light transition-colors duration-300 group">
-                Get in Touch
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+              <a href="#contact" className="inline-block label-caps bg-gold text-surface-black px-8 py-3.5 hover:bg-gold-dark transition-colors duration-300">
+                Book a Free Consultation
               </a>
             </div>
           </div>
@@ -224,13 +268,14 @@ const App = () => {
           <div className="text-center mb-16 lg:mb-20">
             <p className="label-caps text-gold mb-4">How It Works</p>
             <h2 className="heading-serif text-4xl lg:text-6xl text-white">Three Simple Steps</h2>
+            <p className="text-neutral-500 text-sm mt-4 max-w-md mx-auto">From first contact to a spotless space — here's how easy it is.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
             {[
-              { num: '01', title: 'Consultation', desc: 'We discuss your needs and tailor a bespoke cleaning plan around your schedule and preferences.' },
-              { num: '02', title: 'The Clean', desc: 'Our uniformed specialists arrive fully equipped to transform your space with precision and care.' },
-              { num: '03', title: 'Walkthrough', desc: 'A final inspection ensures every detail meets our gold standard. Your satisfaction is non-negotiable.' },
+              { num: '01', title: 'Get Your Quote', desc: 'Fill out the form or call us. We\'ll discuss your needs and give you a transparent, no-obligation quote within 2 hours.' },
+              { num: '02', title: 'We Clean', desc: 'Our uniformed specialists arrive on schedule, fully equipped. Sit back while we transform your space.' },
+              { num: '03', title: 'You Approve', desc: 'A final walkthrough ensures every detail is perfect. Not satisfied? We\'ll re-clean at no extra cost.' },
             ].map((step, i) => (
               <div key={i} className="relative p-8 lg:p-12 text-center border-b md:border-b-0 md:border-r border-surface-border last:border-0">
                 <span className="heading-serif text-7xl lg:text-8xl text-surface-border block mb-4">{step.num}</span>
@@ -238,6 +283,12 @@ const App = () => {
                 <p className="text-neutral-500 text-sm leading-relaxed font-light max-w-xs mx-auto">{step.desc}</p>
               </div>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <a href="#contact" className="inline-block label-caps bg-gold text-surface-black px-10 py-4 hover:bg-gold-dark transition-colors duration-300">
+              Start With Step One
+            </a>
           </div>
         </div>
       </section>
@@ -248,14 +299,12 @@ const App = () => {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16 lg:mb-20">
             <div>
               <p className="label-caps text-gold mb-4">Testimonials</p>
-              <h2 className="heading-serif text-4xl lg:text-6xl text-white">What Clients Say</h2>
+              <h2 className="heading-serif text-4xl lg:text-6xl text-white">Trusted by 200+ Clients</h2>
             </div>
-            <div className="flex text-gold gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={16} fill="#C8A94E" strokeWidth={0} />
-              ))}
-              <span className="text-neutral-500 text-sm ml-2">5.0 Average Rating</span>
-            </div>
+            <a href="#contact" className="label-caps text-gold hover:text-gold-light transition-colors flex items-center gap-2 group">
+              Join them
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+            </a>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-surface-border">
@@ -265,9 +314,11 @@ const App = () => {
               { text: 'I was hesitant about my delicate vintage furniture, but their team knew exactly how to handle every material. Simply outstanding.', author: 'Elena Fisher', role: 'Interior Designer' },
             ].map((testimonial, i) => (
               <div key={i} className="bg-surface-dark p-8 lg:p-10 flex flex-col">
-                <Quote size={20} className="text-gold/30 mb-6" />
+                <div className="flex text-gold mb-4">
+                  {[...Array(5)].map((_, j) => <Star key={j} size={14} fill="#C8A94E" strokeWidth={0} />)}
+                </div>
                 <p className="text-neutral-300 leading-relaxed font-light flex-grow mb-8 text-[15px]">
-                  {testimonial.text}
+                  "{testimonial.text}"
                 </p>
                 <div className="border-t border-surface-border pt-6">
                   <p className="text-white text-sm font-medium">{testimonial.author}</p>
@@ -279,21 +330,118 @@ const App = () => {
         </div>
       </section>
 
-      {/* ─── CTA ─── */}
+      {/* ─── LEAD CAPTURE FORM ─── */}
       <section id="contact" className="py-24 lg:py-32 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="border border-surface-border p-10 lg:p-20 text-center">
-            <div className="divider-gold mx-auto mb-8"></div>
-            <h2 className="heading-serif text-4xl lg:text-6xl text-white mb-6">
-              Ready to Elevate<br />Your Standard?
-            </h2>
-            <p className="text-neutral-500 max-w-lg mx-auto mb-10 font-light leading-relaxed">
-              Book your initial consultation and discover the difference
-              of a truly pristine environment.
-            </p>
-            <a href="#" className="inline-block label-caps bg-gold text-surface-black px-10 py-4 hover:bg-gold-dark transition-colors duration-300">
-              Book Your Consultation
-            </a>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+
+            <div>
+              <p className="label-caps text-gold mb-4">Get Started</p>
+              <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-6">
+                Get Your Free<br />Quote Today
+              </h2>
+              <p className="text-neutral-400 leading-relaxed font-light mb-10">
+                Fill out the form and we'll get back to you within 2 hours with a
+                transparent, no-obligation quote tailored to your space.
+              </p>
+
+              <div className="space-y-6">
+                {[
+                  { icon: <Phone size={16} />, label: 'Call us directly', value: '(555) 123-4567', href: 'tel:5551234567' },
+                  { icon: <Mail size={16} />, label: 'Email us', value: 'info@leoluxecleans.com', href: 'mailto:info@leoluxecleans.com' },
+                  { icon: <MapPin size={16} />, label: 'Serving', value: 'Beverly Hills & Greater LA', href: null },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-4">
+                    <div className="text-gold mt-0.5">{item.icon}</div>
+                    <div>
+                      <p className="text-neutral-500 text-xs uppercase tracking-wide">{item.label}</p>
+                      {item.href ? (
+                        <a href={item.href} className="text-white text-sm hover:text-gold transition-colors">{item.value}</a>
+                      ) : (
+                        <p className="text-white text-sm">{item.value}</p>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-10 flex items-center gap-3 text-neutral-600 text-xs">
+                <ShieldCheck size={14} className="text-gold" />
+                <span>Your information is secure and never shared with third parties.</span>
+              </div>
+            </div>
+
+            <div className="bg-surface-dark border border-surface-border p-8 lg:p-10">
+              {formSubmitted ? (
+                <div className="h-full flex flex-col items-center justify-center text-center py-12">
+                  <CheckCircle2 size={48} className="text-gold mb-6" />
+                  <h3 className="heading-serif text-3xl text-white mb-3">Thank You</h3>
+                  <p className="text-neutral-400 text-sm">We'll be in touch within 2 hours with your personalized quote.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleFormSubmit} className="space-y-6">
+                  <div>
+                    <label className="label-caps text-neutral-400 text-[10px] block mb-2">Full Name</label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full bg-surface-black border border-surface-border px-4 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors"
+                      placeholder="Your name"
+                    />
+                  </div>
+                  <div>
+                    <label className="label-caps text-neutral-400 text-[10px] block mb-2">Phone Number</label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full bg-surface-black border border-surface-border px-4 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors"
+                      placeholder="(555) 000-0000"
+                    />
+                  </div>
+                  <div>
+                    <label className="label-caps text-neutral-400 text-[10px] block mb-2">Email</label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full bg-surface-black border border-surface-border px-4 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors"
+                      placeholder="you@email.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="label-caps text-neutral-400 text-[10px] block mb-2">Service Needed</label>
+                    <select
+                      required
+                      value={formData.service}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      className="w-full bg-surface-black border border-surface-border px-4 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors appearance-none"
+                    >
+                      <option value="">Select a service</option>
+                      <option value="residential">Estate Residential</option>
+                      <option value="corporate">Corporate Spaces</option>
+                      <option value="deep">Deep Purification</option>
+                      <option value="move">Move-In / Move-Out</option>
+                      <option value="event">Event Restoration</option>
+                      <option value="specialized">Specialized Surfaces</option>
+                    </select>
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full label-caps bg-gold text-surface-black py-4 hover:bg-gold-dark transition-colors duration-300"
+                  >
+                    Get My Free Quote
+                  </button>
+                  <p className="text-neutral-600 text-xs text-center">
+                    Free consultation — No obligation — Response within 2 hours
+                  </p>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </section>
@@ -309,8 +457,8 @@ const App = () => {
                 <span className="label-caps text-gold text-[9px] tracking-[0.3em] -mt-0.5">Cleans</span>
               </div>
               <p className="text-neutral-600 text-sm leading-relaxed max-w-xs">
-                Defining the new standard for premium cleaning services.
-                Luxury, reliability, perfection.
+                Beverly Hills' premium cleaning service.
+                Luxury, reliability, perfection in every detail.
               </p>
             </div>
 
@@ -320,8 +468,8 @@ const App = () => {
                 {[
                   { name: 'Services', href: '#services' },
                   { name: 'About', href: '#about' },
-                  { name: 'Process', href: '#process' },
                   { name: 'Reviews', href: '#reviews' },
+                  { name: 'Get Quote', href: '#contact' },
                 ].map((link) => (
                   <li key={link.name}>
                     <a href={link.href} className="text-neutral-600 hover:text-white transition-colors text-sm">{link.name}</a>
@@ -332,10 +480,10 @@ const App = () => {
 
             <div>
               <h4 className="label-caps text-neutral-400 mb-6">Contact</h4>
-              <ul className="space-y-3 text-neutral-600 text-sm">
-                <li className="flex items-center gap-3"><Phone size={14} className="text-gold" /> (555) 123-4567</li>
-                <li className="flex items-center gap-3"><Mail size={14} className="text-gold" /> info@leoluxecleans.com</li>
-                <li className="flex items-center gap-3"><MapPin size={14} className="text-gold" /> Beverly Hills, CA</li>
+              <ul className="space-y-3 text-sm">
+                <li><a href="tel:5551234567" className="flex items-center gap-3 text-neutral-600 hover:text-gold transition-colors"><Phone size={14} className="text-gold" /> (555) 123-4567</a></li>
+                <li><a href="mailto:info@leoluxecleans.com" className="flex items-center gap-3 text-neutral-600 hover:text-gold transition-colors"><Mail size={14} className="text-gold" /> info@leoluxecleans.com</a></li>
+                <li className="flex items-center gap-3 text-neutral-600"><MapPin size={14} className="text-gold" /> Beverly Hills, CA</li>
               </ul>
             </div>
 
@@ -362,6 +510,16 @@ const App = () => {
           </div>
         </div>
       </footer>
+
+      {/* ─── STICKY MOBILE CTA ─── */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-surface-black/95 backdrop-blur-md border-t border-surface-border px-4 py-3 flex gap-3">
+        <a href="tel:5551234567" className="flex-1 label-caps border border-gold text-gold py-3 text-center flex items-center justify-center gap-2">
+          <Phone size={14} /> Call
+        </a>
+        <a href="#contact" className="flex-1 label-caps bg-gold text-surface-black py-3 text-center">
+          Free Quote
+        </a>
+      </div>
     </div>
   );
 };
