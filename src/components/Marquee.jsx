@@ -15,7 +15,7 @@ const marqueeItems = [
 
 const Marquee = () => {
   return (
-    <section className="relative -mt-16 lg:-mt-24 z-20 py-5 bg-surface-dark/90 backdrop-blur-sm border-y border-gold/10 overflow-hidden">
+    <section className="relative z-20 py-5 bg-surface-dark border-y border-gold/10 overflow-hidden">
       <div className="marquee-track">
         {[...marqueeItems, ...marqueeItems].map((item, i) => (
           <span
