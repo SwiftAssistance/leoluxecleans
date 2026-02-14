@@ -13,20 +13,20 @@ const badges = [
   {
     icon: <Star size={18} fill="#C8A94E" strokeWidth={0} />,
     value: '5.0',
-    label: 'Average Rating',
+    label: 'on Google',
     sub: '200+ reviews',
   },
   {
     icon: <Home size={18} />,
     value: '500+',
-    label: 'Homes Cleaned',
-    sub: 'across Berkshire',
+    label: 'Homes Done',
+    sub: 'Slough & surrounds',
   },
   {
     icon: <ShieldCheck size={18} />,
-    value: '100%',
-    label: 'Satisfaction',
-    sub: 'guaranteed',
+    value: 'DBS',
+    label: 'Checked',
+    sub: 'fully insured',
   },
 ];
 
@@ -72,7 +72,7 @@ const Hero = () => {
             >
               <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
               <span className="text-neutral-300 text-sm">
-                Now taking bookings across Berkshire
+                Taking bookings this week across Slough & Berkshire
               </span>
             </div>
 
@@ -82,9 +82,9 @@ const Hero = () => {
               }`}
               style={{ transitionDelay: '150ms' }}
             >
-              Your Space,
+              Clean Done
               <br />
-              <span className="text-gold-gradient">Our Standard</span>
+              <span className="text-gold-gradient">Properly.</span>
             </h1>
 
             <p
@@ -93,8 +93,9 @@ const Hero = () => {
               }`}
               style={{ transitionDelay: '300ms' }}
             >
-              Professional cleaning across Slough, Windsor & Berkshire. Reliable,
-              thorough, and always to the highest standard.
+              We're a local team based in Slough. Homes, offices, end of tenancy — we
+              do the kind of clean you'd actually notice. No cutting corners,
+              no rushing out the door.
             </p>
 
             <div
@@ -107,7 +108,7 @@ const Hero = () => {
                 to="/contact"
                 className="btn-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2 group"
               >
-                Get Your Free Quote{' '}
+                Get a Free Quote{' '}
                 <ArrowRight
                   size={14}
                   className="group-hover:translate-x-1 transition-transform"
@@ -117,7 +118,7 @@ const Hero = () => {
                 href="tel:01753000000"
                 className="btn-outline-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2"
               >
-                <Phone size={16} /> Call Us Now
+                <Phone size={16} /> 01753 000 000
               </a>
             </div>
 
@@ -127,7 +128,7 @@ const Hero = () => {
               }`}
               style={{ transitionDelay: '600ms' }}
             >
-              No obligation. Free quotes. We respond within 2 hours.
+              No contracts. Free quotes. We usually reply within a couple of hours.
             </p>
           </div>
 

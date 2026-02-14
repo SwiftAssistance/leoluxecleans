@@ -6,20 +6,20 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 const steps = [
   {
     num: '01',
-    title: 'Get Your Quote',
-    desc: "Fill in the form or give us a ring. We'll come back to you within 2 hours with a clear, honest price.",
+    title: 'Get in Touch',
+    desc: "Drop us a message or give us a call. We'll get back to you within a couple of hours with an honest quote — no hard sell, no hidden extras.",
     icon: <Phone size={20} />,
   },
   {
     num: '02',
-    title: 'We Clean',
-    desc: 'Our team arrives on time, fully equipped and ready. Sit back and relax while we work our magic.',
+    title: 'We Get to Work',
+    desc: "Our team turns up on time with everything we need. You don't have to lift a finger — just let us in and we'll crack on.",
     icon: <Sparkles size={20} />,
   },
   {
     num: '03',
-    title: 'You Enjoy',
-    desc: "Walk into a spotless space. Not happy? We'll come back and sort it — no extra charge.",
+    title: 'Walk Into Spotless',
+    desc: "That's it. Your space, done properly. And if there's anything you're not happy with, we'll come back and fix it for free.",
     icon: <CheckCircle2 size={20} />,
   },
 ];
@@ -41,7 +41,7 @@ const Process = () => {
         >
           <p className="label-caps text-gold mb-4">How It Works</p>
           <h2 className="heading-serif text-4xl lg:text-6xl text-white">
-            Three Simple Steps
+            Dead Simple
           </h2>
         </div>
 
@@ -102,7 +102,7 @@ const Process = () => {
             to="/contact"
             className="btn-gold label-caps px-10 py-4 rounded-lg inline-flex items-center gap-2 group"
           >
-            Start With Step One{' '}
+            Get Your Free Quote{' '}
             <ArrowRight
               size={14}
               className="group-hover:translate-x-1 transition-transform"

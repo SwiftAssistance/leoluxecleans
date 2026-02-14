@@ -26,9 +26,9 @@ const Statement = () => {
           style={{ transitionDelay: '200ms' }}
         />
         <blockquote className="heading-serif text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-8">
-          We don't just clean your space —
+          If it's not spotless when we leave,
           <br className="hidden sm:block" />
-          <span className="text-gold-gradient">we raise the standard of it.</span>
+          <span className="text-gold-gradient">we come back and sort it. Simple.</span>
         </blockquote>
         <div className="flex items-center justify-center gap-3">
           <div
@@ -38,7 +38,7 @@ const Statement = () => {
             style={{ transitionDelay: '400ms' }}
           ></div>
           <span className="label-caps text-neutral-500 text-[10px]">
-            Leo Luxe Cleans
+            Our Promise
           </span>
           <div
             className={`divider-gold transition-all duration-700 ${
