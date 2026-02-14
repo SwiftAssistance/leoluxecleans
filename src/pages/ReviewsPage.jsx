@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Star, Quote, ArrowRight, Phone } from 'lucide-react';
+import { Star, Quote, ArrowRight, Phone, CheckCircle2 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import Seo, { breadcrumbSchema } from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -113,15 +113,32 @@ const ReviewsPage = () => {
       />
 
       {/* Rating summary */}
-      <section className="py-12 bg-surface-dark border-b border-surface-border/30">
+      <section className="py-10 bg-surface-dark border-b border-surface-border/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <span className="heading-serif text-6xl text-gold">5.0</span>
-            <div className="text-center sm:text-left">
-              <StarRating size={20} />
-              <p className="text-neutral-400 text-sm mt-1">
-                from 200+ verified reviews
-              </p>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+            <div className="flex items-center gap-5">
+              <span className="heading-serif text-6xl text-gold">5.0</span>
+              <div>
+                <StarRating size={18} />
+                <p className="text-neutral-500 text-sm mt-1">
+                  200+ verified reviews
+                </p>
+              </div>
+            </div>
+            <div className="hidden md:block w-px h-14 bg-surface-border/40" />
+            <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-neutral-400">
+              <span className="flex items-center gap-2">
+                <CheckCircle2 size={14} className="text-gold" />
+                Google Reviews
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle2 size={14} className="text-gold" />
+                Verified Customers
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle2 size={14} className="text-gold" />
+                100% Real Feedback
+              </span>
             </div>
           </div>
         </div>
@@ -130,8 +147,8 @@ const ReviewsPage = () => {
       {/* Featured review */}
       <section className="py-16 lg:py-20 bg-surface-black">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <div className="rounded-2xl border border-surface-border/40 p-10 lg:p-14 text-center">
-            <Quote size={36} className="text-gold/40 mx-auto mb-6" />
+          <div className="rounded-2xl border border-gold/15 p-10 lg:p-14 text-center relative">
+            <Quote size={32} className="text-gold/20 mx-auto mb-6" />
             <p className="text-white text-xl lg:text-2xl leading-relaxed mb-8 font-light max-w-2xl mx-auto">
               "{featuredReview.text}"
             </p>
@@ -151,34 +168,37 @@ const ReviewsPage = () => {
         </div>
       </section>
 
-      {/* All reviews grid */}
+      {/* All reviews */}
       <section className="py-16 lg:py-24 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="heading-serif text-4xl lg:text-5xl text-white">
+          <div className="text-center mb-14">
+            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
               More From Our Customers
             </h2>
+            <p className="text-neutral-400 text-sm max-w-md mx-auto">
+              Real reviews from real people across Slough, Windsor, and Berkshire.
+            </p>
           </div>
 
           <div
             ref={gridRef}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="columns-1 md:columns-2 lg:columns-3 gap-5 space-y-5"
           >
             {regularReviews.map((review, i) => (
               <div
                 key={i}
-                className={`rounded-xl border border-surface-border/40 p-7 flex flex-col hover:border-gold/20 transition-all duration-500 ${
+                className={`break-inside-avoid rounded-xl border border-surface-border/40 p-7 hover:border-gold/20 transition-all duration-500 ${
                   gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
-                style={{ transitionDelay: `${i * 60}ms` }}
+                style={{ transitionDelay: `${i * 50}ms` }}
               >
                 <div className="mb-3">
                   <StarRating size={13} />
                 </div>
-                <p className="text-neutral-300 text-sm leading-relaxed flex-grow mb-6">
+                <p className="text-neutral-300 text-sm leading-relaxed mb-5">
                   "{review.text}"
                 </p>
-                <div className="flex items-center gap-3 border-t border-surface-border/30 pt-5">
+                <div className="flex items-center gap-3 border-t border-surface-border/30 pt-4">
                   <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm heading-serif">
                     {review.initial}
                   </div>
@@ -196,11 +216,16 @@ const ReviewsPage = () => {
       {/* CTA */}
       <section className="py-16 lg:py-20 bg-surface-dark border-y border-surface-border/30">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
+          <div className="flex gap-0.5 justify-center mb-6">
+            {[...Array(5)].map((_, j) => (
+              <Star key={j} size={20} fill="#C8A94E" strokeWidth={0} />
+            ))}
+          </div>
           <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-            Join our happy customers
+            Ready to see for yourself?
           </h2>
           <p className="text-neutral-400 text-lg mb-10 max-w-xl mx-auto">
-            Experience the Leo Luxe difference for yourself. Get a free,
+            Join 500+ happy customers across Berkshire. Get a free,
             no-obligation quote today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -215,7 +240,7 @@ const ReviewsPage = () => {
               className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
               aria-label="Call us at 01753 000 000"
             >
-              <Phone size={16} /> Call Us Now
+              <Phone size={16} /> 01753 000 000
             </a>
           </div>
         </div>

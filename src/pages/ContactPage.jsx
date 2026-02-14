@@ -6,35 +6,12 @@ import {
   ShieldCheck,
   CheckCircle2,
   Clock,
-  MessageSquare,
+  Star,
+  ArrowRight,
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import Seo, { createFaqSchema, breadcrumbSchema } from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-
-const contactItems = [
-  {
-    icon: <Phone size={20} />,
-    label: 'Call us',
-    value: '01753 000 000',
-    href: 'tel:01753000000',
-    desc: 'Mon–Sat, 8am–7pm',
-  },
-  {
-    icon: <Mail size={20} />,
-    label: 'Email us',
-    value: 'info@leoluxecleans.com',
-    href: 'mailto:info@leoluxecleans.com',
-    desc: 'We reply within 2 hours',
-  },
-  {
-    icon: <MapPin size={20} />,
-    label: 'We cover',
-    value: 'Slough, Windsor, Langley & Berkshire',
-    href: null,
-    desc: 'Surrounding areas available on request',
-  },
-];
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -45,7 +22,8 @@ const ContactPage = () => {
     message: '',
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [ref, isVisible] = useScrollReveal({ threshold: 0.1 });
+  const [formRef, formVisible] = useScrollReveal({ threshold: 0.05 });
+  const [faqRef, faqVisible] = useScrollReveal({ threshold: 0.05 });
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -88,78 +66,77 @@ const ContactPage = () => {
         ]}
       />
       <PageHero
-        title={<>Get In <span className="text-gold-gradient">Touch</span></>}
-        subtitle="Ready for a spotless space? Drop us a message or give us a ring — we'll get back to you within 2 hours with a clear, honest quote."
+        title={<>Get a Free <span className="text-gold-gradient">Quote</span></>}
+        subtitle="Tell us what you need and we'll get back to you within 2 hours with an honest price. No obligation, no hidden fees."
         breadcrumb="Contact"
       />
 
-      {/* Contact form section */}
-      <section className="py-16 lg:py-24 bg-surface-black">
-        <div ref={ref} className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            {/* Left info */}
-            <div className="lg:col-span-5">
-              <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-6">
-                We'd Love to
-                <br />
-                <span className="text-gold-gradient">Hear From You</span>
-              </h2>
-              <p className="text-neutral-400 leading-relaxed font-light mb-10">
-                Whether you need a regular clean, a one-off deep clean, or
-                something specialist — we're here to help. No hidden fees, no
-                obligation.
-              </p>
+      {/* Quick contact options */}
+      <section className="py-6 bg-surface-dark border-b border-surface-border/30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
+            <a
+              href="tel:01753000000"
+              className="flex items-center gap-3 text-white hover:text-gold transition-colors"
+            >
+              <Phone size={16} className="text-gold" />
+              <span className="text-sm font-medium">01753 000 000</span>
+              <span className="text-neutral-500 text-xs">Mon–Sat 8am–7pm</span>
+            </a>
+            <a
+              href="mailto:info@leoluxecleans.com"
+              className="flex items-center gap-3 text-white hover:text-gold transition-colors"
+            >
+              <Mail size={16} className="text-gold" />
+              <span className="text-sm font-medium">info@leoluxecleans.com</span>
+            </a>
+          </div>
+        </div>
+      </section>
 
-              <div className="space-y-4 mb-8">
-                {contactItems.map((item, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-4 py-4 px-5 rounded-xl border border-surface-border/40 hover:border-gold/20 transition-colors"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <p className="text-neutral-500 text-[10px] uppercase tracking-wide mb-0.5">
-                        {item.label}
-                      </p>
-                      {item.href ? (
-                        <a
-                          href={item.href}
-                          className="text-white text-sm hover:text-gold transition-colors font-medium block"
-                        >
-                          {item.value}
-                        </a>
-                      ) : (
-                        <p className="text-white text-sm font-medium">{item.value}</p>
-                      )}
-                      <p className="text-neutral-500 text-xs mt-0.5">{item.desc}</p>
-                    </div>
-                  </div>
+      {/* Social proof strip */}
+      <section className="py-8 bg-surface-black border-b border-surface-border/20">
+        <div className="max-w-3xl mx-auto px-6 lg:px-12">
+          <div className="flex items-start gap-5 rounded-xl border border-surface-border/30 p-6">
+            <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold heading-serif text-lg flex-shrink-0">
+              S
+            </div>
+            <div>
+              <div className="flex gap-0.5 mb-2" aria-label="5 out of 5 stars">
+                {[...Array(5)].map((_, j) => (
+                  <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
                 ))}
               </div>
-
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 text-neutral-500 text-xs">
-                  <ShieldCheck size={14} className="text-gold" />
-                  <span>Your details are safe. We never share your information.</span>
-                </div>
-                <div className="flex items-center gap-3 text-neutral-500 text-xs">
-                  <Clock size={14} className="text-gold" />
-                  <span>We respond to every enquiry within 2 hours.</span>
-                </div>
-                <div className="flex items-center gap-3 text-neutral-500 text-xs">
-                  <MessageSquare size={14} className="text-gold" />
-                  <span>No obligation — just an honest, transparent quote.</span>
-                </div>
-              </div>
+              <p className="text-neutral-300 text-sm leading-relaxed">
+                "Honestly can't recommend Leo Luxe enough. They cleaned our whole house before we moved in and it was absolutely spotless. The attention to detail was incredible."
+              </p>
+              <p className="text-neutral-500 text-xs mt-2">
+                Sarah Mitchell — Homeowner, Slough
+              </p>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Right form */}
-            <div className="lg:col-span-7">
+      {/* Main form section */}
+      <section className="py-16 lg:py-24 bg-surface-black">
+        <div
+          ref={formRef}
+          className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${
+            formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            {/* Form */}
+            <div className="lg:col-span-7 order-1">
               <div className="rounded-2xl border border-surface-border/40 p-8 lg:p-10">
+                <h2 className="heading-serif text-3xl text-white mb-2">
+                  Tell us about your space
+                </h2>
+                <p className="text-neutral-500 text-sm mb-8">
+                  Fill in the details below and we'll send you a clear quote — no surprises.
+                </p>
+
                 {formSubmitted ? (
                   <div className="flex flex-col items-center justify-center text-center py-16">
                     <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mb-6 animate-bounce-once">
@@ -240,7 +217,7 @@ const ContactPage = () => {
                         </select>
                       </div>
                     </div>
-                    <div className="mb-5">
+                    <div className="mb-6">
                       <label htmlFor="page-message" className="label-caps text-neutral-400 text-[10px] block mb-2">
                         Tell Us More (Optional)
                       </label>
@@ -255,35 +232,113 @@ const ContactPage = () => {
                     </div>
                     <button
                       type="submit"
-                      className="w-full btn-gold label-caps py-4 rounded-lg mt-2"
+                      className="w-full btn-gold label-caps py-4 rounded-lg flex items-center justify-center gap-2"
                     >
-                      Get My Free Quote &rarr;
+                      Get My Free Quote <ArrowRight size={14} />
                     </button>
-                    <p className="text-neutral-500 text-xs text-center mt-4">
-                      No obligation — Free quote — Response within 2 hours
+                    <p className="text-neutral-600 text-xs text-center mt-4">
+                      No obligation · Free quote · Response within 2 hours
                     </p>
                   </form>
                 )}
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <div className="lg:col-span-5 order-2">
+              <div className="lg:sticky lg:top-28 space-y-6">
+                {/* Why contact us */}
+                <div className="rounded-xl border border-surface-border/40 p-6">
+                  <h3 className="text-white font-semibold mb-5">What happens next?</h3>
+                  <div className="space-y-5">
+                    {[
+                      { step: '1', text: 'We review your details and prepare a clear, honest quote.' },
+                      { step: '2', text: 'We get back to you within 2 hours — usually much sooner.' },
+                      { step: '3', text: 'If you\'re happy, we book you in. No deposit, no contracts.' },
+                    ].map((item) => (
+                      <div key={item.step} className="flex items-start gap-4">
+                        <span className="heading-serif text-2xl text-gold/30 leading-none mt-0.5">
+                          {item.step}
+                        </span>
+                        <p className="text-neutral-400 text-sm leading-relaxed">
+                          {item.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Trust signals */}
+                <div className="rounded-xl border border-surface-border/40 p-6">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <ShieldCheck size={16} className="text-gold flex-shrink-0" />
+                      <span className="text-neutral-400 text-sm">Your details are safe — we never share your information</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Clock size={16} className="text-gold flex-shrink-0" />
+                      <span className="text-neutral-400 text-sm">We respond to every enquiry within 2 hours</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle2 size={16} className="text-gold flex-shrink-0" />
+                      <span className="text-neutral-400 text-sm">No obligation — just an honest, transparent quote</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Coverage area */}
+                <div className="rounded-xl border border-surface-border/40 p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <MapPin size={16} className="text-gold" />
+                    <h3 className="text-white font-semibold text-sm">Areas We Cover</h3>
+                  </div>
+                  <p className="text-neutral-400 text-sm leading-relaxed">
+                    Slough, Windsor, Langley, Maidenhead, Eton, Burnham and surrounding areas across Berkshire.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Map */}
+      <section className="bg-surface-dark">
+        <iframe
+          title="Leo Luxe Cleans location — Slough, Berkshire"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39792.48!2d-0.6!3d51.51!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48767600!2sSlough!5e0!3m2!1sen!2suk!4v1"
+          width="100%"
+          height="300"
+          style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(0.9)' }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </section>
+
       {/* FAQ */}
-      <section className="py-16 lg:py-24 bg-surface-dark">
+      <section className="py-16 lg:py-24 bg-surface-dark border-t border-surface-border/30">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="heading-serif text-4xl lg:text-5xl text-white">
-              Frequently Asked
+          <div className="text-center mb-14">
+            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
+              Common Questions
             </h2>
+            <p className="text-neutral-400 text-sm">
+              Everything you need to know before booking.
+            </p>
           </div>
 
-          <div className="space-y-4">
+          <div
+            ref={faqRef}
+            className="space-y-4"
+          >
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-surface-border/40 p-6 lg:p-8"
+                className={`rounded-xl border border-surface-border/40 p-6 lg:p-8 transition-all duration-500 ${
+                  faqVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+                style={{ transitionDelay: `${i * 60}ms` }}
               >
                 <h3 className="text-white font-semibold mb-3">{faq.q}</h3>
                 <p className="text-neutral-400 text-sm leading-relaxed">{faq.a}</p>

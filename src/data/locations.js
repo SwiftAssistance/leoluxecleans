@@ -10,7 +10,7 @@ export const locations = [
     heroDesc:
       'We\'re based right here in Slough. Home cleaning, deep cleans, end of tenancy, offices — whatever you need, we\'re just round the corner.',
     intro: [
-      'Slough is our home turf. Leo Luxe Cleans was founded here over 12 years ago, and it\'s still where the majority of our work takes place. We know the area inside out — from the High Street to Langley, Cippenham to Farnham Royal.',
+      'Slough is our home turf. Leo Luxe Cleans was founded here over 10 years ago, and it\'s still where the majority of our work takes place. We know the area inside out — from the High Street to Langley, Cippenham to Farnham Royal.',
       'Whether you\'re in a flat on the Bath Road, a family home in Upton, or running a business on the Trading Estate, we\'ve probably cleaned somewhere just like yours. Our team is local, reliable, and held to the same high standard on every single job.',
     ],
     areas: ['Slough Town Centre', 'Cippenham', 'Upton', 'Chalvey', 'Farnham Royal', 'Langley'],

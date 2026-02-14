@@ -57,12 +57,7 @@ const About = () => {
           >
             <div className="rounded-2xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1581578731117-104f2a8d275d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=70&fm=webp"
-                srcSet="
-                  https://images.unsplash.com/photo-1581578731117-104f2a8d275d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=65&fm=webp 400w,
-                  https://images.unsplash.com/photo-1581578731117-104f2a8d275d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=70&fm=webp 600w
-                "
-                sizes="(min-width: 1024px) 40vw, 100vw"
+                src="/about.webp"
                 alt="Our cleaning team at work"
                 className="w-full aspect-[3/4] object-cover"
                 loading="lazy"

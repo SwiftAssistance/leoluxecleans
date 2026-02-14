@@ -6,21 +6,19 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen overflow-hidden">
       {/* Background image — optimized: webp, responsive, preloaded in index.html */}
-      <img
-        src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=75&fm=webp"
-        srcSet="
-          https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=768&q=70&fm=webp 768w,
-          https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=75&fm=webp 1200w,
-          https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80&fm=webp 1920w
-        "
-        sizes="100vw"
-        alt="Beautiful clean interior"
-        className="absolute inset-0 w-full h-full object-cover"
-        fetchPriority="high"
-        decoding="async"
-        width={1200}
-        height={800}
-      />
+      <picture>
+        <source media="(max-width: 768px)" srcSet="/hero-mobile.webp" type="image/webp" />
+        <source srcSet="/hero.webp" type="image/webp" />
+        <img
+          src="/hero.webp"
+          alt="Beautiful clean interior"
+          className="absolute inset-0 w-full h-full object-cover"
+          fetchPriority="high"
+          decoding="async"
+          width={1920}
+          height={1080}
+        />
+      </picture>
 
       {/* Single combined overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30"></div>
