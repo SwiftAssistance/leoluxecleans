@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   ShieldCheck,
   Sparkles,
@@ -115,8 +116,8 @@ const About = () => {
               ))}
             </div>
 
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="btn-gold label-caps px-8 py-3.5 rounded-lg inline-flex items-center gap-2 group"
             >
               Get a Free Quote{' '}
@@ -124,7 +125,7 @@ const About = () => {
                 size={12}
                 className="group-hover:translate-x-1 transition-transform"
               />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

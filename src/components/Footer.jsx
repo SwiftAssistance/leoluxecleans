@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Phone,
   Mail,
@@ -9,10 +10,10 @@ import {
 } from 'lucide-react';
 
 const footerLinks = [
-  { name: 'Services', href: '#services' },
-  { name: 'About', href: '#about' },
-  { name: 'Reviews', href: '#reviews' },
-  { name: 'Get Quote', href: '#contact' },
+  { name: 'Services', to: '/services' },
+  { name: 'About', to: '/about' },
+  { name: 'Reviews', to: '/reviews' },
+  { name: 'Get Quote', to: '/contact' },
 ];
 
 const Footer = () => {
@@ -22,12 +23,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Logo & description */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex flex-col mb-6">
+            <Link to="/" className="flex flex-col mb-6 inline-block">
               <span className="heading-serif text-2xl text-white">Leo Luxe</span>
               <span className="label-caps text-gold text-[9px] tracking-[0.3em] -mt-0.5">
                 Cleans
               </span>
-            </div>
+            </Link>
             <p className="text-neutral-500 text-sm leading-relaxed max-w-xs">
               Professional cleaning across Slough, Windsor & Berkshire. Premium
               results at honest prices.
@@ -40,12 +41,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.to}
                     className="text-neutral-500 hover:text-gold transition-colors text-sm hover:translate-x-1 inline-block"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

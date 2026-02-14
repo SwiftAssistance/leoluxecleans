@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Phone } from 'lucide-react';
 
 const MobileCta = () => {
@@ -10,12 +11,12 @@ const MobileCta = () => {
       >
         <Phone size={14} /> Call
       </a>
-      <a
-        href="#contact"
+      <Link
+        to="/contact"
         className="flex-1 btn-gold label-caps py-3 rounded-lg text-center"
       >
         Free Quote
-      </a>
+      </Link>
     </div>
   );
 };

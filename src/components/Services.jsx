@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Home,
   Building2,
@@ -71,8 +72,8 @@ const Services = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4"
         >
           {/* FEATURED: Home Cleaning */}
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className={`lg:col-span-7 glass-card rounded-2xl p-8 lg:p-10 group relative overflow-hidden block transition-all duration-700 ${
               gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
@@ -105,11 +106,11 @@ const Services = () => {
                 />
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* FEATURED: Office & Commercial */}
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className={`lg:col-span-5 glass-card rounded-2xl p-8 lg:p-10 group relative overflow-hidden block transition-all duration-700 ${
               gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
@@ -131,13 +132,13 @@ const Services = () => {
                 Get a Quote <ChevronRight size={12} />
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Smaller service cards */}
           {smallServices.map((s, i) => (
-            <a
+            <Link
               key={i}
-              href="#contact"
+              to="/contact"
               className={`lg:col-span-3 glass-card rounded-xl p-6 group block transition-all duration-700 ${
                 gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
@@ -152,7 +153,7 @@ const Services = () => {
               <p className="text-neutral-500 text-xs leading-relaxed">
                 {s.desc}
               </p>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

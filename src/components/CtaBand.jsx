@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Phone } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -27,12 +28,12 @@ const CtaBand = () => {
           </p>
         </div>
         <div className="flex gap-4">
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="btn-gold label-caps px-8 py-4 rounded-lg whitespace-nowrap"
           >
             Free Quote
-          </a>
+          </Link>
           <a
             href="tel:01753000000"
             className="btn-outline-gold label-caps px-8 py-4 rounded-lg whitespace-nowrap flex items-center gap-2"
