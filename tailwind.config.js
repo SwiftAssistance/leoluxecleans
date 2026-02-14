@@ -31,6 +31,9 @@ export default {
         'gold-lg': '0 8px 40px rgba(200, 169, 78, 0.3)',
         'card': '0 4px 24px rgba(0, 0, 0, 0.4)',
       },
+      transitionDuration: {
+        '1500': '1500ms',
+      },
     },
   },
   plugins: [],
