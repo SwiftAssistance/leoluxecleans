@@ -14,12 +14,10 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -45,25 +43,25 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-500 ${
+      className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-surface-black/95 backdrop-blur-xl py-3 border-b border-surface-border shadow-lg shadow-black/20'
+          ? 'bg-surface-black/95 backdrop-blur-md py-3 border-b border-surface-border/50'
           : 'bg-transparent py-5'
       }`}
+      role="navigation"
+      aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/" className="group flex flex-col relative">
-          <span className="heading-serif text-2xl text-white group-hover:text-gold-light transition-colors duration-300">
-            Leo Luxe
-          </span>
-          <span className="label-caps text-gold text-[9px] tracking-[0.3em] -mt-0.5">
-            Cleans
-          </span>
-          <span className="absolute -bottom-1 left-0 w-0 h-px bg-gold group-hover:w-full transition-all duration-500"></span>
+        <Link to="/" className="flex items-center gap-3" aria-label="Leo Luxe Cleans — Home">
+          <img
+            src="/logo.svg"
+            alt="Leo Luxe Cleans"
+            width="120"
+            height="40"
+            className="h-8 w-auto"
+          />
         </Link>
 
-        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <NavLink
@@ -91,6 +89,7 @@ const Navbar = () => {
           <a
             href="tel:01753000000"
             className="label-caps text-neutral-400 hover:text-gold transition-colors duration-300 flex items-center gap-2"
+            aria-label="Call us at 01753 000 000"
           >
             <Phone size={14} /> 01753 000 000
           </a>
@@ -102,52 +101,34 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Mobile toggle */}
         <button
           className="md:hidden text-white relative w-10 h-10 flex items-center justify-center"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
+          aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileMenuOpen}
         >
-          <span
-            className={`absolute transition-all duration-300 ${
-              mobileMenuOpen
-                ? 'opacity-0 rotate-90 scale-75'
-                : 'opacity-100 rotate-0 scale-100'
-            }`}
-          >
-            <Menu size={24} />
-          </span>
-          <span
-            className={`absolute transition-all duration-300 ${
-              mobileMenuOpen
-                ? 'opacity-100 rotate-0 scale-100'
-                : 'opacity-0 -rotate-90 scale-75'
-            }`}
-          >
-            <X size={24} />
-          </span>
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
           mobileMenuOpen ? 'max-h-[calc(100vh-4rem)] opacity-100' : 'max-h-0 opacity-0'
         }`}
+        aria-hidden={!mobileMenuOpen}
       >
-        <div className="bg-surface-dark/95 backdrop-blur-xl border-t border-surface-border">
+        <div className="bg-surface-dark/98 backdrop-blur-md border-t border-surface-border/50">
           <div className="px-6 py-8 flex flex-col gap-6">
-            {navLinks.map((link, i) => (
+            {navLinks.map((link) => (
               <NavLink
                 key={link.name}
                 to={link.to}
                 end={link.to === '/'}
                 className={({ isActive }) =>
-                  `label-caps transition-all duration-300 hover:translate-x-2 ${
+                  `label-caps transition-colors duration-300 ${
                     isActive ? 'text-gold' : 'text-neutral-400 hover:text-white'
                   }`
                 }
-                style={{ transitionDelay: `${i * 50}ms` }}
               >
                 {link.name}
               </NavLink>
@@ -155,6 +136,7 @@ const Navbar = () => {
             <a
               href="tel:01753000000"
               className="label-caps text-gold flex items-center gap-2"
+              aria-label="Call us at 01753 000 000"
             >
               <Phone size={14} /> 01753 000 000
             </a>

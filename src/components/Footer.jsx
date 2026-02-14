@@ -35,18 +35,27 @@ const areaLinks = [
   { name: 'Burnham', to: '/areas/burnham' },
 ];
 
+const socialLinks = [
+  { Icon: Instagram, label: 'Instagram', href: '#' },
+  { Icon: Facebook, label: 'Facebook', href: '#' },
+  { Icon: Twitter, label: 'Twitter', href: '#' },
+];
+
 const Footer = () => {
   return (
-    <footer className="bg-surface-dark border-t border-gold/10 pb-20 md:pb-0">
+    <footer className="bg-surface-dark border-t border-surface-border/30 pb-20 md:pb-0">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8">
           {/* Logo & description */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-2">
-            <Link to="/" className="inline-flex flex-col mb-6">
-              <span className="heading-serif text-2xl text-white">Leo Luxe</span>
-              <span className="label-caps text-gold text-[9px] tracking-[0.3em] -mt-0.5">
-                Cleans
-              </span>
+            <Link to="/" className="inline-block mb-6" aria-label="Leo Luxe Cleans — Home">
+              <img
+                src="/logo.svg"
+                alt="Leo Luxe Cleans"
+                width="120"
+                height="40"
+                className="h-8 w-auto"
+              />
             </Link>
             <p className="text-neutral-500 text-sm leading-relaxed max-w-xs mb-6">
               Professional cleaning across Slough, Windsor & Berkshire. Local team,
@@ -56,6 +65,7 @@ const Footer = () => {
               <a
                 href="tel:01753000000"
                 className="flex items-center gap-3 text-neutral-500 hover:text-gold transition-colors"
+                aria-label="Call us at 01753 000 000"
               >
                 <Phone size={14} className="text-gold" /> 01753 000 000
               </a>
@@ -71,7 +81,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Navigate */}
           <div>
             <h4 className="label-caps text-neutral-300 mb-6">Navigate</h4>
             <ul className="space-y-3">
@@ -88,7 +97,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
           <div>
             <h4 className="label-caps text-neutral-300 mb-6">Services</h4>
             <ul className="space-y-3">
@@ -105,7 +113,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Areas */}
           <div>
             <h4 className="label-caps text-neutral-300 mb-6">Areas</h4>
             <ul className="space-y-3">
@@ -122,15 +129,15 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Social */}
           <div>
             <h4 className="label-caps text-neutral-300 mb-6">Social</h4>
             <div className="flex gap-3">
-              {[Instagram, Facebook, Twitter].map((Icon, i) => (
+              {socialLinks.map(({ Icon, label, href }) => (
                 <a
-                  key={i}
-                  href="#"
-                  className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-neutral-400 hover:text-gold hover:border-gold/30 transition-all duration-300"
+                  key={label}
+                  href={href}
+                  className="w-10 h-10 rounded-lg border border-surface-border/40 flex items-center justify-center text-neutral-400 hover:text-gold hover:border-gold/30 transition-colors"
+                  aria-label={`Follow us on ${label}`}
                 >
                   <Icon size={16} />
                 </a>
@@ -140,8 +147,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-gold/10">
+      <div className="border-t border-surface-border/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-neutral-600 text-xs">
             &copy; {new Date().getFullYear()} Leo Luxe Cleans. All rights
