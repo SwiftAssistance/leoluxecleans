@@ -119,7 +119,7 @@ const Reviews = () => {
             <Quote size={32} className="text-gold/30 mb-6" />
 
             {/* Review content with crossfade */}
-            <div className="relative min-h-[180px] sm:min-h-[140px]">
+            <div className="relative min-h-[240px] sm:min-h-[180px] md:min-h-[140px]">
               {allReviews.map((r, i) => (
                 <div
                   key={i}
@@ -135,7 +135,7 @@ const Reviews = () => {
                         : ''
                   }`}
                 >
-                  <p className="text-white text-lg lg:text-xl leading-relaxed font-light mb-8">
+                  <p className="text-white text-base sm:text-lg lg:text-xl leading-relaxed font-light mb-8">
                     "{r.text}"
                   </p>
                   <div className="flex items-center gap-4">
@@ -162,32 +162,36 @@ const Reviews = () => {
             {/* Prev / Next */}
             <button
               onClick={prev}
-              className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gold hover:border-gold/40 hover:shadow-gold-sm transition-all duration-300"
+              className="w-11 h-11 sm:w-10 sm:h-10 rounded-full glass-card flex items-center justify-center text-gold hover:border-gold/40 hover:shadow-gold-sm transition-all duration-300"
               aria-label="Previous review"
             >
               <ChevronLeft size={18} />
             </button>
 
             {/* Dots */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1">
               {allReviews.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => goTo(i)}
-                  className={`rounded-full transition-all duration-300 ${
-                    i === current
-                      ? 'w-8 h-2 bg-gold'
-                      : 'w-2 h-2 bg-surface-border hover:bg-gold/40'
-                  }`}
+                  className="relative flex items-center justify-center w-10 h-10"
                   aria-label={`Go to review ${i + 1}`}
-                />
+                >
+                  <span
+                    className={`rounded-full transition-all duration-300 ${
+                      i === current
+                        ? 'w-8 h-2 bg-gold'
+                        : 'w-2 h-2 bg-surface-border hover:bg-gold/40'
+                    }`}
+                  />
+                </button>
               ))}
             </div>
 
             {/* Next */}
             <button
               onClick={next}
-              className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gold hover:border-gold/40 hover:shadow-gold-sm transition-all duration-300"
+              className="w-11 h-11 sm:w-10 sm:h-10 rounded-full glass-card flex items-center justify-center text-gold hover:border-gold/40 hover:shadow-gold-sm transition-all duration-300"
               aria-label="Next review"
             >
               <ChevronRight size={18} />

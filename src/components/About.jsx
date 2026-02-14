@@ -43,7 +43,7 @@ const About = () => {
                 <img
                   src="https://images.unsplash.com/photo-1581578731117-104f2a8d275d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                   alt="Our cleaning team at work"
-                  className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+                  className="w-full aspect-[4/5] object-cover md:hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
               </div>
@@ -51,7 +51,7 @@ const About = () => {
               {/* Animated experience badge */}
               <div
                 ref={counterRef}
-                className={`absolute -bottom-6 -right-4 lg:-right-8 btn-gold rounded-2xl p-6 shadow-gold-lg z-10 transition-all duration-700 ${
+                className={`absolute -bottom-6 right-2 sm:-right-4 lg:-right-8 btn-gold rounded-2xl p-4 sm:p-6 shadow-gold-lg z-10 transition-all duration-700 ${
                   imageVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
                 }`}
                 style={{ transitionDelay: '400ms' }}

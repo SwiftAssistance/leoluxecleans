@@ -27,16 +27,16 @@ const CtaBand = () => {
             Free quote, no obligation. Most people hear back within 2 hours.
           </p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
           <Link
             to="/contact"
-            className="btn-gold label-caps px-8 py-4 rounded-lg whitespace-nowrap"
+            className="btn-gold label-caps px-8 py-4 rounded-lg whitespace-nowrap text-center"
           >
             Get a Quote
           </Link>
           <a
             href="tel:01753000000"
-            className="btn-outline-gold label-caps px-8 py-4 rounded-lg whitespace-nowrap flex items-center gap-2"
+            className="btn-outline-gold label-caps px-8 py-4 rounded-lg whitespace-nowrap flex items-center justify-center gap-2"
           >
             <Phone size={14} /> Call Now
           </a>

@@ -37,12 +37,12 @@ const areaLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-surface-dark border-t border-gold/10">
+    <footer className="bg-surface-dark border-t border-gold/10 pb-20 md:pb-0">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8">
           {/* Logo & description */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-2">
-            <Link to="/" className="flex flex-col mb-6 inline-block">
+            <Link to="/" className="inline-flex flex-col mb-6">
               <span className="heading-serif text-2xl text-white">Leo Luxe</span>
               <span className="label-caps text-gold text-[9px] tracking-[0.3em] -mt-0.5">
                 Cleans

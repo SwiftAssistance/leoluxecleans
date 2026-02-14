@@ -169,7 +169,7 @@ const Hero = () => {
 
       {/* Scroll indicator */}
       <div
-        className={`absolute bottom-24 lg:bottom-32 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 transition-all duration-1000 ${
+        className={`absolute bottom-[18%] sm:bottom-24 lg:bottom-32 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 transition-all duration-1000 ${
           loaded ? 'opacity-100' : 'opacity-0'
         }`}
         style={{ transitionDelay: '1000ms' }}

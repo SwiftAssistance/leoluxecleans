@@ -19,6 +19,16 @@ const Navbar = () => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileMenuOpen]);
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -122,7 +132,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-          mobileMenuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
+          mobileMenuOpen ? 'max-h-[calc(100vh-4rem)] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <div className="bg-surface-dark/95 backdrop-blur-xl border-t border-surface-border">

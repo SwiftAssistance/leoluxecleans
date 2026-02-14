@@ -101,7 +101,7 @@ const ServiceDetailPage = () => {
             {/* Right sidebar */}
             <div className="lg:col-span-5">
               {/* Quick quote card */}
-              <div className="glass-card rounded-2xl p-8 border-gold/20 sticky top-28">
+              <div className="glass-card rounded-2xl p-8 border-gold/20 lg:sticky lg:top-28">
                 <h3 className="heading-serif text-2xl text-white mb-2">
                   Get a free quote
                 </h3>
