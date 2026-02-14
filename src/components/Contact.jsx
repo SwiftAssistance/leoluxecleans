@@ -5,6 +5,7 @@ import {
   MapPin,
   ShieldCheck,
   CheckCircle2,
+  Clock,
 } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -27,6 +28,12 @@ const contactItems = [
     value: 'Slough, Windsor, Langley & Berkshire',
     href: null,
   },
+  {
+    icon: <Clock size={18} />,
+    label: 'Response time',
+    value: 'Within 2 hours',
+    href: null,
+  },
 ];
 
 const Contact = () => {
@@ -39,6 +46,7 @@ const Contact = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [infoRef, infoVisible] = useScrollReveal({ threshold: 0.2 });
   const [formRef, formVisible] = useScrollReveal({ threshold: 0.2 });
+  const [mapRef, mapVisible] = useScrollReveal({ threshold: 0.1 });
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -74,7 +82,7 @@ const Contact = () => {
               a clear, honest price. No hidden fees, no obligation.
             </p>
 
-            <div className="space-y-4 mb-8">
+            <div className="space-y-3 mb-8">
               {contactItems.map((item, i) => (
                 <div
                   key={i}
@@ -225,6 +233,34 @@ const Contact = () => {
                 </form>
               )}
             </div>
+          </div>
+        </div>
+
+        {/* Google Maps */}
+        <div
+          ref={mapRef}
+          className={`mt-16 transition-all duration-700 ${
+            mapVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`}
+        >
+          <div className="rounded-2xl overflow-hidden border border-surface-border/40 relative">
+            <div className="absolute top-4 left-4 z-10 glass-card rounded-lg px-4 py-2">
+              <div className="flex items-center gap-2">
+                <MapPin size={14} className="text-gold" />
+                <span className="label-caps text-[10px] text-neutral-300">Our Coverage Area</span>
+              </div>
+            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39783.14812455106!2d-0.6306!3d51.5105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48767a1e7e50f031%3A0xbb6e4f13d6c9d913!2sSlough!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
+              width="100%"
+              height="350"
+              style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.95) contrast(0.9)' }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Leo Luxe Cleans coverage area — Slough, Berkshire"
+              className="w-full"
+            ></iframe>
           </div>
         </div>
       </div>

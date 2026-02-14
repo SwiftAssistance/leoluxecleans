@@ -106,7 +106,7 @@ const Hero = () => {
             >
               <Link
                 to="/contact"
-                className="btn-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2 group"
+                className="btn-gold glow-pulse label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2 group"
               >
                 Get a Free Quote{' '}
                 <ArrowRight
@@ -132,7 +132,34 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* Right floating badges */}
+          {/* Mobile trust badges (compact row) */}
+          <div
+            className={`lg:hidden col-span-1 flex gap-3 overflow-x-auto no-scrollbar pb-2 -mx-2 px-2 transition-all duration-1000 ${
+              loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+            style={{ transitionDelay: '600ms', scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
+          >
+            {badges.map((badge, i) => (
+              <div
+                key={i}
+                className="glass-card rounded-lg px-4 py-3 flex items-center gap-3 flex-shrink-0"
+              >
+                <div className="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
+                  {badge.icon}
+                </div>
+                <div>
+                  <span className="heading-serif text-lg text-white leading-none">
+                    {badge.value}
+                  </span>
+                  <span className="text-neutral-500 text-[10px] block">
+                    {badge.sub}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop floating badges */}
           <div className="hidden lg:flex lg:col-span-5 flex-col gap-4 items-end">
             {badges.map((badge, i) => (
               <div

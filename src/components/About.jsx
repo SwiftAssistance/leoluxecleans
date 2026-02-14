@@ -19,7 +19,7 @@ const features = [
 const About = () => {
   const [imageRef, imageVisible] = useScrollReveal({ threshold: 0.2 });
   const [contentRef, contentVisible] = useScrollReveal({ threshold: 0.2 });
-  const [counterRef, yearsCount] = useCounter(12);
+  const [counterRef, yearsCount] = useCounter(10);
 
   return (
     <section

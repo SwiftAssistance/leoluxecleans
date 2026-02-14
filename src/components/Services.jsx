@@ -85,7 +85,7 @@ const Services = () => {
                 <p className="text-neutral-400 leading-relaxed text-sm mb-6">
                   {s.desc}
                 </p>
-                <span className="label-caps text-[10px] text-gold flex items-center gap-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-500">
+                <span className="label-caps text-[10px] text-gold flex items-center gap-1 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:translate-x-1 transition-all duration-500">
                   Learn More <ArrowRight size={12} />
                 </span>
               </div>

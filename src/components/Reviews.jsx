@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { Star, Quote, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const allReviews = [
   {
-    text: "Honestly can't recommend Leo Luxe enough. They cleaned our whole house before we moved in and it was absolutely spotless. The attention to detail was incredible — places I'd never even think to clean. Will definitely be using them regularly.",
+    text: "Honestly can't recommend Leo Luxe enough. They cleaned our whole house before we moved in and it was absolutely spotless. The attention to detail was incredible — places I'd never even think to clean.",
     author: 'Sarah Mitchell',
     role: 'Homeowner, Slough',
     initial: 'S',
@@ -14,12 +15,6 @@ const allReviews = [
     author: 'David Chen',
     role: 'Business Owner, Windsor',
     initial: 'D',
-  },
-  {
-    text: 'Had them do a deep clean before our baby arrived. They got into every nook and cranny. Brilliant service from start to finish.',
-    author: 'Priya Sharma',
-    role: 'Homeowner, Langley',
-    initial: 'P',
   },
   {
     text: 'End of tenancy clean was perfect. Got our full deposit back. They even cleaned inside the oven which I thought was a lost cause!',
@@ -48,6 +43,8 @@ const Reviews = () => {
   const [cardRef, cardVisible] = useScrollReveal({ threshold: 0.2 });
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const goTo = useCallback(
     (index) => {
@@ -67,13 +64,28 @@ const Reviews = () => {
     setCurrent((prev) => (prev - 1 + allReviews.length) % allReviews.length);
   }, []);
 
+  // Swipe handlers for mobile
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) next();
+      else prev();
+    }
+  };
+
   // Auto-advance every 6 seconds
   useEffect(() => {
     const timer = setInterval(next, 6000);
     return () => clearInterval(timer);
   }, [next]);
-
-  const review = allReviews[current];
 
   return (
     <section
@@ -115,11 +127,24 @@ const Reviews = () => {
               : 'opacity-0 translate-y-12'
           }`}
         >
-          <div className="glass-card rounded-2xl p-8 lg:p-12 border-gold/20 relative overflow-hidden">
+          <div
+            className="glass-card rounded-2xl p-8 lg:p-12 border-gold/20 relative overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <Quote size={32} className="text-gold/30 mb-6" />
 
+            {/* Progress bar */}
+            <div className="absolute top-0 left-0 right-0 h-0.5 bg-surface-border/30">
+              <div
+                className="h-full bg-gradient-to-r from-gold to-gold-light transition-all duration-500"
+                style={{ width: `${((current + 1) / allReviews.length) * 100}%` }}
+              />
+            </div>
+
             {/* Review content with crossfade */}
-            <div className="relative min-h-[240px] sm:min-h-[180px] md:min-h-[140px]">
+            <div className="relative min-h-[220px] sm:min-h-[160px] md:min-h-[140px]">
               {allReviews.map((r, i) => (
                 <div
                   key={i}
@@ -159,7 +184,6 @@ const Reviews = () => {
 
           {/* Controls */}
           <div className="flex items-center justify-between mt-8">
-            {/* Prev / Next */}
             <button
               onClick={prev}
               className="w-11 h-11 sm:w-10 sm:h-10 rounded-full glass-card flex items-center justify-center text-gold hover:border-gold/40 hover:shadow-gold-sm transition-all duration-300"
@@ -168,7 +192,6 @@ const Reviews = () => {
               <ChevronLeft size={18} />
             </button>
 
-            {/* Dots */}
             <div className="flex items-center gap-1">
               {allReviews.map((_, i) => (
                 <button
@@ -188,7 +211,6 @@ const Reviews = () => {
               ))}
             </div>
 
-            {/* Next */}
             <button
               onClick={next}
               className="w-11 h-11 sm:w-10 sm:h-10 rounded-full glass-card flex items-center justify-center text-gold hover:border-gold/40 hover:shadow-gold-sm transition-all duration-300"
@@ -196,6 +218,16 @@ const Reviews = () => {
             >
               <ChevronRight size={18} />
             </button>
+          </div>
+
+          {/* See all reviews link */}
+          <div className="text-center mt-8">
+            <Link
+              to="/reviews"
+              className="label-caps text-[11px] text-gold hover:text-gold-light transition-colors inline-flex items-center gap-1"
+            >
+              See All 200+ Reviews <ArrowRight size={12} />
+            </Link>
           </div>
         </div>
       </div>
