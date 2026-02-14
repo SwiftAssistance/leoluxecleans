@@ -37,21 +37,6 @@ const values = [
   },
 ];
 
-const team = [
-  {
-    name: 'Leo',
-    role: 'Founder & Lead',
-    desc: 'Started Leo Luxe over 10 years ago. Still personally oversees every team and every clean.',
-    initial: 'L',
-  },
-  {
-    name: 'The Cleaning Team',
-    role: 'Trained & DBS Checked',
-    desc: "Handpicked and trained to our standards. They're the ones who make your space shine.",
-    initial: 'T',
-  },
-];
-
 const AboutPage = () => {
   const [storyRef, storyVisible] = useScrollReveal({ threshold: 0.1 });
   const [valuesRef, valuesVisible] = useScrollReveal({ threshold: 0.05 });
@@ -109,17 +94,27 @@ const AboutPage = () => {
                   recommend to their friends.
                 </p>
               </div>
+
+              {/* Testimonial inline */}
+              <div className="mt-10 rounded-xl border border-surface-border/30 p-6">
+                <div className="flex gap-0.5 mb-3" aria-label="5 out of 5 stars">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
+                  ))}
+                </div>
+                <p className="text-neutral-300 text-sm leading-relaxed mb-3">
+                  "I've tried several cleaning companies in the Slough area and Leo Luxe is by far the best. Consistent quality every single time."
+                </p>
+                <p className="text-neutral-500 text-xs">
+                  Tom Richards — Homeowner, Slough
+                </p>
+              </div>
             </div>
 
             <div className="lg:col-span-5">
               <div className="rounded-2xl overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1581578731117-104f2a8d275d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=70&fm=webp"
-                  srcSet="
-                    https://images.unsplash.com/photo-1581578731117-104f2a8d275d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=65&fm=webp 400w,
-                    https://images.unsplash.com/photo-1581578731117-104f2a8d275d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=70&fm=webp 600w
-                  "
-                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  src="/about.webp"
                   alt="Our cleaning team at work"
                   className="w-full aspect-[3/4] object-cover"
                   loading="lazy"
@@ -188,16 +183,32 @@ const AboutPage = () => {
       <section className="py-16 lg:py-24 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-14">
-            <h2 className="heading-serif text-4xl lg:text-5xl text-white">
+            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
               The People Behind the Clean
             </h2>
+            <p className="text-neutral-400 text-sm max-w-md mx-auto">
+              Not a franchise. Not a platform. A real, local team that takes pride in their work.
+            </p>
           </div>
 
           <div
             ref={teamRef}
             className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto"
           >
-            {team.map((member, i) => (
+            {[
+              {
+                name: 'Leo',
+                role: 'Founder & Lead',
+                desc: 'Started Leo Luxe over 10 years ago. Still personally oversees every team and every clean.',
+                initial: 'L',
+              },
+              {
+                name: 'The Cleaning Team',
+                role: 'Trained & DBS Checked',
+                desc: "Handpicked and trained to our standards. They're the ones who make your space shine.",
+                initial: 'T',
+              },
+            ].map((member, i) => (
               <div
                 key={i}
                 className={`rounded-xl border border-surface-border/40 p-8 text-center transition-all duration-500 ${
@@ -227,9 +238,12 @@ const AboutPage = () => {
       <section className="py-16 lg:py-24 bg-surface-dark">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-14">
-            <h2 className="heading-serif text-4xl lg:text-5xl text-white">
+            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
               Why People Choose Us
             </h2>
+            <p className="text-neutral-400 text-sm">
+              These aren't marketing claims. They're what our clients tell us matters most.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -256,7 +270,7 @@ const AboutPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 lg:py-20 bg-surface-dark border-y border-surface-border/30">
+      <section className="py-16 lg:py-20 bg-surface-black border-y border-surface-border/30">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
           <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
             Want to see what proper clean looks like?

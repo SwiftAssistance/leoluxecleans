@@ -11,6 +11,7 @@ import {
   Building2,
   Clock,
   ShieldCheck,
+  CheckCircle2,
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import Seo, { createLocationSchema, breadcrumbSchema } from '../components/Seo';
@@ -68,46 +69,115 @@ const LocationPage = () => {
         parentBreadcrumb={{ name: 'Areas' }}
       />
 
-      {/* Intro */}
+      {/* Trust bar */}
+      <section className="py-5 bg-surface-dark border-b border-surface-border/30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-neutral-400">
+            <span className="flex items-center gap-2">
+              <Star size={14} fill="#C8A94E" strokeWidth={0} />
+              <span className="text-white font-medium">5.0</span> Google Rating
+            </span>
+            <span className="flex items-center gap-2">
+              <CheckCircle2 size={14} className="text-gold" />
+              DBS Checked & Insured
+            </span>
+            <span className="flex items-center gap-2">
+              <CheckCircle2 size={14} className="text-gold" />
+              Same Week Availability
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Intro + CTA */}
       <section className="py-16 lg:py-24 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div
-            ref={introRef}
-            className={`max-w-3xl transition-all duration-500 ${
-              introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <MapPin size={20} className="text-gold" />
-              <span className="label-caps text-gold">{location.name}, {location.county}</span>
-              <span className="text-neutral-600 text-sm">— {location.postcodes}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            <div
+              ref={introRef}
+              className={`lg:col-span-7 transition-all duration-500 ${
+                introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <MapPin size={18} className="text-gold" />
+                <span className="label-caps text-gold text-[11px]">{location.name}, {location.county}</span>
+                <span className="text-neutral-600 text-sm">— {location.postcodes}</span>
+              </div>
+
+              <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-8">
+                Professional Cleaning in {location.name}
+              </h2>
+
+              <div className="space-y-4 text-neutral-400 leading-relaxed font-light">
+                {location.intro.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+
+              <div className="mt-10 flex flex-col sm:flex-row gap-4">
+                <Link
+                  to="/contact"
+                  className="btn-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2 group"
+                >
+                  Get a Free Quote{' '}
+                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <a
+                  href="tel:01753000000"
+                  className="btn-outline-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2"
+                  aria-label="Call us at 01753 000 000"
+                >
+                  <Phone size={16} /> 01753 000 000
+                </a>
+              </div>
             </div>
 
-            <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-8">
-              Professional Cleaning in {location.name}
-            </h2>
+            {/* Sidebar with review + trust */}
+            <div className="lg:col-span-5">
+              <div className="space-y-5">
+                {/* Review from this area */}
+                {location.reviews.length > 0 && (
+                  <div className="rounded-xl border border-surface-border/40 p-6">
+                    <div className="flex gap-0.5 mb-3" aria-label="5 out of 5 stars">
+                      {[...Array(5)].map((_, j) => (
+                        <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
+                      ))}
+                    </div>
+                    <p className="text-neutral-300 text-sm leading-relaxed mb-4">
+                      "{location.reviews[0].text}"
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm heading-serif">
+                        {location.reviews[0].initial}
+                      </div>
+                      <div>
+                        <p className="text-white text-sm font-medium">{location.reviews[0].author}</p>
+                        <p className="text-neutral-600 text-xs">{location.reviews[0].role}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
-            <div className="space-y-4 text-neutral-400 leading-relaxed font-light">
-              {location.intro.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
-
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/contact"
-                className="btn-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2 group"
-              >
-                Get a Free Quote in {location.name}{' '}
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <a
-                href="tel:01753000000"
-                className="btn-outline-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2"
-                aria-label="Call us at 01753 000 000"
-              >
-                <Phone size={16} /> 01753 000 000
-              </a>
+                {/* Trust signals */}
+                <div className="rounded-xl border border-surface-border/40 p-6">
+                  <h3 className="text-white font-semibold text-sm mb-4">Every booking includes</h3>
+                  <div className="space-y-3">
+                    {[
+                      'DBS checked & fully insured team',
+                      'Eco-friendly, professional products',
+                      'All equipment brought by us',
+                      '100% satisfaction guarantee',
+                      'No contracts or hidden fees',
+                    ].map((item) => (
+                      <div key={item} className="flex items-center gap-3 text-neutral-400 text-xs">
+                        <CheckCircle2 size={14} className="text-gold flex-shrink-0" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -117,9 +187,12 @@ const LocationPage = () => {
       <section className="py-16 lg:py-24 bg-surface-dark">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-12">
-            <h2 className="heading-serif text-4xl lg:text-5xl text-white">
+            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-3">
               Our Services in {location.name}
             </h2>
+            <p className="text-neutral-400 text-sm">
+              All services available across {location.name} and surrounding areas.
+            </p>
           </div>
 
           <div
@@ -138,15 +211,20 @@ const LocationPage = () => {
                 <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center text-gold mb-4 group-hover:bg-gold/20 transition-colors">
                   {serviceIcons[s.slug]}
                 </div>
-                <h3 className="font-sans text-white text-sm font-semibold mb-2 group-hover:text-gold transition-colors">
+                <h3 className="text-white text-sm font-semibold mb-2 group-hover:text-gold transition-colors">
                   {s.title}
                 </h3>
                 <p className="text-neutral-500 text-xs leading-relaxed mb-3 line-clamp-2">
                   {s.heroDesc}
                 </p>
-                {s.pricing && (
-                  <span className="text-gold text-sm heading-serif">{s.pricing}</span>
-                )}
+                <div className="flex items-center justify-between">
+                  {s.pricing && (
+                    <span className="text-gold text-sm heading-serif">{s.pricing}</span>
+                  )}
+                  <span className="label-caps text-[10px] text-gold flex items-center gap-1">
+                    View <ArrowRight size={10} />
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
@@ -157,9 +235,12 @@ const LocationPage = () => {
       <section className="py-16 lg:py-20 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-10">
-            <h2 className="heading-serif text-3xl lg:text-4xl text-white">
+            <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-3">
               Where We Clean in {location.name}
             </h2>
+            <p className="text-neutral-400 text-sm">
+              Covering {location.postcodes} and surrounding postcodes.
+            </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
@@ -175,8 +256,8 @@ const LocationPage = () => {
         </div>
       </section>
 
-      {/* Reviews from this area */}
-      {location.reviews.length > 0 && (
+      {/* More reviews */}
+      {location.reviews.length > 1 && (
         <section className="py-16 lg:py-24 bg-surface-dark">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="text-center mb-12">
@@ -186,7 +267,7 @@ const LocationPage = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {location.reviews.map((review, i) => (
+              {location.reviews.slice(1).map((review, i) => (
                 <div
                   key={i}
                   className="rounded-xl border border-surface-border/40 p-7"
@@ -225,7 +306,7 @@ const LocationPage = () => {
       )}
 
       {/* Other areas */}
-      <section className="py-16 lg:py-20 bg-surface-black">
+      <section className="py-16 lg:py-20 bg-surface-black border-t border-surface-border/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-10">
             <h2 className="heading-serif text-3xl lg:text-4xl text-white">
