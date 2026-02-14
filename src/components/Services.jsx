@@ -49,7 +49,7 @@ const Services = () => {
   return (
     <section className="py-20 lg:py-28 bg-surface-black">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Section intro — left aligned, no gold tag */}
+        {/* Section intro */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-16">
           <h2 className="heading-serif text-4xl lg:text-6xl text-white">
             What We Do

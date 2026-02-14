@@ -28,7 +28,7 @@ const About = () => {
             <div className="space-y-5 text-neutral-400 leading-relaxed font-light text-[15px] max-w-xl">
               <p>
                 That's not us. Leo Luxe has been cleaning homes and businesses
-                across Slough, Windsor, and Berkshire for over twelve years.
+                across Slough, Windsor, and Berkshire for over ten years.
                 Our team is local, DBS checked, and trained by us — not
                 pulled from a database.
               </p>
@@ -66,7 +66,7 @@ const About = () => {
             {/* Stats as text, not badges */}
             <div className="grid grid-cols-3 gap-px mt-px">
               {[
-                { val: '12+', label: 'Years' },
+                { val: '10+', label: 'Years' },
                 { val: '500+', label: 'Homes' },
                 { val: '100%', label: 'Insured' },
               ].map((s, i) => (

@@ -10,7 +10,7 @@ const marqueeItems = [
   'Slough & Berkshire',
   'Same Week Booking',
   'Satisfaction Guaranteed',
-  '12+ Years Experience',
+  '10+ Years Experience',
 ];
 
 const Marquee = () => {

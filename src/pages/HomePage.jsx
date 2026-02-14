@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import Marquee from '../components/Marquee';
+import Stats from '../components/Stats';
 import Services from '../components/Services';
 import Statement from '../components/Statement';
 import About from '../components/About';
@@ -19,6 +20,7 @@ const HomePage = () => {
       />
       <Hero />
       <Marquee />
+      <Stats />
       <Services />
       <Statement />
       <About />

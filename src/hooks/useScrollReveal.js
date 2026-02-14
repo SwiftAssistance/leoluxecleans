@@ -32,6 +32,10 @@ export const useParallax = (speed = 0.3) => {
   const ref = useRef(null);
 
   useEffect(() => {
+    // Disable parallax on mobile/tablet for performance
+    const isMobile = window.matchMedia('(max-width: 1024px)').matches;
+    if (isMobile) return;
+
     let ticking = false;
 
     const handleScroll = () => {

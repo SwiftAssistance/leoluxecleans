@@ -72,7 +72,7 @@ const Hero = () => {
         >
           <Link
             to="/contact"
-            className="btn-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2 group"
+            className="btn-gold glow-pulse label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2 group"
           >
             Get a Free Quote{' '}
             <ArrowRight
@@ -88,7 +88,7 @@ const Hero = () => {
           </a>
         </div>
 
-        {/* Social proof — inline text, not floating cards */}
+        {/* Social proof — inline text */}
         <div
           className={`flex flex-wrap items-center gap-x-6 gap-y-2 text-sm transition-all duration-1000 ${
             loaded ? 'opacity-100' : 'opacity-0'
