@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Star, Quote, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
-const allReviews = [
+const reviews = [
   {
     text: "Honestly can't recommend Leo Luxe enough. They cleaned our whole house before we moved in and it was absolutely spotless. The attention to detail was incredible — places I'd never even think to clean.",
     author: 'Sarah Mitchell',
@@ -11,7 +11,7 @@ const allReviews = [
     initial: 'S',
   },
   {
-    text: 'We use them for our office every week. Always on time, always thorough, and the team are really lovely. Makes such a difference to the workplace.',
+    text: 'We use them for our office every week. Always on time, always thorough, and the team are really lovely.',
     author: 'David Chen',
     role: 'Business Owner, Windsor',
     initial: 'D',
@@ -30,17 +30,8 @@ const allReviews = [
   },
 ];
 
-const StarRating = ({ size = 12 }) => (
-  <div className="flex gap-0.5">
-    {[...Array(5)].map((_, j) => (
-      <Star key={j} size={size} fill="#C8A94E" strokeWidth={0} />
-    ))}
-  </div>
-);
-
 const Reviews = () => {
-  const [headerRef, headerVisible] = useScrollReveal();
-  const [cardRef, cardVisible] = useScrollReveal({ threshold: 0.2 });
+  const [ref, isVisible] = useScrollReveal({ threshold: 0.1 });
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
   const touchStartX = useRef(0);
@@ -56,12 +47,12 @@ const Reviews = () => {
 
   const next = useCallback(() => {
     setDirection(1);
-    setCurrent((prev) => (prev + 1) % allReviews.length);
+    setCurrent((prev) => (prev + 1) % reviews.length);
   }, []);
 
   const prev = useCallback(() => {
     setDirection(-1);
-    setCurrent((prev) => (prev - 1 + allReviews.length) % allReviews.length);
+    setCurrent((prev) => (prev - 1 + reviews.length) % reviews.length);
   }, []);
 
   // Swipe handlers for mobile
@@ -88,64 +79,62 @@ const Reviews = () => {
   }, [next]);
 
   return (
-    <section
-      id="reviews"
-      className="py-24 lg:py-32 bg-surface-black relative overflow-hidden"
-    >
-      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-gold/[0.04] rounded-full blur-[120px]"></div>
+    <section className="py-20 lg:py-28 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-surface-dark to-surface-black"></div>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+      <div ref={ref} className="relative max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div
-          ref={headerRef}
-          className={`flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-16 lg:mb-20 transition-all duration-700 ${
-            headerVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-8'
-          }`}
-        >
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-14">
           <div>
-            <p className="label-caps text-gold mb-4">Testimonials</p>
             <h2 className="heading-serif text-4xl lg:text-6xl text-white">
               What People Say
             </h2>
+            <div className="flex items-center gap-2 mt-3">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, j) => (
+                  <Star key={j} size={14} fill="#C8A94E" strokeWidth={0} />
+                ))}
+              </div>
+              <span className="text-neutral-500 text-sm">
+                5.0 from 200+ reviews
+              </span>
+            </div>
           </div>
-          <div className="flex items-center gap-1 text-gold">
-            <StarRating size={16} />
-            <span className="text-neutral-400 text-sm ml-2">
-              5.0 from 200+ reviews
-            </span>
-          </div>
+          <Link
+            to="/reviews"
+            className="label-caps text-gold text-[11px] flex items-center gap-1.5 hover:gap-3 transition-all"
+          >
+            All reviews <ArrowRight size={12} />
+          </Link>
         </div>
 
         {/* Single review carousel */}
         <div
-          ref={cardRef}
           className={`max-w-3xl mx-auto transition-all duration-700 ${
-            cardVisible
+            isVisible
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-12'
           }`}
         >
           <div
-            className="glass-card rounded-2xl p-8 lg:p-12 border-gold/20 relative overflow-hidden"
+            className="border border-surface-border/40 rounded-2xl p-8 lg:p-12 relative overflow-hidden"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <Quote size={32} className="text-gold/30 mb-6" />
+            <Quote size={32} className="text-gold/20 mb-6" />
 
             {/* Progress bar */}
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-surface-border/30">
               <div
                 className="h-full bg-gradient-to-r from-gold to-gold-light transition-all duration-500"
-                style={{ width: `${((current + 1) / allReviews.length) * 100}%` }}
+                style={{ width: `${((current + 1) / reviews.length) * 100}%` }}
               />
             </div>
 
             {/* Review content with crossfade */}
             <div className="relative min-h-[220px] sm:min-h-[160px] md:min-h-[140px]">
-              {allReviews.map((r, i) => (
+              {reviews.map((r, i) => (
                 <div
                   key={i}
                   className={`transition-all duration-500 ${
@@ -174,7 +163,11 @@ const Reviews = () => {
                       <p className="text-neutral-500 text-xs">{r.role}</p>
                     </div>
                     <div className="ml-auto">
-                      <StarRating size={13} />
+                      <div className="flex gap-0.5">
+                        {[...Array(5)].map((_, j) => (
+                          <Star key={j} size={13} fill="#C8A94E" strokeWidth={0} />
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -186,14 +179,14 @@ const Reviews = () => {
           <div className="flex items-center justify-between mt-8">
             <button
               onClick={prev}
-              className="w-11 h-11 sm:w-10 sm:h-10 rounded-full glass-card flex items-center justify-center text-gold hover:border-gold/40 hover:shadow-gold-sm transition-all duration-300"
+              className="w-11 h-11 sm:w-10 sm:h-10 rounded-full border border-surface-border/60 flex items-center justify-center text-gold hover:border-gold/40 transition-all duration-300"
               aria-label="Previous review"
             >
               <ChevronLeft size={18} />
             </button>
 
             <div className="flex items-center gap-1">
-              {allReviews.map((_, i) => (
+              {reviews.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => goTo(i)}
@@ -213,21 +206,11 @@ const Reviews = () => {
 
             <button
               onClick={next}
-              className="w-11 h-11 sm:w-10 sm:h-10 rounded-full glass-card flex items-center justify-center text-gold hover:border-gold/40 hover:shadow-gold-sm transition-all duration-300"
+              className="w-11 h-11 sm:w-10 sm:h-10 rounded-full border border-surface-border/60 flex items-center justify-center text-gold hover:border-gold/40 transition-all duration-300"
               aria-label="Next review"
             >
               <ChevronRight size={18} />
             </button>
-          </div>
-
-          {/* See all reviews link */}
-          <div className="text-center mt-8">
-            <Link
-              to="/reviews"
-              className="label-caps text-[11px] text-gold hover:text-gold-light transition-colors inline-flex items-center gap-1"
-            >
-              See All 200+ Reviews <ArrowRight size={12} />
-            </Link>
           </div>
         </div>
       </div>
