@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Phone, Menu, X } from 'lucide-react';
 
 const navLinks = [
+  { name: 'Home', to: '/' },
   { name: 'Services', to: '/services' },
   { name: 'About', to: '/about' },
   { name: 'Reviews', to: '/reviews' },
@@ -11,6 +12,12 @@ const navLinks = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -52,6 +59,7 @@ const Navbar = () => {
             <NavLink
               key={link.name}
               to={link.to}
+              end={link.to === '/'}
               className={({ isActive }) =>
                 `label-caps transition-colors duration-300 relative group ${
                   isActive ? 'text-white' : 'text-neutral-400 hover:text-white'
@@ -123,7 +131,7 @@ const Navbar = () => {
               <NavLink
                 key={link.name}
                 to={link.to}
-                onClick={() => setMobileMenuOpen(false)}
+                end={link.to === '/'}
                 className={({ isActive }) =>
                   `label-caps transition-all duration-300 hover:translate-x-2 ${
                     isActive ? 'text-gold' : 'text-neutral-400 hover:text-white'
@@ -142,7 +150,6 @@ const Navbar = () => {
             </a>
             <Link
               to="/contact"
-              onClick={() => setMobileMenuOpen(false)}
               className="btn-gold label-caps text-center py-3 mt-2 rounded-lg"
             >
               Free Quote
