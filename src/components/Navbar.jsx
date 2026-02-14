@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { Phone, Menu, X } from 'lucide-react';
 
 const navLinks = [
-  { name: 'Services', href: '#services' },
-  { name: 'About', href: '#about' },
-  { name: 'Reviews', href: '#reviews' },
+  { name: 'Services', to: '/services' },
+  { name: 'About', to: '/about' },
+  { name: 'Reviews', to: '/reviews' },
 ];
 
 const Navbar = () => {
@@ -17,7 +18,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) setMobileMenuOpen(false);
@@ -36,7 +36,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
         {/* Logo */}
-        <a href="#" className="group flex flex-col relative">
+        <Link to="/" className="group flex flex-col relative">
           <span className="heading-serif text-2xl text-white group-hover:text-gold-light transition-colors duration-300">
             Leo Luxe
           </span>
@@ -44,19 +44,31 @@ const Navbar = () => {
             Cleans
           </span>
           <span className="absolute -bottom-1 left-0 w-0 h-px bg-gold group-hover:w-full transition-all duration-500"></span>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
-            <a
+            <NavLink
               key={link.name}
-              href={link.href}
-              className="label-caps text-neutral-400 hover:text-white transition-colors duration-300 relative group"
+              to={link.to}
+              className={({ isActive }) =>
+                `label-caps transition-colors duration-300 relative group ${
+                  isActive ? 'text-white' : 'text-neutral-400 hover:text-white'
+                }`
+              }
             >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-gold group-hover:w-full transition-all duration-300"></span>
-            </a>
+              {({ isActive }) => (
+                <>
+                  {link.name}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-px bg-gold transition-all duration-300 ${
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
+                  ></span>
+                </>
+              )}
+            </NavLink>
           ))}
           <a
             href="tel:01753000000"
@@ -64,12 +76,12 @@ const Navbar = () => {
           >
             <Phone size={14} /> 01753 000 000
           </a>
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="btn-gold label-caps px-6 py-2.5 rounded-lg"
           >
             Free Quote
-          </a>
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -79,12 +91,20 @@ const Navbar = () => {
           aria-label="Toggle menu"
         >
           <span
-            className={`absolute transition-all duration-300 ${mobileMenuOpen ? 'opacity-0 rotate-90 scale-75' : 'opacity-100 rotate-0 scale-100'}`}
+            className={`absolute transition-all duration-300 ${
+              mobileMenuOpen
+                ? 'opacity-0 rotate-90 scale-75'
+                : 'opacity-100 rotate-0 scale-100'
+            }`}
           >
             <Menu size={24} />
           </span>
           <span
-            className={`absolute transition-all duration-300 ${mobileMenuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-75'}`}
+            className={`absolute transition-all duration-300 ${
+              mobileMenuOpen
+                ? 'opacity-100 rotate-0 scale-100'
+                : 'opacity-0 -rotate-90 scale-75'
+            }`}
           >
             <X size={24} />
           </span>
@@ -100,15 +120,19 @@ const Navbar = () => {
         <div className="bg-surface-dark/95 backdrop-blur-xl border-t border-surface-border">
           <div className="px-6 py-8 flex flex-col gap-6">
             {navLinks.map((link, i) => (
-              <a
+              <NavLink
                 key={link.name}
-                href={link.href}
+                to={link.to}
                 onClick={() => setMobileMenuOpen(false)}
-                className="label-caps text-neutral-400 hover:text-white transition-all duration-300 hover:translate-x-2"
+                className={({ isActive }) =>
+                  `label-caps transition-all duration-300 hover:translate-x-2 ${
+                    isActive ? 'text-gold' : 'text-neutral-400 hover:text-white'
+                  }`
+                }
                 style={{ transitionDelay: `${i * 50}ms` }}
               >
                 {link.name}
-              </a>
+              </NavLink>
             ))}
             <a
               href="tel:01753000000"
@@ -116,13 +140,13 @@ const Navbar = () => {
             >
               <Phone size={14} /> 01753 000 000
             </a>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               onClick={() => setMobileMenuOpen(false)}
               className="btn-gold label-caps text-center py-3 mt-2 rounded-lg"
             >
               Free Quote
-            </a>
+            </Link>
           </div>
         </div>
       </div>

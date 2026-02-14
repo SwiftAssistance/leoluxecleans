@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Phone, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -97,8 +98,8 @@ const Process = () => {
           }`}
           style={{ transitionDelay: '900ms' }}
         >
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="btn-gold label-caps px-10 py-4 rounded-lg inline-flex items-center gap-2 group"
           >
             Start With Step One{' '}
@@ -106,7 +107,7 @@ const Process = () => {
               size={14}
               className="group-hover:translate-x-1 transition-transform"
             />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

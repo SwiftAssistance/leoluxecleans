@@ -1,35 +1,23 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Marquee from './components/Marquee';
-import Services from './components/Services';
-import Statement from './components/Statement';
-import About from './components/About';
-import Process from './components/Process';
-import Reviews from './components/Reviews';
-import CtaBand from './components/CtaBand';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import MobileCta from './components/MobileCta';
-import BackToTop from './components/BackToTop';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import ServicesPage from './pages/ServicesPage';
+import AboutPage from './pages/AboutPage';
+import ReviewsPage from './pages/ReviewsPage';
+import ContactPage from './pages/ContactPage';
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-surface-black text-white font-sans overflow-x-hidden">
-      <Navbar />
-      <Hero />
-      <Marquee />
-      <Services />
-      <Statement />
-      <About />
-      <Process />
-      <Reviews />
-      <CtaBand />
-      <Contact />
-      <Footer />
-      <MobileCta />
-      <BackToTop />
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/reviews" element={<ReviewsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Route>
+    </Routes>
   );
 };
 

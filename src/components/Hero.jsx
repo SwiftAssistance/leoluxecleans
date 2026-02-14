@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   ArrowRight,
   Phone,
@@ -102,8 +103,8 @@ const Hero = () => {
               }`}
               style={{ transitionDelay: '450ms' }}
             >
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="btn-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2 group"
               >
                 Get Your Free Quote{' '}
@@ -111,7 +112,7 @@ const Hero = () => {
                   size={14}
                   className="group-hover:translate-x-1 transition-transform"
                 />
-              </a>
+              </Link>
               <a
                 href="tel:01753000000"
                 className="btn-outline-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2"
