@@ -21,10 +21,10 @@ const CtaBand = () => {
       >
         <div>
           <h3 className="heading-serif text-3xl lg:text-4xl text-white mb-2">
-            Ready for a spotless space?
+            Want your place sorted this week?
           </h3>
           <p className="text-neutral-400 text-sm">
-            Free quote. No obligation. Response within 2 hours.
+            Free quote, no obligation. Most people hear back within 2 hours.
           </p>
         </div>
         <div className="flex gap-4">
@@ -32,7 +32,7 @@ const CtaBand = () => {
             to="/contact"
             className="btn-gold label-caps px-8 py-4 rounded-lg whitespace-nowrap"
           >
-            Free Quote
+            Get a Quote
           </Link>
           <a
             href="tel:01753000000"

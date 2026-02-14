@@ -1,37 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Home,
-  Building2,
-  Gem,
-  Sparkles,
-  Clock,
-  ShieldCheck,
-  ArrowRight,
-  ChevronRight,
-} from 'lucide-react';
+import { Home, Gem, Sparkles, ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
-const smallServices = [
+const services = [
   {
-    icon: <Gem size={22} />,
+    icon: <Home size={26} />,
+    title: 'Home Cleaning',
+    desc: 'Weekly, fortnightly, or one-off. We treat your place like our own — every room done properly, nothing rushed, nothing missed.',
+    tag: 'Most Popular',
+  },
+  {
+    icon: <Gem size={26} />,
     title: 'Deep Clean',
-    desc: "Top-to-bottom, behind-the-scenes. Every corner, every time.",
+    desc: 'Behind the fridge, inside the oven, on top of the cabinets — all the bits you keep putting off. We get stuck in so you don\'t have to.',
   },
   {
-    icon: <Sparkles size={22} />,
+    icon: <Sparkles size={26} />,
     title: 'End of Tenancy',
-    desc: "Moving in or out? We'll get that deposit back for you.",
-  },
-  {
-    icon: <Clock size={22} />,
-    title: 'After Events',
-    desc: "Had a party? We'll make it look like nothing happened.",
-  },
-  {
-    icon: <ShieldCheck size={22} />,
-    title: 'Specialist',
-    desc: 'Carpets, upholstery, ovens, windows — the lot.',
+    desc: 'Moving out? We\'ll leave it landlord-ready. We know exactly what they look for — and we\'ve never had a client lose their deposit.',
   },
 ];
 
@@ -61,100 +48,68 @@ const Services = () => {
             </h2>
           </div>
           <p className="text-neutral-500 text-sm max-w-sm leading-relaxed">
-            Whatever your space needs, we've got you covered. Every job done
-            properly, every time.
+            Homes, offices, end of tenancy — whatever needs doing, we do it properly.
           </p>
         </div>
 
-        {/* Bento grid */}
+        {/* Service cards */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5"
         >
-          {/* FEATURED: Home Cleaning */}
-          <Link
-            to="/contact"
-            className={`lg:col-span-7 glass-card rounded-2xl p-8 lg:p-10 group relative overflow-hidden block transition-all duration-700 ${
-              gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-            }`}
-            style={{ transitionDelay: '100ms' }}
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gold/[0.04] rounded-full blur-[80px] group-hover:bg-gold/[0.08] transition-all duration-700"></div>
-            <div className="relative">
-              <div className="flex items-center justify-between mb-8">
-                <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center text-gold group-hover:bg-gold/20 group-hover:scale-110 transition-all duration-500">
-                  <Home size={28} />
-                </div>
-                <span className="label-caps text-[10px] text-gold/60 group-hover:text-gold transition-colors flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold/50 animate-pulse"></span>
-                  Most Popular
-                </span>
-              </div>
-              <h3 className="heading-serif text-3xl lg:text-4xl text-white mb-3 group-hover:text-gold-light transition-colors duration-300">
-                Home Cleaning
-              </h3>
-              <p className="text-neutral-400 leading-relaxed max-w-md mb-8">
-                Regular or one-off cleans for your home. We treat every house
-                like our own — thorough, careful, and spotless. From studio flats
-                to five-bed houses.
-              </p>
-              <span className="btn-gold label-caps px-6 py-2.5 rounded-lg inline-flex items-center gap-2 group-hover:shadow-gold-lg transition-shadow">
-                Get a Quote{' '}
-                <ArrowRight
-                  size={12}
-                  className="group-hover:translate-x-1 transition-transform"
-                />
-              </span>
-            </div>
-          </Link>
-
-          {/* FEATURED: Office & Commercial */}
-          <Link
-            to="/contact"
-            className={`lg:col-span-5 glass-card rounded-2xl p-8 lg:p-10 group relative overflow-hidden block transition-all duration-700 ${
-              gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-            }`}
-            style={{ transitionDelay: '200ms' }}
-          >
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-gold/[0.04] rounded-full blur-[60px] group-hover:bg-gold/[0.08] transition-all duration-700"></div>
-            <div className="relative">
-              <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center text-gold mb-8 group-hover:bg-gold/20 group-hover:scale-110 transition-all duration-500">
-                <Building2 size={28} />
-              </div>
-              <h3 className="heading-serif text-3xl lg:text-4xl text-white mb-3 group-hover:text-gold-light transition-colors duration-300">
-                Office & Commercial
-              </h3>
-              <p className="text-neutral-400 leading-relaxed mb-8">
-                Keep your workspace looking professional. Flexible scheduling
-                including evenings and weekends.
-              </p>
-              <span className="label-caps text-[10px] text-gold flex items-center gap-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-500">
-                Get a Quote <ChevronRight size={12} />
-              </span>
-            </div>
-          </Link>
-
-          {/* Smaller service cards */}
-          {smallServices.map((s, i) => (
+          {services.map((s, i) => (
             <Link
               key={i}
-              to="/contact"
-              className={`lg:col-span-3 glass-card rounded-xl p-6 group block transition-all duration-700 ${
+              to="/services"
+              className={`glass-card rounded-2xl p-8 lg:p-10 group relative overflow-hidden block transition-all duration-700 ${
                 gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
-              style={{ transitionDelay: `${300 + i * 100}ms` }}
+              style={{ transitionDelay: `${100 + i * 100}ms` }}
             >
-              <div className="w-11 h-11 rounded-lg bg-gold/10 flex items-center justify-center text-gold mb-4 group-hover:bg-gold/20 group-hover:shadow-gold-sm group-hover:scale-110 transition-all duration-500">
-                {s.icon}
+              <div className="absolute top-0 right-0 w-48 h-48 bg-gold/[0.04] rounded-full blur-[80px] group-hover:bg-gold/[0.08] transition-all duration-700"></div>
+              <div className="relative">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center text-gold group-hover:bg-gold/20 group-hover:scale-110 transition-all duration-500">
+                    {s.icon}
+                  </div>
+                  {s.tag && (
+                    <span className="label-caps text-[10px] text-gold/60 group-hover:text-gold transition-colors flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gold/50 animate-pulse"></span>
+                      {s.tag}
+                    </span>
+                  )}
+                </div>
+                <h3 className="heading-serif text-2xl lg:text-3xl text-white mb-3 group-hover:text-gold-light transition-colors duration-300">
+                  {s.title}
+                </h3>
+                <p className="text-neutral-400 leading-relaxed text-sm mb-6">
+                  {s.desc}
+                </p>
+                <span className="label-caps text-[10px] text-gold flex items-center gap-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-500">
+                  Learn More <ArrowRight size={12} />
+                </span>
               </div>
-              <h3 className="font-sans text-white text-sm font-semibold mb-2 group-hover:text-gold transition-colors duration-300">
-                {s.title}
-              </h3>
-              <p className="text-neutral-500 text-xs leading-relaxed">
-                {s.desc}
-              </p>
             </Link>
           ))}
+        </div>
+
+        {/* Explore all services button */}
+        <div
+          className={`text-center mt-14 transition-all duration-700 ${
+            gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+          style={{ transitionDelay: '500ms' }}
+        >
+          <Link
+            to="/services"
+            className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center gap-2 group"
+          >
+            Explore All Services{' '}
+            <ArrowRight
+              size={14}
+              className="group-hover:translate-x-1 transition-transform"
+            />
+          </Link>
         </div>
       </div>
     </section>

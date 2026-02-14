@@ -12,8 +12,8 @@ import { useScrollReveal, useCounter } from '../hooks/useScrollReveal';
 const features = [
   { icon: <ShieldCheck size={16} />, text: 'Fully Insured & DBS Checked' },
   { icon: <Sparkles size={16} />, text: 'Eco-Friendly Products' },
-  { icon: <Award size={16} />, text: 'Uniformed, Professional Team' },
-  { icon: <CheckCircle2 size={16} />, text: '100% Satisfaction Guarantee' },
+  { icon: <Award size={16} />, text: 'Uniformed, Trained Team' },
+  { icon: <CheckCircle2 size={16} />, text: 'Not Happy? We Come Back Free' },
 ];
 
 const About = () => {
@@ -87,17 +87,19 @@ const About = () => {
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
             }`}
           >
-            <p className="label-caps text-gold mb-4">Why Choose Us</p>
+            <p className="label-caps text-gold mb-4">About Us</p>
             <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-6">
-              We Take Pride
+              Local Team.
               <br />
-              in Every Clean
+              Proper Standards.
             </h2>
             <p className="text-neutral-400 leading-relaxed mb-10 font-light text-[15px]">
-              We're not just another cleaning company. Our team is fully trained,
-              DBS checked, and genuinely cares about doing a brilliant job.
-              Whether it's a studio flat or a five-bedroom house, we give it the
-              same attention to detail.
+              We started Leo Luxe because we got tired of hearing about cleaners
+              who rush in, do the bare minimum, and disappear. That's not us. Our
+              team is based right here in Slough — we know the area, we know our
+              clients, and we take genuine pride in the work. Every member is DBS
+              checked, trained by us, and held to the same standard: if you
+              wouldn't be happy with it, neither are we.
             </p>
 
             {/* Feature list */}
@@ -117,10 +119,10 @@ const About = () => {
             </div>
 
             <Link
-              to="/contact"
+              to="/about"
               className="btn-gold label-caps px-8 py-3.5 rounded-lg inline-flex items-center gap-2 group"
             >
-              Get a Free Quote{' '}
+              More About Us{' '}
               <ArrowRight
                 size={12}
                 className="group-hover:translate-x-1 transition-transform"
