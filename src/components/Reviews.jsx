@@ -1,8 +1,14 @@
-import React from 'react';
-import { Star, Quote } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
-const sideReviews = [
+const allReviews = [
+  {
+    text: "Honestly can't recommend Leo Luxe enough. They cleaned our whole house before we moved in and it was absolutely spotless. The attention to detail was incredible — places I'd never even think to clean. Will definitely be using them regularly.",
+    author: 'Sarah Mitchell',
+    role: 'Homeowner, Slough',
+    initial: 'S',
+  },
   {
     text: 'We use them for our office every week. Always on time, always thorough, and the team are really lovely. Makes such a difference to the workplace.',
     author: 'David Chen',
@@ -39,8 +45,35 @@ const StarRating = ({ size = 12 }) => (
 
 const Reviews = () => {
   const [headerRef, headerVisible] = useScrollReveal();
-  const [featuredRef, featuredVisible] = useScrollReveal({ threshold: 0.2 });
-  const [gridRef, gridVisible] = useScrollReveal({ threshold: 0.1 });
+  const [cardRef, cardVisible] = useScrollReveal({ threshold: 0.2 });
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const goTo = useCallback(
+    (index) => {
+      setDirection(index > current ? 1 : -1);
+      setCurrent(index);
+    },
+    [current]
+  );
+
+  const next = useCallback(() => {
+    setDirection(1);
+    setCurrent((prev) => (prev + 1) % allReviews.length);
+  }, []);
+
+  const prev = useCallback(() => {
+    setDirection(-1);
+    setCurrent((prev) => (prev - 1 + allReviews.length) % allReviews.length);
+  }, []);
+
+  // Auto-advance every 6 seconds
+  useEffect(() => {
+    const timer = setInterval(next, 6000);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  const review = allReviews[current];
 
   return (
     <section
@@ -54,7 +87,9 @@ const Reviews = () => {
         <div
           ref={headerRef}
           className={`flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-16 lg:mb-20 transition-all duration-700 ${
-            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            headerVisible
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-8'
           }`}
         >
           <div>
@@ -71,62 +106,92 @@ const Reviews = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-          {/* Featured review */}
-          <div
-            ref={featuredRef}
-            className={`lg:col-span-5 glass-card rounded-2xl p-8 lg:p-10 flex flex-col border-gold/20 hover:border-gold/30 transition-all duration-700 ${
-              featuredVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-            }`}
-          >
-            <Quote size={28} className="text-gold/40 mb-5" />
-            <p className="text-white text-lg lg:text-xl leading-relaxed flex-grow mb-8 font-light">
-              "Honestly can't recommend Leo Luxe enough. They cleaned our whole
-              house before we moved in and it was absolutely spotless. The
-              attention to detail was incredible — places I'd never even think to
-              clean. Will definitely be using them regularly."
-            </p>
-            <div className="flex items-center gap-4 border-t border-gold/10 pt-6">
-              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold heading-serif text-lg">
-                S
-              </div>
-              <div>
-                <p className="text-white text-sm font-medium">Sarah Mitchell</p>
-                <p className="text-neutral-500 text-xs">Homeowner, Slough</p>
-              </div>
-              <div className="flex ml-auto gap-0.5">
-                <StarRating />
-              </div>
+        {/* Single review carousel */}
+        <div
+          ref={cardRef}
+          className={`max-w-3xl mx-auto transition-all duration-700 ${
+            cardVisible
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-12'
+          }`}
+        >
+          <div className="glass-card rounded-2xl p-8 lg:p-12 border-gold/20 relative overflow-hidden">
+            <Quote size={32} className="text-gold/30 mb-6" />
+
+            {/* Review content with crossfade */}
+            <div className="relative min-h-[180px] sm:min-h-[140px]">
+              {allReviews.map((r, i) => (
+                <div
+                  key={i}
+                  className={`transition-all duration-500 ${
+                    i === current
+                      ? 'opacity-100 translate-x-0 relative'
+                      : 'opacity-0 absolute inset-0 pointer-events-none'
+                  } ${
+                    i === current && direction > 0
+                      ? 'animate-slide-in-right'
+                      : i === current && direction < 0
+                        ? 'animate-slide-in-left'
+                        : ''
+                  }`}
+                >
+                  <p className="text-white text-lg lg:text-xl leading-relaxed font-light mb-8">
+                    "{r.text}"
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold heading-serif text-lg">
+                      {r.initial}
+                    </div>
+                    <div>
+                      <p className="text-white text-sm font-medium">
+                        {r.author}
+                      </p>
+                      <p className="text-neutral-500 text-xs">{r.role}</p>
+                    </div>
+                    <div className="ml-auto">
+                      <StarRating size={13} />
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Side reviews */}
-          <div ref={gridRef} className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {sideReviews.map((t, i) => (
-              <div
-                key={i}
-                className={`glass-card rounded-xl p-6 flex flex-col hover:border-gold/20 transition-all duration-700 ${
-                  gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                }`}
-                style={{ transitionDelay: `${i * 100}ms` }}
-              >
-                <div className="mb-3">
-                  <StarRating size={11} />
-                </div>
-                <p className="text-neutral-300 text-sm leading-relaxed flex-grow mb-5">
-                  "{t.text}"
-                </p>
-                <div className="flex items-center gap-3 border-t border-surface-border/50 pt-4">
-                  <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xs heading-serif">
-                    {t.initial}
-                  </div>
-                  <div>
-                    <p className="text-white text-xs font-medium">{t.author}</p>
-                    <p className="text-neutral-600 text-[10px]">{t.role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          {/* Controls */}
+          <div className="flex items-center justify-between mt-8">
+            {/* Prev / Next */}
+            <button
+              onClick={prev}
+              className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gold hover:border-gold/40 hover:shadow-gold-sm transition-all duration-300"
+              aria-label="Previous review"
+            >
+              <ChevronLeft size={18} />
+            </button>
+
+            {/* Dots */}
+            <div className="flex items-center gap-2">
+              {allReviews.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => goTo(i)}
+                  className={`rounded-full transition-all duration-300 ${
+                    i === current
+                      ? 'w-8 h-2 bg-gold'
+                      : 'w-2 h-2 bg-surface-border hover:bg-gold/40'
+                  }`}
+                  aria-label={`Go to review ${i + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Next */}
+            <button
+              onClick={next}
+              className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gold hover:border-gold/40 hover:shadow-gold-sm transition-all duration-300"
+              aria-label="Next review"
+            >
+              <ChevronRight size={18} />
+            </button>
           </div>
         </div>
       </div>
