@@ -6,7 +6,7 @@ import Seo, { breadcrumbSchema } from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const StarRating = ({ size = 12 }) => (
-  <div className="flex gap-0.5">
+  <div className="flex gap-0.5" aria-label="5 out of 5 stars">
     {[...Array(5)].map((_, j) => (
       <Star key={j} size={size} fill="#C8A94E" strokeWidth={0} />
     ))}
@@ -90,9 +90,7 @@ const allReviews = [
 ];
 
 const ReviewsPage = () => {
-  const [featuredRef, featuredVisible] = useScrollReveal({ threshold: 0.2 });
   const [gridRef, gridVisible] = useScrollReveal({ threshold: 0.05 });
-  const [ctaRef, ctaVisible] = useScrollReveal({ threshold: 0.3 });
 
   const featuredReview = allReviews.find((r) => r.featured);
   const regularReviews = allReviews.filter((r) => !r.featured);
@@ -109,28 +107,16 @@ const ReviewsPage = () => {
         ])}
       />
       <PageHero
-        title={
-          <>
-            What People <span className="text-gold-gradient">Say</span>
-          </>
-        }
+        title={<>What People <span className="text-gold-gradient">Say</span></>}
         subtitle="Don't just take our word for it. Here's what our customers across Berkshire have to say about Leo Luxe Cleans."
         breadcrumb="Reviews"
       />
 
-      {/* Rating Summary */}
-      <section className="relative py-12 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-surface-dark via-surface-card to-surface-dark"></div>
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
-
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+      {/* Rating summary */}
+      <section className="py-12 bg-surface-dark border-b border-surface-border/30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <div className="text-center">
-              <span className="heading-serif text-6xl text-gold-gradient">
-                5.0
-              </span>
-            </div>
+            <span className="heading-serif text-6xl text-gold">5.0</span>
             <div className="text-center sm:text-left">
               <StarRating size={20} />
               <p className="text-neutral-400 text-sm mt-1">
@@ -141,19 +127,10 @@ const ReviewsPage = () => {
         </div>
       </section>
 
-      {/* Featured Review */}
-      <section className="py-16 lg:py-20 bg-surface-black relative overflow-hidden">
-        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-gold/[0.04] rounded-full blur-[120px]"></div>
-
-        <div className="relative max-w-4xl mx-auto px-6 lg:px-12">
-          <div
-            ref={featuredRef}
-            className={`glass-card rounded-2xl p-10 lg:p-14 border-gold/20 text-center transition-all duration-700 ${
-              featuredVisible
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-12'
-            }`}
-          >
+      {/* Featured review */}
+      <section className="py-16 lg:py-20 bg-surface-black">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+          <div className="rounded-2xl border border-surface-border/40 p-10 lg:p-14 text-center">
             <Quote size={36} className="text-gold/40 mx-auto mb-6" />
             <p className="text-white text-xl lg:text-2xl leading-relaxed mb-8 font-light max-w-2xl mx-auto">
               "{featuredReview.text}"
@@ -163,12 +140,8 @@ const ReviewsPage = () => {
                 {featuredReview.initial}
               </div>
               <div className="text-left">
-                <p className="text-white font-medium">
-                  {featuredReview.author}
-                </p>
-                <p className="text-neutral-500 text-sm">
-                  {featuredReview.role}
-                </p>
+                <p className="text-white font-medium">{featuredReview.author}</p>
+                <p className="text-neutral-500 text-sm">{featuredReview.role}</p>
               </div>
               <div className="ml-4">
                 <StarRating size={14} />
@@ -178,11 +151,10 @@ const ReviewsPage = () => {
         </div>
       </section>
 
-      {/* All Reviews Grid */}
-      <section className="py-16 lg:py-24 bg-surface-black relative overflow-hidden">
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+      {/* All reviews grid */}
+      <section className="py-16 lg:py-24 bg-surface-black">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <p className="label-caps text-gold mb-4">All Reviews</p>
             <h2 className="heading-serif text-4xl lg:text-5xl text-white">
               More From Our Customers
             </h2>
@@ -195,12 +167,10 @@ const ReviewsPage = () => {
             {regularReviews.map((review, i) => (
               <div
                 key={i}
-                className={`glass-card rounded-xl p-7 flex flex-col hover:border-gold/20 transition-all duration-700 ${
-                  gridVisible
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-12'
+                className={`rounded-xl border border-surface-border/40 p-7 flex flex-col hover:border-gold/20 transition-all duration-500 ${
+                  gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
-                style={{ transitionDelay: `${i * 80}ms` }}
+                style={{ transitionDelay: `${i * 60}ms` }}
               >
                 <div className="mb-3">
                   <StarRating size={13} />
@@ -208,14 +178,12 @@ const ReviewsPage = () => {
                 <p className="text-neutral-300 text-sm leading-relaxed flex-grow mb-6">
                   "{review.text}"
                 </p>
-                <div className="flex items-center gap-3 border-t border-surface-border/50 pt-5">
+                <div className="flex items-center gap-3 border-t border-surface-border/30 pt-5">
                   <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm heading-serif">
                     {review.initial}
                   </div>
                   <div>
-                    <p className="text-white text-sm font-medium">
-                      {review.author}
-                    </p>
+                    <p className="text-white text-sm font-medium">{review.author}</p>
                     <p className="text-neutral-600 text-xs">{review.role}</p>
                   </div>
                 </div>
@@ -226,20 +194,8 @@ const ReviewsPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="relative py-20 lg:py-28 overflow-hidden shimmer">
-        <div className="absolute inset-0 bg-gradient-to-r from-gold/10 via-gold/5 to-gold/10"></div>
-        <div className="absolute inset-0 bg-surface-dark/90"></div>
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
-
-        <div
-          ref={ctaRef}
-          className={`relative max-w-4xl mx-auto px-6 lg:px-12 text-center transition-all duration-700 ${
-            ctaVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-8'
-          }`}
-        >
+      <section className="py-16 lg:py-20 bg-surface-dark border-y border-surface-border/30">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
           <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
             Join our happy customers
           </h2>
@@ -257,6 +213,7 @@ const ReviewsPage = () => {
             <a
               href="tel:01753000000"
               className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
+              aria-label="Call us at 01753 000 000"
             >
               <Phone size={16} /> Call Us Now
             </a>
