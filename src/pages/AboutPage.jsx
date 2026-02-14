@@ -13,6 +13,7 @@ import {
   Star,
   Phone,
 } from 'lucide-react';
+import Seo, { breadcrumbSchema } from '../components/Seo';
 import PageHero from '../components/PageHero';
 import { useScrollReveal, useCounter } from '../hooks/useScrollReveal';
 
@@ -83,6 +84,15 @@ const AboutPage = () => {
 
   return (
     <>
+      <Seo
+        title="About Us — Local Cleaners in Slough & Berkshire"
+        description="Meet the Leo Luxe Cleans team. 12+ years of professional cleaning in Slough, Windsor & Berkshire. Fully insured, DBS checked, eco-friendly. Learn our story."
+        canonical="/about"
+        schema={breadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'About' },
+        ])}
+      />
       <PageHero
         title={
           <>

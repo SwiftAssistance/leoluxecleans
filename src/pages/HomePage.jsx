@@ -8,10 +8,15 @@ import Process from '../components/Process';
 import Reviews from '../components/Reviews';
 import CtaBand from '../components/CtaBand';
 import Contact from '../components/Contact';
+import Seo, { localBusinessSchema } from '../components/Seo';
 
 const HomePage = () => {
   return (
     <>
+      <Seo
+        canonical="/"
+        schema={localBusinessSchema}
+      />
       <Hero />
       <Marquee />
       <Services />
