@@ -114,7 +114,7 @@ const AboutPage = () => {
             <div className="lg:col-span-5">
               <div className="rounded-2xl overflow-hidden">
                 <img
-                  src="/about.webp"
+                  src="/about.svg"
                   alt="Our cleaning team at work"
                   className="w-full aspect-[3/4] object-cover"
                   loading="lazy"
