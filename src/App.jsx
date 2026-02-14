@@ -4,6 +4,8 @@ import Layout from './components/Layout';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'));
+const LocationPage = lazy(() => import('./pages/LocationPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ReviewsPage = lazy(() => import('./pages/ReviewsPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
@@ -23,6 +25,8 @@ const App = () => {
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/:slug" element={<ServiceDetailPage />} />
+          <Route path="/areas/:slug" element={<LocationPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="/contact" element={<ContactPage />} />

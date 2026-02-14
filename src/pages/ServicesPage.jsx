@@ -12,10 +12,12 @@ import {
   Phone,
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
+import Seo, { breadcrumbSchema } from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const allServices = [
   {
+    slug: 'home-cleaning',
     icon: <Home size={32} />,
     title: 'Home Cleaning',
     tag: 'Most Popular',
@@ -31,6 +33,7 @@ const allServices = [
     pricing: 'From £60',
   },
   {
+    slug: 'office-cleaning',
     icon: <Building2 size={32} />,
     title: 'Office & Commercial',
     tag: 'Flexible Hours',
@@ -46,6 +49,7 @@ const allServices = [
     pricing: 'Custom quote',
   },
   {
+    slug: 'deep-clean',
     icon: <Gem size={32} />,
     title: 'Deep Clean',
     tag: 'Thorough',
@@ -61,6 +65,7 @@ const allServices = [
     pricing: 'From £120',
   },
   {
+    slug: 'end-of-tenancy',
     icon: <Sparkles size={32} />,
     title: 'End of Tenancy',
     tag: 'Deposit Back',
@@ -76,6 +81,7 @@ const allServices = [
     pricing: 'From £150',
   },
   {
+    slug: 'after-events',
     icon: <Clock size={32} />,
     title: 'After Events',
     tag: 'Same Day',
@@ -91,6 +97,7 @@ const allServices = [
     pricing: 'From £80',
   },
   {
+    slug: 'specialist-cleaning',
     icon: <ShieldCheck size={32} />,
     title: 'Specialist Cleaning',
     tag: 'Expert',
@@ -113,6 +120,15 @@ const ServicesPage = () => {
 
   return (
     <>
+      <Seo
+        title="Cleaning Services in Slough, Windsor & Berkshire"
+        description="Professional cleaning services in Slough & Berkshire. Home cleaning, deep cleans, end of tenancy, office cleaning, after events, specialist cleaning. Fully insured, DBS checked. Free quotes."
+        canonical="/services"
+        schema={breadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Services' },
+        ])}
+      />
       <PageHero
         title={
           <>
@@ -180,16 +196,24 @@ const ServicesPage = () => {
                     ))}
                   </div>
 
-                  <Link
-                    to="/contact"
-                    className="btn-gold label-caps px-6 py-2.5 rounded-lg inline-flex items-center gap-2 group/btn"
-                  >
-                    Get a Quote{' '}
-                    <ArrowRight
-                      size={12}
-                      className="group-hover/btn:translate-x-1 transition-transform"
-                    />
-                  </Link>
+                  <div className="flex items-center gap-4">
+                    <Link
+                      to={`/services/${service.slug}`}
+                      className="btn-gold label-caps px-6 py-2.5 rounded-lg inline-flex items-center gap-2 group/btn"
+                    >
+                      Learn More{' '}
+                      <ArrowRight
+                        size={12}
+                        className="group-hover/btn:translate-x-1 transition-transform"
+                      />
+                    </Link>
+                    <Link
+                      to="/contact"
+                      className="label-caps text-[10px] text-gold hover:text-gold-light transition-colors inline-flex items-center gap-1"
+                    >
+                      Get a Quote <ArrowRight size={10} />
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}

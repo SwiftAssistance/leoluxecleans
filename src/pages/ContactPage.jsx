@@ -9,6 +9,7 @@ import {
   MessageSquare,
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
+import Seo, { createFaqSchema, breadcrumbSchema } from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const contactItems = [
@@ -76,6 +77,18 @@ const ContactPage = () => {
 
   return (
     <>
+      <Seo
+        title="Contact Us — Free Cleaning Quote in Slough & Berkshire"
+        description="Get a free cleaning quote from Leo Luxe Cleans. Call 01753 000 000 or fill in our form. We cover Slough, Windsor, Langley & Berkshire. Response within 2 hours."
+        canonical="/contact"
+        schema={[
+          createFaqSchema(faqs),
+          breadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Contact' },
+          ]),
+        ]}
+      />
       <PageHero
         title={
           <>

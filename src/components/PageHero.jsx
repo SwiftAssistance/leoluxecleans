@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 
-const PageHero = ({ title, subtitle, breadcrumb }) => {
+const PageHero = ({ title, subtitle, breadcrumb, parentBreadcrumb }) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -41,6 +41,21 @@ const PageHero = ({ title, subtitle, breadcrumb }) => {
             Home
           </Link>
           <ChevronRight size={14} className="text-neutral-600" />
+          {parentBreadcrumb && (
+            <>
+              {parentBreadcrumb.to ? (
+                <Link
+                  to={parentBreadcrumb.to}
+                  className="text-neutral-500 hover:text-gold transition-colors"
+                >
+                  {parentBreadcrumb.name}
+                </Link>
+              ) : (
+                <span className="text-neutral-500">{parentBreadcrumb.name}</span>
+              )}
+              <ChevronRight size={14} className="text-neutral-600" />
+            </>
+          )}
           <span className="text-gold">{breadcrumb}</span>
         </nav>
 

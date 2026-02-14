@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Star, Quote, ArrowRight, Phone } from 'lucide-react';
 import PageHero from '../components/PageHero';
+import Seo, { breadcrumbSchema } from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const StarRating = ({ size = 12 }) => (
@@ -98,6 +99,15 @@ const ReviewsPage = () => {
 
   return (
     <>
+      <Seo
+        title="Reviews — 5-Star Cleaning Service in Slough & Berkshire"
+        description="Read 200+ five-star reviews from Leo Luxe Cleans customers across Slough, Windsor & Berkshire. See why we're the highest-rated local cleaning service."
+        canonical="/reviews"
+        schema={breadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Reviews' },
+        ])}
+      />
       <PageHero
         title={
           <>
