@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 const SITE_NAME = 'Leo Luxe Cleans';
 const BASE_URL = 'https://leoluxecleans.co.uk';
 const DEFAULT_DESCRIPTION =
-  'Professional cleaning services in Slough, Windsor & Berkshire. Home cleaning, deep cleans, end of tenancy, office cleaning. Fully insured, DBS checked, eco-friendly. Free quotes.';
+  'Professional cleaning services in Slough, Windsor & Berkshire. Home cleaning, deep cleans, end of tenancy, office cleaning. Local, independent team. Fully insured, DBS checked, eco-friendly. Free quotes.';
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.jpg`;
 
 const Seo = ({
@@ -94,7 +94,7 @@ export const localBusinessSchema = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5.0',
-    reviewCount: '200',
+    reviewCount: '30',
     bestRating: '5',
   },
   sameAs: [],
@@ -154,7 +154,7 @@ export const createLocationSchema = (location) => ({
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5.0',
-    reviewCount: '200',
+    reviewCount: '30',
     bestRating: '5',
   },
 });

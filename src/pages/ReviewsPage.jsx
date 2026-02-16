@@ -15,14 +15,14 @@ const StarRating = ({ size = 12 }) => (
 
 const allReviews = [
   {
-    text: "Honestly can't recommend Leo Luxe enough. They cleaned our whole house before we moved in and it was absolutely spotless. The attention to detail was incredible — places I'd never even think to clean. Will definitely be using them regularly.",
+    text: "Really impressed with Leo Luxe. They cleaned our whole house before we moved in and it was spotless. You can tell they take pride in what they do — I've already recommended them to two friends.",
     author: 'Sarah Mitchell',
     role: 'Homeowner, Slough',
     initial: 'S',
     featured: true,
   },
   {
-    text: 'We use them for our office every week. Always on time, always thorough, and the team are really lovely. Makes such a difference to the workplace.',
+    text: 'We use them for our office every week. Always on time, always thorough, and the team are really lovely. Makes a real difference to the workplace.',
     author: 'David Chen',
     role: 'Business Owner, Windsor',
     initial: 'D',
@@ -34,58 +34,28 @@ const allReviews = [
     initial: 'P',
   },
   {
-    text: 'End of tenancy clean was perfect. Got our full deposit back. They even cleaned inside the oven which I thought was a lost cause!',
+    text: 'End of tenancy clean was brilliant. Got our full deposit back. They even cleaned inside the oven which I thought was a lost cause!',
     author: 'James Taylor',
     role: 'Tenant, Slough',
     initial: 'J',
   },
   {
-    text: "After our daughter's birthday party the place was a state. Leo Luxe came next morning and had it spotless by lunchtime. Absolute lifesaver.",
-    author: 'Rebecca Osei',
-    role: 'Homeowner, Windsor',
-    initial: 'R',
-  },
-  {
-    text: "I've tried several cleaning companies in the Slough area and Leo Luxe is by far the best. Consistent quality every single time. My house has never looked better.",
+    text: "Found Leo Luxe through a neighbour's recommendation and I'm so glad I did. You can tell they genuinely care about doing a good job. My house has never been cleaner.",
     author: 'Tom Richards',
     role: 'Homeowner, Slough',
     initial: 'T',
   },
   {
-    text: "They deep cleaned our carpet and it looks brand new. I was honestly ready to replace it but they saved me hundreds of pounds. Amazing results.",
-    author: 'Aisha Khan',
-    role: 'Homeowner, Langley',
-    initial: 'A',
+    text: "After our daughter's birthday party the place was a state. Leo Luxe came next morning and had it sorted by lunchtime. Lifesaver.",
+    author: 'Rebecca Osei',
+    role: 'Homeowner, Windsor',
+    initial: 'R',
   },
   {
-    text: "Professional, friendly, and thorough. They cleaned our Airbnb property between guests and our reviews have improved massively since we started using them.",
+    text: "Professional, friendly, and thorough. They cleaned our Airbnb property between guests and our reviews have improved since we started using them.",
     author: 'Marcus Hall',
     role: 'Property Host, Windsor',
     initial: 'M',
-  },
-  {
-    text: "My elderly mum needed help keeping on top of the house. The team are so respectful and kind, and the house is always spotless. Couldn't ask for more.",
-    author: 'Claire Bennett',
-    role: 'Family Member, Berkshire',
-    initial: 'C',
-  },
-  {
-    text: "Had the full specialist treatment — oven, carpets, and windows. Everything looks incredible. Genuinely worth every penny and then some.",
-    author: 'Nikhil Patel',
-    role: 'Homeowner, Slough',
-    initial: 'N',
-  },
-  {
-    text: "We hired them for a post-renovation clean and they handled all the dust and debris beautifully. Our new kitchen is gleaming thanks to the team.",
-    author: 'Emma Collins',
-    role: 'Homeowner, Windsor',
-    initial: 'E',
-  },
-  {
-    text: "Booked a regular weekly clean for our dental practice. The difference is night and day. Patients have commented on how clean everything feels.",
-    author: 'Dr. Fatima Ali',
-    role: 'Business Owner, Slough',
-    initial: 'F',
   },
 ];
 
@@ -99,7 +69,7 @@ const ReviewsPage = () => {
     <>
       <Seo
         title="Reviews — 5-Star Cleaning Service in Slough & Berkshire"
-        description="Read 200+ five-star reviews from Leo Luxe Cleans customers across Slough, Windsor & Berkshire. See why we're the highest-rated local cleaning service."
+        description="Read genuine reviews from Leo Luxe Cleans customers across Slough, Windsor & Berkshire. See why our clients keep recommending us."
         canonical="/reviews"
         schema={breadcrumbSchema([
           { name: 'Home', url: '/' },
@@ -108,7 +78,7 @@ const ReviewsPage = () => {
       />
       <PageHero
         title={<>What People <span className="text-gold-gradient">Say</span></>}
-        subtitle="Don't just take our word for it. Here's what our customers across Berkshire have to say about Leo Luxe Cleans."
+        subtitle="We're a new company, so every review means the world to us. Here's what our customers across Berkshire have to say."
         breadcrumb="Reviews"
       />
 
@@ -121,7 +91,7 @@ const ReviewsPage = () => {
               <div>
                 <StarRating size={18} />
                 <p className="text-neutral-500 text-sm mt-1">
-                  200+ verified reviews
+                  Google Reviews
                 </p>
               </div>
             </div>
@@ -129,15 +99,15 @@ const ReviewsPage = () => {
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-neutral-400">
               <span className="flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-gold" />
-                Google Reviews
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle2 size={14} className="text-gold" />
                 Verified Customers
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-gold" />
                 100% Real Feedback
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle2 size={14} className="text-gold" />
+                Every Review Earned
               </span>
             </div>
           </div>
@@ -225,7 +195,7 @@ const ReviewsPage = () => {
             Ready to see for yourself?
           </h2>
           <p className="text-neutral-400 text-lg mb-10 max-w-xl mx-auto">
-            Join 500+ happy customers across Berkshire. Get a free,
+            Join our growing list of happy customers across Berkshire. Get a free,
             no-obligation quote today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

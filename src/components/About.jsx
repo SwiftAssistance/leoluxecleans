@@ -19,24 +19,23 @@ const About = () => {
             }`}
           >
             <h2 className="heading-serif text-4xl sm:text-5xl lg:text-[3.5rem] text-white leading-[1.1] mb-10">
-              We started because we kept hearing the same thing —{' '}
+              We started because we knew cleaning could be{' '}
               <span className="text-gold-gradient">
-                "they rushed in, did the bare minimum, and left."
+                done better.
               </span>
             </h2>
 
             <div className="space-y-5 text-neutral-400 leading-relaxed font-light text-[15px] max-w-xl">
               <p>
-                That's not us. Leo Luxe has been cleaning homes and businesses
-                across Slough, Windsor, and Berkshire for over ten years.
-                Our team is local, DBS checked, and trained by us — not
-                pulled from a database.
+                Leo Luxe is a new, independent cleaning company based right
+                here in Slough. We're small on purpose — it means every
+                client matters and every clean gets our full attention.
               </p>
               <p>
-                We bring our own products (eco-friendly), our own equipment,
-                and our own standards. If you wouldn't be happy with it,
-                neither are we. If something's missed, we come back and sort
-                it for free.
+                Our team is local, DBS checked, and trained by us. We bring
+                our own eco-friendly products, our own equipment, and our own
+                standards. If you wouldn't be happy with it, neither are we.
+                If something's missed, we come back and sort it for free.
               </p>
             </div>
 
@@ -70,8 +69,8 @@ const About = () => {
             {/* Stats as text, not badges */}
             <div className="grid grid-cols-3 gap-px mt-px">
               {[
-                { val: '10+', label: 'Years' },
-                { val: '500+', label: 'Homes' },
+                { val: '75+', label: 'Homes' },
+                { val: '5.0', label: 'Rating' },
                 { val: '100%', label: 'Insured' },
               ].map((s, i) => (
                 <div

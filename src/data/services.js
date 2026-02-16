@@ -11,7 +11,7 @@ export const services = [
     heroDesc:
       'Whether it\'s a weekly clean or a one-off before guests arrive, we treat your home like it\'s our own. Every room done properly — nothing rushed, nothing missed.',
     longDesc: [
-      'We know what a proper home clean looks like because we\'ve done over 500 of them across Slough, Windsor, Langley, and the wider Berkshire area. It\'s not about wiping a few surfaces and running a hoover around — it\'s about leaving your home feeling genuinely clean.',
+      'We know what a proper home clean looks like — and we bring that standard to every job across Slough, Windsor, Langley, and the wider Berkshire area. It\'s not about wiping a few surfaces and running a hoover around — it\'s about leaving your home feeling genuinely clean.',
       'Our team arrives on time, fully equipped, and ready to go. We clean kitchens, bathrooms, bedrooms, living areas — top to bottom. We move things, clean behind them, and put them back. We get the bits most people miss: light switches, skirting boards, door handles, inside the microwave.',
       'You can book us weekly, fortnightly, or just when you need us. No contracts, no minimum term. If you\'re not happy with anything, we\'ll come back and sort it for free.',
     ],
@@ -146,7 +146,7 @@ export const services = [
     heroDesc:
       'Moving out? We\'ll leave it landlord-ready. We know exactly what they look for — and we\'ve never had a client lose their deposit because of the clean.',
     longDesc: [
-      'End of tenancy cleans are our bread and butter. We know exactly what landlords, letting agents, and inventory clerks are looking for because we\'ve done hundreds of these across Slough, Windsor, Langley, and the wider Berkshire area.',
+      'End of tenancy cleans are one of our core services. We know exactly what landlords, letting agents, and inventory clerks are looking for — and we clean to that standard every single time across Slough, Windsor, Langley, and the wider Berkshire area.',
       'We clean to professional inventory standards — that means inside every cupboard, behind every appliance, oven degreased, bathroom descaled, carpets vacuumed and spot-treated, windows cleaned inside, and every surface wiped down. We don\'t leave until it passes inspection.',
       'If your landlord or agent raises any cleaning issues after our visit, we\'ll come back and sort it — no extra charge. That\'s how confident we are in our work.',
     ],
