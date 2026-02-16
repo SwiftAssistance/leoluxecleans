@@ -36,8 +36,8 @@ const Hero = () => {
         </h1>
 
         <p className="text-neutral-400 text-lg max-w-md leading-relaxed font-light mb-10">
-          We're a local team based in Slough. Homes, offices, end of tenancy —
-          we do the kind of clean you'd actually notice.
+          A small, local team based in Slough. Every home we clean gets the same
+          care and attention — because our reputation depends on it.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -66,9 +66,9 @@ const Hero = () => {
             <span className="text-white font-medium">5.0</span> on Google
           </span>
           <span className="text-neutral-600">·</span>
-          <span className="text-neutral-400">500+ homes cleaned</span>
-          <span className="text-neutral-600">·</span>
           <span className="text-neutral-400">DBS checked & fully insured</span>
+          <span className="text-neutral-600">·</span>
+          <span className="text-neutral-400">Eco-friendly products</span>
         </div>
       </div>
     </section>

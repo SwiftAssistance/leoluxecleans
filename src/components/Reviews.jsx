@@ -5,28 +5,22 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const reviews = [
   {
-    text: "Honestly can't recommend Leo Luxe enough. They cleaned our whole house before we moved in and it was absolutely spotless. The attention to detail was incredible — places I'd never even think to clean.",
+    text: "Really impressed with Leo Luxe. They cleaned our whole house before we moved in and it was spotless. You can tell they take pride in what they do — I've already recommended them to two friends.",
     author: 'Sarah Mitchell',
     role: 'Homeowner, Slough',
     initial: 'S',
   },
   {
-    text: 'We use them for our office every week. Always on time, always thorough, and the team are really lovely.',
+    text: 'We use them for our office every week. Always on time, always thorough, and the team are really lovely. Makes a real difference to the workplace.',
     author: 'David Chen',
     role: 'Business Owner, Windsor',
     initial: 'D',
   },
   {
-    text: 'End of tenancy clean was perfect. Got our full deposit back. They even cleaned inside the oven which I thought was a lost cause!',
+    text: 'End of tenancy clean was brilliant. Got our full deposit back. They even cleaned inside the oven which I thought was a lost cause!',
     author: 'James Taylor',
     role: 'Tenant, Slough',
     initial: 'J',
-  },
-  {
-    text: "After our daughter's birthday party the place was a state. Leo Luxe came next morning and had it spotless by lunchtime. Absolute lifesaver.",
-    author: 'Rebecca Osei',
-    role: 'Homeowner, Windsor',
-    initial: 'R',
   },
 ];
 
@@ -96,7 +90,7 @@ const Reviews = () => {
                 ))}
               </div>
               <span className="text-neutral-500 text-sm">
-                5.0 from 200+ reviews
+                5.0 on Google
               </span>
             </div>
           </div>

@@ -4,13 +4,13 @@ const marqueeItems = [
   'Fully Insured',
   'DBS Checked',
   'Eco-Friendly Products',
-  '500+ Homes Cleaned',
-  '5-Star Rated',
+  '5-Star Rated on Google',
   'Free Quotes',
   'Slough & Berkshire',
   'Same Week Booking',
-  'Satisfaction Guaranteed',
-  '10+ Years Experience',
+  '100% Satisfaction Guarantee',
+  'No Contracts',
+  'Local & Independent',
 ];
 
 const Marquee = () => {

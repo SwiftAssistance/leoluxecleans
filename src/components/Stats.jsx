@@ -3,16 +3,15 @@ import { useScrollReveal, useCounter } from '../hooks/useScrollReveal';
 
 const Stats = () => {
   const [ref, isVisible] = useScrollReveal({ threshold: 0.3 });
-  const [homesRef, homesCount] = useCounter(500);
-  const [yearsRef, yearsCount] = useCounter(10);
-  const [reviewsRef, reviewsCount] = useCounter(200);
+  const [homesRef, homesCount] = useCounter(75);
+  const [clientsRef, clientsCount] = useCounter(30);
   const [ratingRef, ratingDisplay] = useCounter(50);
 
   const stats = [
     { ref: homesRef, value: `${homesCount}+`, label: 'Homes Cleaned' },
-    { ref: yearsRef, value: `${yearsCount}+`, label: 'Years Experience' },
-    { ref: reviewsRef, value: `${reviewsCount}+`, label: '5-Star Reviews' },
+    { ref: clientsRef, value: `${clientsCount}+`, label: 'Happy Clients' },
     { ref: ratingRef, value: `${(ratingDisplay / 10).toFixed(1)}`, label: 'Google Rating' },
+    { ref: null, value: '100%', label: 'Satisfaction Rate' },
   ];
 
   return (
@@ -25,7 +24,7 @@ const Stats = () => {
           {stats.map((stat, i) => (
             <div
               key={i}
-              ref={stat.ref}
+              ref={stat.ref || undefined}
               className={`text-center transition-all duration-500 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}

@@ -9,6 +9,8 @@ import {
   Heart,
   Clock,
   Phone,
+  Award,
+  Handshake,
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import Seo, { breadcrumbSchema } from '../components/Seo';
@@ -41,12 +43,13 @@ const AboutPage = () => {
   const [storyRef, storyVisible] = useScrollReveal({ threshold: 0.1 });
   const [valuesRef, valuesVisible] = useScrollReveal({ threshold: 0.05 });
   const [teamRef, teamVisible] = useScrollReveal({ threshold: 0.1 });
+  const [promiseRef, promiseVisible] = useScrollReveal({ threshold: 0.1 });
 
   return (
     <>
       <Seo
         title="About Us — Leo Luxe Cleans | Slough & Berkshire"
-        description="Meet the team behind Leo Luxe Cleans. 10+ years of professional cleaning in Slough, Windsor & Berkshire. DBS checked, fully insured, eco-friendly."
+        description="Meet the team behind Leo Luxe Cleans. A new, independent cleaning company in Slough, Windsor & Berkshire. DBS checked, fully insured, eco-friendly. Built on trust."
         canonical="/about"
         schema={breadcrumbSchema([
           { name: 'Home', url: '/' },
@@ -55,7 +58,7 @@ const AboutPage = () => {
       />
       <PageHero
         title={<>About <span className="text-gold-gradient">Leo Luxe</span></>}
-        subtitle="We're a small, local cleaning team in Slough. We've been at this for over a decade — and we're still obsessed with getting it right."
+        subtitle="We're a small, independent cleaning team based in Slough. New to the name, but not to the craft — and already trusted by families and businesses across Berkshire."
         breadcrumb="About"
       />
 
@@ -70,28 +73,30 @@ const AboutPage = () => {
               }`}
             >
               <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-8">
-                We started because we kept hearing the same thing —{' '}
+                We started Leo Luxe because we believed cleaning could be{' '}
                 <span className="text-gold-gradient">
-                  "they rushed in, did the bare minimum, and left."
+                  done properly.
                 </span>
               </h2>
 
               <div className="space-y-5 text-neutral-400 leading-relaxed font-light">
                 <p>
-                  That's not us. Leo Luxe has been cleaning homes and businesses
-                  across Slough, Windsor, and Berkshire for over ten years.
-                  Our team is local, DBS checked, and trained by us — not
-                  pulled from a database.
+                  Before Leo Luxe, we spent years cleaning for other companies —
+                  and we kept seeing the same problems. Rushed jobs, inconsistent
+                  teams, clients who felt like just another booking on a list.
+                  We knew we could do better, so we started our own company.
                 </p>
                 <p>
-                  We bring our own products (eco-friendly), our own equipment,
-                  and our own standards. If you wouldn't be happy with it,
-                  neither are we.
+                  Leo Luxe is built on a simple idea: treat every home like it's
+                  your own. We're a small team, which means you'll see the same
+                  familiar faces each visit. We bring our own eco-friendly
+                  products, our own equipment, and standards we're genuinely
+                  proud of.
                 </p>
                 <p>
-                  We're not trying to be the biggest cleaning company in
-                  Berkshire. We're trying to be the one people actually
-                  recommend to their friends.
+                  We're growing steadily through word of mouth — and that's
+                  exactly how we want it. Every client who recommends us proves
+                  we're doing something right.
                 </p>
               </div>
 
@@ -103,7 +108,7 @@ const AboutPage = () => {
                   ))}
                 </div>
                 <p className="text-neutral-300 text-sm leading-relaxed mb-3">
-                  "I've tried several cleaning companies in the Slough area and Leo Luxe is by far the best. Consistent quality every single time."
+                  "Found Leo Luxe through a neighbour's recommendation and I'm so glad I did. You can tell they genuinely care about doing a good job. My house has never been cleaner."
                 </p>
                 <p className="text-neutral-500 text-xs">
                   Tom Richards — Homeowner, Slough
@@ -126,8 +131,8 @@ const AboutPage = () => {
 
               <div className="grid grid-cols-3 gap-px mt-px">
                 {[
-                  { val: '10+', label: 'Years' },
-                  { val: '500+', label: 'Homes' },
+                  { val: '75+', label: 'Homes' },
+                  { val: '5.0', label: 'Rating' },
                   { val: '100%', label: 'Insured' },
                 ].map((s, i) => (
                   <div key={i} className="bg-surface-dark py-5 text-center">
@@ -145,8 +150,63 @@ const AboutPage = () => {
         </div>
       </section>
 
+      {/* Our Promise — transparency section for new business trust */}
+      <section className="py-16 lg:py-24 bg-surface-dark border-y border-surface-border/30">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+          <div
+            ref={promiseRef}
+            className={`text-center mb-14 transition-all duration-500 ${
+              promiseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
+              Our Promise to You
+            </h2>
+            <p className="text-neutral-400 text-sm max-w-lg mx-auto">
+              We're a new company earning your trust from day one. Here's how we hold ourselves accountable.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: <Award size={22} />,
+                title: 'Satisfaction Guarantee',
+                desc: "Not happy with any part of the clean? We'll come back and redo it at no extra charge. No questions, no fuss.",
+              },
+              {
+                icon: <ShieldCheck size={22} />,
+                title: 'Fully Transparent',
+                desc: 'Clear pricing upfront, no hidden fees, no contracts. You know exactly what you\'re paying for before we start.',
+              },
+              {
+                icon: <Handshake size={22} />,
+                title: 'Personally Accountable',
+                desc: "Leo personally oversees every job. If there's ever an issue, you speak directly to the owner — not a call centre.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className={`rounded-xl border border-surface-border/40 p-6 text-center hover:border-gold/20 transition-all duration-500 ${
+                  promiseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                }`}
+                style={{ transitionDelay: `${i * 80}ms` }}
+              >
+                <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center text-gold mx-auto mb-5">
+                  {item.icon}
+                </div>
+                <h3 className="text-white font-semibold mb-2">{item.title}</h3>
+                <p className="text-neutral-500 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Values */}
-      <section className="py-16 lg:py-24 bg-surface-dark">
+      <section className="py-16 lg:py-24 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-14">
             <h2 className="heading-serif text-4xl lg:text-5xl text-white">
@@ -180,7 +240,7 @@ const AboutPage = () => {
       </section>
 
       {/* Team */}
-      <section className="py-16 lg:py-24 bg-surface-black">
+      <section className="py-16 lg:py-24 bg-surface-dark">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-14">
             <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
@@ -198,14 +258,14 @@ const AboutPage = () => {
             {[
               {
                 name: 'Leo',
-                role: 'Founder & Lead',
-                desc: 'Started Leo Luxe over 10 years ago. Still personally oversees every team and every clean.',
+                role: 'Founder & Lead Cleaner',
+                desc: 'Years of hands-on cleaning experience before starting Leo Luxe. Still personally involved in every job — because standards start at the top.',
                 initial: 'L',
               },
               {
                 name: 'The Cleaning Team',
                 role: 'Trained & DBS Checked',
-                desc: "Handpicked and trained to our standards. They're the ones who make your space shine.",
+                desc: "Handpicked and trained to our standards. You'll get to know them by name — we don't rotate staff unless you ask us to.",
                 initial: 'T',
               },
             ].map((member, i) => (
@@ -235,14 +295,14 @@ const AboutPage = () => {
       </section>
 
       {/* Why choose us */}
-      <section className="py-16 lg:py-24 bg-surface-dark">
+      <section className="py-16 lg:py-24 bg-surface-black">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-14">
             <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
               Why People Choose Us
             </h2>
             <p className="text-neutral-400 text-sm">
-              These aren't marketing claims. They're what our clients tell us matters most.
+              We might be new, but we've built our reputation on the things that matter most.
             </p>
           </div>
 
@@ -256,6 +316,8 @@ const AboutPage = () => {
               'No contracts or hidden fees',
               'Same-week availability',
               'We bring all our own equipment',
+              'Owner-managed — direct accountability',
+              'Growing through recommendations, not ads',
             ].map((item, i) => (
               <div
                 key={i}
@@ -270,7 +332,7 @@ const AboutPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 lg:py-20 bg-surface-black border-y border-surface-border/30">
+      <section className="py-16 lg:py-20 bg-surface-dark border-y border-surface-border/30">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
           <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
             Want to see what proper clean looks like?

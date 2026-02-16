@@ -10,13 +10,13 @@ export const locations = [
     heroDesc:
       'We\'re based right here in Slough. Home cleaning, deep cleans, end of tenancy, offices — whatever you need, we\'re just round the corner.',
     intro: [
-      'Slough is our home turf. Leo Luxe Cleans was founded here over 10 years ago, and it\'s still where the majority of our work takes place. We know the area inside out — from the High Street to Langley, Cippenham to Farnham Royal.',
-      'Whether you\'re in a flat on the Bath Road, a family home in Upton, or running a business on the Trading Estate, we\'ve probably cleaned somewhere just like yours. Our team is local, reliable, and held to the same high standard on every single job.',
+      'Slough is our home turf. Leo Luxe Cleans is based right here, and it\'s where the majority of our work takes place. We know the area inside out — from the High Street to Langley, Cippenham to Farnham Royal.',
+      'Whether you\'re in a flat on the Bath Road, a family home in Upton, or running a business on the Trading Estate, we\'re just round the corner. Our team is local, reliable, and held to the same high standard on every single job.',
     ],
     areas: ['Slough Town Centre', 'Cippenham', 'Upton', 'Chalvey', 'Farnham Royal', 'Langley'],
     reviews: [
       {
-        text: "I've tried several cleaning companies in the Slough area and Leo Luxe is by far the best. Consistent quality every single time.",
+        text: "Found Leo Luxe through a neighbour's recommendation and I'm so glad I did. You can tell they genuinely care about doing a good job. My house has never been cleaner.",
         author: 'Tom Richards',
         role: 'Homeowner, Slough',
         initial: 'T',
@@ -40,8 +40,8 @@ export const locations = [
     heroDesc:
       'Professional cleaning across Windsor and the surrounding villages. Trusted by homeowners and businesses throughout the Royal Borough.',
     intro: [
-      'Windsor is one of our most popular areas. We clean homes and businesses throughout the town and surrounding villages including Old Windsor, Dedworth, and Clewer. From period properties near the castle to modern family homes, we\'ve seen and cleaned it all.',
-      'Our Windsor clients love the consistency — same team, same standards, every visit. We\'re fully insured and DBS checked, which matters when you\'re letting someone into your home. Many of our Windsor clients have been with us for years.',
+      'Windsor is one of our most popular areas. We clean homes and businesses throughout the town and surrounding villages including Old Windsor, Dedworth, and Clewer. From period properties near the castle to modern family homes, we tailor our approach to suit.',
+      'Our Windsor clients love the consistency — same team, same standards, every visit. We\'re fully insured and DBS checked, which matters when you\'re letting someone into your home.',
     ],
     areas: ['Windsor Town Centre', 'Old Windsor', 'Dedworth', 'Clewer', 'Clewer Village', 'Windsor Great Park area'],
     reviews: [
@@ -95,7 +95,7 @@ export const locations = [
       'Professional cleaning for homes and businesses across Maidenhead. Same standards, same reliability — just a short drive from our Slough base.',
     intro: [
       'Maidenhead is a natural extension of our Slough and Windsor coverage. We serve homes and businesses throughout the town, from the riverside properties near the Thames to the residential areas around Bray and Cox Green.',
-      'Our Maidenhead clients appreciate that we\'re a local Berkshire company — not a faceless franchise. You get the same team, the same standards, and a personal service. We know the area and we\'re invested in doing a brilliant job every time.',
+      'Our Maidenhead clients appreciate that we\'re a local, independent Berkshire company — not a faceless franchise. You get the same team, the same standards, and a personal service every time.',
     ],
     areas: ['Maidenhead Town Centre', 'Bray', 'Cox Green', 'Furze Platt', 'Pinkneys Green', 'Boyne Hill'],
     reviews: [
