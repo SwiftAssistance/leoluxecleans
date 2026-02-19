@@ -55,7 +55,7 @@ const ContactPage = () => {
     <>
       <Seo
         title="Contact Us — Free Cleaning Quote in Slough & Berkshire"
-        description="Get a free cleaning quote from Leo Luxe Cleans. Call 01753 000 000 or fill in our form. We cover Slough, Windsor, Langley & Berkshire. Response within 2 hours."
+        description="Get a free cleaning quote from Leo Luxe Cleans. Call 07845 239774 or fill in our form. We cover Slough, Windsor, Langley & Berkshire. Response within 2 hours."
         canonical="/contact"
         schema={[
           createFaqSchema(faqs),
@@ -76,11 +76,11 @@ const ContactPage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
             <a
-              href="tel:01753000000"
+              href="tel:07845239774"
               className="flex items-center gap-3 text-white hover:text-gold transition-colors"
             >
               <Phone size={16} className="text-gold" />
-              <span className="text-sm font-medium">01753 000 000</span>
+              <span className="text-sm font-medium">07845 239774</span>
               <span className="text-neutral-500 text-xs">Mon–Sat 8am–7pm</span>
             </a>
             <a

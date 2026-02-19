@@ -61,7 +61,7 @@ export const localBusinessSchema = {
   name: 'Leo Luxe Cleans',
   description: DEFAULT_DESCRIPTION,
   url: BASE_URL,
-  telephone: '+441753000000',
+  telephone: '+447845239774',
   email: 'info@leoluxecleans.com',
   address: {
     '@type': 'PostalAddress',
@@ -138,7 +138,7 @@ export const createLocationSchema = (location) => ({
   name: `Leo Luxe Cleans — ${location.name}`,
   description: location.metaDescription,
   url: `${BASE_URL}/areas/${location.slug}`,
-  telephone: '+441753000000',
+  telephone: '+447845239774',
   email: 'info@leoluxecleans.com',
   address: {
     '@type': 'PostalAddress',
