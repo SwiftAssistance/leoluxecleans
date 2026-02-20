@@ -79,13 +79,13 @@ const Contact = () => {
               {contactItems.map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-4 py-3 px-4 rounded-lg border border-surface-border/40 hover:border-gold/20 transition-colors"
+                  className="flex items-center gap-4 py-3 px-4 rounded-lg bg-surface-dark border border-surface-border/50 hover:border-gold/30 transition-colors"
                 >
                   <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
                     {item.icon}
                   </div>
                   <div>
-                    <p className="text-neutral-500 text-[10px] uppercase tracking-wide">
+                    <p className="text-neutral-400 text-[10px] uppercase tracking-wide">
                       {item.label}
                     </p>
                     {item.href ? (
@@ -115,7 +115,7 @@ const Contact = () => {
 
           {/* Right form */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-surface-border/40 p-8 lg:p-10">
+            <div className="rounded-2xl bg-surface-dark border border-surface-border/50 p-8 lg:p-10">
               {formSubmitted ? (
                 <div className="flex flex-col items-center justify-center text-center py-16">
                   <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mb-6 animate-bounce-once">

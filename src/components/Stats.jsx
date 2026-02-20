@@ -17,15 +17,15 @@ const Stats = () => {
   return (
     <section
       ref={ref}
-      className="relative py-14 lg:py-16 bg-surface-dark border-y border-surface-border/30"
+      className="relative py-14 lg:py-16 bg-surface-dark border-y border-surface-border/50"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-surface-border/50">
           {stats.map((stat, i) => (
             <div
               key={i}
               ref={stat.ref || undefined}
-              className={`text-center transition-all duration-500 ${
+              className={`text-center lg:px-12 transition-all duration-500 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
               style={{ transitionDelay: `${i * 80}ms` }}
@@ -33,7 +33,7 @@ const Stats = () => {
               <span className="heading-serif text-4xl sm:text-5xl lg:text-6xl text-gold block mb-1">
                 {stat.value}
               </span>
-              <span className="label-caps text-[10px] text-neutral-500">
+              <span className="label-caps text-[10px] text-neutral-400">
                 {stat.label}
               </span>
             </div>

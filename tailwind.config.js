@@ -19,10 +19,10 @@ export default {
         },
         surface: {
           black: '#0B0B0B',
-          dark: '#111111',
-          card: '#1A1A1A',
-          border: '#262626',
-          light: '#1E1E1E',
+          dark: '#1A1A1A',    // was #111111 — clearly visible vs black sections
+          card: '#252525',    // was #1A1A1A — cards pop from section backgrounds
+          border: '#585858',  // was #262626 — borders legible at /40 opacity
+          light: '#2A2A2A',   // was #1E1E1E
         },
       },
       boxShadow: {

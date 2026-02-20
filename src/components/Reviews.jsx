@@ -111,7 +111,7 @@ const Reviews = () => {
           }`}
         >
           <div
-            className="border border-surface-border/40 rounded-2xl p-8 lg:p-12 relative overflow-hidden"
+            className="bg-surface-dark border border-surface-border/60 rounded-2xl p-8 lg:p-12 relative overflow-hidden"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -119,7 +119,7 @@ const Reviews = () => {
             <Quote size={32} className="text-gold/20 mb-6" />
 
             {/* Progress bar */}
-            <div className="absolute top-0 left-0 right-0 h-0.5 bg-surface-border/30">
+            <div className="absolute top-0 left-0 right-0 h-0.5 bg-surface-border/50">
               <div
                 className="h-full bg-gradient-to-r from-gold to-gold-light transition-all duration-500"
                 style={{ width: `${((current + 1) / reviews.length) * 100}%` }}

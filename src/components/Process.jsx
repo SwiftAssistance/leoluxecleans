@@ -52,14 +52,14 @@ const Process = () => {
                 style={{ transitionDelay: `${200 + i * 150}ms` }}
               >
                 <div className="flex items-start gap-6">
-                  <span className="heading-serif text-5xl lg:text-6xl text-neutral-800 leading-none select-none">
+                  <span className="heading-serif text-5xl lg:text-6xl text-gold/25 leading-none select-none">
                     {step.num}
                   </span>
                   <div>
                     <h3 className="text-white font-semibold text-lg mb-2">
                       {step.title}
                     </h3>
-                    <p className="text-neutral-500 text-sm leading-relaxed max-w-md">
+                    <p className="text-neutral-400 text-sm leading-relaxed max-w-md">
                       {step.desc}
                     </p>
                   </div>
