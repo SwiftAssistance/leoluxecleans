@@ -124,11 +124,11 @@ const LocationPage = () => {
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <a
-                  href="tel:01753000000"
+                  href="tel:07845239774"
                   className="btn-outline-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2"
-                  aria-label="Call us at 01753 000 000"
+                  aria-label="Call us at 07845 239774"
                 >
-                  <Phone size={16} /> 01753 000 000
+                  <Phone size={16} /> 07845 239774
                 </a>
               </div>
             </div>
@@ -346,11 +346,11 @@ const LocationPage = () => {
               Get a Free Quote <ArrowRight size={14} />
             </Link>
             <a
-              href="tel:01753000000"
+              href="tel:07845239774"
               className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
-              aria-label="Call us at 01753 000 000"
+              aria-label="Call us at 07845 239774"
             >
-              <Phone size={16} /> 01753 000 000
+              <Phone size={16} /> 07845 239774
             </a>
           </div>
         </div>

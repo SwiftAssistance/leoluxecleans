@@ -30,9 +30,9 @@ const CtaBand = () => {
             Get a Quote
           </Link>
           <a
-            href="tel:01753000000"
+            href="tel:07845239774"
             className="btn-outline-gold label-caps px-8 py-4 rounded-lg whitespace-nowrap flex items-center justify-center gap-2"
-            aria-label="Call us at 01753 000 000"
+            aria-label="Call us at 07845 239774"
           >
             <Phone size={14} /> Call Now
           </a>

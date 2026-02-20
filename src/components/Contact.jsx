@@ -13,8 +13,8 @@ const contactItems = [
   {
     icon: <Phone size={18} />,
     label: 'Call us',
-    value: '01753 000 000',
-    href: 'tel:01753000000',
+    value: '07845 239774',
+    href: 'tel:07845239774',
   },
   {
     icon: <Mail size={18} />,

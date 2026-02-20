@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Phone, Menu, X } from 'lucide-react';
 
@@ -13,6 +13,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const isScrolledRef = useRef(false);
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -28,7 +29,13 @@ const Navbar = () => {
   }, [mobileMenuOpen]);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 50;
+      if (scrolled !== isScrolledRef.current) {
+        isScrolledRef.current = scrolled;
+        setIsScrolled(scrolled);
+      }
+    };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -37,7 +44,7 @@ const Navbar = () => {
     const handleResize = () => {
       if (window.innerWidth >= 768) setMobileMenuOpen(false);
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -45,7 +52,7 @@ const Navbar = () => {
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-surface-black/95 backdrop-blur-md py-3 border-b border-surface-border/50'
+          ? 'bg-surface-black py-3 border-b border-surface-border/50'
           : 'bg-transparent py-5'
       }`}
       role="navigation"
@@ -87,11 +94,11 @@ const Navbar = () => {
             </NavLink>
           ))}
           <a
-            href="tel:01753000000"
+            href="tel:07845239774"
             className="label-caps text-neutral-400 hover:text-gold transition-colors duration-300 flex items-center gap-2"
-            aria-label="Call us at 01753 000 000"
+            aria-label="Call us at 07845 239774"
           >
-            <Phone size={14} /> 01753 000 000
+            <Phone size={14} /> 07845 239774
           </a>
           <Link
             to="/contact"
@@ -112,12 +119,14 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          mobileMenuOpen ? 'max-h-[calc(100vh-4rem)] opacity-100' : 'max-h-0 opacity-0'
+        className={`md:hidden absolute top-full left-0 right-0 transition-all duration-300 ${
+          mobileMenuOpen
+            ? 'opacity-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 -translate-y-2 pointer-events-none'
         }`}
         aria-hidden={!mobileMenuOpen}
       >
-        <div className="bg-surface-dark/98 backdrop-blur-md border-t border-surface-border/50">
+        <div className="bg-surface-dark border-t border-surface-border/50">
           <div className="px-6 py-8 flex flex-col gap-6">
             {navLinks.map((link) => (
               <NavLink
@@ -134,11 +143,11 @@ const Navbar = () => {
               </NavLink>
             ))}
             <a
-              href="tel:01753000000"
+              href="tel:07845239774"
               className="label-caps text-gold flex items-center gap-2"
-              aria-label="Call us at 01753 000 000"
+              aria-label="Call us at 07845 239774"
             >
-              <Phone size={14} /> 01753 000 000
+              <Phone size={14} /> 07845 239774
             </a>
             <Link
               to="/contact"
