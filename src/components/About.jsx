@@ -67,7 +67,7 @@ const About = () => {
             </div>
 
             {/* Stats as text, not badges */}
-            <div className="grid grid-cols-3 gap-px mt-px">
+            <div className="grid grid-cols-3 gap-px mt-px bg-surface-border/20">
               {[
                 { val: '75+', label: 'Homes' },
                 { val: '5.0', label: 'Rating' },
@@ -75,12 +75,12 @@ const About = () => {
               ].map((s, i) => (
                 <div
                   key={i}
-                  className="bg-surface-dark/80 py-5 text-center"
+                  className="bg-surface-card py-5 text-center"
                 >
-                  <span className="heading-serif text-2xl lg:text-3xl text-white block">
+                  <span className="heading-serif text-2xl lg:text-3xl text-gold block">
                     {s.val}
                   </span>
-                  <span className="text-neutral-600 text-[10px] label-caps">
+                  <span className="text-neutral-400 text-[10px] label-caps">
                     {s.label}
                   </span>
                 </div>

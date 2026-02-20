@@ -53,8 +53,8 @@ const Services = () => {
               }`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="relative py-6 lg:py-8 flex items-start lg:items-center gap-4 lg:gap-8">
-                <span className="text-neutral-700 text-sm font-mono w-8 flex-shrink-0 pt-1 lg:pt-0">
+              <div className="relative py-6 lg:py-8 flex items-start lg:items-center gap-4 lg:gap-8 px-3 -mx-3 rounded-lg group-hover:bg-surface-dark/60 transition-colors duration-300">
+                <span className="text-neutral-600 text-sm font-mono w-8 flex-shrink-0 pt-1 lg:pt-0">
                   {s.num}
                 </span>
 
@@ -69,7 +69,7 @@ const Services = () => {
                       </span>
                     )}
                   </div>
-                  <p className="text-neutral-500 text-sm mt-1 lg:mt-0 lg:max-w-md">
+                  <p className="text-neutral-400 text-sm mt-1 lg:mt-0 lg:max-w-md">
                     {s.desc}
                   </p>
                 </div>

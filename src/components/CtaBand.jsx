@@ -7,10 +7,14 @@ const CtaBand = () => {
   const [ref, isVisible] = useScrollReveal({ threshold: 0.3 });
 
   return (
-    <section className="relative py-16 lg:py-20 bg-surface-dark border-y border-surface-border/30">
+    <section className="relative py-16 lg:py-20 bg-surface-dark border-y border-surface-border/50 overflow-hidden">
+      {/* Subtle gold radial glow */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[600px] h-[200px] bg-gold/5 rounded-full blur-[80px]" />
+      </div>
       <div
         ref={ref}
-        className={`max-w-5xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left transition-all duration-500 ${
+        className={`relative max-w-5xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left transition-all duration-500 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
         }`}
       >
