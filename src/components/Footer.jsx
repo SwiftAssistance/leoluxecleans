@@ -71,9 +71,16 @@ const Footer = () => {
             </p>
             <div className="space-y-3 text-sm">
               <a
+                href="tel:01753257118"
+                className="flex items-center gap-3 text-neutral-500 hover:text-gold transition-colors"
+                aria-label="Call our landline at 01753 257118"
+              >
+                <Phone size={14} className="text-gold" /> 01753 257118
+              </a>
+              <a
                 href="tel:07845239774"
                 className="flex items-center gap-3 text-neutral-500 hover:text-gold transition-colors"
-                aria-label="Call us at 07845 239774"
+                aria-label="Call our mobile at 07845 239774"
               >
                 <Phone size={14} className="text-gold" /> 07845 239774
               </a>

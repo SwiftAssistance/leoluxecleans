@@ -75,7 +75,7 @@ export const localBusinessSchema = {
   name: 'Leo Luxe Cleans',
   description: DEFAULT_DESCRIPTION,
   url: BASE_URL,
-  telephone: '+447845239774',
+  telephone: '+441753257118',
   email: 'info@leoluxecleans.com',
   logo: `${BASE_URL}/logo-dark.png`,
   image: `${BASE_URL}/logo-dark.png`,
@@ -193,7 +193,7 @@ export const organizationSchema = {
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+447845239774',
+    telephone: '+441753257118',
     contactType: 'customer service',
     email: 'info@leoluxecleans.com',
     areaServed: 'GB',
@@ -242,7 +242,7 @@ export const createServiceSchema = (service) => ({
     '@type': 'LocalBusiness',
     name: 'Leo Luxe Cleans',
     '@id': `${BASE_URL}/#business`,
-    telephone: '+447845239774',
+    telephone: '+441753257118',
   },
   areaServed: [
     { '@type': 'City', name: 'Slough' },
@@ -282,7 +282,7 @@ export const createLocationSchema = (location) => ({
   name: `Leo Luxe Cleans — ${location.name}`,
   description: location.metaDescription,
   url: `${BASE_URL}/areas/${location.slug}`,
-  telephone: '+447845239774',
+  telephone: '+441753257118',
   email: 'info@leoluxecleans.com',
   logo: `${BASE_URL}/logo-dark.png`,
   address: {
