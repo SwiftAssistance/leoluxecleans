@@ -26,13 +26,21 @@ const serviceLinks = [
   { name: 'Specialist Cleaning', to: '/services/specialist-cleaning' },
 ];
 
-const areaLinks = [
+const berkshireLinks = [
   { name: 'Slough', to: '/areas/slough' },
   { name: 'Windsor', to: '/areas/windsor' },
   { name: 'Langley', to: '/areas/langley' },
   { name: 'Maidenhead', to: '/areas/maidenhead' },
+  { name: 'Ascot', to: '/areas/ascot' },
+  { name: 'Bracknell', to: '/areas/bracknell' },
   { name: 'Eton', to: '/areas/eton' },
   { name: 'Burnham', to: '/areas/burnham' },
+];
+
+const westLondonLinks = [
+  { name: 'Hayes', to: '/areas/hayes' },
+  { name: 'Southall', to: '/areas/southall' },
+  { name: 'Uxbridge', to: '/areas/uxbridge' },
 ];
 
 const socialLinks = [
@@ -45,7 +53,7 @@ const Footer = () => {
   return (
     <footer className="bg-surface-dark border-t border-surface-border/30 pb-20 md:pb-0">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-10 lg:gap-8">
           {/* Logo & description */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-2">
             <Link to="/" className="inline-block mb-6" aria-label="Leo Luxe Cleans — Home">
@@ -114,9 +122,25 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="label-caps text-neutral-300 mb-6">Areas</h4>
+            <h4 className="label-caps text-neutral-300 mb-6">Berkshire</h4>
             <ul className="space-y-3">
-              {areaLinks.map((link) => (
+              {berkshireLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.to}
+                    className="text-neutral-500 hover:text-gold transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="label-caps text-neutral-300 mb-6">West London</h4>
+            <ul className="space-y-3">
+              {westLondonLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.to}

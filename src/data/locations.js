@@ -157,5 +157,130 @@ export const locations = [
   },
 ];
 
+  // ==================== WEST LONDON ====================
+  {
+    slug: 'hayes',
+    name: 'Hayes',
+    county: 'West London',
+    postcodes: 'UB3, UB4',
+    metaTitle: 'Cleaning Services in Hayes, West London',
+    metaDescription:
+      'Professional cleaning services in Hayes, West London (UB3, UB4). Home cleaning, deep cleans, end of tenancy, office cleaning. Local team, DBS checked, fully insured. Free quotes.',
+    heroDesc:
+      'Reliable cleaning services for homes and businesses across Hayes and surrounding areas. Just a short drive from our Slough base — fast response, same high standards.',
+    intro: [
+      'Hayes sits right on the border with Slough, making it one of our most natural service areas. Whether you\'re in Hayes Town, Hayes End, or Yeading, our team is never far away. We serve both residential and commercial clients throughout UB3 and UB4.',
+      'From family homes to offices near the industrial estates, we bring the same professional approach to every job. Our clients in Hayes appreciate the speed of response and the consistency — same team, same standards, every visit.',
+    ],
+    areas: ['Hayes Town', 'Hayes End', 'Yeading', 'Wood End', 'Bulls Cross', 'Townfield'],
+    reviews: [
+      {
+        text: 'Brilliant service — they came the same week I called and the house was spotless. Really friendly team too. Highly recommend.',
+        author: 'Aisha Mohammed',
+        role: 'Homeowner, Hayes',
+        initial: 'A',
+      },
+    ],
+  },
+  {
+    slug: 'southall',
+    name: 'Southall',
+    county: 'West London',
+    postcodes: 'UB1, UB2',
+    metaTitle: 'Cleaning Services in Southall, West London',
+    metaDescription:
+      'Professional cleaning services in Southall, West London (UB1, UB2). Home cleaning, deep cleans, end of tenancy, office cleaning. DBS checked, eco-friendly. Free quotes.',
+    heroDesc:
+      'Professional cleaning across Southall and surrounding West London areas. Trusted by families and businesses throughout UB1 and UB2.',
+    intro: [
+      'Southall is one of West London\'s most vibrant communities, and we\'re proud to serve it. We cover all of UB1 and UB2 — from homes on the Broadway to residential streets in Norwood Green and Dormers Wells.',
+      'Our team treats every property with care and respect. Whether it\'s a weekly home clean, an end of tenancy, or a commercial clean for a business premises, we bring the same high standards every single time.',
+    ],
+    areas: ['Southall Broadway', 'Norwood Green', 'Dormers Wells', 'Lady Margaret', 'Havelock', 'Osterley Park area'],
+    reviews: [
+      {
+        text: 'Used them for an end of tenancy clean in Southall. The landlord was delighted — full deposit back. Can\'t fault them at all.',
+        author: 'Gurpreet Singh',
+        role: 'Tenant, Southall',
+        initial: 'G',
+      },
+    ],
+  },
+  {
+    slug: 'uxbridge',
+    name: 'Uxbridge',
+    county: 'West London',
+    postcodes: 'UB8, UB10',
+    metaTitle: 'Cleaning Services in Uxbridge, West London',
+    metaDescription:
+      'Professional cleaning services in Uxbridge, West London (UB8, UB10). Home cleaning, deep cleans, end of tenancy, office cleaning. Fully insured, DBS checked. Free quotes.',
+    heroDesc:
+      'Covering Uxbridge, Hillingdon, Cowley and surrounding areas. Reliable cleaning for homes and businesses across West London.',
+    intro: [
+      'Uxbridge is a natural extension of our Slough and West London coverage. We serve homes and offices throughout UB8 and UB10 — from Uxbridge Town Centre to Hillingdon, Cowley, and Ickenham. It\'s a short, easy drive from our base and we have a growing list of regular clients here.',
+      'Uxbridge has a mix of modern apartments, family homes, and commercial offices. We tailor our service to each. Many of our Uxbridge clients started with a one-off deep clean and switched to a regular booking after seeing the results.',
+    ],
+    areas: ['Uxbridge Town Centre', 'Hillingdon', 'Cowley', 'Ickenham', 'Ruislip Manor', 'Denham'],
+    reviews: [
+      {
+        text: 'Booked a deep clean for our office in Uxbridge. The team were professional, discreet, and the result was excellent. We now use them every month.',
+        author: 'Rachel Davies',
+        role: 'Office Manager, Uxbridge',
+        initial: 'R',
+      },
+    ],
+  },
+
+  // ==================== MORE BERKSHIRE ====================
+  {
+    slug: 'ascot',
+    name: 'Ascot',
+    county: 'Berkshire',
+    postcodes: 'SL5',
+    metaTitle: 'Cleaning Services in Ascot, Berkshire',
+    metaDescription:
+      'Professional cleaning services in Ascot, Berkshire (SL5). Home cleaning, deep cleans, end of tenancy. Discreet, fully insured team. Trusted by homeowners across Ascot, Sunninghill & Sunningdale.',
+    heroDesc:
+      'Discreet, high-standard cleaning for homes across Ascot, Sunninghill, and Sunningdale. Trusted by homeowners throughout the SL5 area.',
+    intro: [
+      'Ascot is one of Berkshire\'s most prestigious areas, and we understand the level of care and discretion that comes with that. From period homes in Ascot Village to modern properties in Sunningdale and Sunninghill, we tailor our approach to each client and property.',
+      'We\'re just a short drive from Windsor, which means fast response times and the same reliable team on every visit. Our Ascot clients often value consistency and trust above all else — and that\'s exactly what we deliver.',
+    ],
+    areas: ['Ascot Village', 'South Ascot', 'Sunninghill', 'Sunningdale', 'Cheapside', 'North Ascot'],
+    reviews: [
+      {
+        text: 'Exceptional attention to detail. Our home in Sunningdale is always spotless after Leo Luxe visit. Wouldn\'t use anyone else.',
+        author: 'Victoria Palmer',
+        role: 'Homeowner, Sunningdale',
+        initial: 'V',
+      },
+    ],
+  },
+  {
+    slug: 'bracknell',
+    name: 'Bracknell',
+    county: 'Berkshire',
+    postcodes: 'RG12',
+    metaTitle: 'Cleaning Services in Bracknell, Berkshire',
+    metaDescription:
+      'Professional cleaning services in Bracknell, Berkshire (RG12). Home cleaning, deep cleans, end of tenancy, office cleaning. Local, DBS-checked team. Fully insured. Free quotes.',
+    heroDesc:
+      'Cleaning services for homes and businesses across Bracknell and surrounding Berkshire areas. Same-week availability, no contracts.',
+    intro: [
+      'Bracknell is a growing town with a wide mix of properties — from newer estates in Martins Heron and Great Hollands to office spaces in the town centre. We cover all of RG12 and bring the same standards our Slough and Windsor clients know and trust.',
+      'Whether you\'re a family looking for a regular clean, a landlord needing an end of tenancy, or a business wanting office cleaning, we\'ll give you an honest quote and a brilliant result. No fuss, no contracts.',
+    ],
+    areas: ['Bracknell Town Centre', 'Sandhurst', 'Crowthorne', 'Martins Heron', 'Great Hollands', 'Wildridings'],
+    reviews: [
+      {
+        text: 'Had a full deep clean done on our Bracknell property before we put it on the market. They did an incredible job — the estate agent actually commented on how clean it was.',
+        author: 'Steven Wright',
+        role: 'Homeowner, Bracknell',
+        initial: 'S',
+      },
+    ],
+  },
+];
+
 export const getLocationBySlug = (slug) =>
   locations.find((l) => l.slug === slug);
