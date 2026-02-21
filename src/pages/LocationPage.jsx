@@ -202,7 +202,7 @@ const LocationPage = () => {
             {services.map((s, i) => (
               <Link
                 key={s.slug}
-                to={`/services/${s.slug}`}
+                to={`/areas/${location.slug}/${s.slug}`}
                 className={`rounded-xl border border-surface-border/40 p-6 group block hover:border-gold/20 transition-all duration-500 ${
                   servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
