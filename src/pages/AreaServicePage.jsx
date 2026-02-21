@@ -44,13 +44,17 @@ const AreaServicePage = () => {
   const otherServices = services.filter((s) => s.slug !== serviceSlug);
   const otherLocations = locations.filter((l) => l.slug !== areaSlug);
 
-  const metaTitle = `${service.title} in ${location.name}, ${location.county}`;
-  const metaDescription = `Professional ${service.title.toLowerCase()} in ${location.name}, ${location.county} (${location.postcodes}). ${service.heroDesc} Local team, DBS checked, fully insured. Free quotes.`;
+  // Unique, keyword-rich meta description per area+service combination
+  const priceClause = service.priceFrom ? ` From £${service.priceFrom}.` : '';
+  const metaTitle = `${service.title} in ${location.name} | Leo Luxe Cleans`;
+  const metaDescription = `Looking for ${service.title.toLowerCase()} in ${location.name}? Leo Luxe Cleans covers ${location.postcodes} and all of ${location.county}.${priceClause} DBS-checked, eco-friendly, 5-star rated. Same-week availability. Free quotes — call 07845 239774.`;
 
   const areaServiceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    '@id': `${BASE_URL}/areas/${areaSlug}/${serviceSlug}#service`,
     name: `${service.title} in ${location.name}`,
+    alternateName: service.tagline,
     description: metaDescription,
     url: `${BASE_URL}/areas/${areaSlug}/${serviceSlug}`,
     provider: {
@@ -59,16 +63,38 @@ const AreaServicePage = () => {
       '@id': `${BASE_URL}/#business`,
       telephone: '+447845239774',
     },
-    areaServed: {
-      '@type': 'City',
-      name: location.name,
-    },
+    areaServed: [
+      { '@type': 'City', name: location.name },
+      ...location.areas.map((a) => ({ '@type': 'Place', name: a })),
+    ],
     ...(service.priceFrom && {
       offers: {
         '@type': 'Offer',
         priceCurrency: 'GBP',
         price: service.priceFrom,
+        availability: 'https://schema.org/InStock',
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          priceCurrency: 'GBP',
+          price: service.priceFrom,
+          description: `Starting from £${service.priceFrom}`,
+        },
       },
+    }),
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      reviewCount: '200',
+      bestRating: '5',
+      worstRating: '1',
+    },
+    ...(location.reviews.length > 0 && {
+      review: location.reviews.map((r) => ({
+        '@type': 'Review',
+        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+        author: { '@type': 'Person', name: r.author },
+        reviewBody: r.text,
+      })),
     }),
   };
 
@@ -85,7 +111,7 @@ const AreaServicePage = () => {
   return (
     <>
       <Seo
-        title={metaTitle}
+        title={`${service.title} in ${location.name}, ${location.county}`}
         description={metaDescription}
         canonical={`/areas/${areaSlug}/${serviceSlug}`}
         schema={combinedSchema}

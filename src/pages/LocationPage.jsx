@@ -51,8 +51,8 @@ const LocationPage = () => {
   return (
     <>
       <Seo
-        title={location.metaTitle}
-        description={location.metaDescription}
+        title={`Cleaning Services in ${location.name}, ${location.county} | Leo Luxe Cleans`}
+        description={`Trusted cleaning company in ${location.name} (${location.postcodes}). Home cleaning, deep cleans, end of tenancy & office cleaning. DBS-checked, eco-friendly, 5-star rated. Same-week availability. Free quotes — call 07845 239774.`}
         canonical={`/areas/${location.slug}`}
         schema={combinedSchema}
       />

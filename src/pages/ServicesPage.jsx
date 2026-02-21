@@ -13,7 +13,7 @@ import {
   Phone,
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
-import Seo, { breadcrumbSchema } from '../components/Seo';
+import Seo, { breadcrumbSchema, createItemListSchema } from '../components/Seo';
 import { services } from '../data/services';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -33,13 +33,16 @@ const ServicesPage = () => {
   return (
     <>
       <Seo
-        title="Our Services — Professional Cleaning in Slough & Berkshire"
-        description="Home cleaning, deep cleans, end of tenancy, office cleaning, and more. Fully insured, DBS checked team in Slough, Windsor & Berkshire. Free quotes."
+        title="Cleaning Services in Slough, Windsor & Berkshire"
+        description="Home cleaning from £60, deep cleans from £120, end of tenancy from £150, office cleaning and more. DBS-checked, eco-friendly, 5-star rated team serving Slough, Windsor, Langley, Maidenhead & surrounding areas. Free quotes."
         canonical="/services"
-        schema={breadcrumbSchema([
-          { name: 'Home', url: '/' },
-          { name: 'Services' },
-        ])}
+        schema={[
+          createItemListSchema(services),
+          breadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Services' },
+          ]),
+        ]}
       />
       <PageHero
         title={<>Our <span className="text-gold-gradient">Services</span></>}
