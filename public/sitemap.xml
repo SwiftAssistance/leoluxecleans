@@ -16,13 +16,20 @@
   <url><loc>https://leoluxecleans.co.uk/services/after-events</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://leoluxecleans.co.uk/services/specialist-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- ==================== LOCATION PAGES ==================== -->
+  <!-- ==================== BERKSHIRE — LOCATION PAGES ==================== -->
   <url><loc>https://leoluxecleans.co.uk/areas/slough</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://leoluxecleans.co.uk/areas/windsor</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://leoluxecleans.co.uk/areas/langley</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://leoluxecleans.co.uk/areas/maidenhead</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/ascot</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/bracknell</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://leoluxecleans.co.uk/areas/eton</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://leoluxecleans.co.uk/areas/burnham</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+
+  <!-- ==================== WEST LONDON — LOCATION PAGES ==================== -->
+  <url><loc>https://leoluxecleans.co.uk/areas/hayes</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/southall</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/uxbridge</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- ==================== SLOUGH + SERVICE PAGES ==================== -->
   <url><loc>https://leoluxecleans.co.uk/areas/slough/home-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
@@ -56,6 +63,22 @@
   <url><loc>https://leoluxecleans.co.uk/areas/maidenhead/after-events</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://leoluxecleans.co.uk/areas/maidenhead/specialist-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
+  <!-- ==================== ASCOT + SERVICE PAGES ==================== -->
+  <url><loc>https://leoluxecleans.co.uk/areas/ascot/home-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/ascot/deep-clean</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/ascot/end-of-tenancy</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/ascot/office-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/ascot/after-events</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/ascot/specialist-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+
+  <!-- ==================== BRACKNELL + SERVICE PAGES ==================== -->
+  <url><loc>https://leoluxecleans.co.uk/areas/bracknell/home-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/bracknell/deep-clean</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/bracknell/end-of-tenancy</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/bracknell/office-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/bracknell/after-events</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/bracknell/specialist-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
   <!-- ==================== ETON + SERVICE PAGES ==================== -->
   <url><loc>https://leoluxecleans.co.uk/areas/eton/home-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://leoluxecleans.co.uk/areas/eton/deep-clean</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
@@ -71,5 +94,29 @@
   <url><loc>https://leoluxecleans.co.uk/areas/burnham/office-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://leoluxecleans.co.uk/areas/burnham/after-events</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://leoluxecleans.co.uk/areas/burnham/specialist-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+
+  <!-- ==================== HAYES + SERVICE PAGES ==================== -->
+  <url><loc>https://leoluxecleans.co.uk/areas/hayes/home-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/hayes/deep-clean</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/hayes/end-of-tenancy</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/hayes/office-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/hayes/after-events</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/hayes/specialist-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+
+  <!-- ==================== SOUTHALL + SERVICE PAGES ==================== -->
+  <url><loc>https://leoluxecleans.co.uk/areas/southall/home-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/southall/deep-clean</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/southall/end-of-tenancy</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/southall/office-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/southall/after-events</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/southall/specialist-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+
+  <!-- ==================== UXBRIDGE + SERVICE PAGES ==================== -->
+  <url><loc>https://leoluxecleans.co.uk/areas/uxbridge/home-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/uxbridge/deep-clean</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/uxbridge/end-of-tenancy</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/uxbridge/office-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/uxbridge/after-events</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://leoluxecleans.co.uk/areas/uxbridge/specialist-cleaning</loc><lastmod>2025-02-01</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
 
 </urlset>
