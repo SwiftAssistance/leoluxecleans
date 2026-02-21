@@ -52,7 +52,7 @@ const LocationPage = () => {
     <>
       <Seo
         title={`Cleaning Services in ${location.name}, ${location.county} | Leo Luxe Cleans`}
-        description={`Trusted cleaning company in ${location.name} (${location.postcodes}). Home cleaning, deep cleans, end of tenancy & office cleaning. DBS-checked, eco-friendly, 5-star rated. Same-week availability. Free quotes — call 07845 239774.`}
+        description={`Trusted cleaning company in ${location.name} (${location.postcodes}). Home cleaning, deep cleans, end of tenancy & office cleaning. DBS-checked, eco-friendly, 5-star rated. Same-week availability. Free quotes — call 01753 257118.`}
         canonical={`/areas/${location.slug}`}
         schema={combinedSchema}
       />
@@ -124,11 +124,11 @@ const LocationPage = () => {
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <a
-                  href="tel:07845239774"
+                  href="tel:01753257118"
                   className="btn-outline-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2"
-                  aria-label="Call us at 07845 239774"
+                  aria-label="Call our landline at 01753 257118"
                 >
-                  <Phone size={16} /> 07845 239774
+                  <Phone size={16} /> 01753 257118
                 </a>
               </div>
             </div>
@@ -346,11 +346,11 @@ const LocationPage = () => {
               Get a Free Quote <ArrowRight size={14} />
             </Link>
             <a
-              href="tel:07845239774"
+              href="tel:01753257118"
               className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
-              aria-label="Call us at 07845 239774"
+              aria-label="Call our landline at 01753 257118"
             >
-              <Phone size={16} /> 07845 239774
+              <Phone size={16} /> 01753 257118
             </a>
           </div>
         </div>

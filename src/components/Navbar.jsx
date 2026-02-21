@@ -93,13 +93,23 @@ const Navbar = () => {
               )}
             </NavLink>
           ))}
-          <a
-            href="tel:07845239774"
-            className="label-caps text-neutral-400 hover:text-gold transition-colors duration-300 flex items-center gap-2"
-            aria-label="Call us at 07845 239774"
-          >
-            <Phone size={14} /> 07845 239774
-          </a>
+          <div className="flex items-center gap-4">
+            <a
+              href="tel:01753257118"
+              className="label-caps text-neutral-400 hover:text-gold transition-colors duration-300 flex items-center gap-2"
+              aria-label="Call our landline at 01753 257118"
+            >
+              <Phone size={14} /> 01753 257118
+            </a>
+            <span className="text-neutral-600">|</span>
+            <a
+              href="tel:07845239774"
+              className="label-caps text-neutral-400 hover:text-gold transition-colors duration-300 flex items-center gap-2"
+              aria-label="Call our mobile at 07845 239774"
+            >
+              <Phone size={14} /> 07845 239774
+            </a>
+          </div>
           <Link
             to="/contact"
             className="btn-gold label-caps px-6 py-2.5 rounded-lg"
@@ -143,9 +153,16 @@ const Navbar = () => {
               </NavLink>
             ))}
             <a
-              href="tel:07845239774"
+              href="tel:01753257118"
               className="label-caps text-gold flex items-center gap-2"
-              aria-label="Call us at 07845 239774"
+              aria-label="Call our landline at 01753 257118"
+            >
+              <Phone size={14} /> 01753 257118
+            </a>
+            <a
+              href="tel:07845239774"
+              className="label-caps text-neutral-400 hover:text-white flex items-center gap-2"
+              aria-label="Call our mobile at 07845 239774"
             >
               <Phone size={14} /> 07845 239774
             </a>

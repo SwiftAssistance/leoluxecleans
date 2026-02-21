@@ -47,7 +47,7 @@ const AreaServicePage = () => {
   // Unique, keyword-rich meta description per area+service combination
   const priceClause = service.priceFrom ? ` From £${service.priceFrom}.` : '';
   const metaTitle = `${service.title} in ${location.name} | Leo Luxe Cleans`;
-  const metaDescription = `Looking for ${service.title.toLowerCase()} in ${location.name}? Leo Luxe Cleans covers ${location.postcodes} and all of ${location.county}.${priceClause} DBS-checked, eco-friendly, 5-star rated. Same-week availability. Free quotes — call 07845 239774.`;
+  const metaDescription = `Looking for ${service.title.toLowerCase()} in ${location.name}? Leo Luxe Cleans covers ${location.postcodes} and all of ${location.county}.${priceClause} DBS-checked, eco-friendly, 5-star rated. Same-week availability. Free quotes — call 01753 257118.`;
 
   const areaServiceSchema = {
     '@context': 'https://schema.org',
@@ -61,7 +61,7 @@ const AreaServicePage = () => {
       '@type': 'LocalBusiness',
       name: 'Leo Luxe Cleans',
       '@id': `${BASE_URL}/#business`,
-      telephone: '+447845239774',
+      telephone: '+441753257118',
     },
     areaServed: [
       { '@type': 'City', name: location.name },
@@ -241,11 +241,11 @@ const AreaServicePage = () => {
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <a
-                  href="tel:07845239774"
+                  href="tel:01753257118"
                   className="btn-outline-gold label-caps px-6 py-3.5 rounded-lg w-full text-center flex items-center justify-center gap-2"
-                  aria-label="Call us at 07845 239774"
+                  aria-label="Call our landline at 01753 257118"
                 >
-                  <Phone size={14} /> 07845 239774
+                  <Phone size={14} /> 01753 257118
                 </a>
 
                 <div className="mt-6 pt-6 border-t border-surface-border/30 space-y-3">
@@ -428,11 +428,11 @@ const AreaServicePage = () => {
               Get a Free Quote <ArrowRight size={14} />
             </Link>
             <a
-              href="tel:07845239774"
+              href="tel:01753257118"
               className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
-              aria-label="Call us at 07845 239774"
+              aria-label="Call our landline at 01753 257118"
             >
-              <Phone size={16} /> 07845 239774
+              <Phone size={16} /> 01753 257118
             </a>
           </div>
         </div>
