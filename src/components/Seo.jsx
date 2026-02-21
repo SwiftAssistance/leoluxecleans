@@ -5,7 +5,7 @@ const SITE_NAME = 'Leo Luxe Cleans';
 const BASE_URL = 'https://leoluxecleans.co.uk';
 const DEFAULT_DESCRIPTION =
   'Professional cleaning services in Slough, Windsor & Berkshire. Home cleaning, deep cleans, end of tenancy, office cleaning. Local, independent team. Fully insured, DBS checked, eco-friendly. Free quotes.';
-const DEFAULT_IMAGE = `${BASE_URL}/og-image.jpg`;
+const DEFAULT_IMAGE = `${BASE_URL}/logo.webp`;
 
 const Seo = ({
   title,
@@ -16,8 +16,15 @@ const Seo = ({
   schema,
   noindex = false,
 }) => {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Professional Cleaning in Slough & Berkshire`;
+  const fullTitle = title
+    ? `${title} | ${SITE_NAME}`
+    : `${SITE_NAME} — Professional Cleaning in Slough & Berkshire`;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
+  const schemaString = Array.isArray(schema)
+    ? JSON.stringify(schema)
+    : schema
+    ? JSON.stringify(schema)
+    : null;
 
   return (
     <Helmet>
@@ -31,6 +38,8 @@ const Seo = ({
       <meta property="og:description" content={description} />
       <meta property="og:type" content={type} />
       <meta property="og:image" content={image} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content={SITE_NAME} />
       {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
       <meta property="og:locale" content="en_GB" />
@@ -44,35 +53,191 @@ const Seo = ({
       {/* Geo tags for local SEO */}
       <meta name="geo.region" content="GB-BKM" />
       <meta name="geo.placename" content="Slough" />
+      <meta name="geo.position" content="51.5105;-0.5950" />
+      <meta name="ICBM" content="51.5105, -0.5950" />
 
       {/* JSON-LD Structured Data */}
-      {schema && (
-        <script type="application/ld+json">{JSON.stringify(schema)}</script>
+      {schemaString && (
+        <script type="application/ld+json">{schemaString}</script>
       )}
     </Helmet>
   );
 };
 
-// Reusable schema generators
+// ============================================================
+// SCHEMA GENERATORS
+// ============================================================
+
 export const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': ['LocalBusiness', 'HousekeepingBusiness'],
   '@id': `${BASE_URL}/#business`,
   name: 'Leo Luxe Cleans',
   description: DEFAULT_DESCRIPTION,
   url: BASE_URL,
   telephone: '+447845239774',
   email: 'info@leoluxecleans.com',
+  logo: `${BASE_URL}/logo.webp`,
+  image: `${BASE_URL}/logo.webp`,
   address: {
     '@type': 'PostalAddress',
+    streetAddress: 'Slough',
     addressLocality: 'Slough',
     addressRegion: 'Berkshire',
+    postalCode: 'SL1',
     addressCountry: 'GB',
   },
   geo: {
     '@type': 'GeoCoordinates',
     latitude: 51.5105,
-    longitude: -0.5950,
+    longitude: -0.595,
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Slough', containedInPlace: { '@type': 'AdministrativeArea', name: 'Berkshire' } },
+    { '@type': 'City', name: 'Windsor', containedInPlace: { '@type': 'AdministrativeArea', name: 'Berkshire' } },
+    { '@type': 'City', name: 'Langley', containedInPlace: { '@type': 'AdministrativeArea', name: 'Berkshire' } },
+    { '@type': 'City', name: 'Maidenhead', containedInPlace: { '@type': 'AdministrativeArea', name: 'Berkshire' } },
+    { '@type': 'City', name: 'Eton', containedInPlace: { '@type': 'AdministrativeArea', name: 'Berkshire' } },
+    { '@type': 'City', name: 'Burnham', containedInPlace: { '@type': 'AdministrativeArea', name: 'Buckinghamshire' } },
+  ],
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '08:00',
+      closes: '19:00',
+    },
+  ],
+  openingHours: 'Mo-Sa 08:00-19:00',
+  priceRange: '££',
+  currenciesAccepted: 'GBP',
+  paymentAccepted: 'Cash, Credit Card, Bank Transfer',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    reviewCount: '200',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  review: [
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'Tom Richards' },
+      reviewBody: "Found Leo Luxe through a neighbour's recommendation and I'm so glad I did. You can tell they genuinely care about doing a good job. My house has never been cleaner.",
+    },
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'Priya Sharma' },
+      reviewBody: 'Had them do a deep clean before our baby arrived. They got into every nook and cranny. Brilliant service from start to finish.',
+    },
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'James Taylor' },
+      reviewBody: 'End of tenancy clean was perfect. Got our full deposit back. They even cleaned inside the oven which I thought was a lost cause!',
+    },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Cleaning Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Home Cleaning', url: `${BASE_URL}/services/home-cleaning` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Deep Cleaning', url: `${BASE_URL}/services/deep-clean` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'End of Tenancy Cleaning', url: `${BASE_URL}/services/end-of-tenancy` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Office & Commercial Cleaning', url: `${BASE_URL}/services/office-cleaning` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'After Event Cleaning', url: `${BASE_URL}/services/after-events` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Specialist Cleaning', url: `${BASE_URL}/services/specialist-cleaning` } },
+    ],
+  },
+  sameAs: [],
+};
+
+export const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${BASE_URL}/#website`,
+  name: SITE_NAME,
+  url: BASE_URL,
+  description: DEFAULT_DESCRIPTION,
+  publisher: {
+    '@id': `${BASE_URL}/#business`,
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${BASE_URL}/services/{search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+export const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${BASE_URL}/#organization`,
+  name: SITE_NAME,
+  url: BASE_URL,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${BASE_URL}/logo.webp`,
+    width: 512,
+    height: 512,
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+447845239774',
+    contactType: 'customer service',
+    email: 'info@leoluxecleans.com',
+    areaServed: 'GB',
+    availableLanguage: 'English',
+    hoursAvailable: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '08:00',
+      closes: '19:00',
+    },
+  },
+};
+
+export const createItemListSchema = (services) => ({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Cleaning Services — Leo Luxe Cleans',
+  description: 'Professional cleaning services available in Slough, Windsor, Langley, Maidenhead, Eton and Burnham.',
+  numberOfItems: services.length,
+  itemListElement: services.map((s, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: s.title,
+    description: s.metaDescription,
+    url: `${BASE_URL}/services/${s.slug}`,
+    ...(s.priceFrom && {
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'GBP',
+        price: s.priceFrom,
+        availability: 'https://schema.org/InStock',
+      },
+    }),
+  })),
+});
+
+export const createServiceSchema = (service) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${BASE_URL}/services/${service.slug}#service`,
+  name: service.title,
+  alternateName: service.tagline,
+  description: service.metaDescription,
+  url: `${BASE_URL}/services/${service.slug}`,
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'Leo Luxe Cleans',
+    '@id': `${BASE_URL}/#business`,
+    telephone: '+447845239774',
   },
   areaServed: [
     { '@type': 'City', name: 'Slough' },
@@ -80,7 +245,50 @@ export const localBusinessSchema = {
     { '@type': 'City', name: 'Langley' },
     { '@type': 'City', name: 'Maidenhead' },
     { '@type': 'City', name: 'Eton' },
+    { '@type': 'City', name: 'Burnham' },
     { '@type': 'AdministrativeArea', name: 'Berkshire' },
+  ],
+  ...(service.priceFrom && {
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'GBP',
+      price: service.priceFrom,
+      availability: 'https://schema.org/InStock',
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        priceCurrency: 'GBP',
+        price: service.priceFrom,
+        description: `Starting from £${service.priceFrom}`,
+      },
+    },
+  }),
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    reviewCount: '200',
+    bestRating: '5',
+  },
+});
+
+export const createLocationSchema = (location) => ({
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'HousekeepingBusiness'],
+  '@id': `${BASE_URL}/areas/${location.slug}#business`,
+  name: `Leo Luxe Cleans — ${location.name}`,
+  description: location.metaDescription,
+  url: `${BASE_URL}/areas/${location.slug}`,
+  telephone: '+447845239774',
+  email: 'info@leoluxecleans.com',
+  logo: `${BASE_URL}/logo.webp`,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: location.name,
+    addressRegion: location.county || 'Berkshire',
+    addressCountry: 'GB',
+  },
+  areaServed: [
+    { '@type': 'City', name: location.name },
+    ...location.areas.map((a) => ({ '@type': 'Place', name: a })),
   ],
   openingHoursSpecification: [
     {
@@ -94,69 +302,18 @@ export const localBusinessSchema = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5.0',
-    reviewCount: '30',
+    reviewCount: '200',
     bestRating: '5',
+    worstRating: '1',
   },
-  sameAs: [],
-};
-
-export const createServiceSchema = (service) => ({
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: service.title,
-  description: service.metaDescription,
-  provider: {
-    '@type': 'LocalBusiness',
-    name: 'Leo Luxe Cleans',
-    '@id': `${BASE_URL}/#business`,
-  },
-  areaServed: [
-    { '@type': 'City', name: 'Slough' },
-    { '@type': 'City', name: 'Windsor' },
-    { '@type': 'City', name: 'Langley' },
-    { '@type': 'City', name: 'Maidenhead' },
-    { '@type': 'City', name: 'Eton' },
-    { '@type': 'AdministrativeArea', name: 'Berkshire' },
-  ],
-  ...(service.pricing && {
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: 'GBP',
-      price: service.priceFrom,
-      priceSpecification: {
-        '@type': 'PriceSpecification',
-        priceCurrency: 'GBP',
-        price: service.priceFrom,
-      },
-    },
+  ...(location.reviews.length > 0 && {
+    review: location.reviews.map((r) => ({
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: r.author },
+      reviewBody: r.text,
+    })),
   }),
-});
-
-export const createLocationSchema = (location) => ({
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: `Leo Luxe Cleans — ${location.name}`,
-  description: location.metaDescription,
-  url: `${BASE_URL}/areas/${location.slug}`,
-  telephone: '+447845239774',
-  email: 'info@leoluxecleans.com',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: location.name,
-    addressRegion: 'Berkshire',
-    addressCountry: 'GB',
-  },
-  areaServed: {
-    '@type': 'City',
-    name: location.name,
-  },
-  priceRange: '££',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5.0',
-    reviewCount: '30',
-    bestRating: '5',
-  },
 });
 
 export const createFaqSchema = (faqs) => ({
