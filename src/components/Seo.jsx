@@ -5,7 +5,7 @@ const SITE_NAME = 'Leo Luxe Cleans';
 const BASE_URL = 'https://leoluxecleans.co.uk';
 const DEFAULT_DESCRIPTION =
   'Professional cleaning services in Slough, Windsor & Berkshire. Home cleaning, deep cleans, end of tenancy, office cleaning. Local, independent team. Fully insured, DBS checked, eco-friendly. Free quotes.';
-const DEFAULT_IMAGE = `${BASE_URL}/logo.webp`;
+const DEFAULT_IMAGE = `${BASE_URL}/logo-dark.png`;
 
 const Seo = ({
   title,
@@ -77,8 +77,8 @@ export const localBusinessSchema = {
   url: BASE_URL,
   telephone: '+447845239774',
   email: 'info@leoluxecleans.com',
-  logo: `${BASE_URL}/logo.webp`,
-  image: `${BASE_URL}/logo.webp`,
+  logo: `${BASE_URL}/logo-dark.png`,
+  image: `${BASE_URL}/logo-dark.png`,
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Slough',
@@ -182,7 +182,7 @@ export const organizationSchema = {
   url: BASE_URL,
   logo: {
     '@type': 'ImageObject',
-    url: `${BASE_URL}/logo.webp`,
+    url: `${BASE_URL}/logo-dark.png`,
     width: 512,
     height: 512,
   },
@@ -279,7 +279,7 @@ export const createLocationSchema = (location) => ({
   url: `${BASE_URL}/areas/${location.slug}`,
   telephone: '+447845239774',
   email: 'info@leoluxecleans.com',
-  logo: `${BASE_URL}/logo.webp`,
+  logo: `${BASE_URL}/logo-dark.png`,
   address: {
     '@type': 'PostalAddress',
     addressLocality: location.name,
