@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-const SITE_NAME = 'Leo Luxe Cleans';
+const SITE_NAME = 'Leo Luxe Clean';
 const BASE_URL = 'https://leoluxecleans.co.uk';
 const DEFAULT_DESCRIPTION =
   'Professional cleaning services in Slough, Windsor, Hayes, Southall, Uxbridge & Berkshire. Home cleaning, deep cleans, end of tenancy, office cleaning. Local, independent team. Fully insured, DBS checked, eco-friendly. Free quotes.';
@@ -72,7 +72,7 @@ export const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': ['LocalBusiness', 'HousekeepingBusiness'],
   '@id': `${BASE_URL}/#business`,
-  name: 'Leo Luxe Cleans',
+  name: 'Leo Luxe Clean',
   description: DEFAULT_DESCRIPTION,
   url: BASE_URL,
   telephone: '+441753257118',
@@ -210,7 +210,7 @@ export const organizationSchema = {
 export const createItemListSchema = (services) => ({
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Cleaning Services — Leo Luxe Cleans',
+  name: 'Cleaning Services — Leo Luxe Clean',
   description: 'Professional cleaning services available in Slough, Windsor, Langley, Maidenhead, Eton and Burnham.',
   numberOfItems: services.length,
   itemListElement: services.map((s, i) => ({
@@ -240,7 +240,7 @@ export const createServiceSchema = (service) => ({
   url: `${BASE_URL}/services/${service.slug}`,
   provider: {
     '@type': 'LocalBusiness',
-    name: 'Leo Luxe Cleans',
+    name: 'Leo Luxe Clean',
     '@id': `${BASE_URL}/#business`,
     telephone: '+441753257118',
   },
@@ -279,7 +279,7 @@ export const createLocationSchema = (location) => ({
   '@context': 'https://schema.org',
   '@type': ['LocalBusiness', 'HousekeepingBusiness'],
   '@id': `${BASE_URL}/areas/${location.slug}#business`,
-  name: `Leo Luxe Cleans — ${location.name}`,
+  name: `Leo Luxe Clean — ${location.name}`,
   description: location.metaDescription,
   url: `${BASE_URL}/areas/${location.slug}`,
   telephone: '+441753257118',

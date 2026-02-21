@@ -48,8 +48,8 @@ const AboutPage = () => {
   return (
     <>
       <Seo
-        title="About Us — Leo Luxe Cleans | Slough & Berkshire"
-        description="Meet the team behind Leo Luxe Cleans. A new, independent cleaning company in Slough, Windsor & Berkshire. DBS checked, fully insured, eco-friendly. Built on trust."
+        title="About Us — Leo Luxe Clean | Slough & Berkshire"
+        description="Meet the team behind Leo Luxe Clean. A new, independent cleaning company in Slough, Windsor & Berkshire. DBS checked, fully insured, eco-friendly. Built on trust."
         canonical="/about"
         schema={breadcrumbSchema([
           { name: 'Home', url: '/' },

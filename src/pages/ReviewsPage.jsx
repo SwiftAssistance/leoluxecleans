@@ -69,7 +69,7 @@ const ReviewsPage = () => {
     <>
       <Seo
         title="Reviews — 5-Star Cleaning Service in Slough & Berkshire"
-        description="Read genuine reviews from Leo Luxe Cleans customers across Slough, Windsor & Berkshire. See why our clients keep recommending us."
+        description="Read genuine reviews from Leo Luxe Clean customers across Slough, Windsor & Berkshire. See why our clients keep recommending us."
         canonical="/reviews"
         schema={breadcrumbSchema([
           { name: 'Home', url: '/' },

@@ -229,7 +229,7 @@ const Contact = () => {
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Leo Luxe Cleans coverage area — Slough, Berkshire"
+            title="Leo Luxe Clean coverage area — Slough, Berkshire"
             className="w-full"
           ></iframe>
         </div>

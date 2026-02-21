@@ -46,8 +46,8 @@ const AreaServicePage = () => {
 
   // Unique, keyword-rich meta description per area+service combination
   const priceClause = service.priceFrom ? ` From £${service.priceFrom}.` : '';
-  const metaTitle = `${service.title} in ${location.name} | Leo Luxe Cleans`;
-  const metaDescription = `Looking for ${service.title.toLowerCase()} in ${location.name}? Leo Luxe Cleans covers ${location.postcodes} and all of ${location.county}.${priceClause} DBS-checked, eco-friendly, 5-star rated. Same-week availability. Free quotes — call 01753 257118.`;
+  const metaTitle = `${service.title} in ${location.name} | Leo Luxe Clean`;
+  const metaDescription = `Looking for ${service.title.toLowerCase()} in ${location.name}? Leo Luxe Clean covers ${location.postcodes} and all of ${location.county}.${priceClause} DBS-checked, eco-friendly, 5-star rated. Same-week availability. Free quotes — call 01753 257118.`;
 
   const areaServiceSchema = {
     '@context': 'https://schema.org',
@@ -59,7 +59,7 @@ const AreaServicePage = () => {
     url: `${BASE_URL}/areas/${areaSlug}/${serviceSlug}`,
     provider: {
       '@type': 'LocalBusiness',
-      name: 'Leo Luxe Cleans',
+      name: 'Leo Luxe Clean',
       '@id': `${BASE_URL}/#business`,
       telephone: '+441753257118',
     },

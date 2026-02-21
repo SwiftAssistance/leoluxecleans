@@ -12,7 +12,7 @@ import Contact from '../components/Contact';
 import Seo, { localBusinessSchema, websiteSchema, organizationSchema } from '../components/Seo';
 
 const HOME_META_DESCRIPTION =
-  'Leo Luxe Cleans — professional, DBS-checked cleaners in Slough, Windsor, Langley, Maidenhead, Eton & Burnham. Home cleaning from £60. Deep cleans, end of tenancy, office cleaning. 5-star rated. Free quotes.';
+  'Leo Luxe Clean — professional, DBS-checked cleaners in Slough, Windsor, Langley, Maidenhead, Eton & Burnham. Home cleaning from £60. Deep cleans, end of tenancy, office cleaning. 5-star rated. Free quotes.';
 
 const HomePage = () => {
   return (
