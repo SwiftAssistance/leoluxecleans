@@ -10,7 +10,7 @@ const MobileCta = () => {
         className="flex-1 btn-outline-gold label-caps py-3 rounded-lg text-center flex items-center justify-center gap-2"
         aria-label="Call our landline at 01753 257118"
       >
-        <Phone size={14} /> Call
+        <Phone size={14} /> 01753 257118
       </a>
       <Link
         to="/contact"

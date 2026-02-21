@@ -72,17 +72,19 @@ const Footer = () => {
             <div className="space-y-3 text-sm">
               <a
                 href="tel:01753257118"
-                className="flex items-center gap-3 text-neutral-500 hover:text-gold transition-colors"
-                aria-label="Call our landline at 01753 257118"
+                className="flex items-center gap-3 text-neutral-400 hover:text-gold transition-colors"
+                aria-label="Call us at 01753 257118"
               >
-                <Phone size={14} className="text-gold" /> 01753 257118
+                <Phone size={14} className="text-gold" />
+                <span>01753 257118 <span className="text-neutral-600 text-xs">— Landline</span></span>
               </a>
               <a
                 href="tel:07845239774"
-                className="flex items-center gap-3 text-neutral-500 hover:text-gold transition-colors"
-                aria-label="Call our mobile at 07845 239774"
+                className="flex items-center gap-3 text-neutral-400 hover:text-gold transition-colors"
+                aria-label="Call us at 07845 239774"
               >
-                <Phone size={14} className="text-gold" /> 07845 239774
+                <Phone size={14} className="text-gold" />
+                <span>07845 239774 <span className="text-neutral-600 text-xs">— Mobile</span></span>
               </a>
               <a
                 href="mailto:info@leoluxecleans.com"

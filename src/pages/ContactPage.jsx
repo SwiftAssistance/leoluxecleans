@@ -81,15 +81,7 @@ const ContactPage = () => {
             >
               <Phone size={16} className="text-gold" />
               <span className="text-sm font-medium">01753 257118</span>
-              <span className="text-neutral-500 text-xs">Landline</span>
-            </a>
-            <a
-              href="tel:07845239774"
-              className="flex items-center gap-3 text-white hover:text-gold transition-colors"
-            >
-              <Phone size={16} className="text-gold" />
-              <span className="text-sm font-medium">07845 239774</span>
-              <span className="text-neutral-500 text-xs">Mobile</span>
+              <span className="text-neutral-500 text-xs">Mon–Sat 8am–7pm</span>
             </a>
             <a
               href="mailto:info@leoluxecleans.com"

@@ -12,15 +12,9 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 const contactItems = [
   {
     icon: <Phone size={18} />,
-    label: 'Landline',
+    label: 'Call us',
     value: '01753 257118',
     href: 'tel:01753257118',
-  },
-  {
-    icon: <Phone size={18} />,
-    label: 'Mobile',
-    value: '07845 239774',
-    href: 'tel:07845239774',
   },
   {
     icon: <Mail size={18} />,
