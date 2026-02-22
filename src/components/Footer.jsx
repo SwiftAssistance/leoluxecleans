@@ -56,10 +56,10 @@ const Footer = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-10 lg:gap-8">
           {/* Logo & description */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-2">
-            <Link to="/" className="inline-block mb-6" aria-label="Leo Luxe Cleans — Home">
+            <Link to="/" className="inline-block mb-6" aria-label="Leo Luxe Clean — Home">
               <img
                 src="/logo.png"
-                alt="Leo Luxe Cleans"
+                alt="Leo Luxe Clean"
                 width="160"
                 height="50"
                 className="h-10 w-auto"
@@ -183,7 +183,7 @@ const Footer = () => {
       <div className="border-t border-surface-border/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-neutral-600 text-xs">
-            &copy; {new Date().getFullYear()} Leo Luxe Cleans. All rights
+            &copy; {new Date().getFullYear()} Leo Luxe Clean. All rights
             reserved.
           </p>
           <div className="flex gap-6">

@@ -55,7 +55,7 @@ const ContactPage = () => {
     <>
       <Seo
         title="Contact Us — Free Cleaning Quote in Slough & Berkshire"
-        description="Get a free cleaning quote from Leo Luxe Cleans. Call 01753 257118 or fill in our form. We cover Slough, Windsor, Langley & Berkshire. Response within 2 hours."
+        description="Get a free cleaning quote from Leo Luxe Clean. Call 01753 257118 or fill in our form. We cover Slough, Windsor, Langley & Berkshire. Response within 2 hours."
         canonical="/contact"
         schema={[
           createFaqSchema(faqs),
@@ -305,7 +305,7 @@ const ContactPage = () => {
       {/* Map */}
       <section className="bg-surface-dark">
         <iframe
-          title="Leo Luxe Cleans location — Slough, Berkshire"
+          title="Leo Luxe Clean location — Slough, Berkshire"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39792.48!2d-0.6!3d51.51!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48767600!2sSlough!5e0!3m2!1sen!2suk!4v1"
           width="100%"
           height="300"
