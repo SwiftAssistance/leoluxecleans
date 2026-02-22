@@ -229,4 +229,22 @@
     70% { transform: scale(0.95); }
     100% { opacity: 1; transform: scale(1); }
   }
+
+  /* Quote modal entrance */
+  .animate-modal-enter {
+    animation: modalEnterMobile 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @keyframes modalEnterMobile {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @media (min-width: 640px) {
+    .animate-modal-enter {
+      animation: modalEnterDesktop 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    @keyframes modalEnterDesktop {
+      from { opacity: 0; transform: translateY(16px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  }
 }

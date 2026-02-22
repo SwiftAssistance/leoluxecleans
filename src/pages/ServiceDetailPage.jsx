@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
+import { useQuoteModal } from '../context/QuoteModalContext';
 import {
   ArrowRight,
   CheckCircle2,
@@ -58,6 +59,7 @@ const serviceReviews = {
 const ServiceDetailPage = () => {
   const { slug } = useParams();
   const service = getServiceBySlug(slug);
+  const { openModal } = useQuoteModal();
 
   const [contentRef, contentVisible] = useScrollReveal({ threshold: 0.1 });
   const [featuresRef, featuresVisible] = useScrollReveal({ threshold: 0.05 });
@@ -183,13 +185,13 @@ const ServiceDetailPage = () => {
                 <p className="text-neutral-400 text-sm mb-6">
                   No obligation. We usually reply within 2 hours.
                 </p>
-                <Link
-                  to="/contact"
+                <button
+                  onClick={() => openModal()}
                   className="btn-gold label-caps px-6 py-3.5 rounded-lg w-full text-center flex items-center justify-center gap-2 group mb-4"
                 >
                   Get Your Quote{' '}
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
+                </button>
                 <a
                   href="tel:01753257118"
                   className="btn-outline-gold label-caps px-6 py-3.5 rounded-lg w-full text-center flex items-center justify-center gap-2"
@@ -357,12 +359,12 @@ const ServiceDetailPage = () => {
             Get a free, no-obligation quote today. We usually reply within a couple of hours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
+            <button
+              onClick={() => openModal()}
               className="btn-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
             >
               Get a Free Quote <ArrowRight size={14} />
-            </Link>
+            </button>
             <a
               href="tel:01753257118"
               className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"

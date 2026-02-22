@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useQuoteModal } from '../context/QuoteModalContext';
 import { Star, Quote, ArrowRight, Phone, CheckCircle2 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import Seo, { breadcrumbSchema } from '../components/Seo';
@@ -60,6 +61,7 @@ const allReviews = [
 ];
 
 const ReviewsPage = () => {
+  const { openModal } = useQuoteModal();
   const [gridRef, gridVisible] = useScrollReveal({ threshold: 0.05 });
 
   const featuredReview = allReviews.find((r) => r.featured);
@@ -199,12 +201,12 @@ const ReviewsPage = () => {
             no-obligation quote today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
+            <button
+              onClick={() => openModal()}
               className="btn-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
             >
               Get a Free Quote <ArrowRight size={14} />
-            </Link>
+            </button>
             <a
               href="tel:01753257118"
               className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"

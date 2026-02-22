@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useQuoteModal } from '../context/QuoteModalContext';
 import {
   ArrowRight,
   Home,
@@ -27,6 +28,7 @@ const serviceIcons = {
 };
 
 const ServicesPage = () => {
+  const { openModal } = useQuoteModal();
   const [gridRef, gridVisible] = useScrollReveal({ threshold: 0.05 });
   const [processRef, processVisible] = useScrollReveal({ threshold: 0.1 });
 
@@ -271,12 +273,12 @@ const ServicesPage = () => {
             the right clean for your space together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
+            <button
+              onClick={() => openModal()}
               className="btn-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
             >
               Get a Free Quote <ArrowRight size={14} />
-            </Link>
+            </button>
             <a
               href="tel:01753257118"
               className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"

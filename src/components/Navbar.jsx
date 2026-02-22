@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Phone, Menu, X } from 'lucide-react';
+import { useQuoteModal } from '../context/QuoteModalContext';
 
 const navLinks = [
   { name: 'Home', to: '/' },
@@ -14,6 +15,7 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isScrolledRef = useRef(false);
+  const { openModal } = useQuoteModal();
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -100,12 +102,12 @@ const Navbar = () => {
           >
             <Phone size={14} /> 01753 257118
           </a>
-          <Link
-            to="/contact"
+          <button
+            onClick={() => openModal()}
             className="btn-gold label-caps px-6 py-2.5 rounded-lg"
           >
             Free Quote
-          </Link>
+          </button>
         </div>
 
         <button
@@ -149,12 +151,12 @@ const Navbar = () => {
             >
               <Phone size={14} /> 01753 257118
             </a>
-            <Link
-              to="/contact"
-              className="btn-gold label-caps text-center py-3 mt-2 rounded-lg"
+            <button
+              onClick={() => { openModal(); setMobileMenuOpen(false); }}
+              className="btn-gold label-caps text-center py-3 mt-2 rounded-lg w-full"
             >
               Free Quote
-            </Link>
+            </button>
           </div>
         </div>
       </div>

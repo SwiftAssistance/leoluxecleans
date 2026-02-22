@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useQuoteModal } from '../context/QuoteModalContext';
 
 const steps = [
   {
@@ -22,6 +22,7 @@ const steps = [
 ];
 
 const Process = () => {
+  const { openModal } = useQuoteModal();
   const [ref, isVisible] = useScrollReveal({ threshold: 0.1 });
 
   return (
@@ -73,8 +74,8 @@ const Process = () => {
               }`}
               style={{ transitionDelay: '700ms' }}
             >
-              <Link
-                to="/contact"
+              <button
+                onClick={() => openModal()}
                 className="btn-gold label-caps px-8 py-4 rounded-lg inline-flex items-center gap-2 group"
               >
                 Get Your Free Quote{' '}
@@ -82,7 +83,7 @@ const Process = () => {
                   size={14}
                   className="group-hover:translate-x-1 transition-transform"
                 />
-              </Link>
+              </button>
             </div>
           </div>
         </div>
