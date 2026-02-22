@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SITE_NAME = 'Leo Luxe Clean';
-const BASE_URL = 'https://leoluxecleans.co.uk';
+const BASE_URL = 'https://leoluxeclean.co.uk';
 const DEFAULT_DESCRIPTION =
   'Professional cleaning services in Slough, Windsor, Hayes, Southall, Uxbridge & Berkshire. Home cleaning, deep cleans, end of tenancy, office cleaning. Local, independent team. Fully insured, DBS checked, eco-friendly. Free quotes.';
 const DEFAULT_IMAGE = `${BASE_URL}/logo-dark.png`;

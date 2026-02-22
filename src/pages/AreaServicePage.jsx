@@ -20,7 +20,7 @@ import { getServiceBySlug, services } from '../data/services';
 import { getLocationBySlug, locations } from '../data/locations';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
-const BASE_URL = 'https://leoluxecleans.co.uk';
+const BASE_URL = 'https://leoluxeclean.co.uk';
 
 const serviceIcons = {
   'home-cleaning': <Home size={22} />,
