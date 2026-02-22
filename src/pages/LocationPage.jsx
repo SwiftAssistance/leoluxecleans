@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
+import { useQuoteModal } from '../context/QuoteModalContext';
 import {
   ArrowRight,
   Phone,
@@ -31,6 +32,7 @@ const serviceIcons = {
 const LocationPage = () => {
   const { slug } = useParams();
   const location = getLocationBySlug(slug);
+  const { openModal } = useQuoteModal();
 
   const [introRef, introVisible] = useScrollReveal({ threshold: 0.1 });
   const [servicesRef, servicesVisible] = useScrollReveal({ threshold: 0.05 });
@@ -116,13 +118,13 @@ const LocationPage = () => {
               </div>
 
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <Link
-                  to="/contact"
+                <button
+                  onClick={() => openModal()}
                   className="btn-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2 group"
                 >
                   Get a Free Quote{' '}
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
+                </button>
                 <a
                   href="tel:01753257118"
                   className="btn-outline-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2"
@@ -339,12 +341,12 @@ const LocationPage = () => {
             Get a free, no-obligation quote. We cover all of {location.name} and the surrounding areas.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
+            <button
+              onClick={() => openModal()}
               className="btn-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
             >
               Get a Free Quote <ArrowRight size={14} />
-            </Link>
+            </button>
             <a
               href="tel:01753257118"
               className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"

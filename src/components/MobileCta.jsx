@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Phone } from 'lucide-react';
+import { useQuoteModal } from '../context/QuoteModalContext';
 
 const MobileCta = () => {
+  const { openModal } = useQuoteModal();
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-surface-black border-t border-gold/20 px-4 py-3 flex gap-3 safe-bottom">
       <a
@@ -12,12 +13,12 @@ const MobileCta = () => {
       >
         <Phone size={14} /> 01753 257118
       </a>
-      <Link
-        to="/contact"
+      <button
+        onClick={() => openModal()}
         className="flex-1 btn-gold label-caps py-3 rounded-lg text-center"
       >
         Free Quote
-      </Link>
+      </button>
     </div>
   );
 };

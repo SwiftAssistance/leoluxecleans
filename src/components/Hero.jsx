@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { ArrowRight, Phone, Star } from 'lucide-react';
+import { useQuoteModal } from '../context/QuoteModalContext';
 
 const Hero = () => {
+  const { openModal } = useQuoteModal();
   return (
     <section className="relative min-h-screen overflow-hidden">
       {/* Background image */}
@@ -41,8 +42,8 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-12">
-          <Link
-            to="/contact"
+          <button
+            onClick={() => openModal()}
             className="btn-gold glow-pulse label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2 group"
           >
             Get a Free Quote{' '}
@@ -50,7 +51,7 @@ const Hero = () => {
               size={14}
               className="group-hover:translate-x-1 transition-transform"
             />
-          </Link>
+          </button>
           <a
             href="tel:01753257118"
             className="btn-outline-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2"

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Phone } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useQuoteModal } from '../context/QuoteModalContext';
 
 const CtaBand = () => {
   const [ref, isVisible] = useScrollReveal({ threshold: 0.3 });
+  const { openModal } = useQuoteModal();
 
   return (
     <section className="relative py-16 lg:py-20 bg-surface-dark border-y border-surface-border/50 overflow-hidden">
@@ -27,12 +28,12 @@ const CtaBand = () => {
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-          <Link
-            to="/contact"
+          <button
+            onClick={() => openModal()}
             className="btn-gold label-caps px-8 py-4 rounded-lg whitespace-nowrap text-center"
           >
             Get a Quote
-          </Link>
+          </button>
           <a
             href="tel:01753257118"
             className="btn-outline-gold label-caps px-8 py-4 rounded-lg whitespace-nowrap flex items-center justify-center gap-2"
