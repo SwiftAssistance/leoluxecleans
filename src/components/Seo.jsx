@@ -76,7 +76,7 @@ export const localBusinessSchema = {
   description: DEFAULT_DESCRIPTION,
   url: BASE_URL,
   telephone: '+441753257118',
-  email: 'info@leoluxecleans.com',
+  email: 'info@leoluxeclean.co.uk',
   logo: `${BASE_URL}/logo-dark.png`,
   image: `${BASE_URL}/logo-dark.png`,
   address: {
@@ -195,7 +195,7 @@ export const organizationSchema = {
     '@type': 'ContactPoint',
     telephone: '+441753257118',
     contactType: 'customer service',
-    email: 'info@leoluxecleans.com',
+    email: 'info@leoluxeclean.co.uk',
     areaServed: 'GB',
     availableLanguage: 'English',
     hoursAvailable: {
@@ -283,7 +283,7 @@ export const createLocationSchema = (location) => ({
   description: location.metaDescription,
   url: `${BASE_URL}/areas/${location.slug}`,
   telephone: '+441753257118',
-  email: 'info@leoluxecleans.com',
+  email: 'info@leoluxeclean.co.uk',
   logo: `${BASE_URL}/logo-dark.png`,
   address: {
     '@type': 'PostalAddress',
