@@ -19,8 +19,8 @@ const contactItems = [
   {
     icon: <Mail size={18} />,
     label: 'Email us',
-    value: 'info@leoluxecleans.com',
-    href: 'mailto:info@leoluxecleans.com',
+    value: 'info@leoluxeclean.co.uk',
+    href: 'mailto:info@leoluxeclean.co.uk',
   },
   {
     icon: <MapPin size={18} />,

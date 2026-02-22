@@ -92,10 +92,10 @@ const Footer = () => {
                 <span>07845 239774 <span className="text-neutral-600 text-xs">— Mobile</span></span>
               </a>
               <a
-                href="mailto:info@leoluxecleans.com"
+                href="mailto:info@leoluxeclean.co.uk"
                 className="flex items-center gap-3 text-neutral-500 hover:text-gold transition-colors"
               >
-                <Mail size={14} className="text-gold" /> info@leoluxecleans.com
+                <Mail size={14} className="text-gold" /> info@leoluxeclean.co.uk
               </a>
               <span className="flex items-center gap-3 text-neutral-500">
                 <MapPin size={14} className="text-gold" /> Slough, Berkshire

@@ -84,11 +84,11 @@ const ContactPage = () => {
               <span className="text-neutral-500 text-xs">Mon–Sat 8am–7pm</span>
             </a>
             <a
-              href="mailto:info@leoluxecleans.com"
+              href="mailto:info@leoluxeclean.co.uk"
               className="flex items-center gap-3 text-white hover:text-gold transition-colors"
             >
               <Mail size={16} className="text-gold" />
-              <span className="text-sm font-medium">info@leoluxecleans.com</span>
+              <span className="text-sm font-medium">info@leoluxeclean.co.uk</span>
             </a>
           </div>
         </div>
