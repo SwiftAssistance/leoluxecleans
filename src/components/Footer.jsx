@@ -41,6 +41,11 @@ const westLondonLinks = [
   { name: 'Hayes', to: '/areas/hayes' },
   { name: 'Southall', to: '/areas/southall' },
   { name: 'Uxbridge', to: '/areas/uxbridge' },
+  { name: 'Ealing', to: '/areas/ealing' },
+  { name: 'Greenford', to: '/areas/greenford' },
+  { name: 'Northolt', to: '/areas/northolt' },
+  { name: 'West Drayton', to: '/areas/west-drayton' },
+  { name: 'Hounslow', to: '/areas/hounslow' },
 ];
 
 const socialLinks = [
