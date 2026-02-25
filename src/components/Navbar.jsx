@@ -63,11 +63,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-3" aria-label="Leo Luxe Clean — Home">
           <img
-            src="/logo.png"
+            src="/logo.svg"
             alt="Leo Luxe Clean"
-            width="160"
-            height="50"
-            className="h-10 w-auto"
+            width="200"
+            height="66"
+            className="h-14 w-auto"
           />
         </Link>
 
