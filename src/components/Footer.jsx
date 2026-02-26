@@ -63,11 +63,11 @@ const Footer = () => {
           <div className="col-span-2 sm:col-span-3 lg:col-span-2">
             <Link to="/" className="inline-block mb-6" aria-label="Leo Luxe Clean — Home">
               <img
-                src="/logo.png"
+                src="/logo.svg"
                 alt="Leo Luxe Clean"
-                width="160"
-                height="50"
-                className="h-10 w-auto"
+                width="180"
+                height="60"
+                className="h-12 w-auto"
               />
             </Link>
             <p className="text-neutral-500 text-sm leading-relaxed max-w-xs mb-6">
