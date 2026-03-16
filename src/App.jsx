@@ -10,6 +10,7 @@ const AreaServicePage = lazy(() => import('./pages/AreaServicePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ReviewsPage = lazy(() => import('./pages/ReviewsPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 const PageLoader = () => (
   <div className="min-h-screen bg-surface-black flex items-center justify-center">
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </Suspense>

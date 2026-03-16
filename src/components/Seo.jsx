@@ -104,6 +104,11 @@ export const localBusinessSchema = {
     { '@type': 'City', name: 'Hayes', containedInPlace: { '@type': 'AdministrativeArea', name: 'West London' } },
     { '@type': 'City', name: 'Southall', containedInPlace: { '@type': 'AdministrativeArea', name: 'West London' } },
     { '@type': 'City', name: 'Uxbridge', containedInPlace: { '@type': 'AdministrativeArea', name: 'West London' } },
+    { '@type': 'City', name: 'Ealing', containedInPlace: { '@type': 'AdministrativeArea', name: 'West London' } },
+    { '@type': 'City', name: 'Greenford', containedInPlace: { '@type': 'AdministrativeArea', name: 'West London' } },
+    { '@type': 'City', name: 'Northolt', containedInPlace: { '@type': 'AdministrativeArea', name: 'West London' } },
+    { '@type': 'City', name: 'West Drayton', containedInPlace: { '@type': 'AdministrativeArea', name: 'West London' } },
+    { '@type': 'City', name: 'Hounslow', containedInPlace: { '@type': 'AdministrativeArea', name: 'West London' } },
   ],
   openingHoursSpecification: [
     {
@@ -156,7 +161,12 @@ export const localBusinessSchema = {
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Specialist Cleaning', url: `${BASE_URL}/services/specialist-cleaning` } },
     ],
   },
-  sameAs: [],
+  sameAs: [
+    // Add your social media profile URLs here when available, e.g.:
+    // 'https://www.facebook.com/leoluxeclean',
+    // 'https://www.instagram.com/leoluxeclean',
+    // 'https://www.google.com/maps/place/Leo+Luxe+Clean',
+  ],
 };
 
 export const websiteSchema = {
@@ -251,7 +261,18 @@ export const createServiceSchema = (service) => ({
     { '@type': 'City', name: 'Maidenhead' },
     { '@type': 'City', name: 'Eton' },
     { '@type': 'City', name: 'Burnham' },
+    { '@type': 'City', name: 'Ascot' },
+    { '@type': 'City', name: 'Bracknell' },
+    { '@type': 'City', name: 'Hayes' },
+    { '@type': 'City', name: 'Southall' },
+    { '@type': 'City', name: 'Uxbridge' },
+    { '@type': 'City', name: 'Ealing' },
+    { '@type': 'City', name: 'Greenford' },
+    { '@type': 'City', name: 'Northolt' },
+    { '@type': 'City', name: 'West Drayton' },
+    { '@type': 'City', name: 'Hounslow' },
     { '@type': 'AdministrativeArea', name: 'Berkshire' },
+    { '@type': 'AdministrativeArea', name: 'West London' },
   ],
   ...(service.priceFrom && {
     offers: {

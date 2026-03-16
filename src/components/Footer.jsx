@@ -6,7 +6,6 @@ import {
   MapPin,
   Instagram,
   Facebook,
-  Twitter,
 } from 'lucide-react';
 
 const footerLinks = [
@@ -49,9 +48,10 @@ const westLondonLinks = [
 ];
 
 const socialLinks = [
+  // Update these with your actual social media profile URLs.
+  // Placeholder '#' links are hidden from crawlers with rel="nofollow".
   { Icon: Instagram, label: 'Instagram', href: '#' },
   { Icon: Facebook, label: 'Facebook', href: '#' },
-  { Icon: Twitter, label: 'Twitter', href: '#' },
 ];
 
 const Footer = () => {
@@ -174,6 +174,7 @@ const Footer = () => {
                 <a
                   key={label}
                   href={href}
+                  rel={href === '#' ? 'nofollow' : undefined}
                   className="w-10 h-10 rounded-lg border border-surface-border/40 flex items-center justify-center text-neutral-400 hover:text-gold hover:border-gold/30 transition-colors"
                   aria-label={`Follow us on ${label}`}
                 >
