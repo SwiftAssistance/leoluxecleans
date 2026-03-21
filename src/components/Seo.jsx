@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 const SITE_NAME = 'Leo Luxe Clean';
 const BASE_URL = 'https://leoluxeclean.co.uk';
 const DEFAULT_DESCRIPTION =
-  'Professional cleaning services in Slough, Windsor, Hayes, Southall, Uxbridge & Berkshire. Home cleaning, deep cleans, end of tenancy, office cleaning. Local, independent team. Fully insured, DBS checked, eco-friendly. Free quotes.';
+  'Professional cleaning services in Berkshire & West London. Serving Slough, Windsor, Maidenhead, Hayes, Uxbridge, Ealing, Hounslow & more. Home cleaning, deep cleans, end of tenancy, office cleaning. Local, independent team. Fully insured, DBS checked, eco-friendly. Free quotes.';
 const DEFAULT_IMAGE = `${BASE_URL}/logo.png`;
 
 const Seo = ({
@@ -51,7 +51,7 @@ const Seo = ({
       <meta name="twitter:image" content={image} />
 
       {/* Geo tags for local SEO */}
-      <meta name="geo.region" content="GB-BKM" />
+      <meta name="geo.region" content="GB-BRK" />
       <meta name="geo.placename" content="Slough" />
       <meta name="geo.position" content="51.5105;-0.5950" />
       <meta name="ICBM" content="51.5105, -0.5950" />
@@ -221,7 +221,7 @@ export const createItemListSchema = (services) => ({
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: 'Cleaning Services — Leo Luxe Clean',
-  description: 'Professional cleaning services available in Slough, Windsor, Langley, Maidenhead, Eton and Burnham.',
+  description: 'Professional cleaning services available in Berkshire and West London — Slough, Windsor, Maidenhead, Hayes, Uxbridge, Ealing, Hounslow and surrounding areas.',
   numberOfItems: services.length,
   itemListElement: services.map((s, i) => ({
     '@type': 'ListItem',
