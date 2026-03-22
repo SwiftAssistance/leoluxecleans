@@ -4,9 +4,9 @@ export const locations = [
     name: 'Slough',
     county: 'Berkshire',
     postcodes: 'SL1, SL2, SL3',
-    metaTitle: 'Cleaning Services in Slough',
+    metaTitle: 'Cleaners in Slough, Berkshire | 5-Star Rated | From £60',
     metaDescription:
-      'Professional cleaning services in Slough, Berkshire. Home cleaning, deep cleans, end of tenancy, office cleaning. Local team, DBS checked, fully insured. Free quotes.',
+      '5-star rated cleaning services in Slough, Berkshire (SL1, SL2, SL3). Home cleaning from £60 · deep cleans from £120 · end of tenancy from £150 · office cleaning. DBS-checked, fully insured, eco-friendly. Same-week bookings. Free quote.',
     heroDesc:
       'We\'re based right here in Slough. Home cleaning, deep cleans, end of tenancy, offices — whatever you need, we\'re just round the corner.',
     intro: [
@@ -34,9 +34,9 @@ export const locations = [
     name: 'Windsor',
     county: 'Berkshire',
     postcodes: 'SL4',
-    metaTitle: 'Cleaning Services in Windsor',
+    metaTitle: 'Cleaners in Windsor, Berkshire | 5-Star Rated | From £60',
     metaDescription:
-      'Professional cleaning services in Windsor, Berkshire. Home cleaning, deep cleans, end of tenancy, office cleaning. Trusted local team, fully insured. Free quotes.',
+      '5-star rated cleaning services in Windsor, Berkshire (SL4). Home cleaning from £60 · deep cleans · end of tenancy from £150 · office cleaning. Trusted by homeowners & businesses across the Royal Borough. DBS-checked, fully insured. Free quote.',
     heroDesc:
       'Professional cleaning across Windsor and the surrounding villages. Trusted by homeowners and businesses throughout the Royal Borough.',
     intro: [
@@ -64,9 +64,9 @@ export const locations = [
     name: 'Langley',
     county: 'Berkshire',
     postcodes: 'SL3',
-    metaTitle: 'Cleaning Services in Langley',
+    metaTitle: 'Cleaners in Langley, Berkshire | 5-Star Rated | From £60',
     metaDescription:
-      'Professional cleaning services in Langley, Slough. Home cleaning, deep cleans, end of tenancy, office cleaning. Local team, DBS checked, fully insured. Free quotes.',
+      '5-star rated cleaning services in Langley, Slough (SL3). Home cleaning from £60 · deep cleans · end of tenancy from £150 · office cleaning. Local DBS-checked team, same-week availability. Fully insured & eco-friendly. Free quote.',
     heroDesc:
       'Langley is just down the road from our base. Fast response times, reliable service, and the same high standards on every job.',
     intro: [
@@ -88,9 +88,9 @@ export const locations = [
     name: 'Maidenhead',
     county: 'Berkshire',
     postcodes: 'SL6',
-    metaTitle: 'Cleaning Services in Maidenhead',
+    metaTitle: 'Cleaners in Maidenhead, Berkshire | 5-Star Rated | From £60',
     metaDescription:
-      'Professional cleaning services in Maidenhead, Berkshire. Home cleaning, deep cleans, end of tenancy, office cleaning. Fully insured, DBS checked. Free quotes.',
+      '5-star rated cleaning services in Maidenhead, Berkshire (SL6). Home cleaning from £60 · deep cleans · end of tenancy from £150 · Airbnb turnaround cleans. Trusted by homeowners & property hosts. DBS-checked, fully insured. Free quote.',
     heroDesc:
       'Professional cleaning for homes and businesses across Maidenhead. Same standards, same reliability — just a short drive from our Slough base.',
     intro: [
@@ -112,9 +112,9 @@ export const locations = [
     name: 'Eton',
     county: 'Berkshire',
     postcodes: 'SL4',
-    metaTitle: 'Cleaning Services in Eton',
+    metaTitle: 'Cleaners in Eton, Berkshire | Discreet & 5-Star Rated',
     metaDescription:
-      'Professional cleaning services in Eton, Berkshire. Home cleaning, deep cleans, end of tenancy. Trusted local team, eco-friendly products, fully insured. Free quotes.',
+      '5-star rated cleaning services in Eton, Berkshire (SL4). Discreet, professional home cleaning from £60 · deep cleans · end of tenancy from £150. Eco-friendly, DBS-checked, fully insured. Same-week bookings. Free quote.',
     heroDesc:
       'Cleaning services for homes and businesses in Eton and Eton Wick. Discreet, reliable, and always to the highest standard.',
     intro: [
@@ -136,9 +136,9 @@ export const locations = [
     name: 'Burnham',
     county: 'Buckinghamshire',
     postcodes: 'SL1, SL2',
-    metaTitle: 'Cleaning Services in Burnham',
+    metaTitle: 'Cleaners in Burnham, Buckinghamshire | 5-Star Rated | From £60',
     metaDescription:
-      'Professional cleaning services in Burnham, Buckinghamshire. Home cleaning, deep cleans, end of tenancy, office cleaning. Local team, fully insured. Free quotes.',
+      '5-star rated cleaning services in Burnham, Buckinghamshire (SL1, SL2). Home cleaning from £60 · deep cleans · end of tenancy from £150 · specialist cleaning. Local DBS-checked team, fully insured. Same-week availability. Free quote.',
     heroDesc:
       'Serving homes and businesses in Burnham and the surrounding area. Reliable, thorough, and always on time.',
     intro: [
@@ -162,9 +162,9 @@ export const locations = [
     name: 'Hayes',
     county: 'West London',
     postcodes: 'UB3, UB4',
-    metaTitle: 'Cleaning Services in Hayes, West London',
+    metaTitle: 'Cleaners in Hayes, West London | 5-Star Rated | From £60',
     metaDescription:
-      'Professional cleaning services in Hayes, West London (UB3, UB4). Home cleaning, deep cleans, end of tenancy, office cleaning. Local team, DBS checked, fully insured. Free quotes.',
+      '5-star rated cleaning services in Hayes, West London (UB3, UB4). Home cleaning from £60 · deep cleans · end of tenancy from £150 · office cleaning. DBS-checked, eco-friendly, fully insured. Same-week bookings. Free quote.',
     heroDesc:
       'Reliable cleaning services for homes and businesses across Hayes and surrounding areas. Just a short drive from our Slough base — fast response, same high standards.',
     intro: [
@@ -186,9 +186,9 @@ export const locations = [
     name: 'Southall',
     county: 'West London',
     postcodes: 'UB1, UB2',
-    metaTitle: 'Cleaning Services in Southall, West London',
+    metaTitle: 'Cleaners in Southall, West London | 5-Star Rated | From £60',
     metaDescription:
-      'Professional cleaning services in Southall, West London (UB1, UB2). Home cleaning, deep cleans, end of tenancy, office cleaning. DBS checked, eco-friendly. Free quotes.',
+      '5-star rated cleaning services in Southall, West London (UB1, UB2). Home cleaning from £60 · deep cleans · end of tenancy from £150 · office cleaning. Trusted by families & businesses. DBS-checked, fully insured. Free quote.',
     heroDesc:
       'Professional cleaning across Southall and surrounding West London areas. Trusted by families and businesses throughout UB1 and UB2.',
     intro: [
@@ -210,9 +210,9 @@ export const locations = [
     name: 'Uxbridge',
     county: 'West London',
     postcodes: 'UB8, UB10',
-    metaTitle: 'Cleaning Services in Uxbridge, West London',
+    metaTitle: 'Cleaners in Uxbridge, West London | 5-Star Rated | From £60',
     metaDescription:
-      'Professional cleaning services in Uxbridge, West London (UB8, UB10). Home cleaning, deep cleans, end of tenancy, office cleaning. Fully insured, DBS checked. Free quotes.',
+      '5-star rated cleaning services in Uxbridge, West London (UB8, UB10). Home cleaning from £60 · deep cleans · end of tenancy from £150 · office cleaning. DBS-checked & fully insured. Same-week bookings. Free quote.',
     heroDesc:
       'Covering Uxbridge, Hillingdon, Cowley and surrounding areas. Reliable cleaning for homes and businesses across West London.',
     intro: [
@@ -236,9 +236,9 @@ export const locations = [
     name: 'Ealing',
     county: 'West London',
     postcodes: 'W5, W13',
-    metaTitle: 'Cleaning Services in Ealing, West London',
+    metaTitle: 'Cleaners in Ealing, West London | 5-Star Rated | From £60',
     metaDescription:
-      'Professional cleaning services in Ealing, West London (W5, W13). Home cleaning, deep cleans, end of tenancy, office cleaning. DBS checked, fully insured. Free quotes.',
+      '5-star rated cleaning services in Ealing, West London (W5, W13). Home cleaning from £60 · deep cleans · end of tenancy from £150 · office cleaning. Trusted by families & landlords. DBS-checked, eco-friendly, fully insured. Free quote.',
     heroDesc:
       'Reliable, professional cleaning for homes and businesses across Ealing. Trusted by families and landlords throughout W5 and W13.',
     intro: [
@@ -260,9 +260,9 @@ export const locations = [
     name: 'Greenford',
     county: 'West London',
     postcodes: 'UB6',
-    metaTitle: 'Cleaning Services in Greenford, West London',
+    metaTitle: 'Cleaners in Greenford, West London | 5-Star Rated | From £60',
     metaDescription:
-      'Professional cleaning services in Greenford, West London (UB6). Home cleaning, deep cleans, end of tenancy, office cleaning. Local team, DBS checked. Free quotes.',
+      '5-star rated cleaning services in Greenford, West London (UB6). Home cleaning from £60 · deep cleans · end of tenancy from £150 · office cleaning. Local DBS-checked team, fast response, fully insured. Same-week bookings. Free quote.',
     heroDesc:
       'Covering Greenford and surrounding areas in West London. Fast response times, reliable service, same high standards every visit.',
     intro: [
@@ -284,9 +284,9 @@ export const locations = [
     name: 'Northolt',
     county: 'West London',
     postcodes: 'UB5',
-    metaTitle: 'Cleaning Services in Northolt, West London',
+    metaTitle: 'Cleaners in Northolt, West London | 5-Star Rated | From £60',
     metaDescription:
-      'Professional cleaning services in Northolt, West London (UB5). Home cleaning, deep cleans, end of tenancy, office cleaning. Fully insured, DBS checked. Free quotes.',
+      '5-star rated cleaning services in Northolt, West London (UB5). Home cleaning from £60 · deep cleans · end of tenancy from £150 · office cleaning. DBS-checked, fully insured local team. Same-week availability. Free quote.',
     heroDesc:
       'Professional cleaning across Northolt and surrounding West London areas. Dependable, thorough, and always held to the highest standard.',
     intro: [
@@ -308,9 +308,9 @@ export const locations = [
     name: 'West Drayton',
     county: 'West London',
     postcodes: 'UB7',
-    metaTitle: 'Cleaning Services in West Drayton, West London',
+    metaTitle: 'Cleaners in West Drayton, West London | 5-Star Rated | From £60',
     metaDescription:
-      'Professional cleaning services in West Drayton (UB7). Home cleaning, deep cleans, end of tenancy, office cleaning. Local team based nearby. Fully insured. Free quotes.',
+      '5-star rated cleaning services in West Drayton (UB7). Home cleaning from £60 · deep cleans · end of tenancy from £150 · office cleaning. Local DBS-checked team based nearby, same-week availability. Fully insured. Free quote.',
     heroDesc:
       'Just minutes from Slough, West Drayton is one of our closest service areas. Fast response, reliable team, and the same high standards every time.',
     intro: [
@@ -332,9 +332,9 @@ export const locations = [
     name: 'Hounslow',
     county: 'West London',
     postcodes: 'TW3, TW4, TW5',
-    metaTitle: 'Cleaning Services in Hounslow, West London',
+    metaTitle: 'Cleaners in Hounslow, West London | 5-Star Rated | From £60',
     metaDescription:
-      'Professional cleaning services in Hounslow, West London (TW3, TW4, TW5). Home cleaning, deep cleans, end of tenancy, office cleaning. DBS checked, eco-friendly. Free quotes.',
+      '5-star rated cleaning services in Hounslow, West London (TW3, TW4, TW5). Home cleaning from £60 · deep cleans · end of tenancy from £150 · office cleaning. DBS-checked, eco-friendly, fully insured. Same-week bookings. Free quote.',
     heroDesc:
       'Trusted cleaning services for homes and businesses across Hounslow. Professional, reliable, and always to the highest standard.',
     intro: [
@@ -358,9 +358,9 @@ export const locations = [
     name: 'Ascot',
     county: 'Berkshire',
     postcodes: 'SL5',
-    metaTitle: 'Cleaning Services in Ascot, Berkshire',
+    metaTitle: 'Cleaners in Ascot, Berkshire | Discreet & 5-Star Rated',
     metaDescription:
-      'Professional cleaning services in Ascot, Berkshire (SL5). Home cleaning, deep cleans, end of tenancy. Discreet, fully insured team. Trusted by homeowners across Ascot, Sunninghill & Sunningdale.',
+      '5-star rated cleaning services in Ascot, Berkshire (SL5). Discreet, professional home cleaning from £60 · deep cleans · end of tenancy from £150. Trusted by homeowners across Ascot, Sunninghill & Sunningdale. DBS-checked, fully insured. Free quote.',
     heroDesc:
       'Discreet, high-standard cleaning for homes across Ascot, Sunninghill, and Sunningdale. Trusted by homeowners throughout the SL5 area.',
     intro: [
@@ -382,9 +382,9 @@ export const locations = [
     name: 'Bracknell',
     county: 'Berkshire',
     postcodes: 'RG12',
-    metaTitle: 'Cleaning Services in Bracknell, Berkshire',
+    metaTitle: 'Cleaners in Bracknell, Berkshire | 5-Star Rated | From £60',
     metaDescription:
-      'Professional cleaning services in Bracknell, Berkshire (RG12). Home cleaning, deep cleans, end of tenancy, office cleaning. Local, DBS-checked team. Fully insured. Free quotes.',
+      '5-star rated cleaning services in Bracknell, Berkshire (RG12). Home cleaning from £60 · deep cleans · end of tenancy from £150 · office cleaning. Local DBS-checked team, no contracts, fully insured. Same-week bookings. Free quote.',
     heroDesc:
       'Cleaning services for homes and businesses across Bracknell and surrounding Berkshire areas. Same-week availability, no contracts.',
     intro: [
