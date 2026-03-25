@@ -48,9 +48,7 @@ const westLondonLinks = [
 ];
 
 const socialLinks = [
-  // Update these with your actual social media profile URLs.
-  // Placeholder '#' links are hidden from crawlers with rel="nofollow".
-  { Icon: Instagram, label: 'Instagram', href: '#' },
+  { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/leoluxeclean' },
   { Icon: Facebook, label: 'Facebook', href: '#' },
 ];
 

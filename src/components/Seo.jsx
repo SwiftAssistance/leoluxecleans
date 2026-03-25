@@ -162,9 +162,8 @@ export const localBusinessSchema = {
     ],
   },
   sameAs: [
-    // Add your social media profile URLs here when available, e.g.:
+    'https://www.instagram.com/leoluxeclean',
     // 'https://www.facebook.com/leoluxeclean',
-    // 'https://www.instagram.com/leoluxeclean',
     // 'https://www.google.com/maps/place/Leo+Luxe+Clean',
   ],
 };
