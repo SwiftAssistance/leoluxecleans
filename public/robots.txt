@@ -1,18 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /_next/
-
-# Specific crawlers
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 2
 
 Sitemap: https://leoluxeclean.co.uk/sitemap.xml
 
-# Host directive (used by Yandex and some other crawlers)
 Host: https://leoluxeclean.co.uk

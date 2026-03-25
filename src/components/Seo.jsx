@@ -70,7 +70,7 @@ const Seo = ({
 
 export const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': ['LocalBusiness', 'HousekeepingBusiness'],
+  '@type': ['LocalBusiness', 'HousekeepingBusiness', 'CleaningService'],
   '@id': `${BASE_URL}/#business`,
   name: 'Leo Luxe Clean',
   description: DEFAULT_DESCRIPTION,
@@ -297,7 +297,7 @@ export const createServiceSchema = (service) => ({
 
 export const createLocationSchema = (location) => ({
   '@context': 'https://schema.org',
-  '@type': ['LocalBusiness', 'HousekeepingBusiness'],
+  '@type': ['LocalBusiness', 'HousekeepingBusiness', 'CleaningService'],
   '@id': `${BASE_URL}/areas/${location.slug}#business`,
   name: `Leo Luxe Clean — ${location.name}`,
   description: location.metaDescription,

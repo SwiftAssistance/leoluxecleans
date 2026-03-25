@@ -241,13 +241,13 @@ const ServicesPage = () => {
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 text-center">
             <div>
-              <span className="heading-serif text-4xl text-gold block">500+</span>
+              <span className="heading-serif text-4xl text-gold block">75+</span>
               <span className="label-caps text-[10px] text-neutral-500">Homes Cleaned</span>
             </div>
             <div className="hidden md:block w-px h-12 bg-surface-border/40"></div>
             <div>
               <span className="heading-serif text-4xl text-gold block">10+</span>
-              <span className="label-caps text-[10px] text-neutral-500">Years Experience</span>
+              <span className="label-caps text-[10px] text-neutral-500">Years Combined Experience</span>
             </div>
             <div className="hidden md:block w-px h-12 bg-surface-border/40"></div>
             <div>

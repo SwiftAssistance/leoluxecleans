@@ -55,7 +55,7 @@ function escHtml(str) {
 function localBusinessJsonLd() {
   return {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'HousekeepingBusiness'],
+    '@type': ['LocalBusiness', 'HousekeepingBusiness', 'CleaningService'],
     '@id': `${BASE_URL}/#business`,
     name: 'Leo Luxe Clean',
     url: BASE_URL,
@@ -141,7 +141,7 @@ function buildRoutes() {
       title: `${l.metaTitle} | Leo Luxe Clean`,
       description: l.metaDescription,
       schemas: [
-        { '@context': 'https://schema.org', '@type': ['LocalBusiness', 'HousekeepingBusiness'], '@id': `${BASE_URL}/areas/${l.slug}#business`, name: `Leo Luxe Clean — ${l.name}`, description: l.metaDescription, url: `${BASE_URL}/areas/${l.slug}`, telephone: '+441753257118', address: { '@type': 'PostalAddress', addressLocality: l.name, addressRegion: l.county, addressCountry: 'GB' } },
+        { '@context': 'https://schema.org', '@type': ['LocalBusiness', 'HousekeepingBusiness', 'CleaningService'], '@id': `${BASE_URL}/areas/${l.slug}#business`, name: `Leo Luxe Clean — ${l.name}`, description: l.metaDescription, url: `${BASE_URL}/areas/${l.slug}`, telephone: '+441753257118', address: { '@type': 'PostalAddress', addressLocality: l.name, addressRegion: l.county, addressCountry: 'GB' } },
         breadcrumbJsonLd([{ name: 'Home', url: '/' }, { name: l.name }]),
       ],
       noscriptContent: `<h1>Cleaning Services in ${escHtml(l.name)}, ${escHtml(l.county)}</h1>
