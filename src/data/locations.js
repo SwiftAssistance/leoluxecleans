@@ -28,6 +28,12 @@ export const locations = [
         initial: 'J',
       },
     ],
+    faqs: [
+      { q: 'How much does a cleaner cost in Slough?', a: 'Home cleaning in Slough starts from £60, deep cleans from £120, and end of tenancy from £150. Leo Luxe Clean provides free, no-obligation quotes for all services across SL1, SL2, and SL3.' },
+      { q: 'Do you cover all of Slough?', a: 'Yes — we cover all of Slough including the town centre, Cippenham, Upton, Chalvey, Farnham Royal, and Langley. We also serve surrounding areas across Berkshire and West London.' },
+      { q: 'How quickly can you start cleaning in Slough?', a: 'We\'re based in Slough, so we can often offer same-week or even next-day availability. Call 01753 257118 for the earliest slot.' },
+      { q: 'Are your cleaners in Slough DBS checked?', a: 'Yes — every team member is DBS checked, fully insured, and trained to our standards. We never use agency staff.' },
+    ],
   },
   {
     slug: 'windsor',
@@ -58,6 +64,12 @@ export const locations = [
         initial: 'R',
       },
     ],
+    faqs: [
+      { q: 'How much does a cleaner cost in Windsor?', a: 'Home cleaning in Windsor starts from £60, deep cleans from £120, and end of tenancy from £150. We provide free quotes for all cleaning services across SL4.' },
+      { q: 'Do you clean period properties in Windsor?', a: 'Yes — we have experience cleaning period homes and understand the extra care required for delicate surfaces, original features, and older fixtures. We tailor our products and approach to suit.' },
+      { q: 'How quickly can you start cleaning in Windsor?', a: 'We\'re based in nearby Slough, so Windsor is one of our closest service areas. We can typically offer same-week bookings. Call 01753 257118 for availability.' },
+      { q: 'Do you cover Old Windsor and Dedworth?', a: 'Yes — we cover all of the SL4 postcode area including Windsor town centre, Old Windsor, Dedworth, Clewer, and the areas around Windsor Great Park.' },
+    ],
   },
   {
     slug: 'langley',
@@ -81,6 +93,11 @@ export const locations = [
         role: 'Homeowner, Langley',
         initial: 'P',
       },
+    ],
+    faqs: [
+      { q: 'How much does cleaning cost in Langley?', a: 'Home cleaning in Langley starts from £60, deep cleans from £120, and end of tenancy from £150. We offer free, no-obligation quotes for all services across SL3.' },
+      { q: 'Do you cover Colnbrook and Richings Park?', a: 'Yes — we cover all of the SL3 area including Langley Village, Langley Marish, Brands Hill, Colnbrook, Richings Park, and George Green.' },
+      { q: 'How quickly can you get to Langley?', a: 'Langley is one of our closest service areas — just minutes from our Slough base. We can often offer same-week or next-day availability. Call 01753 257118.' },
     ],
   },
   {
@@ -106,6 +123,12 @@ export const locations = [
         initial: 'M',
       },
     ],
+    faqs: [
+      { q: 'How much does a cleaner cost in Maidenhead?', a: 'Home cleaning in Maidenhead starts from £60, deep cleans from £120, and end of tenancy from £150. We provide free quotes across the SL6 area.' },
+      { q: 'Do you cover Bray and Cox Green?', a: 'Yes — we cover all of the SL6 postcode including Maidenhead town centre, Bray, Cox Green, Furze Platt, Pinkneys Green, and Boyne Hill.' },
+      { q: 'Do you offer Airbnb cleaning in Maidenhead?', a: 'Yes — we provide turnaround cleans for short-let properties across Maidenhead. Fast response, flexible scheduling, and consistent quality for every guest changeover.' },
+      { q: 'How quickly can you clean in Maidenhead?', a: 'Maidenhead is a short drive from our Slough base. We typically offer same-week bookings. Call 01753 257118 for availability.' },
+    ],
   },
   {
     slug: 'eton',
@@ -130,6 +153,11 @@ export const locations = [
         initial: 'C',
       },
     ],
+    faqs: [
+      { q: 'How much does cleaning cost in Eton?', a: 'Home cleaning in Eton starts from £60, deep cleans from £120, and end of tenancy from £150. We provide free quotes for all services across the SL4 area.' },
+      { q: 'Do you cover Eton Wick and Dorney?', a: 'Yes — we cover Eton High Street, Eton Wick, Dorney, Boveney, and the surrounding SL4 area.' },
+      { q: 'Are your cleaners discreet?', a: 'Absolutely. Our team arrives in unmarked vehicles, is uniformed, and respects your privacy. We understand the importance of discretion, particularly in residential areas like Eton.' },
+    ],
   },
   {
     slug: 'burnham',
@@ -153,6 +181,11 @@ export const locations = [
         role: 'Homeowner, Burnham',
         initial: 'N',
       },
+    ],
+    faqs: [
+      { q: 'How much does cleaning cost in Burnham?', a: 'Home cleaning in Burnham starts from £60, deep cleans from £120, and end of tenancy from £150. We offer free, no-obligation quotes across SL1 and SL2.' },
+      { q: 'Do you cover Taplow and Burnham Beeches?', a: 'Yes — we serve Burnham Village, Taplow, Burnham Beeches, Hitcham, Lent Rise, and Lake End.' },
+      { q: 'How quickly can you start in Burnham?', a: 'Burnham is a short drive from our Slough base. We can typically offer same-week bookings. Call 01753 257118 for the earliest available slot.' },
     ],
   },
 
@@ -180,6 +213,12 @@ export const locations = [
         initial: 'A',
       },
     ],
+    faqs: [
+      { q: 'How much does a cleaner cost in Hayes?', a: 'Home cleaning in Hayes starts from £60, deep cleans from £120, and end of tenancy from £150. We provide free quotes for all services across UB3 and UB4.' },
+      { q: 'Do you cover Hayes End and Yeading?', a: 'Yes — we serve all of Hayes including Hayes Town, Hayes End, Yeading, Wood End, Bulls Cross, and Townfield.' },
+      { q: 'How quickly can you get to Hayes?', a: 'Hayes is right on the border with Slough, making it one of our fastest-response areas. We can often offer same-week or next-day availability. Call 01753 257118.' },
+      { q: 'Are your Hayes cleaners DBS checked?', a: 'Yes — every team member is DBS checked, fully insured, and trained to our standards. We never use agency staff or subcontractors.' },
+    ],
   },
   {
     slug: 'southall',
@@ -204,6 +243,11 @@ export const locations = [
         initial: 'G',
       },
     ],
+    faqs: [
+      { q: 'How much does cleaning cost in Southall?', a: 'Home cleaning in Southall starts from £60, deep cleans from £120, and end of tenancy from £150. Free, no-obligation quotes for all services across UB1 and UB2.' },
+      { q: 'Do you cover Norwood Green and Dormers Wells?', a: 'Yes — we serve all of Southall including the Broadway, Norwood Green, Dormers Wells, Lady Margaret, Havelock, and the Osterley Park area.' },
+      { q: 'How quickly can you clean in Southall?', a: 'Southall is a short drive from our Slough base. We typically offer same-week bookings across UB1 and UB2. Call 01753 257118 for availability.' },
+    ],
   },
   {
     slug: 'uxbridge',
@@ -227,6 +271,12 @@ export const locations = [
         role: 'Office Manager, Uxbridge',
         initial: 'R',
       },
+    ],
+    faqs: [
+      { q: 'How much does a cleaner cost in Uxbridge?', a: 'Home cleaning in Uxbridge starts from £60, deep cleans from £120, and end of tenancy from £150. We provide free quotes across UB8 and UB10.' },
+      { q: 'Do you cover Hillingdon and Ickenham?', a: 'Yes — we serve Uxbridge town centre, Hillingdon, Cowley, Ickenham, Ruislip Manor, and Denham.' },
+      { q: 'How quickly can you start cleaning in Uxbridge?', a: 'Uxbridge is a natural extension of our Slough and West London coverage. We typically offer same-week bookings. Call 01753 257118.' },
+      { q: 'Do you clean offices in Uxbridge?', a: 'Yes — we provide regular office and commercial cleaning across Uxbridge with flexible scheduling including early mornings, evenings, and weekends.' },
     ],
   },
 
@@ -254,6 +304,12 @@ export const locations = [
         initial: 'S',
       },
     ],
+    faqs: [
+      { q: 'How much does a cleaner cost in Ealing?', a: 'Home cleaning in Ealing starts from £60, deep cleans from £120, and end of tenancy from £150. We offer free quotes for all cleaning services across W5 and W13.' },
+      { q: 'Do you cover West Ealing and Hanwell?', a: 'Yes — we serve Ealing Broadway, West Ealing, Hanwell, Ealing Common, Northfields, and Castlebar Hill.' },
+      { q: 'How quickly can you get to Ealing?', a: 'We serve Ealing regularly from our Slough base via our Hayes and Southall routes. Same-week bookings are usually available. Call 01753 257118.' },
+      { q: 'Are your Ealing cleaners insured?', a: 'Yes — our entire team is fully insured with public liability cover, DBS checked, and trained to our standards.' },
+    ],
   },
   {
     slug: 'greenford',
@@ -277,6 +333,11 @@ export const locations = [
         role: 'Tenant, Greenford',
         initial: 'M',
       },
+    ],
+    faqs: [
+      { q: 'How much does cleaning cost in Greenford?', a: 'Home cleaning in Greenford starts from £60, deep cleans from £120, and end of tenancy from £150. Free quotes across UB6.' },
+      { q: 'Do you cover Perivale and Horsenden?', a: 'Yes — we serve Greenford Broadway, Perivale, Ravenor Park, Horsenden, and the surrounding UB6 area.' },
+      { q: 'How quickly can you clean in Greenford?', a: 'Greenford sits between our Hayes and Ealing routes, so we\'re in the area regularly. Same-week bookings are typically available. Call 01753 257118.' },
     ],
   },
   {
@@ -302,6 +363,11 @@ export const locations = [
         initial: 'D',
       },
     ],
+    faqs: [
+      { q: 'How much does a cleaner cost in Northolt?', a: 'Home cleaning in Northolt starts from £60, deep cleans from £120, and end of tenancy from £150. We provide free quotes for all services across UB5.' },
+      { q: 'Do you cover South Ruislip and Islip Manor?', a: 'Yes — we serve Northolt Village, South Ruislip, Mandeville Estate, Racecourse Estate, West End, and Islip Manor.' },
+      { q: 'How quickly can you start in Northolt?', a: 'We serve Northolt regularly as part of our West London coverage. Same-week bookings are usually available. Call 01753 257118.' },
+    ],
   },
   {
     slug: 'west-drayton',
@@ -326,6 +392,11 @@ export const locations = [
         initial: 'I',
       },
     ],
+    faqs: [
+      { q: 'How much does cleaning cost in West Drayton?', a: 'Home cleaning in West Drayton starts from £60, deep cleans from £120, and end of tenancy from £150. Free quotes across UB7.' },
+      { q: 'Do you cover Yiewsley and Harmondsworth?', a: 'Yes — we serve West Drayton Village, Yiewsley, Harmondsworth, Sipson, Longford, and Colham Green.' },
+      { q: 'How quickly can you get to West Drayton?', a: 'West Drayton is one of our closest service areas — just minutes from our Slough base. We can often offer same-week or next-day availability. Call 01753 257118.' },
+    ],
   },
   {
     slug: 'hounslow',
@@ -349,6 +420,12 @@ export const locations = [
         role: 'Homeowner, Hounslow',
         initial: 'A',
       },
+    ],
+    faqs: [
+      { q: 'How much does a cleaner cost in Hounslow?', a: 'Home cleaning in Hounslow starts from £60, deep cleans from £120, and end of tenancy from £150. We provide free quotes across TW3, TW4, and TW5.' },
+      { q: 'Do you cover Heston and Cranford?', a: 'Yes — we serve Hounslow town centre, Heston, Cranford, Brentford, Isleworth, and Lampton.' },
+      { q: 'How quickly can you start cleaning in Hounslow?', a: 'We serve Hounslow regularly alongside our Hayes and Southall coverage. Same-week bookings are typically available. Call 01753 257118.' },
+      { q: 'Do you clean offices in Hounslow?', a: 'Yes — we provide regular office and commercial cleaning across Hounslow with flexible scheduling to suit your business hours.' },
     ],
   },
 
@@ -376,6 +453,11 @@ export const locations = [
         initial: 'V',
       },
     ],
+    faqs: [
+      { q: 'How much does a cleaner cost in Ascot?', a: 'Home cleaning in Ascot starts from £60, deep cleans from £120, and end of tenancy from £150. We provide free, no-obligation quotes across the SL5 area.' },
+      { q: 'Do you cover Sunninghill and Sunningdale?', a: 'Yes — we serve Ascot Village, South Ascot, Sunninghill, Sunningdale, Cheapside, and North Ascot.' },
+      { q: 'Are your Ascot cleaners discreet and professional?', a: 'Absolutely. We understand the importance of discretion in areas like Ascot. Our team is uniformed, DBS checked, and arrives in unmarked vehicles. Every visit is handled with care and professionalism.' },
+    ],
   },
   {
     slug: 'bracknell',
@@ -399,6 +481,12 @@ export const locations = [
         role: 'Homeowner, Bracknell',
         initial: 'S',
       },
+    ],
+    faqs: [
+      { q: 'How much does cleaning cost in Bracknell?', a: 'Home cleaning in Bracknell starts from £60, deep cleans from £120, and end of tenancy from £150. We offer free quotes for all services across RG12.' },
+      { q: 'Do you cover Sandhurst and Crowthorne?', a: 'Yes — we serve Bracknell town centre, Sandhurst, Crowthorne, Martins Heron, Great Hollands, and Wildridings.' },
+      { q: 'How quickly can you start in Bracknell?', a: 'Bracknell is within easy reach of our Slough base. We typically offer same-week bookings. Call 01753 257118 for availability.' },
+      { q: 'Do you clean offices in Bracknell?', a: 'Yes — we provide regular office and commercial cleaning across Bracknell with flexible scheduling including early mornings, evenings, and weekends.' },
     ],
   },
 ];

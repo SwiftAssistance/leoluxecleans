@@ -136,6 +136,11 @@ const ServiceDetailPage = () => {
                 contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
+              {service.directAnswer && (
+                <p className="text-neutral-300 text-base leading-relaxed mb-8 pb-8 border-b border-surface-border/30">
+                  {service.directAnswer}
+                </p>
+              )}
               <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-8">
                 {service.tagline}
               </h2>
@@ -230,7 +235,7 @@ const ServiceDetailPage = () => {
           >
             <div className="text-center mb-12">
               <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-                What's Included
+                What Does Our {service.title} Include?
               </h2>
               <p className="text-neutral-400 text-sm">
                 Everything listed below comes as standard — no add-ons, no extras.
@@ -257,7 +262,7 @@ const ServiceDetailPage = () => {
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-12">
             <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-              {service.title} FAQ
+              Frequently Asked Questions About {service.title}
             </h2>
             <p className="text-neutral-400 text-sm">
               Got questions? Here are the ones we get asked most.
@@ -283,7 +288,7 @@ const ServiceDetailPage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-10">
             <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-3">
-              {service.title} Near You
+              Where Can I Get {service.title} Near Me?
             </h2>
             <p className="text-neutral-400 text-sm">
               We cover all of these areas and more across Berkshire.

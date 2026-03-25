@@ -8,6 +8,8 @@ export const services = [
     metaTitle: 'Home Cleaning Services in Slough & Berkshire',
     metaDescription:
       'Professional home cleaning in Slough, Windsor & Berkshire. Weekly, fortnightly or one-off cleans. Fully insured, DBS checked team. Free quotes, no contracts.',
+    directAnswer:
+      'Home cleaning is a regular professional cleaning service for your house or flat, typically booked weekly or fortnightly. Leo Luxe Clean provides home cleaning across Slough, Windsor, and Berkshire from £60, covering all rooms including kitchens, bathrooms, bedrooms, and living areas. Our DBS-checked team brings all products and equipment.',
     heroDesc:
       'Whether it\'s a weekly clean or a one-off before guests arrive, we treat your home like it\'s our own. Every room done properly — nothing rushed, nothing missed.',
     longDesc: [
@@ -42,6 +44,10 @@ export const services = [
         q: 'Can you clean specific rooms only?',
         a: 'Absolutely. Some clients just want kitchens and bathrooms done, others want the full house. We\'ll tailor the clean to exactly what you need.',
       },
+      {
+        q: 'How much does home cleaning cost in Slough?',
+        a: 'Our home cleaning starts from £60 for a standard clean. The exact price depends on the size of your home and frequency of visits. Weekly cleans are the most cost-effective. We provide a free, no-obligation quote — just tell us about your space and we\'ll give you a clear price.',
+      },
     ],
   },
   {
@@ -53,6 +59,8 @@ export const services = [
     metaTitle: 'Office & Commercial Cleaning in Slough & Berkshire',
     metaDescription:
       'Professional office cleaning in Slough, Windsor & Berkshire. Flexible scheduling, evenings and weekends available. Fully insured team. Keep your workspace spotless.',
+    directAnswer:
+      'Office cleaning is a regular professional cleaning service for workplaces, including desk sanitisation, kitchen and bathroom maintenance, floor care, and waste removal. Leo Luxe Clean provides office and commercial cleaning across Slough, Windsor, and Berkshire with flexible scheduling including early mornings, evenings, and weekends.',
     heroDesc:
       'First impressions matter. Whether it\'s a small office or a large commercial space, we keep your workplace clean, professional, and somewhere people actually want to be.',
     longDesc: [
@@ -87,6 +95,10 @@ export const services = [
         q: 'Can you clean medical or dental practices?',
         a: 'Absolutely. We have experience cleaning healthcare environments and understand the higher hygiene standards required.',
       },
+      {
+        q: 'How much does office cleaning cost in Berkshire?',
+        a: 'Office cleaning is quoted individually based on the size of your premises, frequency, and requirements. We offer competitive rates with flexible scheduling. Contact us for a free, no-obligation quote.',
+      },
     ],
   },
   {
@@ -98,6 +110,8 @@ export const services = [
     metaTitle: 'Deep Cleaning Services in Slough & Berkshire',
     metaDescription:
       'Professional deep cleaning in Slough, Windsor & Berkshire. Behind the fridge, inside the oven, on top of the cabinets. Fully insured, eco-friendly products. Free quotes.',
+    directAnswer:
+      'A deep clean is an intensive, top-to-bottom clean that covers areas not reached during regular cleaning — behind appliances, inside ovens, grout scrubbing, limescale removal, and more. Leo Luxe Clean provides deep cleaning across Slough, Windsor, and Berkshire from £120. We typically allow 4-6 hours and use professional-grade equipment.',
     heroDesc:
       'Behind the fridge, inside the oven, on top of the cabinets — all the bits you keep putting off. We get stuck in so you don\'t have to.',
     longDesc: [
@@ -132,6 +146,10 @@ export const services = [
         q: 'Do you move furniture?',
         a: 'Yes. We move sofas, beds, and appliances where safe to do so. We\'re careful with your belongings and always put everything back.',
       },
+      {
+        q: 'How much does a deep clean cost in Berkshire?',
+        a: 'Deep cleaning starts from £120 for a standard 2-3 bedroom home. Larger properties or homes that haven\'t been deep cleaned in a while may cost more. We always provide a clear quote upfront with no hidden fees.',
+      },
     ],
   },
   {
@@ -143,6 +161,8 @@ export const services = [
     metaTitle: 'End of Tenancy Cleaning in Slough & Berkshire',
     metaDescription:
       'Professional end of tenancy cleaning in Slough, Windsor & Berkshire. Landlord-approved standards. Get your full deposit back. Fully insured, DBS checked. Free quotes.',
+    directAnswer:
+      'End of tenancy cleaning is a comprehensive clean of a rental property to inventory-check standard, carried out after the tenant moves out and before the landlord\'s final inspection. Leo Luxe Clean provides this service across Slough, Windsor, and Berkshire from £150, covering inside cupboards, oven degreasing, bathroom descaling, carpet treatment, and all surfaces.',
     heroDesc:
       'Moving out? We\'ll leave it landlord-ready. We know exactly what they look for — and we\'ve never had a client lose their deposit because of the clean.',
     longDesc: [
@@ -177,6 +197,10 @@ export const services = [
         q: 'Do you clean ovens and carpets as part of this?',
         a: 'Yes — oven degreasing, carpet vacuuming and spot treatment are all included as standard in every end of tenancy clean.',
       },
+      {
+        q: 'How much does end of tenancy cleaning cost in Slough?',
+        a: 'End of tenancy cleaning starts from £150 and depends on the size of the property and its condition. We clean to inventory-check standard and offer a free re-clean within 48 hours if any issues are raised. Free quote — call 01753 257118.',
+      },
     ],
   },
   {
@@ -188,6 +212,8 @@ export const services = [
     metaTitle: 'After Event & Party Cleaning in Slough & Berkshire',
     metaDescription:
       'After event and party cleaning in Slough, Windsor & Berkshire. Same-day and next-day availability. Spill treatment, waste removal, full restoration. Free quotes.',
+    directAnswer:
+      'After event cleaning is a rapid-response cleaning service for homes, offices, or venues following parties, corporate events, or gatherings. Leo Luxe Clean provides same-day and next-day after event cleaning across Slough, Windsor, and Berkshire from £80, covering waste removal, spill treatment, and full restoration.',
     heroDesc:
       'Had a party, event, or gathering? We\'ll make it look like nothing happened. Same-day and next-day availability for those morning-after emergencies.',
     longDesc: [
@@ -222,6 +248,10 @@ export const services = [
         q: 'Can you remove wine or food stains?',
         a: 'We carry professional stain treatment products and can handle most common spills. For severe stains, we may recommend our specialist carpet cleaning service.',
       },
+      {
+        q: 'How much does after event cleaning cost?',
+        a: 'After event cleaning starts from £80 depending on the venue size and level of cleanup required. Same-day and next-day availability. We provide a quick quote over the phone — call 01753 257118.',
+      },
     ],
   },
   {
@@ -233,6 +263,8 @@ export const services = [
     metaTitle: 'Specialist Cleaning Services in Slough & Berkshire',
     metaDescription:
       'Specialist cleaning in Slough, Windsor & Berkshire. Carpets, upholstery, ovens, windows, hard floors, mattresses. Professional equipment, visible results. Free quotes.',
+    directAnswer:
+      'Specialist cleaning covers tasks requiring professional equipment and expertise — carpet deep extraction, upholstery cleaning, oven degreasing, window cleaning, hard floor polishing, and mattress sanitisation. Leo Luxe Clean provides specialist cleaning across Slough, Windsor, and Berkshire from £70.',
     heroDesc:
       'Carpets, upholstery, ovens, windows — the jobs that need proper equipment and know-how. Professional-grade results you can see and feel.',
     longDesc: [
@@ -266,6 +298,10 @@ export const services = [
       {
         q: 'Do you clean conservatory roofs or high windows?',
         a: 'We can handle most residential windows including first-floor and conservatory glass. For anything higher, we\'ll advise on the best approach during your quote.',
+      },
+      {
+        q: 'How much does carpet or oven cleaning cost in Slough?',
+        a: 'Specialist cleaning starts from £70. Prices vary by service — carpet cleaning, oven cleaning, upholstery cleaning, and window cleaning are all priced individually based on the size and condition. Free quotes available.',
       },
     ],
   },

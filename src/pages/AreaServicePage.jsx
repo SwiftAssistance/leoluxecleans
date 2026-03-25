@@ -173,6 +173,12 @@ const AreaServicePage = () => {
                 <span className="text-neutral-600 text-sm">— {location.postcodes}</span>
               </div>
 
+              {service.directAnswer && (
+                <p className="text-neutral-300 text-base leading-relaxed mb-8 pb-8 border-b border-surface-border/30">
+                  {service.directAnswer.replace('Slough, Windsor, and Berkshire', `${location.name} and the surrounding ${location.county} area`)}
+                </p>
+              )}
+
               <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-8">
                 {service.tagline}
               </h2>
@@ -281,7 +287,7 @@ const AreaServicePage = () => {
           >
             <div className="text-center mb-12">
               <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-                What's Included
+                What Does {service.title} in {location.name} Include?
               </h2>
               <p className="text-neutral-400 text-sm">
                 Everything listed below comes as standard for your{' '}
@@ -309,7 +315,7 @@ const AreaServicePage = () => {
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-12">
             <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-              {service.title} FAQ
+              Frequently Asked Questions About {service.title} in {location.name}
             </h2>
             <p className="text-neutral-400 text-sm">
               Common questions about our {service.title.toLowerCase()} in {location.name}.
@@ -332,7 +338,7 @@ const AreaServicePage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-10">
             <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-3">
-              Where We Cover in {location.name}
+              Which Parts of {location.name} Do We Cover?
             </h2>
             <p className="text-neutral-400 text-sm">
               Postcodes: {location.postcodes} and surrounding areas.
@@ -357,7 +363,7 @@ const AreaServicePage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-10">
             <h2 className="heading-serif text-3xl lg:text-4xl text-white">
-              More Services in {location.name}
+              What Other Cleaning Services Are Available in {location.name}?
             </h2>
           </div>
 

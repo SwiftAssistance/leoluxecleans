@@ -15,7 +15,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
-import Seo, { createLocationSchema, breadcrumbSchema } from '../components/Seo';
+import Seo, { createLocationSchema, createFaqSchema, breadcrumbSchema } from '../components/Seo';
 import { getLocationBySlug, locations } from '../data/locations';
 import { services } from '../data/services';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -48,6 +48,7 @@ const LocationPage = () => {
       { name: 'Areas', url: '/' },
       { name: location.name },
     ]),
+    ...(location.faqs && location.faqs.length > 0 ? [createFaqSchema(location.faqs)] : []),
   ];
 
   return (
@@ -190,7 +191,7 @@ const LocationPage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-12">
             <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-3">
-              Our Services in {location.name}
+              What Cleaning Services Are Available in {location.name}?
             </h2>
             <p className="text-neutral-400 text-sm">
               All services available across {location.name} and surrounding areas.
@@ -238,7 +239,7 @@ const LocationPage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-10">
             <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-3">
-              Where We Clean in {location.name}
+              Which Areas Do We Cover in {location.name}?
             </h2>
             <p className="text-neutral-400 text-sm">
               Covering {location.postcodes} and surrounding postcodes.
@@ -302,6 +303,27 @@ const LocationPage = () => {
               >
                 See All Reviews <ArrowRight size={12} />
               </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* FAQ */}
+      {location.faqs && location.faqs.length > 0 && (
+        <section className="py-16 lg:py-24 bg-surface-dark">
+          <div className="max-w-4xl mx-auto px-6 lg:px-12">
+            <div className="text-center mb-12">
+              <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
+                Cleaning in {location.name} — FAQ
+              </h2>
+            </div>
+            <div className="space-y-4">
+              {location.faqs.map((faq, i) => (
+                <div key={i} className="rounded-xl border border-surface-border/40 p-6 lg:p-8">
+                  <h3 className="text-white font-semibold mb-3">{faq.q}</h3>
+                  <p className="text-neutral-400 text-sm leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

@@ -31,14 +31,14 @@ const Hero = () => {
         </div>
 
         <h1 className="heading-serif text-[clamp(3rem,8vw,7.5rem)] text-white leading-[0.9] mb-8 max-w-4xl">
-          Clean Done
+          Professional Cleaning
           <br />
-          <span className="text-gold-gradient">Properly.</span>
+          in Slough &amp; <span className="text-gold-gradient">Berkshire.</span>
         </h1>
 
         <p className="text-neutral-400 text-lg max-w-md leading-relaxed font-light mb-10">
-          A small, local team based in Slough. Every home we clean gets the same
-          care and attention — because our reputation depends on it.
+          Clean done properly. A small, local team based in Slough — every home
+          we clean gets the same care and attention, because our reputation depends on it.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-12">
