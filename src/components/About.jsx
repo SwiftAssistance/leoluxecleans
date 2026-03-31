@@ -27,15 +27,15 @@ const About = () => {
 
             <div className="space-y-5 text-neutral-400 leading-relaxed font-light text-[15px] max-w-xl">
               <p>
-                Leo Luxe is a new, independent cleaning company based right
-                here in Slough. We're small on purpose — it means every
-                client matters and every clean gets our full attention.
+                Leo Luxe is based in Slough. It's a small team — Leo is
+                involved in most jobs himself, and the rest of the crew are
+                people he's trained and trusts. That's not a selling point,
+                it's just how it works.
               </p>
               <p>
-                Our team is local, DBS checked, and trained by us. We bring
-                our own eco-friendly products, our own equipment, and our own
-                standards. If you wouldn't be happy with it, neither are we.
-                If something's missed, we come back and sort it for free.
+                Everyone who comes to your home is DBS checked. We bring all
+                our own equipment and products. If something gets missed, we
+                come back and sort it — no charge, no back and forth.
               </p>
             </div>
 
