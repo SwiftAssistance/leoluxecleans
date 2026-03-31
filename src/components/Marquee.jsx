@@ -4,13 +4,15 @@ const marqueeItems = [
   'Fully Insured',
   'DBS Checked',
   'Eco-Friendly Products',
-  '5-Star Rated on Google',
+  '5-Star Google Rating',
   'Free Quotes',
   'Slough & Berkshire',
-  'Same Week Booking',
-  '100% Satisfaction Guarantee',
+  'Same-Week Bookings',
+  'Satisfaction Guaranteed',
   'No Contracts',
   'Local & Independent',
+  'From £60',
+  'Same Team Every Visit',
 ];
 
 const Marquee = () => {

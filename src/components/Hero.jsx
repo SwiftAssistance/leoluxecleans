@@ -26,7 +26,7 @@ const Hero = () => {
         <div className="flex items-center gap-3 mb-8">
           <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
           <span className="text-neutral-400 text-sm">
-            Taking bookings this week across Slough & Berkshire
+            Taking bookings this week — Slough, Windsor & Berkshire
           </span>
         </div>
 
@@ -37,8 +37,9 @@ const Hero = () => {
         </h1>
 
         <p className="text-neutral-400 text-lg max-w-md leading-relaxed font-light mb-10">
-          A small, local team based in Slough. Every home we clean gets the same
-          care and attention — because our reputation depends on it.
+          Leo Luxe is a small cleaning team based in Slough. We work across
+          Berkshire and West London — and every job is held to the same standard,
+          whether it's a weekly clean or a one-off.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-12">

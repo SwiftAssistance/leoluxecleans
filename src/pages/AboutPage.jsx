@@ -20,23 +20,23 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 const values = [
   {
     icon: <Heart size={22} />,
-    title: 'We Actually Care',
-    desc: "It's our name on the door. If your place isn't spotless, we haven't done our job.",
+    title: "It's Our Name On It",
+    desc: "If your place isn't clean when we leave, we haven't done our job. Simple as that.",
   },
   {
     icon: <ShieldCheck size={22} />,
-    title: 'Trusted & Vetted',
-    desc: 'Every team member is DBS checked, fully insured, and trained by us. No agency staff.',
+    title: 'DBS Checked, Always',
+    desc: 'Every team member is DBS checked and insured. No agency staff, no strangers.',
   },
   {
     icon: <Leaf size={22} />,
-    title: 'Eco-Friendly',
-    desc: 'Professional-grade products that are tough on dirt but gentle on the environment.',
+    title: 'Products That Work',
+    desc: "We use cleaning products that actually do the job — and won't damage your surfaces or harm your family.",
   },
   {
     icon: <Clock size={22} />,
-    title: 'Reliable & Punctual',
-    desc: 'We show up on time, every time. And if anything changes, we let you know first.',
+    title: 'We Show Up',
+    desc: "On time, every time. If something changes, you hear from us first — not after you've been waiting.",
   },
 ];
 
@@ -60,7 +60,7 @@ const AboutPage = () => {
       />
       <PageHero
         title={<>About <span className="text-gold-gradient">Leo Luxe</span></>}
-        subtitle="We're a small, independent cleaning team based in Slough. New to the name, but not to the craft — and already trusted by families and businesses across Berkshire."
+        subtitle="A small cleaning team based in Slough. Not a franchise, not a call centre — just Leo and a team he trusts, doing the work properly."
         breadcrumb="About"
       />
 
@@ -75,30 +75,29 @@ const AboutPage = () => {
               }`}
             >
               <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-8">
-                We started Leo Luxe because we believed cleaning could be{' '}
+                Leo started this because he was tired of{' '}
                 <span className="text-gold-gradient">
-                  done properly.
+                  how it was being done.
                 </span>
               </h2>
 
               <div className="space-y-5 text-neutral-400 leading-relaxed font-light">
                 <p>
-                  Before Leo Luxe, we spent years cleaning for other companies —
-                  and we kept seeing the same problems. Rushed jobs, inconsistent
-                  teams, clients who felt like just another booking on a list.
-                  We knew we could do better, so we started our own company.
+                  Before Leo Luxe, Leo spent years doing cleaning work for
+                  other companies across Slough and Berkshire. The jobs got
+                  done. But rarely the way you'd want your own home done —
+                  quick in, quick out, whoever happened to be free that day.
                 </p>
                 <p>
-                  Leo Luxe is built on a simple idea: treat every home like it's
-                  your own. We're a small team, which means you'll see the same
-                  familiar faces each visit. We bring our own eco-friendly
-                  products, our own equipment, and standards we're genuinely
-                  proud of.
+                  He started Leo Luxe to do it differently. Small enough that
+                  every job matters. The same team on every visit. Leo himself
+                  on most jobs, or close enough to know exactly what happened.
                 </p>
                 <p>
-                  We're growing steadily through word of mouth — and that's
-                  exactly how we want it. Every client who recommends us proves
-                  we're doing something right.
+                  The business has grown through word of mouth from day one.
+                  Clients tell their neighbours, their letting agents, their
+                  colleagues. That means the work has to hold up every time —
+                  and it does.
                 </p>
               </div>
 
@@ -162,10 +161,10 @@ const AboutPage = () => {
             }`}
           >
             <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-              Our Promise to You
+              What to Expect
             </h2>
             <p className="text-neutral-400 text-sm max-w-lg mx-auto">
-              We're a new company earning your trust from day one. Here's how we hold ourselves accountable.
+              Here's what every booking with Leo Luxe includes, no exceptions.
             </p>
           </div>
 
@@ -173,18 +172,18 @@ const AboutPage = () => {
             {[
               {
                 icon: <Award size={22} />,
-                title: 'Satisfaction Guarantee',
-                desc: "Not happy with any part of the clean? We'll come back and redo it at no extra charge. No questions, no fuss.",
+                title: 'We Come Back If Needed',
+                desc: "Not happy with something? Tell us and we'll come back and sort it. Same week, no charge. That's the deal.",
               },
               {
                 icon: <ShieldCheck size={22} />,
-                title: 'Fully Transparent',
-                desc: 'Clear pricing upfront, no hidden fees, no contracts. You know exactly what you\'re paying for before we start.',
+                title: 'Clear Pricing, No Surprises',
+                desc: "You get a price before we start. No contracts, no minimum term. If the job changes, we tell you first.",
               },
               {
                 icon: <Handshake size={22} />,
-                title: 'Personally Accountable',
-                desc: "Leo personally oversees every job. If there's ever an issue, you speak directly to the owner — not a call centre.",
+                title: 'You Deal With Leo Directly',
+                desc: "If there's a problem, you call Leo — not a team, not a system. He'll sort it himself.",
               },
             ].map((item, i) => (
               <div
@@ -212,7 +211,7 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-14">
             <h2 className="heading-serif text-4xl lg:text-5xl text-white">
-              What We Stand For
+              How We Work
             </h2>
           </div>
 
@@ -246,10 +245,10 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-14">
             <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-              The People Behind the Clean
+              The Team
             </h2>
             <p className="text-neutral-400 text-sm max-w-md mx-auto">
-              Not a franchise. Not a platform. A real, local team that takes pride in their work.
+              Local, trained in-house, and the same faces on every visit.
             </p>
           </div>
 
@@ -301,10 +300,10 @@ const AboutPage = () => {
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-14">
             <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-              Why People Choose Us
+              Why Clients Stick Around
             </h2>
             <p className="text-neutral-400 text-sm">
-              We might be new, but we've built our reputation on the things that matter most.
+              The basics done right, every time.
             </p>
           </div>
 

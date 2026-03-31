@@ -5,15 +5,15 @@ export const services = [
     tagline: 'Your home, done properly',
     pricing: 'From £60',
     priceFrom: 60,
-    metaTitle: 'Home Cleaning Services in Slough & Berkshire',
+    metaTitle: 'Home Cleaning in Slough & Berkshire | From £60 | Leo Luxe Clean',
     metaDescription:
-      'Professional home cleaning in Slough, Windsor & Berkshire. Weekly, fortnightly or one-off cleans. Fully insured, DBS checked team. Free quotes, no contracts.',
+      'Home cleaning in Slough, Windsor & Berkshire from £60. Weekly, fortnightly or one-off. DBS checked, fully insured. Same-week availability. Free quote.',
     heroDesc:
-      'Whether it\'s a weekly clean or a one-off before guests arrive, we treat your home like it\'s our own. Every room done properly — nothing rushed, nothing missed.',
+      'Whether it\'s a weekly regular or a one-off before guests arrive — every room, done properly. Nothing skipped because it was taking too long.',
     longDesc: [
-      'We know what a proper home clean looks like — and we bring that standard to every job across Slough, Windsor, Langley, and the wider Berkshire area. It\'s not about wiping a few surfaces and running a hoover around — it\'s about leaving your home feeling genuinely clean.',
-      'Our team arrives on time, fully equipped, and ready to go. We clean kitchens, bathrooms, bedrooms, living areas — top to bottom. We move things, clean behind them, and put them back. We get the bits most people miss: light switches, skirting boards, door handles, inside the microwave.',
-      'You can book us weekly, fortnightly, or just when you need us. No contracts, no minimum term. If you\'re not happy with anything, we\'ll come back and sort it for free.',
+      'We\'ve cleaned enough homes across Slough, Windsor, Langley, and Berkshire to know the difference between a quick once-over and an actual clean. The two aren\'t the same, and most people can tell.',
+      'We arrive on time with everything needed. Kitchens, bathrooms, bedrooms, living areas — top to bottom. We move things, clean behind them, put them back. Light switches, skirting boards, door handles, inside the microwave — the bits most people skip.',
+      'Book weekly, fortnightly, or one-off. No contracts, no minimum term. If something\'s not right, tell us and we\'ll come back and sort it.',
     ],
     features: [
       'Kitchen deep clean — surfaces, hob, sink, appliances, floors',
@@ -50,15 +50,15 @@ export const services = [
     tagline: 'A workspace that works',
     pricing: 'Custom quote',
     priceFrom: null,
-    metaTitle: 'Office & Commercial Cleaning in Slough & Berkshire',
+    metaTitle: 'Office & Commercial Cleaning in Slough & Berkshire | Leo Luxe Clean',
     metaDescription:
-      'Professional office cleaning in Slough, Windsor & Berkshire. Flexible scheduling, evenings and weekends available. Fully insured team. Keep your workspace spotless.',
+      'Office and commercial cleaning in Slough, Windsor & Berkshire. Flexible hours — mornings, evenings, weekends. Fully insured, DBS checked. Free quote.',
     heroDesc:
-      'First impressions matter. Whether it\'s a small office or a large commercial space, we keep your workplace clean, professional, and somewhere people actually want to be.',
+      'A clean office matters — for staff, for clients, for how your business looks. We keep commercial spaces across Slough and Berkshire properly clean, around your schedule.',
     longDesc: [
-      'A clean workspace isn\'t just about appearances — it\'s about productivity, health, and making the right impression on clients. We work with businesses across Slough, Windsor, and Berkshire to keep offices, retail spaces, and commercial premises spotless.',
-      'We know businesses run on tight schedules, so we offer flexible cleaning times including early mornings, evenings, and weekends. We work around your hours so you never have to work around ours.',
-      'Our commercial cleaning covers everything from daily desk sanitisation to weekly deep cleans. We\'re fully insured with public liability cover, and every team member is DBS checked and uniformed.',
+      'A dirty workplace puts people off — staff, visitors, clients. We work with businesses across Slough, Windsor, and Berkshire to keep offices, retail spaces, and commercial premises in good shape.',
+      'We fit around your hours. Early mornings, evenings, weekends — whatever works. Most commercial clients don\'t want cleaners wandering around during the working day, and we understand that.',
+      'Public liability insurance is included. Every team member is DBS checked and properly trained. We can provide documentation on request.',
     ],
     features: [
       'Desk and workstation sanitisation',
@@ -95,15 +95,15 @@ export const services = [
     tagline: 'Every corner, every time',
     pricing: 'From £120',
     priceFrom: 120,
-    metaTitle: 'Deep Cleaning Services in Slough & Berkshire',
+    metaTitle: 'Deep Cleaning in Slough & Berkshire | From £120 | Leo Luxe Clean',
     metaDescription:
-      'Professional deep cleaning in Slough, Windsor & Berkshire. Behind the fridge, inside the oven, on top of the cabinets. Fully insured, eco-friendly products. Free quotes.',
+      'Deep cleaning in Slough, Windsor & Berkshire from £120. Behind appliances, inside ovens, grout scrubbing — a proper reset. DBS checked, fully insured. Free quote.',
     heroDesc:
-      'Behind the fridge, inside the oven, on top of the cabinets — all the bits you keep putting off. We get stuck in so you don\'t have to.',
+      'Behind the fridge, inside the oven, on top of the cabinets — all the bits that get left. We go through the whole place so you don\'t have to.',
     longDesc: [
-      'A deep clean is for when a regular clean won\'t cut it. Maybe you\'ve just moved in, maybe it\'s been a while, or maybe you just want a proper reset. Whatever the reason, we go through your entire property top to bottom and leave it genuinely spotless.',
-      'We pull out appliances, clean inside ovens and fridges, scrub grout, remove limescale, wipe down walls, clean light fixtures, and get into all the corners and crevices that build up over time. It\'s the kind of clean that makes you see your home differently when we\'re done.',
-      'Every deep clean is done by our most experienced team members using professional-grade products. We typically allow 4-6 hours for a standard home, but we don\'t rush — we stay until it\'s done properly.',
+      'A deep clean is for when a standard clean won\'t cut it. Maybe you\'ve just moved in, maybe it\'s been a while, maybe you want a proper reset before selling or renting. We go through the whole property, not just the obvious bits.',
+      'We pull out appliances, clean inside ovens and fridges, scrub grout, remove limescale, wipe down walls, clean light fixtures, and get into corners that have been ignored for months. It\'s the kind of clean that makes a place look different when it\'s done.',
+      'Every deep clean goes to our most experienced team. We allow 4–6 hours for a standard home and we don\'t cut corners — we stay until the job\'s finished properly.',
     ],
     features: [
       'Behind and under all furniture and appliances',
@@ -140,15 +140,15 @@ export const services = [
     tagline: 'Get your deposit back',
     pricing: 'From £150',
     priceFrom: 150,
-    metaTitle: 'End of Tenancy Cleaning in Slough & Berkshire',
+    metaTitle: 'End of Tenancy Cleaning in Slough & Berkshire | From £150 | Leo Luxe Clean',
     metaDescription:
-      'Professional end of tenancy cleaning in Slough, Windsor & Berkshire. Landlord-approved standards. Get your full deposit back. Fully insured, DBS checked. Free quotes.',
+      'End of tenancy cleaning in Slough, Windsor & Berkshire from £150. Inventory standard — get your full deposit back. DBS checked, fully insured. Free re-clean if needed.',
     heroDesc:
-      'Moving out? We\'ll leave it landlord-ready. We know exactly what they look for — and we\'ve never had a client lose their deposit because of the clean.',
+      'Moving out? We clean it to inventory standard so you don\'t lose your deposit. Ovens, cupboards, behind the appliances — all of it.',
     longDesc: [
-      'End of tenancy cleans are one of our core services. We know exactly what landlords, letting agents, and inventory clerks are looking for — and we clean to that standard every single time across Slough, Windsor, Langley, and the wider Berkshire area.',
-      'We clean to professional inventory standards — that means inside every cupboard, behind every appliance, oven degreased, bathroom descaled, carpets vacuumed and spot-treated, windows cleaned inside, and every surface wiped down. We don\'t leave until it passes inspection.',
-      'If your landlord or agent raises any cleaning issues after our visit, we\'ll come back and sort it — no extra charge. That\'s how confident we are in our work.',
+      'End of tenancy cleans are one of our busiest services. We know what landlords, letting agents, and inventory clerks are checking — and we clean to that level every time across Slough, Windsor, Langley, and the wider Berkshire area.',
+      'That means inside every cupboard, behind every appliance, oven degreased, bathroom descaled, carpets vacuumed and spot-treated, windows cleaned inside, every surface done. We don\'t skip anything that goes on an inventory check.',
+      'If any cleaning issues are raised after our visit, we come back within 48 hours at no extra charge. We haven\'t had a client lose their deposit over our cleaning work.',
     ],
     features: [
       'Full property clean to inventory standards',
@@ -185,15 +185,15 @@ export const services = [
     tagline: 'Like nothing happened',
     pricing: 'From £80',
     priceFrom: 80,
-    metaTitle: 'After Event & Party Cleaning in Slough & Berkshire',
+    metaTitle: 'After Event & Party Cleaning in Slough & Berkshire | Leo Luxe Clean',
     metaDescription:
-      'After event and party cleaning in Slough, Windsor & Berkshire. Same-day and next-day availability. Spill treatment, waste removal, full restoration. Free quotes.',
+      'After-event and party cleaning in Slough, Windsor & Berkshire. Same-day and next-day availability. Spill treatment, rubbish removal, full clean. Free quote.',
     heroDesc:
-      'Had a party, event, or gathering? We\'ll make it look like nothing happened. Same-day and next-day availability for those morning-after emergencies.',
+      'Had a party? We\'ll have it back to normal. Same-day and next-day availability for when it can\'t wait.',
     longDesc: [
-      'The party was great. The cleanup? Not so much. That\'s where we come in. Whether it\'s a birthday party at home, a corporate event in the office, or a wedding reception venue — we\'ll have it back to normal faster than you\'d think possible.',
-      'We handle everything: rubbish collection and disposal, spill and stain treatment on carpets and upholstery, kitchen and bathroom restoration, full surface sanitisation, and floor cleaning throughout. We bring our own bags, products, and equipment.',
-      'We offer same-day and next-day availability for urgent jobs. Just give us a call and we\'ll get a team out to you as quickly as possible.',
+      'The party was great. The morning after, not so much. Whether it\'s a house party, a corporate event, or a venue that needs turning around — we come in and deal with it.',
+      'We collect all rubbish, treat spills and stains on carpets and upholstery, clean the kitchen and bathrooms properly, vacuum and mop the floors, and wipe down all surfaces. We bring our own bags, products, and equipment.',
+      'Same-day and next-day availability for urgent jobs. Call us and we\'ll tell you the earliest we can get a team to you.',
     ],
     features: [
       'Full waste collection and disposal',
@@ -230,15 +230,15 @@ export const services = [
     tagline: 'The jobs that need an expert',
     pricing: 'From £70',
     priceFrom: 70,
-    metaTitle: 'Specialist Cleaning Services in Slough & Berkshire',
+    metaTitle: 'Specialist Cleaning in Slough & Berkshire | Leo Luxe Clean',
     metaDescription:
-      'Specialist cleaning in Slough, Windsor & Berkshire. Carpets, upholstery, ovens, windows, hard floors, mattresses. Professional equipment, visible results. Free quotes.',
+      'Specialist cleaning in Slough, Windsor & Berkshire. Carpet cleaning, oven cleaning, upholstery, windows, hard floors. Proper equipment, visible results. Free quote.',
     heroDesc:
-      'Carpets, upholstery, ovens, windows — the jobs that need proper equipment and know-how. Professional-grade results you can see and feel.',
+      'Carpets, upholstery, ovens, windows — the jobs that need proper equipment and someone who\'s done them before.',
     longDesc: [
-      'Some cleaning jobs need more than elbow grease — they need the right equipment, the right products, and someone who knows what they\'re doing. That\'s our specialist cleaning service.',
-      'We use professional-grade extraction machines for carpets and upholstery, commercial degreasers for ovens, and proper window cleaning equipment for streak-free results. Every specialist job is done by our most experienced team members.',
-      'Whether it\'s reviving a tired carpet, deep-cleaning a sofa, restoring an oven to its former glory, or getting your windows crystal clear — we deliver the kind of results you simply can\'t get with regular household products.',
+      'Some jobs aren\'t for a general clean — carpets, ovens, upholstery need specific equipment and the right products. That\'s what specialist cleaning is for.',
+      'We use extraction machines for carpets and upholstery, commercial degreasers for ovens, and proper window cleaning kit. Every specialist job goes to the right person — not whoever\'s available.',
+      'Whether it\'s bringing a carpet back to life, cleaning a sofa properly, getting an oven that hasn\'t been touched in years, or clear windows — the difference between using the right kit and the wrong one is obvious.',
     ],
     features: [
       'Carpet deep extraction cleaning',

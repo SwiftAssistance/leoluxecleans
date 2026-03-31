@@ -67,7 +67,7 @@ function localBusinessJsonLd() {
     geo: { '@type': 'GeoCoordinates', latitude: 51.5105, longitude: -0.595 },
     priceRange: '££',
     openingHours: 'Mo-Sa 08:00-19:00',
-    aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '200', bestRating: '5', worstRating: '1' },
+    aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '3', bestRating: '5', worstRating: '1' },
   };
 }
 
@@ -92,11 +92,11 @@ function buildRoutes() {
   // Homepage
   routes.push({
     path: '/',
-    title: 'Leo Luxe Clean — Professional Cleaning in Slough & Berkshire',
-    description: 'Leo Luxe Clean — professional, DBS-checked cleaners in Slough, Windsor, Langley, Maidenhead, Eton & Burnham. Home cleaning from £60. Deep cleans, end of tenancy, office cleaning. 5-star rated. Free quotes.',
+    title: 'Leo Luxe Clean | Cleaners in Slough, Windsor & Berkshire',
+    description: 'Local cleaners based in Slough. Home cleaning from £60, deep cleans, end of tenancy, office cleaning across Windsor, Berkshire & West London. DBS checked, fully insured. Same-week bookings. Free quote.',
     schemas: [localBusinessJsonLd()],
-    noscriptContent: `<h1>Leo Luxe Clean — Professional Cleaning in Slough &amp; Berkshire</h1>
-      <p>Professional, DBS-checked cleaners in Slough, Windsor, Langley, Maidenhead, Eton &amp; Burnham. Home cleaning from &pound;60. Deep cleans, end of tenancy, office cleaning. 5-star rated on Google. Free quotes — call <a href="tel:01753257118">01753 257118</a>.</p>
+    noscriptContent: `<h1>Leo Luxe Clean — Cleaners in Slough, Windsor &amp; Berkshire</h1>
+      <p>Local, DBS-checked cleaners based in Slough. Home cleaning from &pound;60. Deep cleans, end of tenancy, office cleaning across Berkshire &amp; West London. 5-star rated on Google. Free quotes — call <a href="tel:01753257118">01753 257118</a>.</p>
       <h2>Our Services</h2>
       <ul>${services.map(s => `<li><a href="/services/${s.slug}">${s.title}</a>${s.priceFrom ? ` — from &pound;${s.priceFrom}` : ''}</li>`).join('')}</ul>
       <h2>Areas We Cover</h2>

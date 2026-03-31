@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 const SITE_NAME = 'Leo Luxe Clean';
 const BASE_URL = 'https://leoluxeclean.co.uk';
 const DEFAULT_DESCRIPTION =
-  'Professional cleaning services in Berkshire & West London. Serving Slough, Windsor, Maidenhead, Hayes, Uxbridge, Ealing, Hounslow & more. Home cleaning, deep cleans, end of tenancy, office cleaning. Local, independent team. Fully insured, DBS checked, eco-friendly. Free quotes.';
+  'Local cleaners based in Slough, covering Windsor, Maidenhead, Hayes, Uxbridge, Ealing, Hounslow & surrounding areas. Home cleaning, deep cleans, end of tenancy, office cleaning. DBS checked, fully insured. Free quotes.';
 const DEFAULT_IMAGE = `${BASE_URL}/logo.png`;
 
 const Seo = ({
@@ -18,7 +18,7 @@ const Seo = ({
 }) => {
   const fullTitle = title
     ? `${title} | ${SITE_NAME}`
-    : `${SITE_NAME} — Professional Cleaning in Berkshire & West London`;
+    : `${SITE_NAME} | Cleaners in Slough, Windsor & Berkshire`;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
   const schemaString = Array.isArray(schema)
     ? JSON.stringify(schema)
@@ -125,7 +125,7 @@ export const localBusinessSchema = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5.0',
-    reviewCount: '200',
+    reviewCount: '3',
     bestRating: '5',
     worstRating: '1',
   },
@@ -163,8 +163,9 @@ export const localBusinessSchema = {
   },
   sameAs: [
     'https://www.instagram.com/leoluxeclean',
+    // Add your Google Business Profile URL here once confirmed, e.g.:
+    // 'https://g.page/leoluxeclean',
     // 'https://www.facebook.com/leoluxeclean',
-    // 'https://www.google.com/maps/place/Leo+Luxe+Clean',
   ],
 };
 
@@ -290,7 +291,7 @@ export const createServiceSchema = (service) => ({
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5.0',
-    reviewCount: '200',
+    reviewCount: '3',
     bestRating: '5',
   },
 });
@@ -327,7 +328,7 @@ export const createLocationSchema = (location) => ({
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5.0',
-    reviewCount: '200',
+    reviewCount: '3',
     bestRating: '5',
     worstRating: '1',
   },

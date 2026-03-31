@@ -6,12 +6,12 @@ export const locations = [
     postcodes: 'SL1, SL2, SL3',
     metaTitle: 'Cleaners in Slough, Berkshire | 5-Star Rated | From £60',
     metaDescription:
-      '5-star rated cleaning services in Slough, Berkshire (SL1, SL2, SL3). Home cleaning from £60 · deep cleans from £120 · end of tenancy from £150 · office cleaning. DBS-checked, fully insured, eco-friendly. Same-week bookings. Free quote.',
+      'Local cleaners based in Slough (SL1, SL2, SL3). Home cleaning from £60, deep cleans from £120, end of tenancy from £150, office cleaning. DBS-checked, fully insured. Same-week bookings. Free quote.',
     heroDesc:
-      'We\'re based right here in Slough. Home cleaning, deep cleans, end of tenancy, offices — whatever you need, we\'re just round the corner.',
+      'We\'re based in Slough — SL1. Home cleaning, deep cleans, end of tenancy, offices. Most of our work is right here, and we know the area properly.',
     intro: [
-      'Slough is our home turf. Leo Luxe Clean is based right here, and it\'s where the majority of our work takes place. We know the area inside out — from the High Street to Langley, Cippenham to Farnham Royal.',
-      'Whether you\'re in a flat on the Bath Road, a family home in Upton, or running a business on the Trading Estate, we\'re just round the corner. Our team is local, reliable, and held to the same high standard on every single job.',
+      'Slough is where Leo Luxe is based and where most of our work is. Leo knows these streets — from Cippenham to Chalvey, Salt Hill to Upton — because he\'s been cleaning homes here for years. That local knowledge matters: it shows in how jobs are quoted, how teams are routed, and how quickly we can fit you in.',
+      'Whether you\'re in a flat near the Queensmere, a terraced house in Langley Road, or running a business on the Trading Estate, we\'re close by and usually available within the week. Our Slough clients tend to stay with us — not because we push contracts, but because the standard stays the same every visit.',
     ],
     areas: ['Slough Town Centre', 'Cippenham', 'Upton', 'Chalvey', 'Farnham Royal', 'Langley'],
     reviews: [
@@ -36,12 +36,12 @@ export const locations = [
     postcodes: 'SL4',
     metaTitle: 'Cleaners in Windsor, Berkshire | 5-Star Rated | From £60',
     metaDescription:
-      '5-star rated cleaning services in Windsor, Berkshire (SL4). Home cleaning from £60 · deep cleans · end of tenancy from £150 · office cleaning. Trusted by homeowners & businesses across the Royal Borough. DBS-checked, fully insured. Free quote.',
+      'Local cleaning services in Windsor, Berkshire (SL4). Home cleaning from £60, deep cleans, end of tenancy from £150, office cleaning. DBS-checked, fully insured. Same-week bookings. Free quote.',
     heroDesc:
-      'Professional cleaning across Windsor and the surrounding villages. Trusted by homeowners and businesses throughout the Royal Borough.',
+      'Cleaning across Windsor and the surrounding villages. The same team on every visit, the same standard every time.',
     intro: [
-      'Windsor is one of our most popular areas. We clean homes and businesses throughout the town and surrounding villages including Old Windsor, Dedworth, and Clewer. From period properties near the castle to modern family homes, we tailor our approach to suit.',
-      'Our Windsor clients love the consistency — same team, same standards, every visit. We\'re fully insured and DBS checked, which matters when you\'re letting someone into your home.',
+      'Windsor is one of our busiest areas outside Slough — a short drive from our base and somewhere we know well. We clean homes and businesses throughout the town and surrounding villages: Old Windsor, Dedworth, Clewer, and the residential streets in between. The mix of period properties and modern family homes means we adapt to each job rather than treating them all the same.',
+      'Windsor clients value consistency above most things. They want the same team, not a different person each fortnight. That\'s exactly how we work — and it\'s why most Windsor bookings become regulars.',
     ],
     areas: ['Windsor Town Centre', 'Old Windsor', 'Dedworth', 'Clewer', 'Clewer Village', 'Windsor Great Park area'],
     reviews: [
@@ -66,12 +66,12 @@ export const locations = [
     postcodes: 'SL3',
     metaTitle: 'Cleaners in Langley, Berkshire | 5-Star Rated | From £60',
     metaDescription:
-      '5-star rated cleaning services in Langley, Slough (SL3). Home cleaning from £60 · deep cleans · end of tenancy from £150 · office cleaning. Local DBS-checked team, same-week availability. Fully insured & eco-friendly. Free quote.',
+      'Local cleaning services in Langley, Slough (SL3). Home cleaning from £60, deep cleans, end of tenancy from £150, office cleaning. DBS-checked, same-week availability. Free quote.',
     heroDesc:
-      'Langley is just down the road from our base. Fast response times, reliable service, and the same high standards on every job.',
+      'Langley is five minutes from our base in Slough. Fast to get to, and we know the area well.',
     intro: [
-      'Langley is one of our closest areas to serve, which means we can often fit in same-week or even next-day bookings. Whether you\'re near the High Street, by Langley Park, or in the residential streets off Parlaunt Road, we\'ve got you covered.',
-      'Many of our Langley clients started with a one-off deep clean or end of tenancy and then moved to a regular booking. It\'s a pattern we see a lot — once people see the standard of our work, they don\'t want to go back.',
+      'Langley is one of our most frequent areas — it\'s right next door to our Slough base, so we can fit same-week bookings without difficulty. We cover the residential streets off Parlaunt Road, the areas around Langley Park, George Green, and Richings Park. Colnbrook too.',
+      'A lot of our Langley clients came to us for a one-off deep clean or end of tenancy, liked the result, and stuck around. That\'s the typical pattern. There\'s no pressure to commit to anything — but once the standard is there, most people don\'t want to shop around again.',
     ],
     areas: ['Langley Village', 'Langley Marish', 'Brands Hill', 'Colnbrook', 'Richings Park', 'George Green'],
     reviews: [
@@ -90,12 +90,12 @@ export const locations = [
     postcodes: 'SL6',
     metaTitle: 'Cleaners in Maidenhead, Berkshire | 5-Star Rated | From £60',
     metaDescription:
-      '5-star rated cleaning services in Maidenhead, Berkshire (SL6). Home cleaning from £60 · deep cleans · end of tenancy from £150 · Airbnb turnaround cleans. Trusted by homeowners & property hosts. DBS-checked, fully insured. Free quote.',
+      'Local cleaning services in Maidenhead, Berkshire (SL6). Home cleaning from £60, deep cleans, end of tenancy from £150, Airbnb turnaround cleans. DBS-checked, fully insured. Free quote.',
     heroDesc:
-      'Professional cleaning for homes and businesses across Maidenhead. Same standards, same reliability — just a short drive from our Slough base.',
+      'Cleaning across Maidenhead and the surrounding areas. Same Slough-based team, same standards.',
     intro: [
-      'Maidenhead is a natural extension of our Slough and Windsor coverage. We serve homes and businesses throughout the town, from the riverside properties near the Thames to the residential areas around Bray and Cox Green.',
-      'Our Maidenhead clients appreciate that we\'re a local, independent Berkshire company — not a faceless franchise. You get the same team, the same standards, and a personal service every time.',
+      'Maidenhead sits on the edge of our main service area, but we cover it regularly. We work across the town and surrounding villages — riverside properties near the Thames, homes in Cox Green and Bray, residential streets in Furze Platt. The drive from Slough is straightforward and we factor that into bookings.',
+      'Our Maidenhead clients are often homeowners or Airbnb hosts who want a reliable, consistent team rather than a different person each time. We keep the same crew on every regular booking, which makes a real difference to the result.',
     ],
     areas: ['Maidenhead Town Centre', 'Bray', 'Cox Green', 'Furze Platt', 'Pinkneys Green', 'Boyne Hill'],
     reviews: [
@@ -164,12 +164,12 @@ export const locations = [
     postcodes: 'UB3, UB4',
     metaTitle: 'Cleaners in Hayes, West London | 5-Star Rated | From £60',
     metaDescription:
-      '5-star rated cleaning services in Hayes, West London (UB3, UB4). Home cleaning from £60 · deep cleans · end of tenancy from £150 · office cleaning. DBS-checked, eco-friendly, fully insured. Same-week bookings. Free quote.',
+      'Local cleaning services in Hayes, West London (UB3, UB4). Home cleaning from £60, deep cleans, end of tenancy from £150, office cleaning. DBS-checked, fully insured. Same-week bookings. Free quote.',
     heroDesc:
-      'Reliable cleaning services for homes and businesses across Hayes and surrounding areas. Just a short drive from our Slough base — fast response, same high standards.',
+      'Hayes is right on the Slough border — one of our closest areas. Fast response and the same standard every visit.',
     intro: [
-      'Hayes sits right on the border with Slough, making it one of our most natural service areas. Whether you\'re in Hayes Town, Hayes End, or Yeading, our team is never far away. We serve both residential and commercial clients throughout UB3 and UB4.',
-      'From family homes to offices near the industrial estates, we bring the same professional approach to every job. Our clients in Hayes appreciate the speed of response and the consistency — same team, same standards, every visit.',
+      'Hayes sits right next to Slough, which makes it one of the easiest areas for us to serve. Whether you\'re in Hayes Town, Hayes End, Yeading, or Wood End, our team is a short drive away. We cover both residential and commercial properties throughout UB3 and UB4.',
+      'A lot of our Hayes clients came to us after being let down by other cleaners — different people each visit, or jobs that needed re-doing. We keep the same team on each booking and we do the job properly the first time. If something\'s not right, say so and we\'ll be back.',
     ],
     areas: ['Hayes Town', 'Hayes End', 'Yeading', 'Wood End', 'Bulls Cross', 'Townfield'],
     reviews: [
