@@ -5,7 +5,7 @@ const SITE_NAME = 'Leo Luxe Clean';
 const BASE_URL = 'https://leoluxeclean.co.uk';
 const DEFAULT_DESCRIPTION =
   'Local cleaners based in Slough, covering Windsor, Maidenhead, Hayes, Uxbridge, Ealing, Hounslow & surrounding areas. Home cleaning, deep cleans, end of tenancy, office cleaning. DBS checked, fully insured. Free quotes.';
-const DEFAULT_IMAGE = `${BASE_URL}/logo.png`;
+const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
 
 const Seo = ({
   title,
@@ -77,8 +77,8 @@ export const localBusinessSchema = {
   url: BASE_URL,
   telephone: '+441753257118',
   email: 'info@leoluxeclean.co.uk',
-  logo: `${BASE_URL}/logo.png`,
-  image: `${BASE_URL}/logo.png`,
+  logo: `${BASE_URL}/favicon-512.png`,
+  image: `${BASE_URL}/og-image.png`,
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Slough',
@@ -197,7 +197,7 @@ export const organizationSchema = {
   url: BASE_URL,
   logo: {
     '@type': 'ImageObject',
-    url: `${BASE_URL}/logo.png`,
+    url: `${BASE_URL}/favicon-512.png`,
     width: 512,
     height: 512,
   },
@@ -305,7 +305,7 @@ export const createLocationSchema = (location) => ({
   url: `${BASE_URL}/areas/${location.slug}`,
   telephone: '+441753257118',
   email: 'info@leoluxeclean.co.uk',
-  logo: `${BASE_URL}/logo.png`,
+  logo: `${BASE_URL}/favicon-512.png`,
   address: {
     '@type': 'PostalAddress',
     addressLocality: location.name,
