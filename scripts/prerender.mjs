@@ -61,12 +61,12 @@ function localBusinessJsonLd() {
     url: BASE_URL,
     telephone: '+441753257118',
     email: 'info@leoluxeclean.co.uk',
-    logo: `${BASE_URL}/favicon-512.png`,
+    logo: { '@type': 'ImageObject', url: `${BASE_URL}/favicon-512.png`, width: 512, height: 512 },
     image: `${BASE_URL}/og-image.png`,
     address: { '@type': 'PostalAddress', streetAddress: 'Slough', addressLocality: 'Slough', addressRegion: 'Berkshire', postalCode: 'SL1', addressCountry: 'GB' },
     geo: { '@type': 'GeoCoordinates', latitude: 51.5105, longitude: -0.595 },
     priceRange: '££',
-    openingHours: 'Mo-Sa 08:00-19:00',
+    openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], opens: '08:00', closes: '19:00' }],
     aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '3', bestRating: '5', worstRating: '1' },
   };
 }
@@ -123,7 +123,7 @@ function buildRoutes() {
       title: `${s.metaTitle} | Leo Luxe Clean`,
       description: s.metaDescription,
       schemas: [
-        { '@context': 'https://schema.org', '@type': 'Service', name: s.title, description: s.metaDescription, url: `${BASE_URL}/services/${s.slug}`, provider: { '@type': 'LocalBusiness', name: 'Leo Luxe Clean', '@id': `${BASE_URL}/#business` }, ...(s.priceFrom ? { offers: { '@type': 'Offer', priceCurrency: 'GBP', price: s.priceFrom } } : {}) },
+        { '@context': 'https://schema.org', '@type': 'Service', name: s.title, description: s.metaDescription, url: `${BASE_URL}/services/${s.slug}`, provider: { '@type': 'LocalBusiness', name: 'Leo Luxe Clean', '@id': `${BASE_URL}/#business` }, ...(s.priceFrom ? { offers: { '@type': 'Offer', priceCurrency: 'GBP', price: s.priceFrom, availability: 'https://schema.org/InStock' } } : {}), aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '3', bestRating: '5', worstRating: '1' } },
         breadcrumbJsonLd([{ name: 'Home', url: '/' }, { name: 'Services', url: '/services' }, { name: s.title }]),
       ],
       noscriptContent: `<h1>${escHtml(s.title)} — Leo Luxe Clean</h1>
@@ -141,7 +141,7 @@ function buildRoutes() {
       title: `${l.metaTitle} | Leo Luxe Clean`,
       description: l.metaDescription,
       schemas: [
-        { '@context': 'https://schema.org', '@type': ['LocalBusiness', 'HousekeepingBusiness'], '@id': `${BASE_URL}/areas/${l.slug}#business`, name: `Leo Luxe Clean — ${l.name}`, description: l.metaDescription, url: `${BASE_URL}/areas/${l.slug}`, telephone: '+441753257118', address: { '@type': 'PostalAddress', addressLocality: l.name, addressRegion: l.county, addressCountry: 'GB' } },
+        { '@context': 'https://schema.org', '@type': ['LocalBusiness', 'HousekeepingBusiness'], '@id': `${BASE_URL}/areas/${l.slug}#business`, name: `Leo Luxe Clean — ${l.name}`, description: l.metaDescription, url: `${BASE_URL}/areas/${l.slug}`, telephone: '+441753257118', email: 'info@leoluxeclean.co.uk', logo: { '@type': 'ImageObject', url: `${BASE_URL}/favicon-512.png`, width: 512, height: 512 }, address: { '@type': 'PostalAddress', addressLocality: l.name, addressRegion: l.county, addressCountry: 'GB' }, priceRange: '££', openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], opens: '08:00', closes: '19:00' }], aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '3', bestRating: '5', worstRating: '1' } },
         breadcrumbJsonLd([{ name: 'Home', url: '/' }, { name: l.name }]),
       ],
       noscriptContent: `<h1>Cleaning Services in ${escHtml(l.name)}, ${escHtml(l.county)}</h1>

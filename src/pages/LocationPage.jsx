@@ -45,7 +45,6 @@ const LocationPage = () => {
     createLocationSchema(location),
     breadcrumbSchema([
       { name: 'Home', url: '/' },
-      { name: 'Areas', url: '/' },
       { name: location.name },
     ]),
   ];

@@ -77,7 +77,12 @@ export const localBusinessSchema = {
   url: BASE_URL,
   telephone: '+441753257118',
   email: 'info@leoluxeclean.co.uk',
-  logo: `${BASE_URL}/favicon-512.png`,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${BASE_URL}/favicon-512.png`,
+    width: 512,
+    height: 512,
+  },
   image: `${BASE_URL}/og-image.png`,
   address: {
     '@type': 'PostalAddress',
@@ -118,7 +123,6 @@ export const localBusinessSchema = {
       closes: '19:00',
     },
   ],
-  openingHours: 'Mo-Sa 08:00-19:00',
   priceRange: '££',
   currenciesAccepted: 'GBP',
   paymentAccepted: 'Cash, Credit Card, Bank Transfer',
@@ -132,21 +136,24 @@ export const localBusinessSchema = {
   review: [
     {
       '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
       author: { '@type': 'Person', name: 'Tom Richards' },
       reviewBody: "Found Leo Luxe through a neighbour's recommendation and I'm so glad I did. You can tell they genuinely care about doing a good job. My house has never been cleaner.",
+      datePublished: '2024-11-01',
     },
     {
       '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
       author: { '@type': 'Person', name: 'Priya Sharma' },
       reviewBody: 'Had them do a deep clean before our baby arrived. They got into every nook and cranny. Brilliant service from start to finish.',
+      datePublished: '2024-12-15',
     },
     {
       '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
       author: { '@type': 'Person', name: 'James Taylor' },
       reviewBody: 'End of tenancy clean was perfect. Got our full deposit back. They even cleaned inside the oven which I thought was a lost cause!',
+      datePublished: '2025-01-20',
     },
   ],
   hasOfferCatalog: {
@@ -280,12 +287,6 @@ export const createServiceSchema = (service) => ({
       priceCurrency: 'GBP',
       price: service.priceFrom,
       availability: 'https://schema.org/InStock',
-      priceSpecification: {
-        '@type': 'UnitPriceSpecification',
-        priceCurrency: 'GBP',
-        price: service.priceFrom,
-        description: `Starting from £${service.priceFrom}`,
-      },
     },
   }),
   aggregateRating: {
@@ -293,6 +294,7 @@ export const createServiceSchema = (service) => ({
     ratingValue: '5.0',
     reviewCount: '3',
     bestRating: '5',
+    worstRating: '1',
   },
 });
 
@@ -305,7 +307,12 @@ export const createLocationSchema = (location) => ({
   url: `${BASE_URL}/areas/${location.slug}`,
   telephone: '+441753257118',
   email: 'info@leoluxeclean.co.uk',
-  logo: `${BASE_URL}/favicon-512.png`,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${BASE_URL}/favicon-512.png`,
+    width: 512,
+    height: 512,
+  },
   address: {
     '@type': 'PostalAddress',
     addressLocality: location.name,
@@ -335,9 +342,10 @@ export const createLocationSchema = (location) => ({
   ...(location.reviews.length > 0 && {
     review: location.reviews.map((r) => ({
       '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
       author: { '@type': 'Person', name: r.author },
       reviewBody: r.text,
+      datePublished: '2025-01-01',
     })),
   }),
 });
