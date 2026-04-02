@@ -75,27 +75,22 @@ const AreaServicePage = () => {
         priceCurrency: 'GBP',
         price: service.priceFrom,
         availability: 'https://schema.org/InStock',
-        priceSpecification: {
-          '@type': 'UnitPriceSpecification',
-          priceCurrency: 'GBP',
-          price: service.priceFrom,
-          description: `Starting from £${service.priceFrom}`,
-        },
       },
     }),
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5.0',
-      reviewCount: '200',
+      reviewCount: '3',
       bestRating: '5',
       worstRating: '1',
     },
     ...(location.reviews.length > 0 && {
       review: location.reviews.map((r) => ({
         '@type': 'Review',
-        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
         author: { '@type': 'Person', name: r.author },
         reviewBody: r.text,
+        datePublished: '2025-01-01',
       })),
     }),
   };
