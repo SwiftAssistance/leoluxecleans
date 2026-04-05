@@ -286,8 +286,10 @@ function run() {
       );
     }
 
-    // Write file
-    const routePath = route.path === '/' ? '/index.html' : `${route.path}/index.html`;
+    // Write file — use .html extension (not /index.html directories) so Vercel
+    // with cleanUrls:true serves them directly at clean paths without 308 redirects.
+    // Homepage stays as /index.html; all other routes become e.g. /areas/slough.html
+    const routePath = route.path === '/' ? '/index.html' : `${route.path}.html`;
     const fullPath = path.join(DIST, routePath);
     fs.mkdirSync(path.dirname(fullPath), { recursive: true });
     fs.writeFileSync(fullPath, html, 'utf-8');
