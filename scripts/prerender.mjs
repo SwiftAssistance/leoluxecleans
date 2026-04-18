@@ -195,6 +195,18 @@ function buildRoutes() {
       <p><a href="tel:01753257118">Call 01753 257118</a> for a free quote.</p>`,
   });
 
+  // Get Quote — Google Ads landing page (noindex, keep crawlable for Quality Score)
+  routes.push({
+    path: '/get-quote',
+    title: 'Free Cleaning Quote in Slough, Windsor & Berkshire — Reply in 2 Hours | Leo Luxe Clean',
+    description: 'Get a free cleaning quote in 2 hours. Home cleaning from £60, deep cleans from £120, end of tenancy from £150. DBS-checked, fully insured, 100% satisfaction guarantee. Slough, Windsor, Berkshire & West London.',
+    noindex: true,
+    schemas: [localBusinessJsonLd()],
+    noscriptContent: `<h1>Free Cleaning Quote in Slough, Windsor &amp; Berkshire</h1>
+      <p>Get a free cleaning quote in 2 hours from Leo Luxe Clean. Home cleaning from &pound;60, deep cleans from &pound;120, end of tenancy from &pound;150. DBS-checked, fully insured, 100% satisfaction guarantee.</p>
+      <p><a href="tel:01753257118">Call 01753 257118</a> or <a href="mailto:info@leoluxeclean.co.uk">email info@leoluxeclean.co.uk</a>.</p>`,
+  });
+
   // Contact
   routes.push({
     path: '/contact',
@@ -245,6 +257,14 @@ function run() {
       /<link rel="canonical" href="[^"]*"/,
       `<link rel="canonical" href="${BASE_URL}${route.path === '/' ? '/' : route.path}"`
     );
+
+    // For ads LPs etc., replace the default robots tag with noindex,follow
+    if (route.noindex) {
+      html = html.replace(
+        /<meta name="robots" content="[^"]*"[^>]*>/,
+        '<meta name="robots" content="noindex,follow" />'
+      );
+    }
 
     // Replace OG tags
     html = html.replace(
