@@ -36,6 +36,8 @@ const contactItems = [
   },
 ];
 
+const WEB3FORMS_KEY = '1e2d7a23-e2db-4148-ac90-c44289b4508a';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -44,13 +46,39 @@ const Contact = () => {
     service: '',
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const [ref, isVisible] = useScrollReveal({ threshold: 0.1 });
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => setFormSubmitted(false), 4000);
-    setFormData({ name: '', phone: '', email: '', service: '' });
+    setSubmitting(true);
+    setError('');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          service: formData.service,
+          subject: `New quote request from ${formData.name}`,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setFormSubmitted(true);
+        setFormData({ name: '', phone: '', email: '', service: '' });
+      } else {
+        setError('Something went wrong. Please try again or call us directly.');
+      }
+    } catch {
+      setError('Something went wrong. Please try again or call us directly.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -206,10 +234,14 @@ const Contact = () => {
                   </div>
                   <button
                     type="submit"
-                    className="w-full btn-gold label-caps py-4 rounded-lg mt-2"
+                    disabled={submitting}
+                    className="w-full btn-gold label-caps py-4 rounded-lg mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Get My Free Quote &rarr;
+                    {submitting ? 'Sending…' : 'Get My Free Quote →'}
                   </button>
+                  {error && (
+                    <p className="text-red-400 text-xs text-center mt-3">{error}</p>
+                  )}
                   <p className="text-neutral-500 text-xs text-center mt-4">
                     No obligation — Free quote — Response within 2 hours
                   </p>
