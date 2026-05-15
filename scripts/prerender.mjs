@@ -172,6 +172,25 @@ function buildRoutes() {
     }
   }
 
+  // Google Ads landing page
+  routes.push({
+    path: '/landing',
+    title: 'Home Cleaners in Slough & Berkshire | Leo Luxe Clean',
+    description: 'Professional, DBS-checked cleaners in Slough, Windsor & Berkshire. Home cleaning from £60. Same-week bookings. Call 01753 257118.',
+    schemas: [localBusinessJsonLd()],
+    noscriptContent: `<h1>Home Cleaners in Slough &amp; Berkshire — Leo Luxe Clean</h1>
+      <p>Professional, DBS-checked cleaners in Slough, Windsor &amp; Berkshire. Home cleaning from &pound;60. Same-week bookings. No contracts.</p>
+      <p>Call <a href="tel:01753257118">01753 257118</a> or email <a href="mailto:info@leoluxeclean.co.uk">info@leoluxeclean.co.uk</a>.</p>
+      <h2>Services</h2>
+      <ul>
+        <li>Home Cleaning — from &pound;60</li>
+        <li>Deep Cleaning — from &pound;120</li>
+        <li>End of Tenancy — from &pound;150</li>
+        <li>Office Cleaning — POA</li>
+        <li>After Event Cleaning — from &pound;80</li>
+      </ul>`,
+  });
+
   // About
   routes.push({
     path: '/about',
