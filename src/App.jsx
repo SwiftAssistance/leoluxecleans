@@ -11,6 +11,7 @@ const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ReviewsPage = lazy(() => import('./pages/ReviewsPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+const LandingPage = lazy(() => import('./pages/LandingPage'));
 
 const PageLoader = () => (
   <div className="min-h-screen bg-surface-black flex items-center justify-center">
@@ -24,6 +25,9 @@ const App = () => {
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
+        {/* Standalone ads landing page — has its own minimal header/footer */}
+        <Route path="/landing" element={<LandingPage />} />
+
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />
