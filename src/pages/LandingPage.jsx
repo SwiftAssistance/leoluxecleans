@@ -155,16 +155,40 @@ const LandingPage = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const handleSubmit = (e) => {
+  const [formError, setFormError] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
+    setFormError('');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: '1e2d7a23-e2db-4148-ac90-c44289b4508a',
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          service: formData.service,
+          area: areaName,
+          utm_source: utmSource,
+          utm_campaign: utmCampaign,
+          utm_term: utmTerm,
+          subject: `New quote request from ${formData.name}`,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setFormSubmitted(true);
+      } else {
+        setFormError('Something went wrong. Please try again or call us directly.');
+      }
+    } catch {
+      setFormError('Something went wrong. Please try again or call us directly.');
+    } finally {
       setSubmitting(false);
-      setFormSubmitted(true);
-      // if (typeof gtag !== 'undefined') {
-      //   gtag('event', 'conversion', { send_to: 'AW-XXXXXXXX/XXXXXXXX' });
-      // }
-    }, 800);
+    }
   };
 
   const scrollToForm = () => {
@@ -316,6 +340,9 @@ const LandingPage = () => {
               </>
             )}
           </button>
+          {formError && (
+            <p className="text-red-400 text-xs text-center mt-3">{formError}</p>
+          )}
 
           {/* Trust micro-copy under button */}
           <div className="mt-4 flex flex-col gap-1.5">

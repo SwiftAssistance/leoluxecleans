@@ -22,14 +22,41 @@ const ContactPage = () => {
     message: '',
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const [formRef, formVisible] = useScrollReveal({ threshold: 0.05 });
   const [faqRef, faqVisible] = useScrollReveal({ threshold: 0.05 });
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => setFormSubmitted(false), 4000);
-    setFormData({ name: '', phone: '', email: '', service: '', message: '' });
+    setSubmitting(true);
+    setError('');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: '1e2d7a23-e2db-4148-ac90-c44289b4508a',
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          service: formData.service,
+          message: formData.message,
+          subject: `New quote request from ${formData.name}`,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setFormSubmitted(true);
+        setFormData({ name: '', phone: '', email: '', service: '', message: '' });
+      } else {
+        setError('Something went wrong. Please try again or call us directly.');
+      }
+    } catch {
+      setError('Something went wrong. Please try again or call us directly.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const faqs = [
@@ -232,10 +259,14 @@ const ContactPage = () => {
                     </div>
                     <button
                       type="submit"
-                      className="w-full btn-gold label-caps py-4 rounded-lg flex items-center justify-center gap-2"
+                      disabled={submitting}
+                      className="w-full btn-gold label-caps py-4 rounded-lg flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      Get My Free Quote <ArrowRight size={14} />
+                      {submitting ? 'Sending…' : <><span>Get My Free Quote</span><ArrowRight size={14} /></>}
                     </button>
+                    {error && (
+                      <p className="text-red-400 text-xs text-center mt-3">{error}</p>
+                    )}
                     <p className="text-neutral-600 text-xs text-center mt-4">
                       No obligation · Free quote · Response within 2 hours
                     </p>
