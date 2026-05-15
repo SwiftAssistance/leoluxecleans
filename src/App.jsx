@@ -25,9 +25,6 @@ const App = () => {
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
-        {/* Standalone ads landing page — has its own minimal header/footer */}
-        <Route path="/landing" element={<LandingPage />} />
-
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />
@@ -37,6 +34,7 @@ const App = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/landing" element={<LandingPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
