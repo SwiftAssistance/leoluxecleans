@@ -1,5 +1,6 @@
+'use client';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Star, Quote, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -95,7 +96,7 @@ const Reviews = () => {
             </div>
           </div>
           <Link
-            to="/reviews"
+            href="/reviews"
             className="label-caps text-gold text-[11px] flex items-center gap-1.5 hover:gap-3 transition-all"
           >
             All reviews <ArrowRight size={12} />

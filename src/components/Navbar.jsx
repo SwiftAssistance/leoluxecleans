@@ -1,5 +1,7 @@
+'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Phone, Menu, X } from 'lucide-react';
 import { useQuoteModal } from '../context/QuoteModalContext';
 
@@ -13,13 +15,13 @@ const navLinks = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
   const isScrolledRef = useRef(false);
   const { openModal } = useQuoteModal();
 
   useEffect(() => {
     setMobileMenuOpen(false);
-  }, [location.pathname]);
+  }, [pathname]);
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -50,6 +52,8 @@ const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const isActive = (to) => to === '/' ? pathname === '/' : pathname.startsWith(to);
+
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -61,7 +65,7 @@ const Navbar = () => {
       aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-3" aria-label="Leo Luxe Clean — Home">
+        <Link href="/" className="flex items-center gap-3" aria-label="Leo Luxe Clean — Home">
           <img
             src="/logo.svg"
             alt="Leo Luxe Clean"
@@ -72,29 +76,25 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.name}
-              to={link.to}
-              end={link.to === '/'}
-              className={({ isActive }) =>
-                `label-caps transition-colors duration-300 relative group ${
-                  isActive ? 'text-white' : 'text-neutral-400 hover:text-white'
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  {link.name}
-                  <span
-                    className={`absolute -bottom-1 left-0 h-px bg-gold transition-all duration-300 ${
-                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}
-                  ></span>
-                </>
-              )}
-            </NavLink>
-          ))}
+          {navLinks.map((link) => {
+            const active = isActive(link.to);
+            return (
+              <Link
+                key={link.name}
+                href={link.to}
+                className={`label-caps transition-colors duration-300 relative group ${
+                  active ? 'text-white' : 'text-neutral-400 hover:text-white'
+                }`}
+              >
+                {link.name}
+                <span
+                  className={`absolute -bottom-1 left-0 h-px bg-gold transition-all duration-300 ${
+                    active ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
+                ></span>
+              </Link>
+            );
+          })}
           <a
             href="tel:01753257118"
             className="label-caps text-neutral-400 hover:text-gold transition-colors duration-300 flex items-center gap-2"
@@ -130,20 +130,20 @@ const Navbar = () => {
       >
         <div className="bg-surface-dark border-t border-surface-border/50">
           <div className="px-6 py-8 flex flex-col gap-6">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.name}
-                to={link.to}
-                end={link.to === '/'}
-                className={({ isActive }) =>
-                  `label-caps transition-colors duration-300 ${
-                    isActive ? 'text-gold' : 'text-neutral-400 hover:text-white'
-                  }`
-                }
-              >
-                {link.name}
-              </NavLink>
-            ))}
+            {navLinks.map((link) => {
+              const active = isActive(link.to);
+              return (
+                <Link
+                  key={link.name}
+                  href={link.to}
+                  className={`label-caps transition-colors duration-300 ${
+                    active ? 'text-gold' : 'text-neutral-400 hover:text-white'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
             <a
               href="tel:01753257118"
               className="label-caps text-gold flex items-center gap-2"

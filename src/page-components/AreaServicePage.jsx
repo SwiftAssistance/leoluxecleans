@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
+import Link from 'next/link';
 import { useQuoteModal } from '../context/QuoteModalContext';
 import {
   ArrowRight,
@@ -16,12 +17,9 @@ import {
   Building2,
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
-import Seo, { createFaqSchema, breadcrumbSchema } from '../components/Seo';
 import { getServiceBySlug, services } from '../data/services';
 import { getLocationBySlug, locations } from '../data/locations';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-
-const BASE_URL = 'https://leoluxeclean.co.uk';
 
 const serviceIcons = {
   'home-cleaning': <Home size={22} />,
@@ -32,8 +30,7 @@ const serviceIcons = {
   'specialist-cleaning': <ShieldCheck size={22} />,
 };
 
-const AreaServicePage = () => {
-  const { areaSlug, serviceSlug } = useParams();
+const AreaServicePage = ({ areaSlug, serviceSlug }) => {
   const location = getLocationBySlug(areaSlug);
   const service = getServiceBySlug(serviceSlug);
   const { openModal } = useQuoteModal();
@@ -41,79 +38,13 @@ const AreaServicePage = () => {
   const [contentRef, contentVisible] = useScrollReveal({ threshold: 0.1 });
   const [featuresRef, featuresVisible] = useScrollReveal({ threshold: 0.05 });
 
-  if (!location || !service) return <Navigate to="/" replace />;
+  if (!location || !service) return null;
 
   const otherServices = services.filter((s) => s.slug !== serviceSlug);
   const otherLocations = locations.filter((l) => l.slug !== areaSlug);
 
-  // Unique, keyword-rich meta description per area+service combination
-  const priceClause = service.priceFrom ? ` From £${service.priceFrom}.` : '';
-  const metaTitle = `${service.title} in ${location.name} | Leo Luxe Clean`;
-  const metaDescription = `Looking for ${service.title.toLowerCase()} in ${location.name}? Leo Luxe Clean covers ${location.postcodes} and all of ${location.county}.${priceClause} DBS-checked, eco-friendly, 5-star rated. Same-week availability. Free quotes — call 01753 257118.`;
-
-  const areaServiceSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    '@id': `${BASE_URL}/areas/${areaSlug}/${serviceSlug}#service`,
-    name: `${service.title} in ${location.name}`,
-    alternateName: service.tagline,
-    description: metaDescription,
-    url: `${BASE_URL}/areas/${areaSlug}/${serviceSlug}`,
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Leo Luxe Clean',
-      '@id': `${BASE_URL}/#business`,
-      telephone: '+441753257118',
-    },
-    areaServed: [
-      { '@type': 'City', name: location.name },
-      ...location.areas.map((a) => ({ '@type': 'Place', name: a })),
-    ],
-    ...(service.priceFrom && {
-      offers: {
-        '@type': 'Offer',
-        priceCurrency: 'GBP',
-        price: service.priceFrom,
-        availability: 'https://schema.org/InStock',
-      },
-    }),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      reviewCount: '3',
-      bestRating: '5',
-      worstRating: '1',
-    },
-    ...(location.reviews.length > 0 && {
-      review: location.reviews.map((r) => ({
-        '@type': 'Review',
-        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
-        author: { '@type': 'Person', name: r.author },
-        reviewBody: r.text,
-        datePublished: '2025-01-01',
-      })),
-    }),
-  };
-
-  const combinedSchema = [
-    areaServiceSchema,
-    createFaqSchema(service.faqs),
-    breadcrumbSchema([
-      { name: 'Home', url: '/' },
-      { name: location.name, url: `/areas/${areaSlug}` },
-      { name: service.title },
-    ]),
-  ];
-
   return (
     <>
-      <Seo
-        title={`${service.title} in ${location.name}, ${location.county}`}
-        description={metaDescription}
-        canonical={`/areas/${areaSlug}/${serviceSlug}`}
-        schema={combinedSchema}
-      />
-
       <PageHero
         title={
           <>
@@ -204,7 +135,7 @@ const AreaServicePage = () => {
                     ))}
                   </div>
                   <p className="text-neutral-300 text-sm leading-relaxed mb-4">
-                    "{location.reviews[0].text}"
+                    &ldquo;{location.reviews[0].text}&rdquo;
                   </p>
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm heading-serif">
@@ -276,7 +207,7 @@ const AreaServicePage = () => {
           >
             <div className="text-center mb-12">
               <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-                What's Included
+                What&apos;s Included
               </h2>
               <p className="text-neutral-400 text-sm">
                 Everything listed below comes as standard for your{' '}
@@ -360,7 +291,7 @@ const AreaServicePage = () => {
             {otherServices.map((s) => (
               <Link
                 key={s.slug}
-                to={`/areas/${areaSlug}/${s.slug}`}
+                href={`/areas/${areaSlug}/${s.slug}`}
                 className="rounded-xl border border-surface-border/40 p-6 group block hover:border-gold/20 transition-colors"
               >
                 <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold mb-4 group-hover:bg-gold/20 transition-colors">
@@ -397,7 +328,7 @@ const AreaServicePage = () => {
             {otherLocations.map((loc) => (
               <Link
                 key={loc.slug}
-                to={`/areas/${loc.slug}/${serviceSlug}`}
+                href={`/areas/${loc.slug}/${serviceSlug}`}
                 className="rounded-lg border border-surface-border/40 px-5 py-3 flex items-center gap-2 text-sm text-neutral-300 hover:text-gold hover:border-gold/30 transition-colors"
               >
                 <MapPin size={14} className="text-gold" />

@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useQuoteModal } from '../context/QuoteModalContext';
 import {
   ArrowRight,
@@ -14,7 +15,6 @@ import {
   Phone,
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
-import Seo, { breadcrumbSchema, createItemListSchema } from '../components/Seo';
 import { services } from '../data/services';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -34,18 +34,6 @@ const ServicesPage = () => {
 
   return (
     <>
-      <Seo
-        title="Cleaning Services in Slough, Windsor & Berkshire"
-        description="Home cleaning from £60, deep cleans from £120, end of tenancy from £150, office cleaning and more. DBS-checked, eco-friendly, 5-star rated team serving Slough, Windsor, Langley, Maidenhead & surrounding areas. Free quotes."
-        canonical="/services"
-        schema={[
-          createItemListSchema(services),
-          breadcrumbSchema([
-            { name: 'Home', url: '/' },
-            { name: 'Services' },
-          ]),
-        ]}
-      />
       <PageHero
         title={<>Our <span className="text-gold-gradient">Services</span></>}
         subtitle="From regular home cleans to specialist work — honest pricing, no hidden fees, and a team that actually cares about the result."
@@ -83,7 +71,7 @@ const ServicesPage = () => {
             {services.map((s, i) => (
               <Link
                 key={s.slug}
-                to={`/services/${s.slug}`}
+                href={`/services/${s.slug}`}
                 className={`group block rounded-xl border border-surface-border/40 hover:border-gold/20 transition-all duration-500 ${
                   gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}

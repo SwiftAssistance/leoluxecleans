@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import {
   Phone,
@@ -10,7 +11,6 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
-import Seo, { createFaqSchema, breadcrumbSchema } from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const ContactPage = () => {
@@ -80,18 +80,6 @@ const ContactPage = () => {
 
   return (
     <>
-      <Seo
-        title="Contact Us — Free Cleaning Quote in Slough & Berkshire"
-        description="Get a free cleaning quote from Leo Luxe Clean. Call 01753 257118 or fill in our form. We cover Slough, Windsor, Langley & Berkshire. Response within 2 hours."
-        canonical="/contact"
-        schema={[
-          createFaqSchema(faqs),
-          breadcrumbSchema([
-            { name: 'Home', url: '/' },
-            { name: 'Contact' },
-          ]),
-        ]}
-      />
       <PageHero
         title={<>Get a Free <span className="text-gold-gradient">Quote</span></>}
         subtitle="Tell us what you need and we'll get back to you within 2 hours with an honest price. No obligation, no hidden fees."

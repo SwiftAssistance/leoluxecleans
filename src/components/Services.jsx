@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -47,7 +48,7 @@ const Services = () => {
           {services.map((s, i) => (
             <Link
               key={s.slug}
-              to={`/services/${s.slug}`}
+              href={`/services/${s.slug}`}
               className={`group block border-b border-surface-border/60 transition-all duration-500 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
@@ -86,7 +87,7 @@ const Services = () => {
 
         <div className="mt-12 text-center">
           <Link
-            to="/services"
+            href="/services"
             className="btn-outline-gold label-caps px-8 py-4 rounded-lg inline-flex items-center gap-2 group"
           >
             Explore All Services{' '}

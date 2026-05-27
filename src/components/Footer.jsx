@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   Phone,
   Mail,
@@ -59,7 +59,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-10 lg:gap-8">
           {/* Logo & description */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-2">
-            <Link to="/" className="inline-block mb-6" aria-label="Leo Luxe Clean — Home">
+            <Link href="/" className="inline-block mb-6" aria-label="Leo Luxe Clean — Home">
               <img
                 src="/logo.svg"
                 alt="Leo Luxe Clean"
@@ -107,7 +107,7 @@ const Footer = () => {
               {footerLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.to}
+                    href={link.to}
                     className="text-neutral-500 hover:text-gold transition-colors text-sm"
                   >
                     {link.name}
@@ -123,7 +123,7 @@ const Footer = () => {
               {serviceLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.to}
+                    href={link.to}
                     className="text-neutral-500 hover:text-gold transition-colors text-sm"
                   >
                     {link.name}
@@ -139,7 +139,7 @@ const Footer = () => {
               {berkshireLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.to}
+                    href={link.to}
                     className="text-neutral-500 hover:text-gold transition-colors text-sm"
                   >
                     {link.name}
@@ -155,7 +155,7 @@ const Footer = () => {
               {westLondonLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.to}
+                    href={link.to}
                     className="text-neutral-500 hover:text-gold transition-colors text-sm"
                   >
                     {link.name}

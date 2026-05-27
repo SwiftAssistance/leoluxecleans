@@ -1,6 +1,6 @@
+'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'next/navigation';
 import {
   Phone, Mail, ShieldCheck, CheckCircle2, Star,
   Leaf, Shield, Home, Building2, Sparkles, Key,
@@ -120,7 +120,7 @@ function FaqItem({ q, a }) {
 // ── main component ────────────────────────────────────────────────────────────
 
 const LandingPage = () => {
-  const [searchParams] = useSearchParams();
+  const searchParams = useSearchParams();
 
   const areaName = (() => {
     const raw = searchParams.get('area');
@@ -139,7 +139,7 @@ const LandingPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showMobileCta, setShowMobileCta] = useState(false);
   const [formData, setFormData] = useState({
-    name: '', phone: '', service: searchParams.get('service') || '', email: '',
+    name: '', phone: '', service: '', email: '',
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -369,16 +369,6 @@ const LandingPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Professional Cleaners in {areaName} | Leo Luxe Clean</title>
-        <meta
-          name="description"
-          content={`DBS-checked, fully insured cleaners in ${areaName}. Home cleaning from £60. Same-week bookings. Free quote — reply in 1 hour. Call 01753 257118.`}
-        />
-        <link rel="canonical" href="https://leoluxeclean.co.uk/landing" />
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
-
       <div className="min-h-screen bg-surface-black text-white font-sans overflow-x-hidden">
 
         {/* ── STICKY HEADER ────────────────────────────────────────────────── */}

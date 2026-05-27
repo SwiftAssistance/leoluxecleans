@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 
 const PageHero = ({ title, subtitle, breadcrumb, parentBreadcrumb }) => {
@@ -18,7 +18,7 @@ const PageHero = ({ title, subtitle, breadcrumb, parentBreadcrumb }) => {
           aria-label="Breadcrumb"
         >
           <Link
-            to="/"
+            href="/"
             className="text-neutral-500 hover:text-gold transition-colors"
           >
             Home
@@ -28,7 +28,7 @@ const PageHero = ({ title, subtitle, breadcrumb, parentBreadcrumb }) => {
             <>
               {parentBreadcrumb.to ? (
                 <Link
-                  to={parentBreadcrumb.to}
+                  href={parentBreadcrumb.to}
                   className="text-neutral-500 hover:text-gold transition-colors"
                 >
                   {parentBreadcrumb.name}
