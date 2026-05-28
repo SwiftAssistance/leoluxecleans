@@ -13,7 +13,11 @@ export const metadata = {
   title: 'Contact Us — Free Cleaning Quote in Slough & Berkshire',
   description: 'Get a free cleaning quote from Leo Luxe Clean. Call 01753 257118 or fill in our form. We cover Slough, Windsor, Langley & Berkshire. Response within 2 hours.',
   alternates: { canonical: 'https://leoluxeclean.co.uk/contact' },
-  openGraph: { url: 'https://leoluxeclean.co.uk/contact' },
+  openGraph: {
+    title: 'Contact Us — Free Cleaning Quote in Slough & Berkshire | Leo Luxe Clean',
+    description: 'Get a free cleaning quote from Leo Luxe Clean. Call 01753 257118 or fill in our form. We cover Slough, Windsor, Langley & Berkshire. Response within 2 hours.',
+    url: 'https://leoluxeclean.co.uk/contact',
+  },
 };
 
 export default function Page() {

@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
   const title = `${service.title} in ${location.name} | Leo Luxe Clean`;
   const description = `Looking for ${service.title.toLowerCase()} in ${location.name}? Leo Luxe Clean covers ${location.postcodes} and all of ${location.county}.${priceClause} DBS-checked, eco-friendly, 5-star rated. Same-week availability. Free quotes — call 01753 257118.`;
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical: `https://leoluxeclean.co.uk/areas/${location.slug}/${service.slug}` },
     openGraph: {

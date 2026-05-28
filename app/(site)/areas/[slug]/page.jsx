@@ -32,7 +32,7 @@ export default function Page({ params }) {
     ...(faqs.length > 0 ? [createFaqSchema(faqs)] : []),
     breadcrumbSchema([
       { name: 'Home', url: '/' },
-      { name: 'Areas', url: '/' },
+      { name: 'Areas', url: '/areas' },
       { name: location.name },
     ]),
   ];
