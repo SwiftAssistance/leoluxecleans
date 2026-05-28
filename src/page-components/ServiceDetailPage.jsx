@@ -17,44 +17,6 @@ import { getServiceBySlug, services } from '../data/services';
 import { locations } from '../data/locations';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
-const serviceReviews = {
-  'home-cleaning': {
-    text: "I've tried several cleaning companies in the Slough area and Leo Luxe is by far the best. Consistent quality every single time.",
-    author: 'Tom Richards',
-    role: 'Homeowner, Slough',
-    initial: 'T',
-  },
-  'office-cleaning': {
-    text: 'Booked a regular weekly clean for our dental practice. The difference is night and day. Patients have commented on how clean everything feels.',
-    author: 'Dr. Fatima Ali',
-    role: 'Business Owner, Slough',
-    initial: 'F',
-  },
-  'deep-clean': {
-    text: 'Had them do a deep clean before our baby arrived. They got into every nook and cranny. Brilliant service from start to finish.',
-    author: 'Priya Sharma',
-    role: 'Homeowner, Langley',
-    initial: 'P',
-  },
-  'end-of-tenancy': {
-    text: 'End of tenancy clean was perfect. Got our full deposit back. They even cleaned inside the oven which I thought was a lost cause!',
-    author: 'James Taylor',
-    role: 'Tenant, Slough',
-    initial: 'J',
-  },
-  'after-events': {
-    text: "After our daughter's birthday party the place was a state. Leo Luxe came next morning and had it spotless by lunchtime. Absolute lifesaver.",
-    author: 'Rebecca Osei',
-    role: 'Homeowner, Windsor',
-    initial: 'R',
-  },
-  'specialist-cleaning': {
-    text: 'Had the full specialist treatment — oven, carpets, and windows. Everything looks incredible. Genuinely worth every penny and then some.',
-    author: 'Nikhil Patel',
-    role: 'Homeowner, Slough',
-    initial: 'N',
-  },
-};
 
 const ServiceDetailPage = ({ slug }) => {
   const service = getServiceBySlug(slug);
@@ -66,7 +28,7 @@ const ServiceDetailPage = ({ slug }) => {
   if (!service) return null;
 
   const otherServices = services.filter((s) => s.slug !== slug).slice(0, 3);
-  const review = serviceReviews[slug];
+  const review = service.review;
 
   return (
     <>
@@ -160,6 +122,19 @@ const ServiceDetailPage = ({ slug }) => {
 
             {/* Sticky sidebar */}
             <div className="lg:col-span-5">
+              {service.image && (
+                <div className="rounded-2xl overflow-hidden mb-6">
+                  <img
+                    src={service.image}
+                    alt={`${service.title} in Slough and Berkshire`}
+                    className="w-full aspect-[4/3] object-cover"
+                    loading="lazy"
+                    decoding="async"
+                    width={800}
+                    height={600}
+                  />
+                </div>
+              )}
               <div className="rounded-2xl border border-gold/20 p-8 lg:sticky lg:top-28">
                 <h3 className="heading-serif text-2xl text-white mb-2">
                   Get a free quote

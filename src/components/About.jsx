@@ -57,7 +57,7 @@ const About = () => {
           >
             <div className="rounded-2xl overflow-hidden">
               <img
-                src="/about.svg"
+                src="/about.jpg"
                 alt="Our cleaning team at work"
                 className="w-full aspect-[3/4] object-cover"
                 loading="lazy"

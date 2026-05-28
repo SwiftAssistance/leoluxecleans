@@ -198,6 +198,7 @@ export const createServiceSchema = (service) => ({
   alternateName: service.tagline,
   description: service.metaDescription,
   url: `${BASE_URL}/services/${service.slug}`,
+  ...(service.image && { image: `${BASE_URL}${service.image}` }),
   provider: {
     '@type': 'LocalBusiness',
     name: 'Leo Luxe Clean',
@@ -232,13 +233,24 @@ export const createServiceSchema = (service) => ({
       availability: 'https://schema.org/InStock',
     },
   }),
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5.0',
-    reviewCount: '3',
-    bestRating: '5',
-    worstRating: '1',
-  },
+  ...(service.review && {
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      reviewCount: '1',
+      bestRating: '5',
+      worstRating: '1',
+    },
+    review: [
+      {
+        '@type': 'Review',
+        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
+        author: { '@type': 'Person', name: service.review.author },
+        reviewBody: service.review.text,
+        datePublished: service.review.date,
+      },
+    ],
+  }),
 });
 
 export const createLocationSchema = (location) => ({
@@ -275,20 +287,20 @@ export const createLocationSchema = (location) => ({
     },
   ],
   priceRange: '££',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5.0',
-    reviewCount: '3',
-    bestRating: '5',
-    worstRating: '1',
-  },
   ...(location.reviews.length > 0 && {
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      reviewCount: String(location.reviews.length),
+      bestRating: '5',
+      worstRating: '1',
+    },
     review: location.reviews.map((r) => ({
       '@type': 'Review',
       reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
       author: { '@type': 'Person', name: r.author },
       reviewBody: r.text,
-      datePublished: '2025-01-01',
+      datePublished: r.date || '2025-01-01',
     })),
   }),
 });
