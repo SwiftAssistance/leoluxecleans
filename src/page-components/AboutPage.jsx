@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useQuoteModal } from '../context/QuoteModalContext';
 import {
   ArrowRight,
@@ -14,7 +15,6 @@ import {
   Handshake,
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
-import Seo, { breadcrumbSchema } from '../components/Seo';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const values = [
@@ -49,15 +49,6 @@ const AboutPage = () => {
 
   return (
     <>
-      <Seo
-        title="About Us — Leo Luxe Clean | Slough & Berkshire"
-        description="Meet the team behind Leo Luxe Clean. A new, independent cleaning company in Slough, Windsor & Berkshire. DBS checked, fully insured, eco-friendly. Built on trust."
-        canonical="/about"
-        schema={breadcrumbSchema([
-          { name: 'Home', url: '/' },
-          { name: 'About' },
-        ])}
-      />
       <PageHero
         title={<>About <span className="text-gold-gradient">Leo Luxe</span></>}
         subtitle="A small cleaning team based in Slough. Not a franchise, not a call centre — just Leo and a team he trusts, doing the work properly."

@@ -1,68 +1,11 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
-
-const SITE_NAME = 'Leo Luxe Clean';
 const BASE_URL = 'https://leoluxeclean.co.uk';
+const SITE_NAME = 'Leo Luxe Clean';
 const DEFAULT_DESCRIPTION =
   'Local cleaners based in Slough, covering Windsor, Maidenhead, Hayes, Uxbridge, Ealing, Hounslow & surrounding areas. Home cleaning, deep cleans, end of tenancy, office cleaning. DBS checked, fully insured. Free quotes.';
-const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
 
-const Seo = ({
-  title,
-  description = DEFAULT_DESCRIPTION,
-  canonical,
-  type = 'website',
-  image = DEFAULT_IMAGE,
-  schema,
-  noindex = false,
-}) => {
-  const fullTitle = title
-    ? `${title} | ${SITE_NAME}`
-    : `${SITE_NAME} | Cleaners in Slough, Windsor & Berkshire`;
-  const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
-  const schemaString = Array.isArray(schema)
-    ? JSON.stringify(schema)
-    : schema
-    ? JSON.stringify(schema)
-    : null;
-
-  return (
-    <Helmet>
-      <title>{fullTitle}</title>
-      <meta name="description" content={description} />
-      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-      {noindex && <meta name="robots" content="noindex,nofollow" />}
-
-      {/* Open Graph */}
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:type" content={type} />
-      <meta property="og:image" content={image} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:site_name" content={SITE_NAME} />
-      {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
-      <meta property="og:locale" content="en_GB" />
-
-      {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
-
-      {/* Geo tags for local SEO */}
-      <meta name="geo.region" content="GB-BRK" />
-      <meta name="geo.placename" content="Slough" />
-      <meta name="geo.position" content="51.5105;-0.5950" />
-      <meta name="ICBM" content="51.5105, -0.5950" />
-
-      {/* JSON-LD Structured Data */}
-      {schemaString && (
-        <script type="application/ld+json">{schemaString}</script>
-      )}
-    </Helmet>
-  );
-};
+// Seo is no longer used directly — metadata is handled by Next.js generateMetadata.
+// This file is kept as a schema utility module.
+const Seo = () => null;
 
 // ============================================================
 // SCHEMA GENERATORS

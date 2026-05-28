@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { ArrowRight, Phone, Star } from 'lucide-react';
 import { useQuoteModal } from '../context/QuoteModalContext';

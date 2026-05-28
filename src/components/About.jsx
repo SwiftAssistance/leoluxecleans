@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -27,10 +28,10 @@ const About = () => {
 
             <div className="space-y-5 text-neutral-400 leading-relaxed font-light text-[15px] max-w-xl">
               <p>
-                Leo Luxe is based in Slough. It's a small team — Leo is
+                Leo Luxe is based in Slough. It&apos;s a small team — Leo is
                 involved in most jobs himself, and the rest of the crew are
-                people he's trained and trusts. That's not a selling point,
-                it's just how it works.
+                people he&apos;s trained and trusts. That&apos;s not a selling point,
+                it&apos;s just how it works.
               </p>
               <p>
                 Everyone who comes to your home is DBS checked. We bring all
@@ -40,7 +41,7 @@ const About = () => {
             </div>
 
             <Link
-              to="/about"
+              href="/about"
               className="inline-flex items-center gap-2 text-gold label-caps text-[11px] mt-10 hover:gap-3 transition-all"
             >
               Our full story <ArrowRight size={12} />

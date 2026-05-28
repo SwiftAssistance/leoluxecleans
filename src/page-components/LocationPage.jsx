@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
+import Link from 'next/link';
 import { useQuoteModal } from '../context/QuoteModalContext';
 import {
   ArrowRight,
@@ -15,7 +16,6 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
-import Seo, { createLocationSchema, breadcrumbSchema } from '../components/Seo';
 import { getLocationBySlug, locations } from '../data/locations';
 import { services } from '../data/services';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -29,35 +29,19 @@ const serviceIcons = {
   'specialist-cleaning': <ShieldCheck size={22} />,
 };
 
-const LocationPage = () => {
-  const { slug } = useParams();
+const LocationPage = ({ slug }) => {
   const location = getLocationBySlug(slug);
   const { openModal } = useQuoteModal();
 
   const [introRef, introVisible] = useScrollReveal({ threshold: 0.1 });
   const [servicesRef, servicesVisible] = useScrollReveal({ threshold: 0.05 });
 
-  if (!location) return <Navigate to="/" replace />;
+  if (!location) return null;
 
   const otherLocations = locations.filter((l) => l.slug !== slug);
 
-  const combinedSchema = [
-    createLocationSchema(location),
-    breadcrumbSchema([
-      { name: 'Home', url: '/' },
-      { name: location.name },
-    ]),
-  ];
-
   return (
     <>
-      <Seo
-        title={location.metaTitle}
-        description={location.metaDescription}
-        canonical={`/areas/${location.slug}`}
-        schema={combinedSchema}
-      />
-
       <PageHero
         title={
           <>
@@ -146,7 +130,7 @@ const LocationPage = () => {
                       ))}
                     </div>
                     <p className="text-neutral-300 text-sm leading-relaxed mb-4">
-                      "{location.reviews[0].text}"
+                      &ldquo;{location.reviews[0].text}&rdquo;
                     </p>
                     <div className="flex items-center gap-3">
                       <div className="w-9 h-9 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm heading-serif">
@@ -203,7 +187,7 @@ const LocationPage = () => {
             {services.map((s, i) => (
               <Link
                 key={s.slug}
-                to={`/areas/${location.slug}/${s.slug}`}
+                href={`/areas/${location.slug}/${s.slug}`}
                 className={`rounded-xl border border-surface-border/40 p-6 group block hover:border-gold/20 transition-all duration-500 ${
                   servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
@@ -279,7 +263,7 @@ const LocationPage = () => {
                     ))}
                   </div>
                   <p className="text-neutral-300 text-sm leading-relaxed mb-4">
-                    "{review.text}"
+                    &ldquo;{review.text}&rdquo;
                   </p>
                   <div className="flex items-center gap-3 border-t border-surface-border/30 pt-4">
                     <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm heading-serif">
@@ -296,7 +280,7 @@ const LocationPage = () => {
 
             <div className="text-center mt-10">
               <Link
-                to="/reviews"
+                href="/reviews"
                 className="label-caps text-gold text-[11px] hover:text-gold-light transition-colors inline-flex items-center gap-1"
               >
                 See All Reviews <ArrowRight size={12} />
@@ -319,7 +303,7 @@ const LocationPage = () => {
             {otherLocations.map((loc) => (
               <Link
                 key={loc.slug}
-                to={`/areas/${loc.slug}`}
+                href={`/areas/${loc.slug}`}
                 className="rounded-lg border border-surface-border/40 px-5 py-3 flex items-center gap-2 text-sm text-neutral-300 hover:text-gold hover:border-gold/30 transition-colors"
               >
                 <MapPin size={14} className="text-gold" />

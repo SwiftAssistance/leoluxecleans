@@ -1,6 +1,7 @@
+'use client';
 import React, { useState } from 'react';
 import { ChevronDown, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const faqs = [
@@ -87,7 +88,7 @@ const HomeFaq = () => {
 
         <div className="text-center mt-10">
           <Link
-            to="/contact"
+            href="/contact"
             className="inline-flex items-center gap-2 label-caps text-gold text-[11px] hover:gap-3 transition-all"
           >
             Got another question? Get in touch <ArrowRight size={12} />

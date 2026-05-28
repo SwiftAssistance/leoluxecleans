@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
+import Link from 'next/link';
 import { useQuoteModal } from '../context/QuoteModalContext';
 import {
   ArrowRight,
@@ -12,7 +13,6 @@ import {
   Leaf,
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
-import Seo, { createServiceSchema, createFaqSchema, breadcrumbSchema } from '../components/Seo';
 import { getServiceBySlug, services } from '../data/services';
 import { locations } from '../data/locations';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -56,38 +56,20 @@ const serviceReviews = {
   },
 };
 
-const ServiceDetailPage = () => {
-  const { slug } = useParams();
+const ServiceDetailPage = ({ slug }) => {
   const service = getServiceBySlug(slug);
   const { openModal } = useQuoteModal();
 
   const [contentRef, contentVisible] = useScrollReveal({ threshold: 0.1 });
   const [featuresRef, featuresVisible] = useScrollReveal({ threshold: 0.05 });
 
-  if (!service) return <Navigate to="/services" replace />;
+  if (!service) return null;
 
   const otherServices = services.filter((s) => s.slug !== slug).slice(0, 3);
   const review = serviceReviews[slug];
 
-  const combinedSchema = [
-    createServiceSchema(service),
-    createFaqSchema(service.faqs),
-    breadcrumbSchema([
-      { name: 'Home', url: '/' },
-      { name: 'Services', url: '/services' },
-      { name: service.title },
-    ]),
-  ];
-
   return (
     <>
-      <Seo
-        title={service.metaTitle}
-        description={service.metaDescription}
-        canonical={`/services/${service.slug}`}
-        schema={combinedSchema}
-      />
-
       <PageHero
         title={
           <>
@@ -161,7 +143,7 @@ const ServiceDetailPage = () => {
                     ))}
                   </div>
                   <p className="text-neutral-300 text-sm leading-relaxed mb-4">
-                    "{review.text}"
+                    &ldquo;{review.text}&rdquo;
                   </p>
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm heading-serif">
@@ -230,7 +212,7 @@ const ServiceDetailPage = () => {
           >
             <div className="text-center mb-12">
               <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-                What's Included
+                What&apos;s Included
               </h2>
               <p className="text-neutral-400 text-sm">
                 Everything listed below comes as standard — no add-ons, no extras.
@@ -294,7 +276,7 @@ const ServiceDetailPage = () => {
             {locations.map((loc) => (
               <Link
                 key={loc.slug}
-                to={`/areas/${loc.slug}/${slug}`}
+                href={`/areas/${loc.slug}/${slug}`}
                 className="rounded-lg border border-surface-border/40 px-5 py-3 flex items-center gap-2 text-sm text-neutral-300 hover:text-gold hover:border-gold/30 transition-colors"
               >
                 <MapPin size={14} className="text-gold" />
@@ -318,7 +300,7 @@ const ServiceDetailPage = () => {
             {otherServices.map((s) => (
               <Link
                 key={s.slug}
-                to={`/services/${s.slug}`}
+                href={`/services/${s.slug}`}
                 className="rounded-xl border border-surface-border/40 p-6 group block hover:border-gold/20 transition-colors"
               >
                 <h3 className="heading-serif text-xl text-white mb-2 group-hover:text-gold transition-colors">
@@ -339,7 +321,7 @@ const ServiceDetailPage = () => {
 
           <div className="text-center mt-10">
             <Link
-              to="/services"
+              href="/services"
               className="btn-outline-gold label-caps px-8 py-3.5 rounded-lg inline-flex items-center gap-2 group"
             >
               View All Services{' '}
