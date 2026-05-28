@@ -9,7 +9,7 @@ const Hero = () => {
     <section className="relative min-h-screen overflow-hidden">
       {/* Background image */}
       <img
-        src="/hero.jpg"
+        src="/hero.png"
         alt=""
         role="presentation"
         className="absolute inset-0 w-full h-full object-cover"
