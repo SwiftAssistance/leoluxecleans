@@ -12,7 +12,7 @@ const homeFaqSchema = createFaqSchema([
 ]);
 
 export const metadata = {
-  title: 'Leo Luxe Clean | Cleaners in Slough, Windsor & Berkshire',
+  title: { absolute: 'Leo Luxe Clean | Cleaners in Slough, Windsor & Berkshire' },
   description: 'Local cleaners based in Slough. Home cleaning from £60, deep cleans, end of tenancy, office cleaning across Windsor, Berkshire & West London. DBS checked, fully insured. Same-week bookings. Free quote.',
   alternates: { canonical: 'https://leoluxeclean.co.uk' },
   openGraph: {

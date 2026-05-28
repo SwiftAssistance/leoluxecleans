@@ -9,6 +9,7 @@ export const metadata = {
   alternates: { canonical: 'https://leoluxeclean.co.uk/services' },
   openGraph: {
     title: 'Cleaning Services in Slough, Windsor & Berkshire | Leo Luxe Clean',
+    description: 'Home cleaning from £60, deep cleans from £120, end of tenancy from £150, office cleaning and more. DBS-checked, eco-friendly, 5-star rated team. Free quotes.',
     url: 'https://leoluxeclean.co.uk/services',
   },
 };

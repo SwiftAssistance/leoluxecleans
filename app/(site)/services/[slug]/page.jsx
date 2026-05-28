@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
   const service = getServiceBySlug(params.slug);
   if (!service) return {};
   return {
-    title: service.metaTitle,
+    title: { absolute: service.metaTitle },
     description: service.metaDescription,
     alternates: { canonical: `https://leoluxeclean.co.uk/services/${service.slug}` },
     openGraph: {
