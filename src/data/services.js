@@ -5,6 +5,14 @@ export const services = [
     tagline: 'Your home, done properly',
     pricing: 'From £60',
     priceFrom: 60,
+    image: '/service-home-cleaning.jpg',
+    review: {
+      text: "I've tried several cleaning companies in the Slough area and Leo Luxe is by far the best. Consistent quality every single time.",
+      author: 'Tom Richards',
+      role: 'Homeowner, Slough',
+      initial: 'T',
+      date: '2024-11-01',
+    },
     metaTitle: 'Home Cleaning in Slough & Berkshire | From £60 | Leo Luxe Clean',
     metaDescription:
       'Home cleaning in Slough, Windsor & Berkshire from £60. Weekly, fortnightly or one-off. DBS checked, fully insured. Same-week availability. Free quote.',
@@ -50,6 +58,14 @@ export const services = [
     tagline: 'A workspace that works',
     pricing: 'Custom quote',
     priceFrom: null,
+    image: '/service-office-cleaning.jpg',
+    review: {
+      text: 'Booked a regular weekly clean for our dental practice. The difference is night and day. Patients have commented on how clean everything feels.',
+      author: 'Dr. Fatima Ali',
+      role: 'Business Owner, Slough',
+      initial: 'F',
+      date: '2024-12-10',
+    },
     metaTitle: 'Office & Commercial Cleaning in Slough & Berkshire | Leo Luxe Clean',
     metaDescription:
       'Office and commercial cleaning in Slough, Windsor & Berkshire. Flexible hours — mornings, evenings, weekends. Fully insured, DBS checked. Free quote.',
@@ -95,6 +111,14 @@ export const services = [
     tagline: 'Every corner, every time',
     pricing: 'From £120',
     priceFrom: 120,
+    image: '/service-deep-clean.jpg',
+    review: {
+      text: 'Had them do a deep clean before our baby arrived. They got into every nook and cranny. Brilliant service from start to finish.',
+      author: 'Priya Sharma',
+      role: 'Homeowner, Langley',
+      initial: 'P',
+      date: '2024-12-15',
+    },
     metaTitle: 'Deep Cleaning in Slough & Berkshire | From £120 | Leo Luxe Clean',
     metaDescription:
       'Deep cleaning in Slough, Windsor & Berkshire from £120. Behind appliances, inside ovens, grout scrubbing — a proper reset. DBS checked, fully insured. Free quote.',
@@ -140,6 +164,14 @@ export const services = [
     tagline: 'Get your deposit back',
     pricing: 'From £150',
     priceFrom: 150,
+    image: '/service-end-of-tenancy.jpg',
+    review: {
+      text: 'End of tenancy clean was perfect. Got our full deposit back. They even cleaned inside the oven which I thought was a lost cause!',
+      author: 'James Taylor',
+      role: 'Tenant, Slough',
+      initial: 'J',
+      date: '2025-01-20',
+    },
     metaTitle: 'End of Tenancy Cleaning in Slough & Berkshire | From £150 | Leo Luxe Clean',
     metaDescription:
       'End of tenancy cleaning in Slough, Windsor & Berkshire from £150. Inventory standard — get your full deposit back. DBS checked, fully insured. Free re-clean if needed.',
@@ -185,6 +217,14 @@ export const services = [
     tagline: 'Like nothing happened',
     pricing: 'From £80',
     priceFrom: 80,
+    image: '/service-after-events.jpg',
+    review: {
+      text: "After our daughter's birthday party the place was a state. Leo Luxe came next morning and had it spotless by lunchtime. Absolute lifesaver.",
+      author: 'Rebecca Osei',
+      role: 'Homeowner, Windsor',
+      initial: 'R',
+      date: '2025-02-03',
+    },
     metaTitle: 'After Event & Party Cleaning in Slough & Berkshire | Leo Luxe Clean',
     metaDescription:
       'After-event and party cleaning in Slough, Windsor & Berkshire. Same-day and next-day availability. Spill treatment, rubbish removal, full clean. Free quote.',
@@ -230,6 +270,14 @@ export const services = [
     tagline: 'The jobs that need an expert',
     pricing: 'From £70',
     priceFrom: 70,
+    image: '/service-specialist-cleaning.jpg',
+    review: {
+      text: 'Had the full specialist treatment — oven, carpets, and windows. Everything looks incredible. Genuinely worth every penny and then some.',
+      author: 'Nikhil Patel',
+      role: 'Homeowner, Slough',
+      initial: 'N',
+      date: '2025-02-18',
+    },
     metaTitle: 'Specialist Cleaning in Slough & Berkshire | Leo Luxe Clean',
     metaDescription:
       'Specialist cleaning in Slough, Windsor & Berkshire. Carpet cleaning, oven cleaning, upholstery, windows, hard floors. Proper equipment, visible results. Free quote.',
