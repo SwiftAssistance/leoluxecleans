@@ -56,10 +56,27 @@ const QuoteModal = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    // Replace with your real form handler (e.g. fetch to API, Formspree, etc.)
-    await new Promise((r) => setTimeout(r, 1200));
-    setSubmitting(false);
-    setSubmitted(true);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: '1e2d7a23-e2db-4148-ac90-c44289b4508a',
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          service: form.service,
+          message: form.message,
+          subject: `New quote request from ${form.name}`,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubmitted(true);
+      }
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
