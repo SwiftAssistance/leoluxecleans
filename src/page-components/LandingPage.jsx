@@ -10,68 +10,69 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 // ── static data ───────────────────────────────────────────────────────────────
 
 const SERVICES = [
-  { icon: Home, name: 'Home Cleaning', price: 'From £60', benefit: 'Regular or one-off — always held to the same high standard' },
-  { icon: Sparkles, name: 'Deep Cleaning', price: 'From £120', benefit: 'Inside ovens, behind furniture, every neglected corner covered' },
-  { icon: Key, name: 'End of Tenancy', price: 'From £150', benefit: 'Landlord-approved standard — maximise your deposit return' },
-  { icon: Building2, name: 'Office Cleaning', price: 'POA', benefit: 'Flexible scheduling, evenings and weekends available' },
-  { icon: Zap, name: 'After Event Cleaning', price: 'From £80', benefit: 'Same-day and next-day availability across Berkshire' },
+  { icon: Home, name: 'Regular Domestic Cleaning', price: 'From £60', benefit: 'The same trusted cleaner every visit — weekly, fortnightly, or monthly.' },
+  { icon: Sparkles, name: 'Deep Cleaning', price: 'From £180', benefit: 'Inside ovens, behind furniture, every neglected corner. A thorough reset for your home.' },
+  { icon: Key, name: 'End of Tenancy', price: 'From £200', benefit: 'Landlord-approved standard — give yourself the best chance of a full deposit return.' },
+  { icon: Building2, name: 'After Builders Clean', price: 'From £200', benefit: 'Dust, debris, and residue removed. Your new space handed over spotless.' },
+  { icon: Zap, name: 'Airbnb & Holiday Let', price: 'From £80', benefit: 'Fast turnovers between guests. Linen-ready, guest-ready, every time.' },
 ];
 
 const WHY_US = [
-  { icon: ShieldCheck, title: 'DBS-Checked Team', desc: 'Every cleaner is background-checked and identity verified before entering your home.' },
-  { icon: Shield, title: 'Fully Insured', desc: 'Public liability insurance as standard — complete peace of mind, every visit.' },
-  { icon: CheckCircle2, title: 'No Lock-In Contracts', desc: 'Book once or regularly. No hidden fees, no tie-ins. Cancel any time.' },
-  { icon: Star, title: '100% Satisfaction Guarantee', desc: "Not happy? We return and re-clean for free until it's right." },
+  { icon: ShieldCheck, title: 'DBS-Checked & Referenced', desc: 'Every cleaner is DBS (criminal record) checked, identity verified, and personally referenced before entering your home.' },
+  { icon: Shield, title: 'Fully Insured', desc: 'Full public liability insurance as standard — complete peace of mind, every single visit.' },
+  { icon: Users, title: 'Same Cleaner Every Time', desc: 'No strangers in your home. We assign you a dedicated cleaner so you always know exactly who to expect.' },
+  { icon: CheckCircle2, title: 'No Contracts, No Lock-In', desc: 'Book once or weekly. No hidden fees, no tie-ins, no cancellation charges. Ever.' },
 ];
 
 const STEPS = [
-  { n: '01', title: 'Request a Free Quote', desc: 'Fill in the form or call us. We reply within 1 hour.' },
-  { n: '02', title: 'We Confirm & Schedule', desc: 'Choose your date and time — same-week slots available.' },
-  { n: '03', title: 'Sit Back & Relax', desc: 'Our team arrives, cleans to our high standard, and you come home to spotless.' },
+  { n: '01', title: 'Request a Free Quote', desc: 'Fill in the form or call us. We reply within 1 hour, 7 days a week.' },
+  { n: '02', title: 'We Match & Schedule', desc: 'We assign your dedicated cleaner and confirm a time that suits you — same-week slots available.' },
+  { n: '03', title: 'Sit Back & Relax', desc: 'Your cleaner arrives, works to our exacting standard, and you come home to a spotless house.' },
 ];
 
 const REVIEWS = [
-  { name: 'Sarah M.', location: 'Slough', rating: 5, text: "Amazing service — my flat was spotless for the end of tenancy inspection. Booked with 2 days' notice. Will definitely use again." },
-  { name: 'James T.', location: 'Windsor', rating: 5, text: 'Punctual, professional, and brilliant deep clean on our kitchen and bathrooms. Highly recommend to anyone in Windsor.' },
-  { name: 'Priya K.', location: 'Maidenhead', rating: 5, text: "We use Leo Luxe for our weekly home clean. Reliable, thorough, and always leave the place looking incredible. Couldn't be happier." },
-  { name: 'David R.', location: 'Ealing', rating: 5, text: "Best cleaning company I've used in West London. Turned up on time, worked incredibly hard, and the place was immaculate. Booked them again already." },
+  { name: 'Charlotte W.', location: 'Windsor', rating: 5, text: "We've had the same cleaner for six months now. She knows exactly how we like things — the house is always perfect. Wouldn't use anyone else." },
+  { name: 'James T.', location: 'Ascot', rating: 5, text: 'Booked a deep clean before putting our house on the market. Absolutely immaculate result — the estate agent actually commented on how clean it was.' },
+  { name: 'Priya K.', location: 'Maidenhead', rating: 5, text: "We use Leo Luxe for our weekly home clean. Reliable, thorough, and always leave the place looking incredible. The same cleaner every time makes such a difference." },
+  { name: 'Richard H.', location: 'Virginia Water', rating: 5, text: "Used them for an end of tenancy clean on our rental property. Tenant got their full deposit back and the new tenants were delighted. Professional from start to finish." },
 ];
 
 const FAQS = [
   {
     q: 'How quickly can you book me in?',
-    a: 'We offer same-week bookings across Slough, Berkshire, and West London. For urgent cleans, call us on 01753 257118 and we\'ll do our best to accommodate you.',
+    a: 'We offer same-week bookings across Windsor, Ascot, Maidenhead, Bracknell, Wokingham, and the wider Berkshire and Surrey area. For urgent cleans, call us on 01753 257118 and we\'ll do our best to accommodate you.',
+  },
+  {
+    q: 'Will I get the same cleaner each time?',
+    a: 'Yes. We assign you a dedicated cleaner so you always know who to expect. No strangers in your home, no retraining, no explaining your preferences from scratch.',
   },
   {
     q: 'Are your cleaners vetted and insured?',
-    a: 'Yes — every member of our team is DBS (criminal record) checked, identity verified, and covered by full public liability insurance. You\'ll never have to worry.',
+    a: 'Every cleaner is DBS (criminal record) checked, identity verified, personally referenced, and covered by full public liability insurance. Your home and peace of mind are protected.',
   },
   {
     q: 'Do I need to be home during the clean?',
-    a: 'No. Many of our clients give us a key or door code. We\'re a trusted local team — your security is taken seriously.',
+    a: 'No. Many of our clients in Windsor, Ascot, and Maidenhead provide a key or door code. We\'re a trusted local team — your security is taken very seriously.',
   },
   {
-    q: 'What\'s included in a standard clean?',
-    a: 'All rooms: vacuuming, mopping, dusting, sanitising bathrooms and kitchen surfaces, and tidying throughout. Deep cleans go further — inside appliances, behind furniture, skirting boards, and more.',
-  },
-  {
-    q: 'Is there a minimum contract?',
-    a: 'None at all. Whether it\'s a one-off clean or a weekly regular, there\'s no tie-in and no cancellation fee.',
+    q: 'Is there a minimum contract or tie-in?',
+    a: 'None at all. Whether it\'s a one-off deep clean or a weekly regular, there\'s no tie-in and no cancellation charge. Book with complete confidence.',
   },
 ];
 
 const AREAS = [
-  'Slough', 'Windsor', 'Langley', 'Maidenhead', 'Eton', 'Burnham',
-  'Ascot', 'Bracknell', 'Hayes', 'Southall', 'Uxbridge', 'Ealing',
-  'Greenford', 'Northolt', 'West Drayton', 'Hounslow',
+  'Windsor', 'Ascot', 'Maidenhead', 'Bracknell', 'Wokingham',
+  'Virginia Water', 'Egham', 'Sunningdale', 'Sunninghill', 'Marlow',
+  'Henley-on-Thames', 'Staines-upon-Thames', 'Slough', 'Eton', 'Burnham',
+  'Taplow', 'Cookham', 'Twyford',
 ];
 
 const TRUST_ITEMS = [
   { icon: ShieldCheck, label: 'DBS Checked' },
   { icon: Shield, label: 'Fully Insured' },
   { icon: Star, label: '5-Star Rated' },
-  { icon: Users, label: '200+ Customers' },
-  { icon: Leaf, label: 'Eco-Friendly' },
+  { icon: Users, label: 'Same Cleaner Always' },
+  { icon: CheckCircle2, label: 'No Contracts' },
   { icon: Clock, label: 'Reply in 1 Hour' },
 ];
 
@@ -136,11 +137,11 @@ const QuoteForm = ({ id, compact = false, formRef, formData, setFormData, formSu
           Thanks{formData.name ? ` ${formData.name.split(' ')[0]}` : ''}!
         </h3>
         <p className="text-neutral-400 text-sm mb-4 max-w-xs">
-          We'll call you back within the hour. Or reach us right now on{' '}
+          We'll call you back within the hour to arrange your clean. Or reach us right now on{' '}
           <a href="tel:01753257118" className="text-gold hover:text-gold-light transition-colors font-medium">
             01753 257118
           </a>
-          .
+          . We'll match you with a dedicated cleaner from your very first visit.
         </p>
         <div className="flex gap-1 mt-2">
           <StarRow count={5} size={16} />
@@ -206,11 +207,11 @@ const QuoteForm = ({ id, compact = false, formRef, formData, setFormData, formSu
               className={`${inputClass} appearance-none`}
             >
               <option value="">Choose a service…</option>
-              <option value="home-cleaning">Home Cleaning — from £60</option>
-              <option value="deep-clean">Deep Cleaning — from £120</option>
-              <option value="end-of-tenancy">End of Tenancy — from £150</option>
-              <option value="office-cleaning">Office Cleaning — POA</option>
-              <option value="after-event">After Event — from £80</option>
+              <option value="regular-domestic">Regular Domestic Cleaning — from £60</option>
+              <option value="deep-clean">Deep Cleaning — from £180</option>
+              <option value="end-of-tenancy">End of Tenancy — from £200</option>
+              <option value="after-builders">After Builders Clean — from £200</option>
+              <option value="airbnb-holiday-let">Airbnb & Holiday Let — from £80</option>
               <option value="other">Other / Not Sure</option>
             </select>
           </div>
@@ -278,7 +279,7 @@ const QuoteForm = ({ id, compact = false, formRef, formData, setFormData, formSu
 // ── main component ────────────────────────────────────────────────────────────
 
 const LandingPage = ({
-  areaName = 'Slough & Berkshire',
+  areaName = 'Windsor & Berkshire',
   utmSource = '',
   utmCampaign = '',
   utmTerm = '',
@@ -419,14 +420,14 @@ const LandingPage = ({
                 id="hero-heading"
                 className="heading-serif text-[clamp(2.2rem,5vw,4.2rem)] text-white leading-[1.06] mb-5"
               >
-                Your Home,{' '}
-                <span className="text-gold-gradient">Spotlessly Clean</span>
+                The Same Trusted Cleaner,{' '}
+                <span className="text-gold-gradient">Every Single Visit</span>
                 <br />— Guaranteed.
               </h1>
 
               <p className="text-neutral-200 text-lg leading-relaxed font-light mb-3 max-w-md">
                 Trusted by <strong className="text-white font-semibold">200+ homeowners</strong> across {areaName}.
-                DBS-checked, fully insured, and obsessed with getting it right.
+                DBS-checked, fully insured, no contracts — and always the same cleaner you know and trust.
               </p>
 
               {/* Mini hero review */}
@@ -441,10 +442,10 @@ const LandingPage = ({
               {/* Benefit bullets */}
               <ul className="space-y-3 mb-8">
                 {[
-                  'Prices from £60 — transparent, no hidden fees',
-                  'Same-week & weekend slots available',
+                  'Same trusted cleaner every visit — no strangers in your home',
+                  'DBS-checked, fully insured, and referenced',
                   '100% satisfaction guarantee — we re-clean free if needed',
-                  'No long-term contracts — cancel any time',
+                  'No contracts, no lock-in — cancel any time',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-neutral-200 text-sm">
                     <CheckCircle2 size={16} className="text-gold flex-shrink-0 mt-0.5" aria-hidden="true" />
@@ -833,7 +834,7 @@ const LandingPage = ({
               <div className="text-center mb-10">
                 <p className="label-caps text-gold mb-3">Coverage Area</p>
                 <h2 id="areas-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-                  We Cover Slough, Windsor<br className="hidden sm:block" /> &amp; Across West London
+                  We Cover Windsor, Ascot, Maidenhead<br className="hidden sm:block" /> &amp; Across Berkshire &amp; Surrey
                 </h2>
                 <div className="divider-gold mx-auto mt-5" />
               </div>
@@ -919,7 +920,7 @@ const LandingPage = ({
         <footer className="bg-surface-black border-t border-surface-border/30 py-8">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-500">
-              <p>© 2025 Leo Luxe Clean | Slough, Berkshire</p>
+              <p>© 2025 Leo Luxe Clean | Berkshire &amp; Surrey</p>
               <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
                 <a href="tel:01753257118" className="hover:text-gold transition-colors flex items-center gap-1.5">
                   <Phone size={12} /> 01753 257118
