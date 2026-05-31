@@ -52,16 +52,17 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" href="/favicon-512.png" />
       </head>
       <body>{children}</body>
+      {/* Stub initialised inline so gtag() calls queued before async script loads */}
+      <Script id="gtag-stub" strategy="beforeInteractive">{`
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function(){window.dataLayer.push(arguments);};
+        gtag('js', new Date());
+        gtag('config', 'AW-18156207671');
+      `}</Script>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=AW-18156207671"
         strategy="afterInteractive"
       />
-      <Script id="gtag-init" strategy="afterInteractive">{`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-18156207671');
-      `}</Script>
     </html>
   );
 }
