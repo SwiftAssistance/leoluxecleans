@@ -75,15 +75,6 @@ const AREAS = [
   'Taplow', 'Cookham', 'Twyford',
 ];
 
-const TRUST_ITEMS = [
-  { icon: ShieldCheck, label: 'DBS Checked' },
-  { icon: Shield, label: 'Fully Insured' },
-  { icon: Star, label: '5-Star Rated' },
-  { icon: Users, label: 'Same Cleaner Always' },
-  { icon: CheckCircle2, label: 'No Contracts' },
-  { icon: Clock, label: 'Reply in 1 Hour' },
-];
-
 // ── sub-components ────────────────────────────────────────────────────────────
 
 function StarRow({ count = 5, size = 13 }) {
@@ -125,7 +116,7 @@ function FaqItem({ q, a }) {
   );
 }
 
-// ── quote form (must be defined outside LandingPage to avoid remount on state change) ──
+// ── quote form ────────────────────────────────────────────────────────────────
 
 const inputClass =
   'w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600';
@@ -396,12 +387,10 @@ const LandingPage = ({
     }
   };
 
-  const [stepsRef, stepsVisible] = useScrollReveal({ threshold: 0.05 });
   const [servicesRef, servicesVisible] = useScrollReveal({ threshold: 0.05 });
   const [whyRef, whyVisible] = useScrollReveal({ threshold: 0.05 });
   const [reviewsRef, reviewsVisible] = useScrollReveal({ threshold: 0.05 });
   const [faqRef, faqVisible] = useScrollReveal({ threshold: 0.05 });
-  const [areasRef, areasVisible] = useScrollReveal({ threshold: 0.05 });
 
 
   return (
@@ -465,7 +454,6 @@ const LandingPage = ({
 
             {/* Left: copy */}
             <div>
-              {/* Urgency badge */}
               <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-4 py-2 mb-6">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
                 <span className="text-emerald-400 text-xs font-semibold">Limited slots left this week in {areaName}</span>
@@ -485,7 +473,6 @@ const LandingPage = ({
                 DBS-checked, fully insured, no contracts — and always the same cleaner you know and trust.
               </p>
 
-              {/* Benefit bullets */}
               <ul className="space-y-3 mb-6">
                 {[
                   'Same trusted cleaner every visit — no strangers in your home',
@@ -500,7 +487,6 @@ const LandingPage = ({
                 ))}
               </ul>
 
-              {/* Mini hero review */}
               <div className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 mb-6 max-w-lg">
                 <StarRow count={5} size={12} />
                 <p className="text-neutral-300 text-xs leading-relaxed">
@@ -509,7 +495,6 @@ const LandingPage = ({
                 </p>
               </div>
 
-              {/* Phone + trust */}
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
                 <a
                   href="tel:01753257118"
@@ -551,121 +536,120 @@ const LandingPage = ({
           </div>
         </section>
 
-        {/* ── TRUST BAR ────────────────────────────────────────────────────── */}
-        <div className="border-y border-gold/20" style={{ background: 'linear-gradient(90deg, #0f0b00 0%, #1c1400 50%, #0f0b00 100%)' }}>
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4">
-            <ul className="flex flex-wrap justify-center gap-x-7 gap-y-3" aria-label="Key credentials">
-              {TRUST_ITEMS.map(({ icon: Icon, label }) => (
-                <li key={label} className="flex items-center gap-2 text-neutral-400">
-                  <Icon size={14} className="text-gold flex-shrink-0" aria-hidden="true" />
-                  <span className="label-caps text-[10px]">{label}</span>
-                </li>
-              ))}
-            </ul>
+        {/* ── TRUST STRIP ──────────────────────────────────────────────────── */}
+        <div className="border-y border-gold/15 bg-surface-dark py-4">
+          <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center items-center gap-x-5 gap-y-2">
+            <span className="flex items-center gap-1.5">
+              <StarRow count={5} size={11} />
+              <span className="text-white text-xs font-medium">5.0 on Google</span>
+            </span>
+            <span className="text-neutral-700 hidden sm:inline">·</span>
+            <span className="text-neutral-400 text-xs">Trusted by 200+ homeowners</span>
+            <span className="text-neutral-700 hidden sm:inline">·</span>
+            <span className="text-neutral-400 text-xs">DBS-checked &amp; fully insured</span>
+            <span className="text-neutral-700 hidden sm:inline">·</span>
+            <span className="text-neutral-400 text-xs">Same cleaner every visit</span>
+            <span className="text-neutral-700 hidden sm:inline">·</span>
+            <span className="text-neutral-400 text-xs">No contracts</span>
           </div>
         </div>
 
-        {/* ── URGENCY STRIP ────────────────────────────────────────────────── */}
-        <div className="bg-gold/10 border-b border-gold/20 py-3">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col sm:flex-row items-center justify-center gap-3 text-center sm:text-left">
-            <div className="flex items-center gap-2">
-              <Zap size={14} className="text-gold flex-shrink-0" />
-              <span className="text-white text-sm font-medium">
-                Booking fast in {areaName} — secure your slot before it's gone
-              </span>
-            </div>
-            <button
-              onClick={openModal}
-              className="sm:ml-4 label-caps text-gold text-xs border border-gold/50 hover:bg-gold/10 rounded-full px-4 py-1.5 transition-colors whitespace-nowrap"
-            >
-              Check Availability →
-            </button>
-          </div>
-        </div>
-
-        {/* ── HOW IT WORKS ─────────────────────────────────────────────────── */}
-        <section className="py-16 lg:py-24 bg-surface-black" aria-labelledby="steps-heading">
+        {/* ── THE PROMISE ───────────────────────────────────────────────────── */}
+        <section className="py-20 lg:py-28 bg-surface-dark" aria-labelledby="promise-heading">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div
-              ref={stepsRef}
-              className={`transition-all duration-700 ${stepsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              ref={whyRef}
+              className={`transition-all duration-700 ${whyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             >
-              <div className="text-center mb-12">
-                <p className="label-caps text-gold mb-3">Simple Process</p>
-                <h2 id="steps-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-                  Booked & Cleaned in 3 Steps
-                </h2>
-                <div className="divider-gold mx-auto mt-5" />
-              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                <div className="hidden md:block absolute top-8 left-[20%] right-[20%] h-px bg-gold/20" aria-hidden="true" />
-                {STEPS.map(({ n, title, desc }) => (
-                  <div key={n} className="flex flex-col items-center text-center relative">
-                    <div className="w-16 h-16 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center mb-5 relative z-10">
-                      <span className="heading-serif text-gold text-xl">{n}</span>
-                    </div>
-                    <h3 className="text-white font-semibold mb-2">{title}</h3>
-                    <p className="text-neutral-400 text-sm leading-relaxed max-w-xs">{desc}</p>
+                {/* Left: statement */}
+                <div>
+                  <p className="label-caps text-gold text-xs mb-5 tracking-widest">The Leo Luxe Difference</p>
+                  <h2
+                    id="promise-heading"
+                    className="heading-serif text-[clamp(2.4rem,4vw,3.6rem)] text-white leading-[1.08] mb-6"
+                  >
+                    No strangers.<br />No excuses.<br />
+                    <span className="text-gold-gradient">Just a spotless home.</span>
+                  </h2>
+                  <p className="text-neutral-300 text-base leading-relaxed mb-8 max-w-md">
+                    We assign you a single, dedicated cleaner from your very first visit. They learn your home, your preferences, and your standards — then they deliver on them, every time.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <button
+                      onClick={openModal}
+                      className="btn-gold label-caps px-7 py-4 rounded-lg inline-flex items-center justify-center gap-2 group text-sm"
+                    >
+                      Claim Free Quote <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </button>
+                    <a
+                      href="tel:01753257118"
+                      className="btn-outline-gold label-caps px-7 py-4 rounded-lg inline-flex items-center justify-center gap-2 text-sm"
+                    >
+                      <Phone size={14} /> 01753 257118
+                    </a>
                   </div>
-                ))}
-              </div>
+                </div>
 
-              <div className="text-center mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={openModal}
-                  className="btn-gold label-caps px-8 py-4 rounded-lg inline-flex items-center justify-center gap-2 group"
-                >
-                  Claim My Free Quote <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-                <a
-                  href="tel:01753257118"
-                  className="btn-outline-gold label-caps px-8 py-4 rounded-lg inline-flex items-center justify-center gap-2"
-                >
-                  <Phone size={14} /> Call 01753 257118
-                </a>
+                {/* Right: reasons */}
+                <div className="space-y-0 divide-y divide-surface-border/30">
+                  {WHY_US.map(({ icon: Icon, title, desc }) => (
+                    <div key={title} className="flex gap-5 items-start py-6 first:pt-0 last:pb-0">
+                      <div className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center text-gold flex-shrink-0 mt-0.5">
+                        <Icon size={18} aria-hidden="true" />
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold text-sm mb-1.5">{title}</p>
+                        <p className="text-neutral-400 text-sm leading-relaxed">{desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* ── SERVICES ─────────────────────────────────────────────────────── */}
-        <section id="services" className="py-16 lg:py-24 bg-surface-dark" aria-labelledby="services-heading">
+        <section id="services" className="py-20 lg:py-28 bg-surface-black" aria-labelledby="services-heading">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div
               ref={servicesRef}
               className={`transition-all duration-700 ${servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             >
-              <div className="text-center mb-12">
-                <p className="label-caps text-gold mb-3">What We Offer</p>
-                <h2 id="services-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-                  Our Cleaning Services
+              <div className="mb-10">
+                <h2 id="services-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-3">
+                  Cleaning Services
                 </h2>
-                <div className="divider-gold mx-auto mt-5" />
+                <p className="text-neutral-400 text-base max-w-lg">
+                  Covering Windsor, Ascot, Maidenhead &amp; across Berkshire and Surrey.
+                </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {SERVICES.map(({ icon: Icon, name, price, benefit }) => (
                   <button
                     key={name}
                     onClick={openModal}
-                    className="rounded-2xl bg-surface-card border border-surface-border/50 p-7 hover:border-gold/40 transition-all duration-300 hover:shadow-gold-sm group text-left w-full"
+                    className="rounded-2xl bg-surface-card border border-surface-border/50 p-6 hover:border-gold/40 transition-all duration-300 hover:shadow-gold-sm group text-left w-full"
                   >
-                    <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center text-gold mb-5 group-hover:bg-gold/20 transition-colors">
-                      <Icon size={20} aria-hidden="true" />
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center text-gold group-hover:bg-gold/20 transition-colors">
+                        <Icon size={18} aria-hidden="true" />
+                      </div>
+                      <span className="text-gold label-caps text-[10px]">{price}</span>
                     </div>
-                    <h3 className="font-semibold text-white text-base mb-1">{name}</h3>
-                    <p className="text-gold label-caps text-[10px] mb-3">{price}</p>
+                    <h3 className="font-semibold text-white text-sm mb-2">{name}</h3>
                     <p className="text-neutral-400 text-sm leading-relaxed">{benefit}</p>
                   </button>
                 ))}
 
-                <div className="rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5 border border-gold/30 p-7 flex flex-col justify-center items-start">
-                  <p className="label-caps text-gold text-[10px] mb-3">Not Sure?</p>
-                  <p className="text-white font-medium mb-5 leading-snug">
-                    Tell us what you need — we'll recommend the right clean.
+                <div className="rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5 border border-gold/30 p-6 flex flex-col justify-between">
+                  <p className="text-white font-medium leading-snug mb-5">
+                    Not sure what you need? Tell us — we'll recommend the right clean.
                   </p>
-                  <button onClick={openModal} className="btn-gold label-caps px-5 py-2.5 rounded-lg text-xs flex items-center gap-2">
+                  <button onClick={openModal} className="btn-gold label-caps px-5 py-2.5 rounded-lg text-xs flex items-center gap-2 w-full justify-center">
                     Get a Quote <ArrowRight size={12} />
                   </button>
                 </div>
@@ -674,174 +658,117 @@ const LandingPage = ({
           </div>
         </section>
 
-        {/* ── WHY US ───────────────────────────────────────────────────────── */}
-        <section className="py-16 lg:py-24" style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #0f0b00 50%, #0a0a0a 100%)' }} aria-labelledby="why-heading">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div
-              ref={whyRef}
-              className={`transition-all duration-700 ${whyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            >
-              <div className="text-center mb-12">
-                <p className="label-caps text-gold mb-3">Why Choose Us</p>
-                <h2 id="why-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-                  The Leo Luxe Difference
-                </h2>
-                <div className="divider-gold mx-auto mt-5" />
+        {/* ── PULL QUOTE ───────────────────────────────────────────────────── */}
+        <section className="py-20 lg:py-28" style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #0e0b00 60%, #0a0a0a 100%)' }}>
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <StarRow count={5} size={18} />
+            <blockquote className="heading-serif text-[clamp(1.6rem,3.2vw,2.6rem)] text-white leading-[1.18] mt-6 mb-8">
+              "Booked a deep clean before putting our house on the market. Absolutely immaculate — the estate agent actually commented on how clean it was."
+            </blockquote>
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
+                <span className="text-gold font-semibold text-sm" aria-hidden="true">J</span>
               </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
-                {WHY_US.map(({ icon: Icon, title, desc }) => (
-                  <div
-                    key={title}
-                    className="flex gap-5 p-6 rounded-2xl bg-surface-card border border-surface-border/50 hover:border-gold/30 transition-colors"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold flex-shrink-0 mt-0.5">
-                      <Icon size={22} aria-hidden="true" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-white mb-2">{title}</h3>
-                      <p className="text-neutral-400 text-sm leading-relaxed">{desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Social proof stats bar */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
-                {[
-                  { value: '200+', label: 'Customers Served' },
-                  { value: '5.0', label: 'Google Rating' },
-                  { value: '100%', label: 'Satisfaction Rate' },
-                  { value: '1hr', label: 'Average Reply Time' },
-                ].map(({ value, label }) => (
-                  <div key={label} className="text-center rounded-2xl py-5 px-4 border border-gold/20" style={{ background: 'linear-gradient(135deg, #141100 0%, #1f1800 100%)' }}>
-                    <p className="heading-serif text-3xl text-gold mb-1">{value}</p>
-                    <p className="label-caps text-neutral-400 text-[10px]">{label}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex flex-col items-center gap-3 bg-surface-card rounded-2xl border border-gold/25 px-10 py-7">
-                  <StarRow count={5} size={22} />
-                  <p className="heading-serif text-3xl text-white">5.0 on Google</p>
-                  <p className="label-caps text-neutral-400 text-[10px]">Rated by homeowners across {areaName}</p>
-                </div>
+              <div className="text-left">
+                <p className="text-white font-medium text-sm">James T.</p>
+                <p className="text-neutral-500 text-xs flex items-center gap-1">
+                  <MapPin size={10} aria-hidden="true" /> Ascot · Google Review
+                </p>
               </div>
             </div>
           </div>
         </section>
 
         {/* ── REVIEWS ──────────────────────────────────────────────────────── */}
-        <section id="reviews" className="py-16 lg:py-24 bg-surface-dark" aria-labelledby="reviews-heading">
+        <section id="reviews" className="py-20 lg:py-24 bg-surface-dark" aria-labelledby="reviews-heading">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div
               ref={reviewsRef}
               className={`transition-all duration-700 ${reviewsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             >
-              <div className="text-center mb-12 relative">
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 text-[8rem] leading-none text-gold/8 font-serif select-none pointer-events-none" aria-hidden="true">"</div>
-                <p className="label-caps text-gold mb-3">Real Customers, Real Results</p>
-                <h2 id="reviews-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-2">
-                  What Our Customers Say
-                </h2>
-                <div className="flex items-center justify-center gap-2 mt-3">
-                  <StarRow count={5} size={16} />
-                  <span className="text-white font-semibold">5.0</span>
-                  <span className="text-neutral-400 text-sm">· 200+ verified reviews</span>
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
+                <div>
+                  <h2 id="reviews-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-3">
+                    What Our Customers Say
+                  </h2>
+                  <div className="flex items-center gap-2">
+                    <StarRow count={5} size={14} />
+                    <span className="text-neutral-400 text-sm">5.0 · 200+ Google reviews</span>
+                  </div>
                 </div>
-                <div className="divider-gold mx-auto mt-5" />
+                <button
+                  onClick={openModal}
+                  className="btn-gold label-caps px-6 py-3 rounded-lg inline-flex items-center gap-2 text-xs flex-shrink-0 self-start sm:self-auto"
+                >
+                  Get My Free Quote <ArrowRight size={12} />
+                </button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                 {REVIEWS.map(({ name, location, rating, text }) => (
                   <article
                     key={name}
-                    className="rounded-2xl bg-surface-card border border-surface-border/50 p-7 hover:border-gold/30 transition-colors flex flex-col"
+                    className="rounded-2xl bg-surface-card border border-surface-border/50 p-6 hover:border-gold/30 transition-colors flex flex-col"
                   >
-                    <div className="flex items-center justify-between mb-4">
-                      <StarRow count={rating} size={14} />
-                      <span className="label-caps text-[9px] text-neutral-500 bg-surface-dark px-2 py-1 rounded-full border border-surface-border/40">
-                        Google
-                      </span>
-                    </div>
-                    <blockquote className="text-neutral-300 text-sm leading-relaxed mb-6 flex-1">
+                    <StarRow count={rating} size={13} />
+                    <blockquote className="text-neutral-300 text-sm leading-relaxed my-4 flex-1">
                       &ldquo;{text}&rdquo;
                     </blockquote>
-                    <div className="flex items-center gap-3 pt-4 border-t border-surface-border/50">
-                      <div className="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
-                        <span className="text-gold text-sm font-semibold" aria-hidden="true">
+                    <div className="flex items-center gap-2.5 pt-4 border-t border-surface-border/50">
+                      <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
+                        <span className="text-gold text-xs font-semibold" aria-hidden="true">
                           {name.charAt(0)}
                         </span>
                       </div>
                       <div>
-                        <p className="text-white text-sm font-medium">{name}</p>
+                        <p className="text-white text-xs font-medium">{name}</p>
                         <p className="text-neutral-500 text-xs flex items-center gap-1">
-                          <MapPin size={10} aria-hidden="true" /> {location}
+                          <MapPin size={9} aria-hidden="true" /> {location}
                         </p>
                       </div>
                     </div>
                   </article>
                 ))}
               </div>
-
-              <div className="text-center mt-8">
-                <button
-                  onClick={openModal}
-                  className="btn-gold label-caps px-8 py-4 rounded-lg inline-flex items-center gap-2 group"
-                >
-                  Join 200+ Happy Customers <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
             </div>
           </div>
         </section>
 
-        {/* ── INLINE CTA BAND ──────────────────────────────────────────────── */}
-        <div className="py-14 lg:py-20 border-y border-gold/30" style={{ background: 'linear-gradient(135deg, #1a0f00 0%, #2d1c00 40%, #1a0f00 100%)' }}>
-          <div className="max-w-3xl mx-auto px-6 text-center">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Zap size={14} className="text-gold" />
-              <span className="label-caps text-gold text-xs">Limited availability — {areaName}</span>
+        {/* ── HOW IT WORKS (slim strip) ─────────────────────────────────────── */}
+        <div className="py-14 bg-surface-black border-y border-surface-border/20">
+          <div className="max-w-5xl mx-auto px-6 lg:px-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:divide-x sm:divide-surface-border/30">
+              {STEPS.map(({ n, title, desc }) => (
+                <div key={n} className="flex items-start gap-4 sm:px-8 first:pl-0 last:pr-0">
+                  <span className="heading-serif text-4xl text-gold/30 leading-none flex-shrink-0 mt-1">{n}</span>
+                  <div>
+                    <p className="text-white font-medium text-sm mb-1.5">{title}</p>
+                    <p className="text-neutral-500 text-xs leading-relaxed">{desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <h2 className="heading-serif text-3xl lg:text-5xl text-white mb-3">
-              Ready for a Spotless Home?
-            </h2>
-            <p className="text-neutral-300 mb-8 text-base">
-              Slots are filling fast this week. Get your free quote now — we reply in under 60 minutes.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={openModal}
-                className="btn-gold label-caps px-8 py-4 rounded-lg flex items-center justify-center gap-2 group text-sm"
-              >
-                Claim My Free Quote{' '}
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-              <a
-                href="tel:01753257118"
-                className="btn-outline-gold label-caps px-8 py-4 rounded-lg flex items-center justify-center gap-2 text-sm"
-              >
-                <Phone size={15} /> Call 01753 257118
-              </a>
-            </div>
-            <p className="text-neutral-600 text-xs mt-5">No contracts · No hidden fees · 100% satisfaction guarantee</p>
           </div>
         </div>
 
         {/* ── FAQ ──────────────────────────────────────────────────────────── */}
-        <section className="py-16 lg:py-24 bg-surface-dark" aria-labelledby="faq-heading">
+        <section className="py-20 lg:py-28 bg-surface-dark" aria-labelledby="faq-heading">
           <div className="max-w-3xl mx-auto px-6 lg:px-8">
             <div
               ref={faqRef}
               className={`transition-all duration-700 ${faqVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             >
-              <div className="text-center mb-10">
-                <p className="label-caps text-gold mb-3">Got Questions?</p>
-                <h2 id="faq-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-                  Frequently Asked
+              <div className="mb-10">
+                <h2 id="faq-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-3">
+                  Common Questions
                 </h2>
-                <div className="divider-gold mx-auto mt-5" />
+                <p className="text-neutral-400 text-sm">
+                  Can't find what you're looking for?{' '}
+                  <a href="tel:01753257118" className="text-gold hover:underline">
+                    Call us on 01753 257118
+                  </a>
+                  {' '}— we're happy to help.
+                </p>
               </div>
 
               <div className="rounded-2xl bg-surface-card border border-surface-border/50 px-7 py-2">
@@ -849,73 +776,20 @@ const LandingPage = ({
                   <FaqItem key={faq.q} {...faq} />
                 ))}
               </div>
-
-              <p className="text-center text-neutral-500 text-sm mt-8">
-                Still have a question?{' '}
-                <a href="tel:01753257118" className="text-gold hover:text-gold-light transition-colors">
-                  Call us on 01753 257118
-                </a>{' '}
-                — we're happy to chat.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ── AREAS ────────────────────────────────────────────────────────── */}
-        <section id="areas" className="py-16 lg:py-24 bg-surface-black" aria-labelledby="areas-heading">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div
-              ref={areasRef}
-              className={`transition-all duration-700 ${areasVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            >
-              <div className="text-center mb-10">
-                <p className="label-caps text-gold mb-3">Coverage Area</p>
-                <h2 id="areas-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-                  We Cover Windsor, Ascot, Maidenhead<br className="hidden sm:block" /> &amp; Across Berkshire &amp; Surrey
-                </h2>
-                <div className="divider-gold mx-auto mt-5" />
-              </div>
-
-              <div className="flex flex-wrap justify-center gap-3">
-                {AREAS.map((area) => (
-                  <span
-                    key={area}
-                    className={`px-4 py-2 rounded-full border text-sm transition-colors ${
-                      area === areaName
-                        ? 'bg-gold/20 border-gold/60 text-gold font-medium'
-                        : 'bg-surface-card border-surface-border/60 text-neutral-400 hover:border-gold/30 hover:text-white'
-                    }`}
-                  >
-                    {area}
-                  </span>
-                ))}
-              </div>
-
-              <p className="text-center text-neutral-500 text-sm mt-8">
-                Not sure if we cover your area?{' '}
-                <a href="tel:01753257118" className="text-gold hover:text-gold-light transition-colors">
-                  Give us a call
-                </a>
-              </p>
             </div>
           </div>
         </section>
 
         {/* ── LEAD CAPTURE FORM ────────────────────────────────────────────── */}
-        <section id="form" className="py-16 lg:py-24 bg-surface-dark" aria-labelledby="form-heading">
+        <section id="form" className="py-20 lg:py-28 bg-surface-black" aria-labelledby="form-heading">
           <div className="max-w-xl mx-auto px-6 lg:px-8">
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-2 mb-5">
-                <Zap size={12} className="text-gold" />
-                <span className="label-caps text-gold text-xs">Slots filling fast — secure yours now</span>
-              </div>
+            <div className="mb-8">
               <h2 id="form-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-3">
-                Book Your Clean Today
+                Book Your Clean
               </h2>
               <p className="text-neutral-400 text-sm">
                 Free quote · No obligation · We reply in under 60 minutes
               </p>
-              <div className="divider-gold mx-auto mt-5" />
             </div>
             <QuoteForm id="form" formRef={formRef} formData={formData} setFormData={setFormData} formSubmitted={formSubmitted} submitting={submitting} formError={formError} onSubmit={handleSubmit} />
             <div className="mt-5 grid grid-cols-2 gap-4">
@@ -950,21 +824,46 @@ const LandingPage = ({
         </section>
 
         {/* ── FOOTER ───────────────────────────────────────────────────────── */}
-        <footer className="bg-surface-black border-t border-surface-border/30 py-8">
+        <footer className="bg-surface-dark border-t border-surface-border/30 py-10">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-500">
-              <p>© 2025 Leo Luxe Clean | Berkshire &amp; Surrey</p>
-              <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-                <a href="tel:01753257118" className="hover:text-gold transition-colors flex items-center gap-1.5">
-                  <Phone size={12} /> 01753 257118
-                </a>
-                <a href="mailto:info@leoluxeclean.co.uk" className="hover:text-gold transition-colors flex items-center gap-1.5">
-                  <Mail size={12} /> info@leoluxeclean.co.uk
-                </a>
-                <a href="https://leoluxeclean.co.uk" className="hover:text-gold transition-colors">
-                  Back to main site →
-                </a>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+              <div>
+                <img src="/logo.svg" alt="Leo Luxe Clean" width={140} height={44} className="h-9 w-auto mb-4" />
+                <p className="text-neutral-500 text-sm leading-relaxed max-w-xs">
+                  Premium home cleaning across Berkshire &amp; Surrey. DBS-checked, fully insured, same cleaner every visit.
+                </p>
               </div>
+              <div>
+                <p className="label-caps text-gold text-[10px] mb-4 tracking-widest">Contact</p>
+                <div className="space-y-2.5">
+                  <a href="tel:01753257118" className="flex items-center gap-2 text-neutral-400 hover:text-gold transition-colors text-sm">
+                    <Phone size={13} className="text-gold" /> 01753 257118
+                  </a>
+                  <a href="mailto:info@leoluxeclean.co.uk" className="flex items-center gap-2 text-neutral-400 hover:text-gold transition-colors text-sm">
+                    <Mail size={13} className="text-gold" /> info@leoluxeclean.co.uk
+                  </a>
+                  <a
+                    href="https://wa.me/447845239774?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-neutral-400 hover:text-[#4ade80] transition-colors text-sm"
+                  >
+                    <WhatsAppIcon size={13} /> WhatsApp us
+                  </a>
+                </div>
+              </div>
+              <div>
+                <p className="label-caps text-gold text-[10px] mb-4 tracking-widest">Areas We Cover</p>
+                <p className="text-neutral-500 text-xs leading-relaxed">
+                  {AREAS.join(' · ')}
+                </p>
+              </div>
+            </div>
+            <div className="border-t border-surface-border/20 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-600">
+              <p>© 2025 Leo Luxe Clean Ltd · Berkshire &amp; Surrey</p>
+              <a href="https://leoluxeclean.co.uk" className="hover:text-gold transition-colors">
+                Back to main site →
+              </a>
             </div>
           </div>
         </footer>
@@ -980,7 +879,6 @@ const LandingPage = ({
             </button>
           </div>
         </div>
-
 
       </div>
 
