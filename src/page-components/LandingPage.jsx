@@ -422,82 +422,93 @@ const LandingPage = ({
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/80 to-black/50" />
 
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-16 pb-32 lg:pb-20">
-            <div className="max-w-2xl">
+          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-10 pb-28 lg:pb-16 lg:py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-[calc(100vh-5rem)]">
 
-            {/* Urgency badge */}
-            <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-4 py-2 mb-8">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-              <span className="text-emerald-400 text-xs font-semibold">Limited slots left this week in {areaName}</span>
-            </div>
+            {/* Left: copy */}
+            <div>
+              {/* Urgency badge */}
+              <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-4 py-2 mb-6">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
+                <span className="text-emerald-400 text-xs font-semibold">Limited slots left this week in {areaName}</span>
+              </div>
 
-            <h1
-              id="hero-heading"
-              className="heading-serif text-[clamp(2.6rem,6vw,5rem)] text-white leading-[1.06] mb-6"
-            >
-              The Same Trusted Cleaner,{' '}
-              <span className="text-gold-gradient">Every Single Visit</span>
-              <br />— Guaranteed.
-            </h1>
-
-            <p className="text-neutral-200 text-lg lg:text-xl leading-relaxed font-light mb-6 max-w-xl">
-              Trusted by <strong className="text-white font-semibold">200+ homeowners</strong> across {areaName}.
-              DBS-checked, fully insured, no contracts — and always the same cleaner you know and trust.
-            </p>
-
-            {/* Benefit bullets */}
-            <ul className="space-y-3 mb-8 max-w-lg">
-              {[
-                'Same trusted cleaner every visit — no strangers in your home',
-                'DBS-checked, fully insured, and referenced',
-                '100% satisfaction guarantee — we re-clean free if needed',
-                'No contracts, no lock-in — cancel any time',
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-neutral-200 text-sm lg:text-base">
-                  <CheckCircle2 size={17} className="text-gold flex-shrink-0 mt-0.5" aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-
-            {/* Mini hero review */}
-            <div className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 mb-10 max-w-lg">
-              <StarRow count={5} size={12} />
-              <p className="text-neutral-300 text-xs leading-relaxed">
-                <span className="text-white font-medium">"We've had the same cleaner for six months — the house is always perfect."</span>
-                {' '}— Charlotte W., Windsor
-              </p>
-            </div>
-
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-4 items-center mb-8">
-              <button
-                onClick={openModal}
-                className="btn-gold glow-pulse label-caps px-8 py-4 rounded-xl flex items-center gap-2 text-sm"
+              <h1
+                id="hero-heading"
+                className="heading-serif text-[clamp(2.4rem,5vw,4.4rem)] text-white leading-[1.06] mb-5"
               >
-                Claim My Free Quote <ArrowRight size={14} />
-              </button>
+                The Same Trusted Cleaner,{' '}
+                <span className="text-gold-gradient">Every Single Visit</span>
+                <br />— Guaranteed.
+              </h1>
+
+              <p className="text-neutral-200 text-lg leading-relaxed font-light mb-5 max-w-lg">
+                Trusted by <strong className="text-white font-semibold">200+ homeowners</strong> across {areaName}.
+                DBS-checked, fully insured, no contracts — and always the same cleaner you know and trust.
+              </p>
+
+              {/* Benefit bullets */}
+              <ul className="space-y-3 mb-6">
+                {[
+                  'Same trusted cleaner every visit — no strangers in your home',
+                  'DBS-checked, fully insured, and referenced',
+                  '100% satisfaction guarantee — we re-clean free if needed',
+                  'No contracts, no lock-in — cancel any time',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-neutral-200 text-sm">
+                    <CheckCircle2 size={16} className="text-gold flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              {/* Mini hero review */}
+              <div className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 mb-6 max-w-lg">
+                <StarRow count={5} size={12} />
+                <p className="text-neutral-300 text-xs leading-relaxed">
+                  <span className="text-white font-medium">"We've had the same cleaner for six months — the house is always perfect."</span>
+                  {' '}— Charlotte W., Windsor
+                </p>
+              </div>
+
+              {/* Phone + trust */}
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+                <a
+                  href="tel:01753257118"
+                  className="flex items-center gap-2 text-white font-semibold hover:text-gold transition-colors"
+                  aria-label="Call 01753 257118"
+                >
+                  <div className="w-8 h-8 rounded-full bg-gold/15 flex items-center justify-center">
+                    <Phone size={14} className="text-gold" />
+                  </div>
+                  01753 257118
+                </a>
+                <span className="text-neutral-600">·</span>
+                <span className="flex items-center gap-1.5 text-xs text-neutral-400">
+                  <StarRow count={5} size={11} /><span className="text-white font-medium ml-0.5">5.0</span> Google
+                </span>
+                <span className="text-neutral-600">·</span>
+                <span className="text-neutral-400 text-xs">DBS checked &amp; insured</span>
+              </div>
+            </div>
+
+            {/* Right: form */}
+            <div>
+              <QuoteForm id="hero-form" compact formRef={formRef} formData={formData} setFormData={setFormData} formSubmitted={formSubmitted} submitting={submitting} formError={formError} onSubmit={handleSubmit} />
+              <div className="mt-4 flex items-center justify-center gap-3">
+                <div className="h-px flex-1 bg-surface-border/30" />
+                <span className="text-neutral-500 text-xs">or call us directly</span>
+                <div className="h-px flex-1 bg-surface-border/30" />
+              </div>
               <a
                 href="tel:01753257118"
-                className="flex items-center gap-2 text-white font-semibold hover:text-gold transition-colors text-base"
-                aria-label="Call 01753 257118"
+                className="mt-3 flex items-center justify-center gap-2 text-white font-semibold text-lg hover:text-gold transition-colors"
               >
-                <div className="w-9 h-9 rounded-full bg-gold/15 flex items-center justify-center">
-                  <Phone size={15} className="text-gold" />
-                </div>
-                01753 257118
+                <Phone size={18} className="text-gold" /> 01753 257118
               </a>
+              <p className="text-center text-neutral-500 text-xs mt-2 flex items-center justify-center gap-1.5">
+                <Clock size={11} /> Mon–Sat 08:00–19:00 · We answer fast
+              </p>
             </div>
-
-            {/* Trust row */}
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-neutral-400">
-              <span className="flex items-center gap-1.5"><StarRow count={5} size={11} /><span className="text-white font-medium ml-0.5">5.0</span> Google</span>
-              <span className="text-neutral-600">·</span>
-              <span>DBS checked &amp; insured</span>
-              <span className="text-neutral-600">·</span>
-              <span className="flex items-center gap-1"><Clock size={11} /> Reply in 60 mins</span>
-            </div>
-            </div>{/* end max-w-2xl */}
           </div>
         </section>
 
