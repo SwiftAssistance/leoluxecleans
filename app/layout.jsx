@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import './globals.css';
 
 const BASE_URL = 'https://leoluxeclean.co.uk';
@@ -50,19 +49,20 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon-192.png" sizes="192x192" />
         <link rel="apple-touch-icon" href="/favicon-512.png" />
+        {/* Google Ads — inline init must come before the async library */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-18156207671');
+            `,
+          }}
+        />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18156207671" />
       </head>
       <body>{children}</body>
-      {/* Stub initialised inline so gtag() calls queued before async script loads */}
-      <Script id="gtag-stub" strategy="beforeInteractive">{`
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = function(){window.dataLayer.push(arguments);};
-        gtag('js', new Date());
-        gtag('config', 'AW-18156207671');
-      `}</Script>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=AW-18156207671"
-        strategy="afterInteractive"
-      />
     </html>
   );
 }
