@@ -426,7 +426,8 @@ const LandingPage = ({
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/80 to-black/50" />
 
-          <div className="relative z-10 w-full max-w-3xl mx-auto px-6 lg:px-12 py-16 pb-32 lg:pb-20">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-16 pb-32 lg:pb-20">
+            <div className="max-w-2xl">
 
             {/* Urgency badge */}
             <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-4 py-2 mb-8">
@@ -500,6 +501,7 @@ const LandingPage = ({
               <span className="text-neutral-600">·</span>
               <span className="flex items-center gap-1"><Clock size={11} /> Reply in 60 mins</span>
             </div>
+            </div>{/* end max-w-2xl */}
           </div>
         </section>
 
