@@ -369,25 +369,9 @@ const LandingPage = ({
     <>
       <div className="min-h-screen bg-surface-black text-white font-sans overflow-x-hidden">
 
-        {/* ── ANNOUNCEMENT BAR ─────────────────────────────────────────────── */}
-        <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-[#1a4d1a] via-[#25a244] to-[#1a4d1a] py-2 px-4 flex items-center justify-center gap-3 text-white text-xs font-medium shadow-lg">
-          <span className="flex items-center gap-1.5">
-            <WhatsAppIcon size={14} />
-            <span>Message us on WhatsApp for a <strong>same-day quote</strong></span>
-          </span>
-          <a
-            href="https://wa.me/441753257118?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white text-[#1a4d1a] font-bold label-caps text-[10px] px-3 py-1 rounded-full hover:bg-green-50 transition-colors whitespace-nowrap"
-          >
-            Chat Now →
-          </a>
-        </div>
-
         {/* ── STICKY HEADER ────────────────────────────────────────────────── */}
         <header
-          className={`fixed left-0 right-0 z-50 transition-all duration-300 top-[33px] ${
+          className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
             isScrolled
               ? 'bg-surface-black border-b border-gold/20 py-3 shadow-[0_1px_0_0_rgba(200,169,78,0.15)]'
               : 'bg-surface-black/95 backdrop-blur-sm py-4'
@@ -400,35 +384,24 @@ const LandingPage = ({
             <div className="flex items-center gap-2 sm:gap-3">
               <a
                 href="tel:01753257118"
-                className="hidden lg:flex items-center gap-1.5 text-neutral-300 hover:text-gold transition-colors text-sm font-medium"
+                className="hidden sm:flex items-center gap-1.5 text-neutral-300 hover:text-gold transition-colors text-sm font-medium"
                 aria-label="Call 01753 257118"
               >
                 <Phone size={13} className="text-gold" /> 01753 257118
               </a>
               <a
-                href="https://wa.me/441753257118?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp us"
-                className="flex items-center gap-1.5 bg-[#25a244] hover:bg-[#1e9138] text-white label-caps px-3 sm:px-4 py-2.5 rounded-lg text-xs transition-colors font-semibold shadow-[0_0_12px_rgba(37,162,68,0.4)] animate-pulse-slow"
-              >
-                <WhatsAppIcon size={13} />
-                <span className="hidden sm:inline">WhatsApp</span>
-                <span className="sm:hidden">Chat</span>
-              </a>
-              <a
                 href="#form"
-                className="btn-gold label-caps px-3 sm:px-5 py-2.5 rounded-lg flex items-center gap-1.5 text-xs"
+                className="btn-gold label-caps px-4 sm:px-6 py-2.5 rounded-lg flex items-center gap-1.5 text-xs"
                 aria-label="Get a free cleaning quote"
               >
-                Free Quote
+                <span className="hidden sm:inline">Claim </span>Free Quote
               </a>
             </div>
           </div>
         </header>
 
         {/* ── HERO + FORM SPLIT ─────────────────────────────────────────────── */}
-        <section className="relative pt-[calc(5rem+33px)] min-h-screen overflow-hidden" aria-labelledby="hero-heading">
+        <section className="relative pt-20 min-h-screen overflow-hidden" aria-labelledby="hero-heading">
           <img
             src="/hero.svg"
             alt=""
@@ -978,31 +951,36 @@ const LandingPage = ({
           }`}
           aria-hidden={!showMobileCta}
         >
-          <div className="bg-surface-dark border-t border-gold/20 px-4 py-3 flex gap-2 safe-area-inset-bottom">
+          <div className="bg-surface-dark border-t border-gold/20 px-4 py-3 flex gap-3 safe-area-inset-bottom">
             <a
               href="#form"
               className="btn-gold label-caps flex-1 py-4 rounded-xl flex items-center justify-center gap-2 text-xs"
             >
-              Free Quote <ArrowRight size={13} />
-            </a>
-            <a
-              href="https://wa.me/441753257118?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#25a244] text-white label-caps px-4 py-4 rounded-xl flex items-center justify-center gap-1.5 text-xs whitespace-nowrap font-semibold"
-              aria-label="WhatsApp us"
-            >
-              <WhatsAppIcon size={14} /> WhatsApp
+              Claim Free Quote <ArrowRight size={13} />
             </a>
             <a
               href="tel:01753257118"
-              className="btn-outline-gold label-caps px-4 py-4 rounded-xl flex items-center justify-center gap-2 text-xs whitespace-nowrap"
+              className="btn-outline-gold label-caps px-5 py-4 rounded-xl flex items-center justify-center gap-2 text-xs whitespace-nowrap"
               aria-label="Call now"
             >
               <Phone size={14} /> Call
             </a>
           </div>
         </div>
+
+        {/* ── FLOATING WHATSAPP ────────────────────────────────────────────── */}
+        <a
+          href="https://wa.me/441753257118?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat on WhatsApp"
+          className="fixed bottom-6 right-5 z-[60] flex items-center gap-2.5 bg-[#25a244] hover:bg-[#1e9138] text-white rounded-full shadow-[0_4px_24px_rgba(37,162,68,0.55)] transition-all duration-300 hover:scale-105 animate-pulse-slow group pr-4 pl-3.5 py-3 lg:bottom-8 lg:right-8"
+        >
+          <WhatsAppIcon size={22} />
+          <span className="label-caps text-[11px] font-semibold tracking-wide whitespace-nowrap max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300 ease-out">
+            Chat with us
+          </span>
+        </a>
 
       </div>
     </>
