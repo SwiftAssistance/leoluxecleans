@@ -927,21 +927,14 @@ const LandingPage = ({
           </div>
         </footer>
 
-        {/* ── MOBILE STICKY CTA — always visible on mobile ─────────────────── */}
+        {/* ── MOBILE STICKY CTA ────────────────────────────────────────────── */}
         <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50">
-          <div className="bg-surface-dark border-t border-gold/20 px-4 py-3 flex gap-3 safe-area-inset-bottom">
+          <div className="bg-surface-dark border-t border-gold/20 px-4 py-3 safe-area-inset-bottom">
             <a
               href="#form"
-              className="btn-gold glow-pulse label-caps flex-1 py-4 rounded-xl flex items-center justify-center gap-2 text-xs"
+              className="btn-gold glow-pulse label-caps w-full py-4 rounded-xl flex items-center justify-center gap-2 text-xs"
             >
               Claim Free Quote <ArrowRight size={13} />
-            </a>
-            <a
-              href="tel:01753257118"
-              className="btn-outline-gold label-caps px-5 py-4 rounded-xl flex items-center justify-center gap-2 text-xs whitespace-nowrap"
-              aria-label="Call now"
-            >
-              <Phone size={14} /> Call
             </a>
           </div>
         </div>
@@ -952,7 +945,7 @@ const LandingPage = ({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
-          className="fixed bottom-[76px] right-4 z-[60] flex items-center gap-2.5 bg-[#25a244] hover:bg-[#1e9138] text-white rounded-full shadow-[0_4px_24px_rgba(37,162,68,0.55)] transition-all duration-300 hover:scale-105 animate-pulse-slow group pr-4 pl-3.5 py-3 lg:bottom-8 lg:right-8"
+          className="fixed bottom-[72px] right-4 z-[60] flex items-center gap-2.5 bg-[#25a244] hover:bg-[#1e9138] text-white rounded-full shadow-[0_4px_24px_rgba(37,162,68,0.55)] transition-all duration-300 hover:scale-105 animate-pulse-slow group pr-4 pl-3.5 py-3 lg:bottom-8 lg:right-8"
         >
           <WhatsAppIcon size={22} />
           <span className="label-caps text-[11px] font-semibold tracking-wide whitespace-nowrap max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300 ease-out">
