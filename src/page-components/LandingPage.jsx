@@ -436,7 +436,8 @@ const LandingPage = ({
             width={1920}
             height={1080}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/80 to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/80 to-black/40" />
+          <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 70% 50%, rgba(200,169,78,0.12) 0%, transparent 65%)' }} />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-10 pb-28 lg:pb-16 lg:py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-[calc(100vh-5rem)]">
 
@@ -529,7 +530,7 @@ const LandingPage = ({
         </section>
 
         {/* ── TRUST BAR ────────────────────────────────────────────────────── */}
-        <div className="bg-surface-dark border-y border-surface-border/40">
+        <div className="border-y border-gold/20" style={{ background: 'linear-gradient(90deg, #0f0b00 0%, #1c1400 50%, #0f0b00 100%)' }}>
           <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4">
             <ul className="flex flex-wrap justify-center gap-x-7 gap-y-3" aria-label="Key credentials">
               {TRUST_ITEMS.map(({ icon: Icon, label }) => (
@@ -652,7 +653,7 @@ const LandingPage = ({
         </section>
 
         {/* ── WHY US ───────────────────────────────────────────────────────── */}
-        <section className="py-16 lg:py-24 bg-surface-black" aria-labelledby="why-heading">
+        <section className="py-16 lg:py-24" style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #0f0b00 50%, #0a0a0a 100%)' }} aria-labelledby="why-heading">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div
               ref={whyRef}
@@ -691,7 +692,7 @@ const LandingPage = ({
                   { value: '100%', label: 'Satisfaction Rate' },
                   { value: '1hr', label: 'Average Reply Time' },
                 ].map(({ value, label }) => (
-                  <div key={label} className="text-center bg-surface-card border border-surface-border/50 rounded-2xl py-5 px-4">
+                  <div key={label} className="text-center rounded-2xl py-5 px-4 border border-gold/20" style={{ background: 'linear-gradient(135deg, #141100 0%, #1f1800 100%)' }}>
                     <p className="heading-serif text-3xl text-gold mb-1">{value}</p>
                     <p className="label-caps text-neutral-400 text-[10px]">{label}</p>
                   </div>
@@ -716,7 +717,8 @@ const LandingPage = ({
               ref={reviewsRef}
               className={`transition-all duration-700 ${reviewsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             >
-              <div className="text-center mb-12">
+              <div className="text-center mb-12 relative">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 text-[8rem] leading-none text-gold/8 font-serif select-none pointer-events-none" aria-hidden="true">"</div>
                 <p className="label-caps text-gold mb-3">Real Customers, Real Results</p>
                 <h2 id="reviews-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-2">
                   What Our Customers Say
@@ -774,7 +776,7 @@ const LandingPage = ({
         </section>
 
         {/* ── INLINE CTA BAND ──────────────────────────────────────────────── */}
-        <div className="bg-surface-black border-y border-gold/20 py-12 lg:py-16" style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1400 50%, #0a0a0a 100%)' }}>
+        <div className="py-14 lg:py-20 border-y border-gold/30" style={{ background: 'linear-gradient(135deg, #1a0f00 0%, #2d1c00 40%, #1a0f00 100%)' }}>
           <div className="max-w-3xl mx-auto px-6 text-center">
             <div className="flex items-center justify-center gap-2 mb-4">
               <Zap size={14} className="text-gold" />
@@ -783,7 +785,7 @@ const LandingPage = ({
             <h2 className="heading-serif text-3xl lg:text-5xl text-white mb-3">
               Ready for a Spotless Home?
             </h2>
-            <p className="text-neutral-400 mb-8 text-base">
+            <p className="text-neutral-300 mb-8 text-base">
               Slots are filling fast this week. Get your free quote now — we reply in under 60 minutes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -959,7 +961,7 @@ const LandingPage = ({
 
         {/* ── FLOATING WHATSAPP ────────────────────────────────────────────── */}
         <a
-          href="https://wa.me/441753257118?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
+          href="https://wa.me/447845239774?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
