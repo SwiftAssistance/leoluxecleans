@@ -981,19 +981,6 @@ const LandingPage = ({
           </div>
         </div>
 
-        {/* ── FLOATING WHATSAPP ────────────────────────────────────────────── */}
-        <a
-          href="https://wa.me/447845239774?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Chat on WhatsApp"
-          className="fixed bottom-[72px] right-4 z-[60] flex items-center gap-2.5 bg-[#25a244] hover:bg-[#1e9138] text-white rounded-full shadow-[0_4px_24px_rgba(37,162,68,0.55)] transition-all duration-300 hover:scale-105 animate-pulse-slow group pr-4 pl-3.5 py-3 lg:bottom-8 lg:right-8"
-        >
-          <WhatsAppIcon size={22} />
-          <span className="label-caps text-[11px] font-semibold tracking-wide whitespace-nowrap max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300 ease-out">
-            Chat with us
-          </span>
-        </a>
 
       </div>
 
