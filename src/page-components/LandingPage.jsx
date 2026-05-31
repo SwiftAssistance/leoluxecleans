@@ -224,6 +224,21 @@ const QuoteForm = ({ id, compact = false, formRef, formData, setFormData, formSu
             </select>
           </div>
 
+          <div>
+            <label htmlFor={`${id}-postcode`} className="label-caps text-neutral-400 text-[10px] block mb-1.5">
+              Postcode <span className="normal-case font-normal">(optional — helps us confirm coverage)</span>
+            </label>
+            <input
+              id={`${id}-postcode`}
+              type="text"
+              autoComplete="postal-code"
+              value={formData.postcode}
+              onChange={(e) => setFormData((f) => ({ ...f, postcode: e.target.value.toUpperCase() }))}
+              className={inputClass}
+              placeholder="e.g. SL4 1AB"
+            />
+          </div>
+
           {!compact && (
             <div>
               <label htmlFor={`${id}-email`} className="label-caps text-neutral-400 text-[10px] block mb-1.5">
@@ -296,7 +311,7 @@ const LandingPage = ({
   const [isScrolled, setIsScrolled] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
-    name: '', phone: '', service: '', email: '',
+    name: '', phone: '', service: '', postcode: '', email: '',
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -341,6 +356,7 @@ const LandingPage = ({
           phone: formData.phone,
           email: formData.email,
           service: formData.service,
+          postcode: formData.postcode,
           area: areaName,
           utm_source: utmSource,
           utm_campaign: utmCampaign,
