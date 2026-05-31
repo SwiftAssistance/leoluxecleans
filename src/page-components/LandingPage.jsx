@@ -398,16 +398,12 @@ const LandingPage = ({
               >
                 <Phone size={13} className="text-gold" /> 01753 257118
               </a>
-              <a
-                href="https://wa.me/441753257118?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp us"
-                className="flex items-center gap-1.5 bg-[#25a244] hover:bg-[#1e9138] text-white label-caps px-3 sm:px-5 py-2.5 rounded-lg text-xs transition-colors font-semibold"
+              <button
+                onClick={openModal}
+                className="btn-gold label-caps px-4 sm:px-6 py-2.5 rounded-lg text-xs"
               >
-                <WhatsAppIcon size={13} />
-                <span className="hidden sm:inline">WhatsApp</span>
-              </a>
+                <span className="hidden sm:inline">Claim </span>Free Quote
+              </button>
             </div>
           </div>
         </header>
@@ -854,48 +850,48 @@ const LandingPage = ({
           </div>
         </section>
 
-        {/* ── CONTACT STRIP ────────────────────────────────────────────────── */}
-        <section className="py-14 lg:py-20 bg-surface-dark">
-          <div className="max-w-3xl mx-auto px-6 text-center">
-            <p className="label-caps text-gold mb-3">Get In Touch</p>
-            <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-8">Prefer to speak with us directly?</h2>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        {/* ── LEAD CAPTURE FORM ────────────────────────────────────────────── */}
+        <section id="form" className="py-16 lg:py-24 bg-surface-dark" aria-labelledby="form-heading">
+          <div className="max-w-xl mx-auto px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-2 mb-5">
+                <Zap size={12} className="text-gold" />
+                <span className="label-caps text-gold text-xs">Slots filling fast — secure yours now</span>
+              </div>
+              <h2 id="form-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-3">
+                Book Your Clean Today
+              </h2>
+              <p className="text-neutral-400 text-sm">
+                Free quote · No obligation · We reply in under 60 minutes
+              </p>
+              <div className="divider-gold mx-auto mt-5" />
+            </div>
+            <QuoteForm id="form" formRef={formRef} formData={formData} setFormData={setFormData} formSubmitted={formSubmitted} submitting={submitting} formError={formError} onSubmit={handleSubmit} />
+            <div className="mt-5 grid grid-cols-2 gap-4">
               <a
                 href="tel:01753257118"
-                className="flex items-center justify-center gap-3 p-5 rounded-2xl bg-surface-card border border-surface-border/50 hover:border-gold/30 transition-colors group"
+                className="flex items-center gap-3 p-4 rounded-xl bg-surface-card border border-surface-border/50 hover:border-gold/30 transition-colors group"
+                aria-label="Call 01753 257118"
               >
-                <div className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
-                  <Phone size={18} aria-hidden="true" />
+                <div className="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
+                  <Phone size={16} aria-hidden="true" />
                 </div>
-                <div className="text-left">
+                <div>
                   <p className="label-caps text-neutral-400 text-[10px] mb-0.5">Call direct</p>
-                  <p className="text-white font-semibold group-hover:text-gold transition-colors">01753 257118</p>
-                </div>
-              </a>
-              <a
-                href="https://wa.me/441753257118?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 p-5 rounded-2xl bg-surface-card border border-[#25a244]/40 hover:border-[#25a244] transition-colors group"
-              >
-                <div className="w-10 h-10 rounded-xl bg-[#25a244]/10 flex items-center justify-center text-[#25a244] flex-shrink-0">
-                  <WhatsAppIcon size={18} />
-                </div>
-                <div className="text-left">
-                  <p className="label-caps text-neutral-400 text-[10px] mb-0.5">WhatsApp</p>
-                  <p className="text-white font-semibold group-hover:text-[#25a244] transition-colors">Message us</p>
+                  <p className="text-white text-sm font-medium group-hover:text-gold transition-colors">01753 257118</p>
                 </div>
               </a>
               <a
                 href="mailto:info@leoluxeclean.co.uk"
-                className="flex items-center justify-center gap-3 p-5 rounded-2xl bg-surface-card border border-surface-border/50 hover:border-gold/30 transition-colors group"
+                className="flex items-center gap-3 p-4 rounded-xl bg-surface-card border border-surface-border/50 hover:border-gold/30 transition-colors group"
+                aria-label="Email info@leoluxeclean.co.uk"
               >
-                <div className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
-                  <Mail size={18} aria-hidden="true" />
+                <div className="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
+                  <Mail size={16} aria-hidden="true" />
                 </div>
-                <div className="text-left">
+                <div>
                   <p className="label-caps text-neutral-400 text-[10px] mb-0.5">Email us</p>
-                  <p className="text-white font-semibold group-hover:text-gold transition-colors">info@leoluxeclean.co.uk</p>
+                  <p className="text-white text-sm font-medium group-hover:text-gold transition-colors truncate">info@leoluxeclean.co.uk</p>
                 </div>
               </a>
             </div>
