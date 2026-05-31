@@ -117,6 +117,165 @@ function FaqItem({ q, a }) {
   );
 }
 
+// ── quote form (must be defined outside LandingPage to avoid remount on state change) ──
+
+const inputClass =
+  'w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600';
+
+const QuoteForm = ({ id, compact = false, formRef, formData, setFormData, formSubmitted, submitting, formError, onSubmit }) => (
+  <div
+    id={id}
+    ref={id === 'form' ? formRef : undefined}
+    className="rounded-2xl bg-surface-card border border-surface-border/60 p-6 lg:p-8 shadow-gold-sm"
+  >
+    {formSubmitted ? (
+      <div className="flex flex-col items-center justify-center text-center py-10">
+        <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-5">
+          <CheckCircle2 size={28} className="text-gold" aria-hidden="true" />
+        </div>
+        <h3 className="heading-serif text-2xl text-white mb-2">
+          Thanks{formData.name ? ` ${formData.name.split(' ')[0]}` : ''}!
+        </h3>
+        <p className="text-neutral-400 text-sm mb-4 max-w-xs">
+          We'll call you back within the hour. Or reach us right now on{' '}
+          <a href="tel:01753257118" className="text-gold hover:text-gold-light transition-colors font-medium">
+            01753 257118
+          </a>
+          .
+        </p>
+        <div className="flex gap-1 mt-2">
+          <StarRow count={5} size={16} />
+        </div>
+        <p className="text-neutral-500 text-xs mt-2">Trusted by 200+ customers across Berkshire</p>
+      </div>
+    ) : (
+      <form onSubmit={onSubmit} noValidate>
+        <div className="flex items-center gap-2 mb-4">
+          <span className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-3 py-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-emerald-400 text-[10px] font-semibold tracking-wide uppercase">Slots available this week</span>
+          </span>
+        </div>
+
+        <h2 className="heading-serif text-2xl text-white mb-1 leading-tight">
+          Get Your Free Quote
+        </h2>
+        <p className="text-neutral-400 text-xs mb-5">We reply within 60 minutes — no obligation.</p>
+
+        <div className="space-y-3 mb-4">
+          <div>
+            <label htmlFor={`${id}-name`} className="label-caps text-neutral-400 text-[10px] block mb-1.5">
+              Your Name *
+            </label>
+            <input
+              id={`${id}-name`}
+              type="text"
+              required
+              autoComplete="name"
+              value={formData.name}
+              onChange={(e) => setFormData((f) => ({ ...f, name: e.target.value }))}
+              className={inputClass}
+              placeholder="e.g. Sarah Mitchell"
+            />
+          </div>
+
+          <div>
+            <label htmlFor={`${id}-phone`} className="label-caps text-neutral-400 text-[10px] block mb-1.5">
+              Phone Number * <span className="text-gold normal-case font-normal">(we'll call you back fast)</span>
+            </label>
+            <input
+              id={`${id}-phone`}
+              type="tel"
+              required
+              autoComplete="tel"
+              value={formData.phone}
+              onChange={(e) => setFormData((f) => ({ ...f, phone: e.target.value }))}
+              className={inputClass}
+              placeholder="e.g. 07700 000 000"
+            />
+          </div>
+
+          <div>
+            <label htmlFor={`${id}-service`} className="label-caps text-neutral-400 text-[10px] block mb-1.5">
+              Service Needed *
+            </label>
+            <select
+              id={`${id}-service`}
+              required
+              value={formData.service}
+              onChange={(e) => setFormData((f) => ({ ...f, service: e.target.value }))}
+              className={`${inputClass} appearance-none`}
+            >
+              <option value="">Choose a service…</option>
+              <option value="home-cleaning">Home Cleaning — from £60</option>
+              <option value="deep-clean">Deep Cleaning — from £120</option>
+              <option value="end-of-tenancy">End of Tenancy — from £150</option>
+              <option value="office-cleaning">Office Cleaning — POA</option>
+              <option value="after-event">After Event — from £80</option>
+              <option value="other">Other / Not Sure</option>
+            </select>
+          </div>
+
+          {!compact && (
+            <div>
+              <label htmlFor={`${id}-email`} className="label-caps text-neutral-400 text-[10px] block mb-1.5">
+                Email <span className="normal-case font-normal">(optional)</span>
+              </label>
+              <input
+                id={`${id}-email`}
+                type="email"
+                autoComplete="email"
+                value={formData.email}
+                onChange={(e) => setFormData((f) => ({ ...f, email: e.target.value }))}
+                className={inputClass}
+                placeholder="you@email.com"
+              />
+            </div>
+          )}
+        </div>
+
+        <button
+          type="submit"
+          disabled={submitting}
+          className="w-full btn-gold label-caps py-4 rounded-lg flex items-center justify-center gap-2 text-sm disabled:opacity-60 disabled:cursor-not-allowed mt-2"
+        >
+          {submitting ? (
+            <>
+              <div className="w-4 h-4 border-2 border-surface-black/30 border-t-surface-black rounded-full animate-spin" />
+              Sending…
+            </>
+          ) : (
+            <>
+              Claim My Free Quote <ArrowRight size={14} />
+            </>
+          )}
+        </button>
+        {formError && (
+          <p className="text-red-400 text-xs text-center mt-3">{formError}</p>
+        )}
+
+        <div className="mt-4 flex flex-col gap-1.5">
+          <div className="flex items-center justify-center gap-4 text-[10px] text-neutral-500">
+            <span className="flex items-center gap-1">
+              <ShieldCheck size={10} className="text-gold" /> No obligation
+            </span>
+            <span className="flex items-center gap-1">
+              <Clock size={10} className="text-gold" /> Reply in 60 mins
+            </span>
+            <span className="flex items-center gap-1">
+              <BadgeCheck size={10} className="text-gold" /> DBS checked team
+            </span>
+          </div>
+          <div className="flex items-center justify-center gap-1.5 mt-1">
+            <StarRow count={5} size={10} />
+            <span className="text-[10px] text-neutral-500">Rated 5.0 by 200+ customers</span>
+          </div>
+        </div>
+      </form>
+    )}
+  </div>
+);
+
 // ── main component ────────────────────────────────────────────────────────────
 
 const LandingPage = () => {
@@ -181,6 +340,13 @@ const LandingPage = () => {
       const data = await res.json();
       if (data.success) {
         setFormSubmitted(true);
+        if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+          window.gtag('event', 'conversion', {
+            send_to: 'AW-18156207671/w1VoCJrk-7AcELf8xtFD',
+            value: 1.0,
+            currency: 'GBP',
+          });
+        }
       } else {
         setFormError('Something went wrong. Please try again or call us directly.');
       }
@@ -202,170 +368,6 @@ const LandingPage = () => {
   const [faqRef, faqVisible] = useScrollReveal({ threshold: 0.05 });
   const [areasRef, areasVisible] = useScrollReveal({ threshold: 0.05 });
 
-  const inputClass =
-    'w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600';
-
-  const QuoteForm = ({ id, compact = false }) => (
-    <div
-      id={id}
-      ref={id === 'form' ? formRef : undefined}
-      className="rounded-2xl bg-surface-card border border-surface-border/60 p-6 lg:p-8 shadow-gold-sm"
-    >
-      {formSubmitted ? (
-        <div className="flex flex-col items-center justify-center text-center py-10">
-          <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-5">
-            <CheckCircle2 size={28} className="text-gold" aria-hidden="true" />
-          </div>
-          <h3 className="heading-serif text-2xl text-white mb-2">
-            Thanks{formData.name ? ` ${formData.name.split(' ')[0]}` : ''}!
-          </h3>
-          <p className="text-neutral-400 text-sm mb-4 max-w-xs">
-            We'll call you back within the hour. Or reach us right now on{' '}
-            <a href="tel:01753257118" className="text-gold hover:text-gold-light transition-colors font-medium">
-              01753 257118
-            </a>
-            .
-          </p>
-          <div className="flex gap-1 mt-2">
-            <StarRow count={5} size={16} />
-          </div>
-          <p className="text-neutral-500 text-xs mt-2">Trusted by 200+ customers across Berkshire</p>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} noValidate>
-          {/* Urgency eyebrow */}
-          <div className="flex items-center gap-2 mb-4">
-            <span className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-3 py-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-emerald-400 text-[10px] font-semibold tracking-wide uppercase">Slots available this week</span>
-            </span>
-          </div>
-
-          <h2 className="heading-serif text-2xl text-white mb-1 leading-tight">
-            Get Your Free Quote
-          </h2>
-          <p className="text-neutral-400 text-xs mb-5">We reply within 60 minutes — no obligation.</p>
-
-          <div className="space-y-3 mb-4">
-            <div>
-              <label htmlFor={`${id}-name`} className="label-caps text-neutral-400 text-[10px] block mb-1.5">
-                Your Name *
-              </label>
-              <input
-                id={`${id}-name`}
-                type="text"
-                required
-                autoComplete="name"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className={inputClass}
-                placeholder="e.g. Sarah Mitchell"
-              />
-            </div>
-
-            <div>
-              <label htmlFor={`${id}-phone`} className="label-caps text-neutral-400 text-[10px] block mb-1.5">
-                Phone Number * <span className="text-gold normal-case font-normal">(we'll call you back fast)</span>
-              </label>
-              <input
-                id={`${id}-phone`}
-                type="tel"
-                required
-                autoComplete="tel"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className={inputClass}
-                placeholder="e.g. 07700 000 000"
-              />
-            </div>
-
-            <div>
-              <label htmlFor={`${id}-service`} className="label-caps text-neutral-400 text-[10px] block mb-1.5">
-                Service Needed *
-              </label>
-              <select
-                id={`${id}-service`}
-                required
-                value={formData.service}
-                onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                className={`${inputClass} appearance-none`}
-              >
-                <option value="">Choose a service…</option>
-                <option value="home-cleaning">Home Cleaning — from £60</option>
-                <option value="deep-clean">Deep Cleaning — from £120</option>
-                <option value="end-of-tenancy">End of Tenancy — from £150</option>
-                <option value="office-cleaning">Office Cleaning — POA</option>
-                <option value="after-event">After Event — from £80</option>
-                <option value="other">Other / Not Sure</option>
-              </select>
-            </div>
-
-            {!compact && (
-              <div>
-                <label htmlFor={`${id}-email`} className="label-caps text-neutral-400 text-[10px] block mb-1.5">
-                  Email <span className="normal-case font-normal">(optional)</span>
-                </label>
-                <input
-                  id={`${id}-email`}
-                  type="email"
-                  autoComplete="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className={inputClass}
-                  placeholder="you@email.com"
-                />
-              </div>
-            )}
-          </div>
-
-          {/* Hidden UTM / tracking fields */}
-          <input type="hidden" name="utm_source" value={utmSource} />
-          <input type="hidden" name="utm_campaign" value={utmCampaign} />
-          <input type="hidden" name="utm_term" value={utmTerm} />
-          <input type="hidden" name="area" value={areaName} />
-
-          <button
-            type="submit"
-            disabled={submitting}
-            className="w-full btn-gold label-caps py-4 rounded-lg flex items-center justify-center gap-2 text-sm disabled:opacity-60 disabled:cursor-not-allowed mt-2"
-          >
-            {submitting ? (
-              <>
-                <div className="w-4 h-4 border-2 border-surface-black/30 border-t-surface-black rounded-full animate-spin" />
-                Sending…
-              </>
-            ) : (
-              <>
-                Claim My Free Quote <ArrowRight size={14} />
-              </>
-            )}
-          </button>
-          {formError && (
-            <p className="text-red-400 text-xs text-center mt-3">{formError}</p>
-          )}
-
-          {/* Trust micro-copy under button */}
-          <div className="mt-4 flex flex-col gap-1.5">
-            <div className="flex items-center justify-center gap-4 text-[10px] text-neutral-500">
-              <span className="flex items-center gap-1">
-                <ShieldCheck size={10} className="text-gold" /> No obligation
-              </span>
-              <span className="flex items-center gap-1">
-                <Clock size={10} className="text-gold" /> Reply in 60 mins
-              </span>
-              <span className="flex items-center gap-1">
-                <BadgeCheck size={10} className="text-gold" /> DBS checked team
-              </span>
-            </div>
-            <div className="flex items-center justify-center gap-1.5 mt-1">
-              <StarRow count={5} size={10} />
-              <span className="text-[10px] text-neutral-500">Rated 5.0 by 200+ customers</span>
-            </div>
-          </div>
-        </form>
-      )}
-    </div>
-  );
 
   return (
     <>
@@ -506,7 +508,7 @@ const LandingPage = () => {
 
             {/* Right: form */}
             <div className="hidden lg:block">
-              <QuoteForm id="hero-form" compact />
+              <QuoteForm id="hero-form" compact formRef={formRef} formData={formData} setFormData={setFormData} formSubmitted={formSubmitted} submitting={submitting} formError={formError} onSubmit={handleSubmit} />
               <div className="mt-4 flex items-center justify-center gap-3">
                 <div className="h-px flex-1 bg-surface-border/30" />
                 <span className="text-neutral-500 text-xs">or call us directly</span>
@@ -891,7 +893,7 @@ const LandingPage = () => {
               <div className="divider-gold mx-auto mt-5" />
             </div>
 
-            <QuoteForm id="form" />
+            <QuoteForm id="form" formRef={formRef} formData={formData} setFormData={setFormData} formSubmitted={formSubmitted} submitting={submitting} formError={formError} onSubmit={handleSubmit} />
 
             <div className="mt-5 grid grid-cols-2 gap-4">
               <a
