@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import './globals.css';
 
 const BASE_URL = 'https://leoluxeclean.co.uk';
@@ -51,6 +52,16 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" href="/favicon-512.png" />
       </head>
       <body>{children}</body>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-18156207671"
+        strategy="afterInteractive"
+      />
+      <Script id="gtag-init" strategy="afterInteractive">{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-18156207671');
+      `}</Script>
     </html>
   );
 }
