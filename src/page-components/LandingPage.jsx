@@ -401,7 +401,7 @@ const LandingPage = ({
         </header>
 
         {/* ── HERO + FORM SPLIT ─────────────────────────────────────────────── */}
-        <section className="relative pt-20 min-h-screen overflow-hidden" aria-labelledby="hero-heading">
+        <section className="relative pt-16 lg:pt-20 min-h-screen overflow-hidden" aria-labelledby="hero-heading">
           <img
             src="/hero.svg"
             alt=""
@@ -414,7 +414,7 @@ const LandingPage = ({
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/85 to-black/60 lg:to-black/40" />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-12 pb-28 lg:pb-20 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[calc(100vh-5rem)]">
+          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-8 pb-28 lg:pb-20 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center min-h-[calc(100vh-4rem)]">
 
             {/* Left: copy */}
             <div>
@@ -439,7 +439,7 @@ const LandingPage = ({
               </p>
 
               {/* Mini hero review */}
-              <div className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 mb-8 max-w-md">
+              <div className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 mb-6 max-w-md">
                 <StarRow count={5} size={12} />
                 <p className="text-neutral-300 text-xs leading-relaxed">
                   <span className="text-white font-medium">"We've had the same cleaner for six months — the house is always perfect."</span>
@@ -447,8 +447,8 @@ const LandingPage = ({
                 </p>
               </div>
 
-              {/* Benefit bullets */}
-              <ul className="space-y-3 mb-8">
+              {/* Benefit bullets — desktop only */}
+              <ul className="hidden lg:block space-y-3 mb-8">
                 {[
                   'Same trusted cleaner every visit — no strangers in your home',
                   'DBS-checked, fully insured, and referenced',
@@ -462,8 +462,8 @@ const LandingPage = ({
                 ))}
               </ul>
 
-              {/* Phone + trust row */}
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm mb-8">
+              {/* Phone + trust row — desktop only */}
+              <div className="hidden lg:flex flex-wrap items-center gap-x-5 gap-y-2 text-sm mb-8">
                 <a
                   href="tel:01753257118"
                   className="flex items-center gap-2 text-white font-semibold hover:text-gold transition-colors text-base"
@@ -483,27 +483,10 @@ const LandingPage = ({
                 <span className="text-neutral-600">·</span>
                 <span className="text-neutral-400 text-xs">DBS checked &amp; insured</span>
               </div>
-
-              {/* Mobile: dual CTA */}
-              <div className="flex gap-3 lg:hidden">
-                <button
-                  onClick={scrollToForm}
-                  className="btn-gold glow-pulse label-caps flex-1 py-4 rounded-xl flex items-center justify-center gap-2 text-xs"
-                >
-                  Claim Free Quote <ArrowRight size={13} />
-                </button>
-                <a
-                  href="tel:01753257118"
-                  className="btn-outline-gold label-caps px-5 py-4 rounded-xl flex items-center justify-center gap-2 text-xs"
-                  aria-label="Call now"
-                >
-                  <Phone size={14} /> Call Now
-                </a>
-              </div>
             </div>
 
             {/* Right: form */}
-            <div className="hidden lg:block">
+            <div>
               <QuoteForm id="hero-form" compact formRef={formRef} formData={formData} setFormData={setFormData} formSubmitted={formSubmitted} submitting={submitting} formError={formError} onSubmit={handleSubmit} />
               <div className="mt-4 flex items-center justify-center gap-3">
                 <div className="h-px flex-1 bg-surface-border/30" />
