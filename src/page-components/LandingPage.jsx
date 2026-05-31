@@ -414,7 +414,7 @@ const LandingPage = ({
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/85 to-black/60 lg:to-black/40" />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[calc(100vh-5rem)]">
+          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-12 pb-28 lg:pb-20 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[calc(100vh-5rem)]">
 
             {/* Left: copy */}
             <div>
@@ -944,17 +944,12 @@ const LandingPage = ({
           </div>
         </footer>
 
-        {/* ── MOBILE STICKY CTA ────────────────────────────────────────────── */}
-        <div
-          className={`lg:hidden fixed bottom-0 left-0 right-0 z-50 transition-all duration-300 ${
-            showMobileCta ? 'translate-y-0' : 'translate-y-full'
-          }`}
-          aria-hidden={!showMobileCta}
-        >
+        {/* ── MOBILE STICKY CTA — always visible on mobile ─────────────────── */}
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50">
           <div className="bg-surface-dark border-t border-gold/20 px-4 py-3 flex gap-3 safe-area-inset-bottom">
             <a
               href="#form"
-              className="btn-gold label-caps flex-1 py-4 rounded-xl flex items-center justify-center gap-2 text-xs"
+              className="btn-gold glow-pulse label-caps flex-1 py-4 rounded-xl flex items-center justify-center gap-2 text-xs"
             >
               Claim Free Quote <ArrowRight size={13} />
             </a>
@@ -974,7 +969,7 @@ const LandingPage = ({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
-          className="fixed bottom-6 right-5 z-[60] flex items-center gap-2.5 bg-[#25a244] hover:bg-[#1e9138] text-white rounded-full shadow-[0_4px_24px_rgba(37,162,68,0.55)] transition-all duration-300 hover:scale-105 animate-pulse-slow group pr-4 pl-3.5 py-3 lg:bottom-8 lg:right-8"
+          className="fixed bottom-[76px] right-4 z-[60] flex items-center gap-2.5 bg-[#25a244] hover:bg-[#1e9138] text-white rounded-full shadow-[0_4px_24px_rgba(37,162,68,0.55)] transition-all duration-300 hover:scale-105 animate-pulse-slow group pr-4 pl-3.5 py-3 lg:bottom-8 lg:right-8"
         >
           <WhatsAppIcon size={22} />
           <span className="label-caps text-[11px] font-semibold tracking-wide whitespace-nowrap max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300 ease-out">
