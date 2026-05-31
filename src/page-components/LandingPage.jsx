@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { useSearchParams } from 'next/navigation';
 import {
   Phone, Mail, ShieldCheck, CheckCircle2, Star,
   Leaf, Shield, Home, Building2, Sparkles, Key,
@@ -278,22 +277,12 @@ const QuoteForm = ({ id, compact = false, formRef, formData, setFormData, formSu
 
 // ── main component ────────────────────────────────────────────────────────────
 
-const LandingPage = () => {
-  const searchParams = useSearchParams();
-
-  const areaName = (() => {
-    const raw = searchParams.get('area');
-    if (!raw) return 'Slough & Berkshire';
-    try {
-      return decodeURIComponent(raw).replace(/\b\w/g, (c) => c.toUpperCase());
-    } catch {
-      return 'Slough & Berkshire';
-    }
-  })();
-
-  const utmSource = searchParams.get('utm_source') || '';
-  const utmCampaign = searchParams.get('utm_campaign') || '';
-  const utmTerm = searchParams.get('utm_term') || '';
+const LandingPage = ({
+  areaName = 'Slough & Berkshire',
+  utmSource = '',
+  utmCampaign = '',
+  utmTerm = '',
+}) => {
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [showMobileCta, setShowMobileCta] = useState(false);
