@@ -329,13 +329,11 @@ const LandingPage = ({
       const data = await res.json();
       if (data.success) {
         setFormSubmitted(true);
-        if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-          window.gtag('event', 'conversion', {
-            send_to: 'AW-18156207671/w1VoCJrk-7AcELf8xtFD',
-            value: 1.0,
-            currency: 'GBP',
-          });
-        }
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-18156207671/w1VoCJrk-7AcELf8xtFD',
+          value: 1.0,
+          currency: 'GBP',
+        });
       } else {
         setFormError('Something went wrong. Please try again or call us directly.');
       }
