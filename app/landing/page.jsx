@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import LandingPage from '../../src/page-components/LandingPage';
+import LandingPageWrapper from './LandingPageWrapper';
 
 export const metadata = {
   title: 'Leo Luxe Clean | Free Cleaning Quote',
@@ -10,7 +10,7 @@ export const metadata = {
 export default function Page() {
   return (
     <Suspense fallback={null}>
-      <LandingPage />
+      <LandingPageWrapper />
     </Suspense>
   );
 }
