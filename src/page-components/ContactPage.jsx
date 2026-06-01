@@ -19,6 +19,7 @@ const ContactPage = () => {
     phone: '',
     email: '',
     service: '',
+    postcode: '',
     message: '',
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -41,6 +42,7 @@ const ContactPage = () => {
           phone: formData.phone,
           email: formData.email,
           service: formData.service,
+          postcode: formData.postcode,
           message: formData.message,
           subject: `New quote request from ${formData.name}`,
         }),
@@ -48,7 +50,7 @@ const ContactPage = () => {
       const data = await res.json();
       if (data.success) {
         setFormSubmitted(true);
-        setFormData({ name: '', phone: '', email: '', service: '', message: '' });
+        setFormData({ name: '', phone: '', email: '', service: '', postcode: '', message: '' });
       } else {
         setError('Something went wrong. Please try again or call us directly.');
       }
@@ -231,6 +233,20 @@ const ContactPage = () => {
                           <option value="specialist">Specialist Cleaning</option>
                         </select>
                       </div>
+                    </div>
+                    <div className="mb-5">
+                      <label htmlFor="page-postcode" className="label-caps text-neutral-400 text-[10px] block mb-2">
+                        Postcode
+                      </label>
+                      <input
+                        id="page-postcode"
+                        type="text"
+                        required
+                        value={formData.postcode}
+                        onChange={(e) => setFormData({ ...formData, postcode: e.target.value.toUpperCase() })}
+                        className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600"
+                        placeholder="e.g. SL4 1AB"
+                      />
                     </div>
                     <div className="mb-6">
                       <label htmlFor="page-message" className="label-caps text-neutral-400 text-[10px] block mb-2">

@@ -45,6 +45,7 @@ const Contact = () => {
     phone: '',
     email: '',
     service: '',
+    postcode: '',
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -65,13 +66,14 @@ const Contact = () => {
           phone: formData.phone,
           email: formData.email,
           service: formData.service,
+          postcode: formData.postcode,
           subject: `New quote request from ${formData.name}`,
         }),
       });
       const data = await res.json();
       if (data.success) {
         setFormSubmitted(true);
-        setFormData({ name: '', phone: '', email: '', service: '' });
+        setFormData({ name: '', phone: '', email: '', service: '', postcode: '' });
       } else {
         setError('Something went wrong. Please try again or call us directly.');
       }
@@ -232,6 +234,22 @@ const Contact = () => {
                         <option value="specialist">Specialist Cleaning</option>
                       </select>
                     </div>
+                  </div>
+                  <div className="mb-5">
+                    <label htmlFor="contact-postcode" className="label-caps text-neutral-400 text-[10px] block mb-2">
+                      Postcode
+                    </label>
+                    <input
+                      id="contact-postcode"
+                      type="text"
+                      required
+                      value={formData.postcode}
+                      onChange={(e) =>
+                        setFormData({ ...formData, postcode: e.target.value.toUpperCase() })
+                      }
+                      className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600"
+                      placeholder="e.g. SL4 1AB"
+                    />
                   </div>
                   <button
                     type="submit"
