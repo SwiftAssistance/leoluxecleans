@@ -362,10 +362,6 @@ const LandingPage = ({
           email: formData.email,
           service: formData.service,
           postcode: formData.postcode,
-          area: areaName,
-          utm_source: utmSource,
-          utm_campaign: utmCampaign,
-          utm_term: utmTerm,
           subject: `New quote request from ${formData.name}`,
         }),
       });

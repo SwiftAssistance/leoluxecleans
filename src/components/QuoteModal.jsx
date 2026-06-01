@@ -11,6 +11,7 @@ const QuoteModal = () => {
     phone: '',
     email: '',
     service: '',
+    postcode: '',
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
@@ -66,6 +67,7 @@ const QuoteModal = () => {
           phone: form.phone,
           email: form.email,
           service: form.service,
+          postcode: form.postcode,
           message: form.message,
           subject: `New quote request from ${form.name}`,
         }),
@@ -282,6 +284,32 @@ const QuoteModal = () => {
                     </option>
                   ))}
                 </select>
+              </div>
+
+              {/* Postcode */}
+              <div>
+                <label
+                  htmlFor="qm-postcode"
+                  className="block label-caps text-[10px] text-neutral-400 mb-1.5"
+                >
+                  Postcode <span className="text-gold">*</span>
+                </label>
+                <input
+                  id="qm-postcode"
+                  name="postcode"
+                  type="text"
+                  required
+                  autoComplete="postal-code"
+                  value={form.postcode}
+                  onChange={(e) => setForm((f) => ({ ...f, postcode: e.target.value.toUpperCase() }))}
+                  placeholder="e.g. SL4 1AB"
+                  className="
+                    w-full bg-surface-black border border-surface-border/60
+                    focus:border-gold/60 focus:outline-none
+                    rounded-lg px-4 py-3 text-white text-sm placeholder-neutral-600
+                    transition-colors duration-200
+                  "
+                />
               </div>
 
               {/* Message */}
