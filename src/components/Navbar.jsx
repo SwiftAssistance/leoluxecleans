@@ -71,7 +71,7 @@ const Navbar = () => {
             alt="Leo Luxe Clean"
             width="160"
             height="50"
-            className="h-12 w-auto"
+            className="h-16 w-auto"
           />
         </Link>
 
