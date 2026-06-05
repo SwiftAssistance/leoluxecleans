@@ -403,7 +403,7 @@ const LandingPage = ({
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
             <a href="https://leoluxeclean.co.uk" aria-label="Leo Luxe Clean — back to main site">
-              <img src="/logo.svg" alt="Leo Luxe Clean" width={160} height={50} className="h-10 w-auto" />
+              <img src="/logo.png" alt="Leo Luxe Clean" width={160} height={50} className="h-10 w-auto" />
             </a>
             <div className="flex items-center gap-2 sm:gap-3">
               <a
@@ -824,7 +824,7 @@ const LandingPage = ({
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
               <div>
-                <img src="/logo.svg" alt="Leo Luxe Clean" width={140} height={44} className="h-9 w-auto mb-4" />
+                <img src="/logo.png" alt="Leo Luxe Clean" width={140} height={44} className="h-9 w-auto mb-4" />
                 <p className="text-neutral-500 text-sm leading-relaxed max-w-xs">
                   Premium home cleaning across Berkshire &amp; Surrey. DBS-checked, fully insured, same cleaner every visit.
                 </p>
