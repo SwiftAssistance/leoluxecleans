@@ -65,7 +65,7 @@ const Footer = () => {
                 alt="Leo Luxe Clean"
                 width="160"
                 height="50"
-                className="h-12 w-auto"
+                className="h-16 w-auto"
               />
             </Link>
             <p className="text-neutral-500 text-sm leading-relaxed max-w-xs mb-6">
