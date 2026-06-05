@@ -51,7 +51,7 @@ const AboutPage = () => {
     <>
       <PageHero
         title={<>About <span className="text-gold-gradient">Leo Luxe</span></>}
-        subtitle="A small cleaning team based in Slough. Not a franchise, not a call centre — just Leo and a team he trusts, doing the work properly."
+        subtitle="A small cleaning team based in Slough. Not a franchise, not a call centre — just a founder and a team he trusts, doing the work properly."
         breadcrumb="About"
       />
 
@@ -66,7 +66,7 @@ const AboutPage = () => {
               }`}
             >
               <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-8">
-                Leo started this because he was tired of{' '}
+                We started this because we were tired of{' '}
                 <span className="text-gold-gradient">
                   how it was being done.
                 </span>
@@ -74,14 +74,14 @@ const AboutPage = () => {
 
               <div className="space-y-5 text-neutral-400 leading-relaxed font-light">
                 <p>
-                  Before Leo Luxe, Leo spent years doing cleaning work for
+                  Before Leo Luxe, our founder spent years doing cleaning work for
                   other companies across Slough and Berkshire. The jobs got
                   done. But rarely the way you'd want your own home done —
                   quick in, quick out, whoever happened to be free that day.
                 </p>
                 <p>
-                  He started Leo Luxe to do it differently. Small enough that
-                  every job matters. The same team on every visit. Leo himself
+                  Leo Luxe was started to do it differently. Small enough that
+                  every job matters. The same team on every visit. Our founder
                   on most jobs, or close enough to know exactly what happened.
                 </p>
                 <p>
@@ -173,8 +173,8 @@ const AboutPage = () => {
               },
               {
                 icon: <Handshake size={22} />,
-                title: 'You Deal With Leo Directly',
-                desc: "If there's a problem, you call Leo — not a team, not a system. He'll sort it himself.",
+                title: 'You Deal With Us Directly',
+                desc: "If there's a problem, you call us — not a call centre, not a system. We'll sort it ourselves.",
               },
             ].map((item, i) => (
               <div
@@ -249,10 +249,10 @@ const AboutPage = () => {
           >
             {[
               {
-                name: 'Leo',
+                name: 'Our Founder',
                 role: 'Founder & Lead Cleaner',
                 desc: 'Years of hands-on cleaning experience before starting Leo Luxe. Still personally involved in every job — because standards start at the top.',
-                initial: 'L',
+                initial: 'F',
               },
               {
                 name: 'The Cleaning Team',
