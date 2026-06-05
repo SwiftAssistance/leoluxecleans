@@ -4,7 +4,11 @@ import { ChevronRight } from 'lucide-react';
 
 const PageHero = ({ title, subtitle, breadcrumb, parentBreadcrumb }) => {
   return (
-    <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-surface-black overflow-hidden">
+    <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/hero.png')" }} />
+      {/* Heavy dark overlay */}
+      <div className="absolute inset-0 bg-black/80" />
       {/* Gold ambient glow — top right */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[280px] bg-gold/6 rounded-full blur-[120px] pointer-events-none" />
       {/* Subtle gradient fill */}
