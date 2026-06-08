@@ -13,6 +13,73 @@ import {
 import PageHero from '../components/PageHero';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
+const SERVICE_LABELS = {
+  home: 'Home Cleaning',
+  office: 'Office & Commercial',
+  deep: 'Deep Clean',
+  tenancy: 'End of Tenancy',
+  event: 'After Event Cleanup',
+  specialist: 'Specialist Cleaning',
+};
+
+const buildEmailHtml = (data) => `
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#f4f4f4;font-family:Georgia,serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f4;padding:40px 0;">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+        <tr>
+          <td style="background:#111111;padding:32px 40px;text-align:center;">
+            <p style="margin:0 0 4px;font-family:Georgia,serif;font-size:22px;color:#C8A94E;letter-spacing:2px;">LEO LUXE CLEAN</p>
+            <p style="margin:0;font-size:12px;color:#888888;letter-spacing:1px;text-transform:uppercase;">New Quote Request</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:36px 40px;">
+            <p style="margin:0 0 24px;font-size:16px;color:#333333;">You have received a new quote request. Here are the details:</p>
+            <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+              <tr>
+                <td style="padding:12px 16px;background:#f9f9f9;border-left:3px solid #C8A94E;font-size:12px;color:#888888;text-transform:uppercase;letter-spacing:1px;width:140px;">Name</td>
+                <td style="padding:12px 16px;background:#f9f9f9;font-size:15px;color:#111111;font-weight:bold;">${data.name}</td>
+              </tr>
+              <tr>
+                <td style="padding:12px 16px;font-size:12px;color:#888888;text-transform:uppercase;letter-spacing:1px;">Phone</td>
+                <td style="padding:12px 16px;font-size:15px;color:#111111;"><a href="tel:${data.phone}" style="color:#C8A94E;text-decoration:none;">${data.phone}</a></td>
+              </tr>
+              <tr>
+                <td style="padding:12px 16px;background:#f9f9f9;font-size:12px;color:#888888;text-transform:uppercase;letter-spacing:1px;">Email</td>
+                <td style="padding:12px 16px;background:#f9f9f9;font-size:15px;color:#111111;"><a href="mailto:${data.email}" style="color:#C8A94E;text-decoration:none;">${data.email}</a></td>
+              </tr>
+              <tr>
+                <td style="padding:12px 16px;font-size:12px;color:#888888;text-transform:uppercase;letter-spacing:1px;">Service</td>
+                <td style="padding:12px 16px;font-size:15px;color:#111111;">${SERVICE_LABELS[data.service] || data.service}</td>
+              </tr>
+              <tr>
+                <td style="padding:12px 16px;background:#f9f9f9;font-size:12px;color:#888888;text-transform:uppercase;letter-spacing:1px;">Postcode</td>
+                <td style="padding:12px 16px;background:#f9f9f9;font-size:15px;color:#111111;">${data.postcode}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0 40px 36px;text-align:center;">
+            <a href="tel:${data.phone}" style="display:inline-block;background:#C8A94E;color:#111111;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;text-decoration:none;padding:14px 32px;border-radius:4px;">Call ${data.name.split(' ')[0]}</a>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#f4f4f4;padding:20px 40px;text-align:center;border-top:1px solid #eeeeee;">
+            <p style="margin:0;font-size:11px;color:#aaaaaa;">Leo Luxe Clean · Slough, Berkshire · 01753 257118</p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>
+`;
+
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -20,7 +87,6 @@ const ContactPage = () => {
     email: '',
     service: '',
     postcode: '',
-    message: '',
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -38,19 +104,16 @@ const ContactPage = () => {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: '1e2d7a23-e2db-4148-ac90-c44289b4508a',
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          service: formData.service,
-          postcode: formData.postcode,
-          message: formData.message,
-          subject: `New quote request from ${formData.name}`,
+          subject: `✨ New Quote Request — ${formData.name} (${SERVICE_LABELS[formData.service] || formData.service})`,
+          from_name: 'Leo Luxe Clean Website',
+          replyto: formData.email,
+          message: buildEmailHtml(formData),
         }),
       });
       const data = await res.json();
       if (data.success) {
         setFormSubmitted(true);
-        setFormData({ name: '', phone: '', email: '', service: '', postcode: '', message: '' });
+        setFormData({ name: '', phone: '', email: '', service: '', postcode: '' });
       } else {
         setError('Something went wrong. Please try again or call us directly.');
       }
@@ -246,19 +309,6 @@ const ContactPage = () => {
                         onChange={(e) => setFormData({ ...formData, postcode: e.target.value.toUpperCase() })}
                         className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600"
                         placeholder="e.g. SL4 1AB"
-                      />
-                    </div>
-                    <div className="mb-6">
-                      <label htmlFor="page-message" className="label-caps text-neutral-400 text-[10px] block mb-2">
-                        Tell Us More (Optional)
-                      </label>
-                      <textarea
-                        id="page-message"
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        rows={4}
-                        className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600 resize-none"
-                        placeholder="Any details about your space, preferred dates, or questions..."
                       />
                     </div>
                     <button
