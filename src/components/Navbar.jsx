@@ -69,9 +69,11 @@ const Navbar = () => {
           <img
             src="/logo.png"
             alt="Leo Luxe Clean"
-            width="160"
-            height="50"
-            className="h-24 w-auto"
+            width="120"
+            height="40"
+            fetchPriority="high"
+            decoding="sync"
+            className="h-10 w-auto"
           />
         </Link>
 
