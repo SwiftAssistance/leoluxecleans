@@ -20,7 +20,6 @@ const ContactPage = () => {
     email: '',
     service: '',
     postcode: '',
-    message: '',
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -43,14 +42,13 @@ const ContactPage = () => {
           email: formData.email,
           service: formData.service,
           postcode: formData.postcode,
-          message: formData.message,
           subject: `New quote request from ${formData.name}`,
         }),
       });
       const data = await res.json();
       if (data.success) {
         setFormSubmitted(true);
-        setFormData({ name: '', phone: '', email: '', service: '', postcode: '', message: '' });
+        setFormData({ name: '', phone: '', email: '', service: '', postcode: '' });
       } else {
         setError('Something went wrong. Please try again or call us directly.');
       }
@@ -246,19 +244,6 @@ const ContactPage = () => {
                         onChange={(e) => setFormData({ ...formData, postcode: e.target.value.toUpperCase() })}
                         className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600"
                         placeholder="e.g. SL4 1AB"
-                      />
-                    </div>
-                    <div className="mb-6">
-                      <label htmlFor="page-message" className="label-caps text-neutral-400 text-[10px] block mb-2">
-                        Tell Us More (Optional)
-                      </label>
-                      <textarea
-                        id="page-message"
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        rows={4}
-                        className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600 resize-none"
-                        placeholder="Any details about your space, preferred dates, or questions..."
                       />
                     </div>
                     <button
