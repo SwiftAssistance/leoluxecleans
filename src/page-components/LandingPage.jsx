@@ -812,7 +812,7 @@ const LandingPage = ({
                 </div>
                 <div>
                   <p className="label-caps text-neutral-400 text-[10px] mb-0.5">Email us</p>
-                  <p className="text-white text-sm font-medium group-hover:text-gold transition-colors truncate">info@leoluxeclean.co.uk</p>
+                  <p className="text-white text-sm font-medium group-hover:text-gold transition-colors break-all">info@leoluxeclean.co.uk</p>
                 </div>
               </a>
             </div>
