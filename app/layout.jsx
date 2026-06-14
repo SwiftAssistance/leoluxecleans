@@ -8,7 +8,7 @@ export const metadata = {
     default: 'Leo Luxe Clean | Cleaners in Slough, Windsor & Berkshire',
     template: '%s | Leo Luxe Clean',
   },
-  description: 'Local cleaners based in Slough, covering Windsor, Maidenhead, Hayes, Uxbridge, Ealing, Hounslow & surrounding areas. Home cleaning, deep cleans, end of tenancy, office cleaning. DBS checked, fully insured. Free quotes.',
+  description: 'Premium home cleaning across Windsor, Berkshire & Surrey. DBS-checked, fully insured — the same trusted cleaner every visit. Home cleaning, deep cleans, end of tenancy. Free quotes.',
   openGraph: {
     type: 'website',
     siteName: 'Leo Luxe Clean',

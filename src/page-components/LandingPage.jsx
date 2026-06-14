@@ -403,7 +403,7 @@ const LandingPage = ({
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
             <a href="https://leoluxeclean.co.uk" aria-label="Leo Luxe Clean — back to main site">
-              <img src="/logo.png" alt="Leo Luxe Clean" width={160} height={50} className="h-24 w-auto" />
+              <img src="/logo.png" alt="Leo Luxe Clean" width={140} height={44} className="h-11 w-auto" />
             </a>
             <div className="flex items-center gap-2 sm:gap-3">
               <a
