@@ -4,8 +4,8 @@ import { useScrollReveal, useCounter } from '../hooks/useScrollReveal';
 
 const Stats = () => {
   const [ref, isVisible] = useScrollReveal({ threshold: 0.3 });
-  const [homesRef, homesCount] = useCounter(75);
-  const [clientsRef, clientsCount] = useCounter(30);
+  const [homesRef, homesCount] = useCounter(200);
+  const [clientsRef, clientsCount] = useCounter(200);
   const [ratingRef, ratingDisplay] = useCounter(50);
 
   const stats = [
@@ -13,7 +13,7 @@ const Stats = () => {
       ref: homesRef,
       value: `${homesCount}+`,
       label: 'Homes Cleaned',
-      sub: 'Across Slough & Berkshire',
+      sub: 'Across Windsor & Berkshire',
     },
     {
       ref: clientsRef,

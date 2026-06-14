@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   Phone,
   Mail,
@@ -122,6 +123,7 @@ const Contact = () => {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [ref, isVisible] = useScrollReveal({ threshold: 0.1 });
+  const router = useRouter();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -141,8 +143,14 @@ const Contact = () => {
       });
       const data = await res.json();
       if (data.success) {
-        setFormSubmitted(true);
-        setFormData({ name: '', phone: '', email: '', service: '', postcode: '' });
+        if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+          window.gtag('event', 'conversion', {
+            send_to: 'AW-18156207671/w1VoCJrk-7AcELf8xtFD',
+            value: 1.0,
+            currency: 'GBP',
+          });
+        }
+        router.push('/thank-you');
       } else {
         setError('Something went wrong. Please try again or call us directly.');
       }
@@ -283,11 +291,10 @@ const Contact = () => {
                     </div>
                     <div>
                       <label htmlFor="contact-service" className="label-caps text-neutral-400 text-[10px] block mb-2">
-                        What Do You Need?
+                        What Do You Need? <span className="text-neutral-600 normal-case font-normal">(optional)</span>
                       </label>
                       <select
                         id="contact-service"
-                        required
                         value={formData.service}
                         onChange={(e) =>
                           setFormData({ ...formData, service: e.target.value })

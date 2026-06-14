@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 import { ArrowRight, Phone, Star, ShieldCheck, Leaf } from 'lucide-react';
 import { useQuoteModal } from '../context/QuoteModalContext';
 
@@ -8,15 +9,14 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden">
-      <img
+      <Image
         src="/hero.png"
         alt=""
-        role="presentation"
-        className="absolute inset-0 w-full h-full object-cover"
-        fetchPriority="high"
-        decoding="async"
-        width={1920}
-        height={1080}
+        fill
+        priority
+        className="object-cover"
+        sizes="100vw"
+        quality={85}
       />
 
       {/* Multi-layer overlay for depth */}
@@ -29,11 +29,11 @@ const Hero = () => {
           {/* Left content */}
           <div className="lg:col-span-7">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2.5 bg-white/5 border border-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-8">
+            <div className="inline-flex items-center gap-2.5 bg-emerald-500/10 border border-emerald-500/30 backdrop-blur-sm rounded-full px-4 py-2 mb-8">
               <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-              <span className="text-neutral-300 text-xs">Taking bookings this week</span>
+              <span className="text-emerald-400 text-xs font-semibold">Limited slots available this week</span>
               <span className="text-neutral-600 text-xs">·</span>
-              <span className="text-neutral-400 text-xs">Slough, Windsor & Berkshire</span>
+              <span className="text-neutral-400 text-xs">Windsor, Ascot & Berkshire</span>
             </div>
 
             <h1 className="heading-serif text-[clamp(3.2rem,8.5vw,8rem)] text-white leading-[0.88] mb-8 max-w-4xl">
@@ -43,9 +43,9 @@ const Hero = () => {
             </h1>
 
             <p className="text-neutral-400 text-lg max-w-lg leading-relaxed font-light mb-10">
-              Leo Luxe is a small cleaning team based in Slough. We work across
-              Berkshire and West London — every job held to the same high standard,
-              whether it's a weekly clean or a one-off.
+              Trusted by 200+ homeowners across Windsor, Ascot &amp; Berkshire.
+              DBS-checked, fully insured — and always the same dedicated cleaner,
+              so your home is always in hands you know and trust.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -121,7 +121,7 @@ const Hero = () => {
             <div className="ml-auto w-full max-w-[340px] bg-gold/8 backdrop-blur-md border border-gold/20 rounded-2xl px-6 py-5 shadow-2xl">
               <div className="grid grid-cols-3 divide-x divide-gold/20">
                 {[
-                  { val: '75+', label: 'Homes Cleaned' },
+                  { val: '200+', label: 'Homes Cleaned' },
                   { val: '5.0', label: 'Google Rating' },
                   { val: '100%', label: 'Satisfaction' },
                 ].map((s, i) => (
