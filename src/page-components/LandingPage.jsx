@@ -452,7 +452,7 @@ const LandingPage = ({
             <div>
               <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-4 py-2 mb-6">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-                <span className="text-emerald-400 text-xs font-semibold">Limited slots left this week in {areaName}</span>
+                <span className="text-emerald-400 text-xs font-semibold">Limited slots left this week</span>
               </div>
 
               <h1
