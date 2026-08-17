@@ -59,7 +59,7 @@ function localBusinessJsonLd() {
     '@id': `${BASE_URL}/#business`,
     name: 'Leo Luxe Clean',
     url: BASE_URL,
-    telephone: '+441753257118',
+    telephone: '+447845239774',
     email: 'info@leoluxeclean.co.uk',
     logo: { '@type': 'ImageObject', url: `${BASE_URL}/favicon-512.png`, width: 512, height: 512 },
     image: `${BASE_URL}/og-image.png`,
@@ -96,12 +96,12 @@ function buildRoutes() {
     description: 'Local cleaners based in Slough. Home cleaning from £60, deep cleans, end of tenancy, office cleaning across Windsor, Berkshire & West London. DBS checked, fully insured. Same-week bookings. Free quote.',
     schemas: [localBusinessJsonLd()],
     noscriptContent: `<h1>Leo Luxe Clean — Cleaners in Slough, Windsor &amp; Berkshire</h1>
-      <p>Local, DBS-checked cleaners based in Slough. Home cleaning from &pound;60. Deep cleans, end of tenancy, office cleaning across Berkshire &amp; West London. 5-star rated on Google. Free quotes — call <a href="tel:01753257118">01753 257118</a>.</p>
+      <p>Local, DBS-checked cleaners based in Slough. Home cleaning from &pound;60. Deep cleans, end of tenancy, office cleaning across Berkshire &amp; West London. 5-star rated on Google. Free quotes — call <a href="tel:07845239774">07845 239774</a>.</p>
       <h2>Our Services</h2>
       <ul>${services.map(s => `<li><a href="/services/${s.slug}">${s.title}</a>${s.priceFrom ? ` — from &pound;${s.priceFrom}` : ''}</li>`).join('')}</ul>
       <h2>Areas We Cover</h2>
       <ul>${locations.map(l => `<li><a href="/areas/${l.slug}">${l.name}, ${l.county}</a></li>`).join('')}</ul>
-      <p>Contact us: <a href="mailto:info@leoluxeclean.co.uk">info@leoluxeclean.co.uk</a> | <a href="tel:01753257118">01753 257118</a> | Slough, Berkshire</p>`,
+      <p>Contact us: <a href="mailto:info@leoluxeclean.co.uk">info@leoluxeclean.co.uk</a> | <a href="tel:07845239774">07845 239774</a> | Slough, Berkshire</p>`,
   });
 
   // Services listing
@@ -113,7 +113,7 @@ function buildRoutes() {
     noscriptContent: `<h1>Cleaning Services in Slough, Windsor &amp; Berkshire</h1>
       <p>Leo Luxe Clean offers a full range of professional cleaning services across Slough, Windsor, Langley, Maidenhead and the wider Berkshire area.</p>
       <ul>${services.map(s => `<li><a href="/services/${s.slug}">${s.title}</a> — ${s.metaDescription}</li>`).join('')}</ul>
-      <p><a href="tel:01753257118">Call 01753 257118</a> for a free quote.</p>`,
+      <p><a href="tel:07845239774">Call 07845 239774</a> for a free quote.</p>`,
   });
 
   // Individual service pages
@@ -129,7 +129,7 @@ function buildRoutes() {
       noscriptContent: `<h1>${escHtml(s.title)} — Leo Luxe Clean</h1>
         <p>${escHtml(s.metaDescription)}</p>
         ${s.priceFrom ? `<p>Starting from &pound;${s.priceFrom}.</p>` : ''}
-        <p><a href="tel:01753257118">Call 01753 257118</a> for a free quote. <a href="/contact">Contact us online</a>.</p>
+        <p><a href="tel:07845239774">Call 07845 239774</a> for a free quote. <a href="/contact">Contact us online</a>.</p>
         <nav><a href="/">Home</a> &rsaquo; <a href="/services">Services</a> &rsaquo; ${escHtml(s.title)}</nav>`,
     });
   }
@@ -141,14 +141,14 @@ function buildRoutes() {
       title: `${l.metaTitle} | Leo Luxe Clean`,
       description: l.metaDescription,
       schemas: [
-        { '@context': 'https://schema.org', '@type': ['LocalBusiness', 'HousekeepingBusiness'], '@id': `${BASE_URL}/areas/${l.slug}#business`, name: `Leo Luxe Clean — ${l.name}`, description: l.metaDescription, url: `${BASE_URL}/areas/${l.slug}`, telephone: '+441753257118', email: 'info@leoluxeclean.co.uk', logo: { '@type': 'ImageObject', url: `${BASE_URL}/favicon-512.png`, width: 512, height: 512 }, address: { '@type': 'PostalAddress', addressLocality: l.name, addressRegion: l.county, addressCountry: 'GB' }, priceRange: '££', openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], opens: '08:00', closes: '19:00' }], aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '3', bestRating: '5', worstRating: '1' } },
+        { '@context': 'https://schema.org', '@type': ['LocalBusiness', 'HousekeepingBusiness'], '@id': `${BASE_URL}/areas/${l.slug}#business`, name: `Leo Luxe Clean — ${l.name}`, description: l.metaDescription, url: `${BASE_URL}/areas/${l.slug}`, telephone: '+447845239774', email: 'info@leoluxeclean.co.uk', logo: { '@type': 'ImageObject', url: `${BASE_URL}/favicon-512.png`, width: 512, height: 512 }, address: { '@type': 'PostalAddress', addressLocality: l.name, addressRegion: l.county, addressCountry: 'GB' }, priceRange: '££', openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], opens: '08:00', closes: '19:00' }], aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '3', bestRating: '5', worstRating: '1' } },
         breadcrumbJsonLd([{ name: 'Home', url: '/' }, { name: l.name }]),
       ],
       noscriptContent: `<h1>Cleaning Services in ${escHtml(l.name)}, ${escHtml(l.county)}</h1>
         <p>${escHtml(l.metaDescription)}</p>
         <h2>Services Available in ${escHtml(l.name)}</h2>
         <ul>${services.map(s => `<li><a href="/areas/${l.slug}/${s.slug}">${s.title} in ${escHtml(l.name)}</a></li>`).join('')}</ul>
-        <p><a href="tel:01753257118">Call 01753 257118</a> for a free quote.</p>
+        <p><a href="tel:07845239774">Call 07845 239774</a> for a free quote.</p>
         <nav><a href="/">Home</a> &rsaquo; ${escHtml(l.name)}</nav>`,
     });
   }
@@ -166,7 +166,7 @@ function buildRoutes() {
         noscriptContent: `<h1>${escHtml(s.title)} in ${escHtml(l.name)}, ${escHtml(l.county)}</h1>
           <p>Professional ${escHtml(s.title.toLowerCase())} in ${escHtml(l.name)}, ${escHtml(l.county)}. ${escHtml(s.metaDescription)}</p>
           ${s.priceFrom ? `<p>Starting from &pound;${s.priceFrom}.</p>` : ''}
-          <p><a href="tel:01753257118">Call 01753 257118</a> for a free quote.</p>
+          <p><a href="tel:07845239774">Call 07845 239774</a> for a free quote.</p>
           <nav><a href="/">Home</a> &rsaquo; <a href="/areas/${l.slug}">${escHtml(l.name)}</a> &rsaquo; ${escHtml(s.title)}</nav>`,
       });
     }
@@ -176,11 +176,11 @@ function buildRoutes() {
   routes.push({
     path: '/landing',
     title: 'Home Cleaners in Slough & Berkshire | Leo Luxe Clean',
-    description: 'Professional, DBS-checked cleaners in Slough, Windsor & Berkshire. Home cleaning from £60. Same-week bookings. Call 01753 257118.',
+    description: 'Professional, DBS-checked cleaners in Slough, Windsor & Berkshire. Home cleaning from £60. Same-week bookings. Call 07845 239774.',
     schemas: [localBusinessJsonLd()],
     noscriptContent: `<h1>Home Cleaners in Slough &amp; Berkshire — Leo Luxe Clean</h1>
       <p>Professional, DBS-checked cleaners in Slough, Windsor &amp; Berkshire. Home cleaning from &pound;60. Same-week bookings. No contracts.</p>
-      <p>Call <a href="tel:01753257118">01753 257118</a> or email <a href="mailto:info@leoluxeclean.co.uk">info@leoluxeclean.co.uk</a>.</p>
+      <p>Call <a href="tel:07845239774">07845 239774</a> or email <a href="mailto:info@leoluxeclean.co.uk">info@leoluxeclean.co.uk</a>.</p>
       <h2>Services</h2>
       <ul>
         <li>Home Cleaning — from &pound;60</li>
@@ -200,7 +200,7 @@ function buildRoutes() {
     noscriptContent: `<h1>About Leo Luxe Clean</h1>
       <p>Leo Luxe Clean is a local, independent cleaning company based in Slough, Berkshire. We provide professional cleaning services across Slough, Windsor, Langley, Maidenhead and the wider Berkshire and West London area.</p>
       <p>Our team is DBS checked, fully insured, and uses eco-friendly products. We are a small, owner-managed business focused on quality over volume.</p>
-      <p><a href="tel:01753257118">Call 01753 257118</a> | <a href="mailto:info@leoluxeclean.co.uk">info@leoluxeclean.co.uk</a></p>`,
+      <p><a href="tel:07845239774">Call 07845 239774</a> | <a href="mailto:info@leoluxeclean.co.uk">info@leoluxeclean.co.uk</a></p>`,
   });
 
   // Reviews
@@ -211,20 +211,19 @@ function buildRoutes() {
     schemas: [breadcrumbJsonLd([{ name: 'Home', url: '/' }, { name: 'Reviews' }])],
     noscriptContent: `<h1>Customer Reviews — Leo Luxe Clean</h1>
       <p>We are rated 5 stars on Google with over 200 reviews. Read what our customers across Slough, Windsor, and Berkshire have to say about our cleaning services.</p>
-      <p><a href="tel:01753257118">Call 01753 257118</a> for a free quote.</p>`,
+      <p><a href="tel:07845239774">Call 07845 239774</a> for a free quote.</p>`,
   });
 
   // Contact
   routes.push({
     path: '/contact',
     title: 'Contact Us — Free Cleaning Quote in Slough & Berkshire | Leo Luxe Clean',
-    description: 'Get in touch with Leo Luxe Clean for a free cleaning quote. Call 01753 257118 or email info@leoluxeclean.co.uk. Based in Slough, serving Berkshire & West London.',
+    description: 'Get in touch with Leo Luxe Clean for a free cleaning quote. Call 07845 239774 or email info@leoluxeclean.co.uk. Based in Slough, serving Berkshire & West London.',
     schemas: [breadcrumbJsonLd([{ name: 'Home', url: '/' }, { name: 'Contact' }])],
     noscriptContent: `<h1>Contact Leo Luxe Clean</h1>
       <p>Get a free cleaning quote today.</p>
       <ul>
-        <li>Phone: <a href="tel:01753257118">01753 257118</a></li>
-        <li>Mobile: <a href="tel:07845239774">07845 239774</a></li>
+        <li>Phone: <a href="tel:07845239774">07845 239774</a></li>
         <li>Email: <a href="mailto:info@leoluxeclean.co.uk">info@leoluxeclean.co.uk</a></li>
         <li>Location: Slough, Berkshire</li>
         <li>Hours: Monday–Saturday 08:00–19:00</li>

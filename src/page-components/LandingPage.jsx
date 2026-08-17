@@ -48,7 +48,7 @@ const REVIEWS = [
 const FAQS = [
   {
     q: 'How quickly can you book me in?',
-    a: 'We offer same-week bookings across Windsor, Ascot, Maidenhead, Bracknell, Wokingham, and the wider Berkshire and Surrey area. For urgent cleans, call us on 01753 257118 and we\'ll do our best to accommodate you.',
+    a: 'We offer same-week bookings across Windsor, Ascot, Maidenhead, Bracknell, Wokingham, and the wider Berkshire and Surrey area. For urgent cleans, call us on 07845 239774 and we\'ll do our best to accommodate you.',
   },
   {
     q: 'Will I get the same cleaner each time?',
@@ -137,8 +137,8 @@ const QuoteForm = ({ id, compact = false, formRef, formData, setFormData, formSu
         </h3>
         <p className="text-neutral-400 text-sm mb-4 max-w-xs">
           We'll call you back within the hour to arrange your clean. Or reach us right now on{' '}
-          <a href="tel:01753257118" className="text-gold hover:text-gold-light transition-colors font-medium">
-            01753 257118
+          <a href="tel:07845239774" className="text-gold hover:text-gold-light transition-colors font-medium">
+            07845 239774
           </a>
           . We'll match you with a dedicated cleaner from your very first visit.
         </p>
@@ -407,11 +407,11 @@ const LandingPage = ({
             </a>
             <div className="flex items-center gap-2 sm:gap-3">
               <a
-                href="tel:01753257118"
+                href="tel:07845239774"
                 className="hidden sm:flex items-center gap-1.5 text-neutral-300 hover:text-gold transition-colors text-sm font-medium"
-                aria-label="Call 01753 257118"
+                aria-label="Call 07845 239774"
               >
-                <Phone size={13} className="text-gold" /> 01753 257118
+                <Phone size={13} className="text-gold" /> 07845 239774
               </a>
               <button
                 onClick={openModal}
@@ -493,14 +493,14 @@ const LandingPage = ({
 
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
                 <a
-                  href="tel:01753257118"
+                  href="tel:07845239774"
                   className="flex items-center gap-2 text-white font-semibold hover:text-gold transition-colors"
-                  aria-label="Call 01753 257118"
+                  aria-label="Call 07845 239774"
                 >
                   <div className="w-8 h-8 rounded-full bg-gold/15 flex items-center justify-center">
                     <Phone size={14} className="text-gold" />
                   </div>
-                  01753 257118
+                  07845 239774
                 </a>
                 <span className="text-neutral-600">·</span>
                 <span className="flex items-center gap-1.5 text-xs text-neutral-400">
@@ -520,10 +520,10 @@ const LandingPage = ({
                 <div className="h-px flex-1 bg-surface-border/30" />
               </div>
               <a
-                href="tel:01753257118"
+                href="tel:07845239774"
                 className="mt-3 flex items-center justify-center gap-2 text-white font-semibold text-lg hover:text-gold transition-colors"
               >
-                <Phone size={18} className="text-gold" /> 01753 257118
+                <Phone size={18} className="text-gold" /> 07845 239774
               </a>
               <p className="text-center text-neutral-500 text-xs mt-2 flex items-center justify-center gap-1.5">
                 <Clock size={11} /> Mon–Sat 08:00–19:00 · We answer fast
@@ -580,10 +580,10 @@ const LandingPage = ({
                       Claim Free Quote <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     </button>
                     <a
-                      href="tel:01753257118"
+                      href="tel:07845239774"
                       className="btn-outline-gold label-caps px-7 py-4 rounded-lg inline-flex items-center justify-center gap-2 text-sm"
                     >
-                      <Phone size={14} /> 01753 257118
+                      <Phone size={14} /> 07845 239774
                     </a>
                   </div>
                 </div>
@@ -760,8 +760,8 @@ const LandingPage = ({
                 </h2>
                 <p className="text-neutral-400 text-sm">
                   Can't find what you're looking for?{' '}
-                  <a href="tel:01753257118" className="text-gold hover:underline">
-                    Call us on 01753 257118
+                  <a href="tel:07845239774" className="text-gold hover:underline">
+                    Call us on 07845 239774
                   </a>
                   {' '}— we're happy to help.
                 </p>
@@ -790,16 +790,16 @@ const LandingPage = ({
             <QuoteForm id="form" formRef={formRef} formData={formData} setFormData={setFormData} formSubmitted={formSubmitted} submitting={submitting} formError={formError} onSubmit={handleSubmit} />
             <div className="mt-5 grid grid-cols-2 gap-4">
               <a
-                href="tel:01753257118"
+                href="tel:07845239774"
                 className="flex items-center gap-3 p-4 rounded-xl bg-surface-card border border-surface-border/50 hover:border-gold/30 transition-colors group"
-                aria-label="Call 01753 257118"
+                aria-label="Call 07845 239774"
               >
                 <div className="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
                   <Phone size={16} aria-hidden="true" />
                 </div>
                 <div>
                   <p className="label-caps text-neutral-400 text-[10px] mb-0.5">Call direct</p>
-                  <p className="text-white text-sm font-medium group-hover:text-gold transition-colors">01753 257118</p>
+                  <p className="text-white text-sm font-medium group-hover:text-gold transition-colors">07845 239774</p>
                 </div>
               </a>
               <a
@@ -832,8 +832,8 @@ const LandingPage = ({
               <div>
                 <p className="label-caps text-gold text-[10px] mb-4 tracking-widest">Contact</p>
                 <div className="space-y-2.5">
-                  <a href="tel:01753257118" className="flex items-center gap-2 text-neutral-400 hover:text-gold transition-colors text-sm">
-                    <Phone size={13} className="text-gold" /> 01753 257118
+                  <a href="tel:07845239774" className="flex items-center gap-2 text-neutral-400 hover:text-gold transition-colors text-sm">
+                    <Phone size={13} className="text-gold" /> 07845 239774
                   </a>
                   <a href="mailto:info@leoluxeclean.co.uk" className="flex items-center gap-2 text-neutral-400 hover:text-gold transition-colors text-sm">
                     <Mail size={13} className="text-gold" /> info@leoluxeclean.co.uk

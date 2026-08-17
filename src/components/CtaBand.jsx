@@ -54,11 +54,11 @@ const CtaBand = () => {
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </button>
           <a
-            href="tel:01753257118"
+            href="tel:07845239774"
             className="btn-outline-gold label-caps px-10 py-4 rounded-lg text-center flex items-center justify-center gap-2"
-            aria-label="Call us at 01753 257118"
+            aria-label="Call us at 07845 239774"
           >
-            <Phone size={16} /> 01753 257118
+            <Phone size={16} /> 07845 239774
           </a>
         </div>
 

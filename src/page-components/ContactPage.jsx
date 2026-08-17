@@ -70,7 +70,7 @@ const buildEmailHtml = (data) => `
         </tr>
         <tr>
           <td style="background:#f4f4f4;padding:20px 40px;text-align:center;border-top:1px solid #eeeeee;">
-            <p style="margin:0;font-size:11px;color:#aaaaaa;">Leo Luxe Clean · Slough, Berkshire · 01753 257118</p>
+            <p style="margin:0;font-size:11px;color:#aaaaaa;">Leo Luxe Clean · Slough, Berkshire · 07845 239774</p>
           </td>
         </tr>
       </table>
@@ -156,11 +156,11 @@ const ContactPage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
             <a
-              href="tel:01753257118"
+              href="tel:07845239774"
               className="flex items-center gap-3 text-white hover:text-gold transition-colors"
             >
               <Phone size={16} className="text-gold" />
-              <span className="text-sm font-medium">01753 257118</span>
+              <span className="text-sm font-medium">07845 239774</span>
               <span className="text-neutral-500 text-xs">Mon–Sat 8am–7pm</span>
             </a>
             <a

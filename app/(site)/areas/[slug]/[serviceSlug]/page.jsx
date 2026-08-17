@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
   if (!location || !service) return {};
   const priceClause = service.priceFrom ? ` From £${service.priceFrom}.` : '';
   const title = `${service.title} in ${location.name} | Leo Luxe Clean`;
-  const description = `Looking for ${service.title.toLowerCase()} in ${location.name}? Leo Luxe Clean covers ${location.postcodes} and all of ${location.county}.${priceClause} DBS-checked, eco-friendly, 5-star rated. Same-week availability. Free quotes — call 01753 257118.`;
+  const description = `Looking for ${service.title.toLowerCase()} in ${location.name}? Leo Luxe Clean covers ${location.postcodes} and all of ${location.county}.${priceClause} DBS-checked, eco-friendly, 5-star rated. Same-week availability. Free quotes — call 07845 239774.`;
   return {
     title: { absolute: title },
     description,
