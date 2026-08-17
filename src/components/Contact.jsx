@@ -15,8 +15,8 @@ const contactItems = [
   {
     icon: <Phone size={18} />,
     label: 'Call us',
-    value: '01753 257118',
-    href: 'tel:01753257118',
+    value: '07845 239774',
+    href: 'tel:07845239774',
   },
   {
     icon: <Mail size={18} />,
@@ -101,7 +101,7 @@ const buildEmailHtml = (data) => `
         <!-- Footer -->
         <tr>
           <td style="background:#f4f4f4;padding:20px 40px;text-align:center;border-top:1px solid #eeeeee;">
-            <p style="margin:0;font-size:11px;color:#aaaaaa;">Leo Luxe Clean · Slough, Berkshire · 01753 257118</p>
+            <p style="margin:0;font-size:11px;color:#aaaaaa;">Leo Luxe Clean · Slough, Berkshire · 07845 239774</p>
           </td>
         </tr>
       </table>

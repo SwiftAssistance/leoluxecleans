@@ -7,7 +7,7 @@ const homeFaqSchema = createFaqSchema([
   { q: 'What areas do you cover?', a: "We're based in Slough (SL1) and cover Windsor, Langley, Maidenhead, Eton, Burnham, Ascot, Bracknell, and West London including Hayes, Southall, Uxbridge, Ealing, Greenford, Northolt, West Drayton, and Hounslow." },
   { q: 'Are your cleaners DBS checked?', a: "Yes — every team member is DBS checked and fully insured. We don't use agency staff or sub-contractors." },
   { q: 'Do you bring your own products and equipment?', a: "We bring everything — products, equipment, and supplies. You don't need to provide anything." },
-  { q: 'How quickly can you start?', a: "Most weeks we can fit a new booking within the same week. Call us on 01753 257118 or fill in the quote form and we'll confirm availability within a couple of hours." },
+  { q: 'How quickly can you start?', a: "Most weeks we can fit a new booking within the same week. Call us on 07845 239774 or fill in the quote form and we'll confirm availability within a couple of hours." },
   { q: "What if I'm not happy with the clean?", a: "Tell us. If something's been missed or not done to standard, we'll come back and sort it — same week, no charge." },
 ]);
 

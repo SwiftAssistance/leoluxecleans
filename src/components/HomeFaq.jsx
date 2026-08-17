@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: 'How quickly can you start?',
-    a: 'Most weeks we can fit a new booking within the same week. Call us on 01753 257118 or fill in the quote form and we\'ll confirm availability, usually within a couple of hours.',
+    a: 'Most weeks we can fit a new booking within the same week. Call us on 07845 239774 or fill in the quote form and we\'ll confirm availability, usually within a couple of hours.',
   },
   {
     q: 'Do I need to be home when you clean?',

@@ -106,11 +106,11 @@ const Navbar = () => {
             );
           })}
           <a
-            href="tel:01753257118"
+            href="tel:07845239774"
             className="label-caps text-neutral-400 hover:text-gold transition-colors duration-300 flex items-center gap-2"
-            aria-label="Call us at 01753 257118"
+            aria-label="Call us at 07845 239774"
           >
-            <Phone size={14} /> 01753 257118
+            <Phone size={14} /> 07845 239774
           </a>
           <a
             href="https://wa.me/447845239774?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
@@ -164,11 +164,11 @@ const Navbar = () => {
               );
             })}
             <a
-              href="tel:01753257118"
+              href="tel:07845239774"
               className="label-caps text-gold flex items-center gap-2"
-              aria-label="Call us at 01753 257118"
+              aria-label="Call us at 07845 239774"
             >
-              <Phone size={14} /> 01753 257118
+              <Phone size={14} /> 07845 239774
             </a>
             <a
               href="https://wa.me/447845239774?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"

@@ -96,7 +96,7 @@ const QuoteModal = () => {
         setError('Something went wrong. Please try again or call us directly.');
       }
     } catch {
-      setError('Something went wrong. Please try again or call us on 01753 257118.');
+      setError('Something went wrong. Please try again or call us on 07845 239774.');
     } finally {
       setSubmitting(false);
     }
@@ -182,8 +182,8 @@ const QuoteModal = () => {
               <div className="mt-4 flex items-center justify-center gap-1.5 text-xs text-neutral-500">
                 <Phone size={12} />
                 <span>Or call us now: </span>
-                <a href="tel:01753257118" className="text-gold hover:underline">
-                  01753 257118
+                <a href="tel:07845239774" className="text-gold hover:underline">
+                  07845 239774
                 </a>
               </div>
               <button
@@ -383,8 +383,8 @@ const QuoteModal = () => {
               {error && (
                 <p className="text-red-400 text-xs text-center bg-red-400/10 border border-red-400/20 rounded-lg px-4 py-3">
                   {error}{' '}
-                  <a href="tel:01753257118" className="text-red-300 underline font-medium">
-                    01753 257118
+                  <a href="tel:07845239774" className="text-red-300 underline font-medium">
+                    07845 239774
                   </a>
                 </p>
               )}

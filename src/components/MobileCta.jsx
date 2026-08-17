@@ -16,9 +16,9 @@ const MobileCta = () => {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-surface-black border-t border-gold/20 px-3 py-3 flex gap-2 safe-bottom">
       <a
-        href="tel:01753257118"
+        href="tel:07845239774"
         className="flex-none btn-outline-gold label-caps py-4 px-4 rounded-lg text-center flex items-center justify-center gap-1.5 min-h-[44px]"
-        aria-label="Call 01753 257118"
+        aria-label="Call 07845 239774"
       >
         <Phone size={14} />
       </a>
