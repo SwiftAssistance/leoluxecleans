@@ -3,6 +3,10 @@ const SITE_NAME = 'Leo Luxe Clean';
 const DEFAULT_DESCRIPTION =
   'Local cleaners based in Slough, covering Windsor, Maidenhead, Hayes, Uxbridge, Ealing, Hounslow & surrounding areas. Home cleaning, deep cleans, end of tenancy, office cleaning. DBS checked, fully insured. Free quotes.';
 
+// Leo Luxe Clean's Google Business Profile (CID from the Google Maps place link).
+export const GBP_CID = '17856583976771520688';
+export const GBP_URL = `https://www.google.com/maps?cid=${GBP_CID}`;
+
 // Seo is no longer used directly — metadata is handled by Next.js generateMetadata.
 // This file is kept as a schema utility module.
 const Seo = () => null;
@@ -113,8 +117,7 @@ export const localBusinessSchema = {
   },
   sameAs: [
     'https://www.instagram.com/leoluxeclean',
-    // Add your Google Business Profile URL here once confirmed, e.g.:
-    // 'https://g.page/leoluxeclean',
+    GBP_URL,
     // 'https://www.facebook.com/leoluxeclean',
   ],
 };
