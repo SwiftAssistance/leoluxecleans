@@ -6,7 +6,9 @@ import {
   MapPin,
   Instagram,
   Facebook,
+  Star,
 } from 'lucide-react';
+import { GBP_URL } from './Seo';
 
 const footerLinks = [
   { name: 'Home', to: '/' },
@@ -48,6 +50,7 @@ const westLondonLinks = [
 ];
 
 const socialLinks = [
+  { Icon: Star, label: 'Google', href: GBP_URL },
   { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/leoluxeclean' },
   { Icon: Facebook, label: 'Facebook', href: '#' },
 ];
@@ -87,9 +90,15 @@ const Footer = () => {
               >
                 <Mail size={14} className="text-gold" /> info@leoluxeclean.co.uk
               </a>
-              <span className="flex items-center gap-3 text-neutral-500">
+              <a
+                href={GBP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-neutral-500 hover:text-gold transition-colors"
+                aria-label="Find Leo Luxe Clean on Google Maps"
+              >
                 <MapPin size={14} className="text-gold" /> Slough, Berkshire
-              </span>
+              </a>
             </div>
           </div>
 
@@ -164,9 +173,10 @@ const Footer = () => {
                 <a
                   key={label}
                   href={href}
-                  rel={href === '#' ? 'nofollow' : undefined}
+                  target={href === '#' ? undefined : '_blank'}
+                  rel={href === '#' ? 'nofollow' : 'noopener noreferrer'}
                   className="w-10 h-10 rounded-lg border border-surface-border/40 flex items-center justify-center text-neutral-400 hover:text-gold hover:border-gold/30 transition-colors"
-                  aria-label={`Follow us on ${label}`}
+                  aria-label={label === 'Google' ? 'Find us on Google' : `Follow us on ${label}`}
                 >
                   <Icon size={16} />
                 </a>

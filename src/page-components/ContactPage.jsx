@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { GBP_URL, GBP_CID } from '../components/Seo';
 
 const SERVICE_LABELS = {
   home: 'Home Cleaning',
@@ -388,10 +389,10 @@ const ContactPage = () => {
       </section>
 
       {/* Map */}
-      <section className="bg-surface-dark">
+      <section className="bg-surface-dark relative">
         <iframe
-          title="Leo Luxe Clean location — Slough, Berkshire"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39792.48!2d-0.6!3d51.51!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48767600!2sSlough!5e0!3m2!1sen!2suk!4v1"
+          title="Leo Luxe Clean location on Google Maps"
+          src={`https://www.google.com/maps?cid=${GBP_CID}&output=embed`}
           width="100%"
           height="300"
           style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(0.9)' }}
@@ -399,6 +400,14 @@ const ContactPage = () => {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />
+        <a
+          href={GBP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute top-4 right-4 bg-surface-black/90 border border-surface-border/60 text-white text-xs label-caps px-4 py-2.5 rounded-lg hover:border-gold/40 hover:text-gold transition-colors flex items-center gap-2"
+        >
+          <MapPin size={13} className="text-gold" /> View on Google Maps
+        </a>
       </section>
 
       {/* FAQ */}
