@@ -5,6 +5,8 @@ import { Star, Quote, ArrowRight, Phone, CheckCircle2 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { GBP_URL } from '../components/Seo';
+import { GoogleLogo, GoogleVerifiedBadge } from '../components/GoogleLogo';
+import { featuredReviews as allReviews } from '../data/reviews';
 
 const StarRating = ({ size = 12 }) => (
   <div className="flex gap-0.5" aria-label="5 out of 5 stars">
@@ -14,51 +16,6 @@ const StarRating = ({ size = 12 }) => (
   </div>
 );
 
-const allReviews = [
-  {
-    text: "Really impressed with Leo Luxe. They cleaned our whole house before we moved in and it was spotless. You can tell they take pride in what they do — I've already recommended them to two friends.",
-    author: 'Sarah Mitchell',
-    role: 'Homeowner, Slough',
-    initial: 'S',
-    featured: true,
-  },
-  {
-    text: 'We use them for our office every week. Always on time, always thorough, and the team are really lovely. Makes a real difference to the workplace.',
-    author: 'David Chen',
-    role: 'Business Owner, Windsor',
-    initial: 'D',
-  },
-  {
-    text: 'Had them do a deep clean before our baby arrived. They got into every nook and cranny. Brilliant service from start to finish.',
-    author: 'Priya Sharma',
-    role: 'Homeowner, Langley',
-    initial: 'P',
-  },
-  {
-    text: 'End of tenancy clean was brilliant. Got our full deposit back. They even cleaned inside the oven which I thought was a lost cause!',
-    author: 'James Taylor',
-    role: 'Tenant, Slough',
-    initial: 'J',
-  },
-  {
-    text: "Found Leo Luxe through a neighbour's recommendation and I'm so glad I did. You can tell they genuinely care about doing a good job. My house has never been cleaner.",
-    author: 'Tom Richards',
-    role: 'Homeowner, Slough',
-    initial: 'T',
-  },
-  {
-    text: "After our daughter's birthday party the place was a state. Leo Luxe came next morning and had it sorted by lunchtime. Lifesaver.",
-    author: 'Rebecca Osei',
-    role: 'Homeowner, Windsor',
-    initial: 'R',
-  },
-  {
-    text: "Professional, friendly, and thorough. They cleaned our Airbnb property between guests and our reviews have improved since we started using them.",
-    author: 'Marcus Hall',
-    role: 'Property Host, Windsor',
-    initial: 'M',
-  },
-];
 
 const ReviewsPage = () => {
   const { openModal } = useQuoteModal();
@@ -71,7 +28,7 @@ const ReviewsPage = () => {
     <>
       <PageHero
         title={<>What People <span className="text-gold-gradient">Say</span></>}
-        subtitle="We're a new company, so every review means the world to us. Here's what our customers across Berkshire have to say."
+        subtitle="Every review below is a verified Google review, left by a real customer on our Google Business Profile."
         breadcrumb="Reviews"
       />
 
@@ -87,8 +44,9 @@ const ReviewsPage = () => {
                   href={GBP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-500 hover:text-gold transition-colors text-sm mt-1 inline-block"
+                  className="text-neutral-500 hover:text-gold transition-colors text-sm mt-1 inline-flex items-center gap-2"
                 >
+                  <GoogleLogo size={15} />
                   Google Reviews
                 </a>
               </div>
@@ -96,16 +54,16 @@ const ReviewsPage = () => {
             <div className="hidden md:block w-px h-14 bg-surface-border/40" />
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-neutral-400">
               <span className="flex items-center gap-2">
-                <CheckCircle2 size={14} className="text-gold" />
-                Verified Customers
+                <GoogleLogo size={14} />
+                Google Verified Reviews
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-gold" />
-                100% Real Feedback
+                Left by Real Customers
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-gold" />
-                Every Review Earned
+                Unedited & Unfiltered
               </span>
             </div>
           </div>
@@ -116,6 +74,9 @@ const ReviewsPage = () => {
       <section className="py-16 lg:py-20 bg-surface-black">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <div className="rounded-2xl border border-gold/15 p-10 lg:p-14 text-center relative">
+            <div className="flex justify-center mb-6">
+              <GoogleVerifiedBadge />
+            </div>
             <Quote size={32} className="text-gold/20 mx-auto mb-6" />
             <p className="text-white text-xl lg:text-2xl leading-relaxed mb-8 font-light max-w-2xl mx-auto">
               "{featuredReview.text}"
@@ -144,7 +105,7 @@ const ReviewsPage = () => {
               More From Our Customers
             </h2>
             <p className="text-neutral-400 text-sm max-w-md mx-auto">
-              Real reviews from real people across Slough, Windsor, and Berkshire.
+              Every one of these is a verified Google review from a real customer.
             </p>
           </div>
 
@@ -160,8 +121,9 @@ const ReviewsPage = () => {
                 }`}
                 style={{ transitionDelay: `${i * 50}ms` }}
               >
-                <div className="mb-3">
+                <div className="flex items-center justify-between mb-3">
                   <StarRating size={13} />
+                  <GoogleLogo size={14} />
                 </div>
                 <p className="text-neutral-300 text-sm leading-relaxed mb-5">
                   "{review.text}"
@@ -184,10 +146,13 @@ const ReviewsPage = () => {
       {/* CTA */}
       <section className="py-16 lg:py-20 bg-surface-dark border-y border-surface-border/30">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-          <div className="flex gap-0.5 justify-center mb-6">
-            {[...Array(5)].map((_, j) => (
-              <Star key={j} size={20} fill="#C8A94E" strokeWidth={0} />
-            ))}
+          <div className="flex items-center gap-2.5 justify-center mb-6">
+            <GoogleLogo size={22} />
+            <div className="flex gap-0.5">
+              {[...Array(5)].map((_, j) => (
+                <Star key={j} size={20} fill="#C8A94E" strokeWidth={0} />
+              ))}
+            </div>
           </div>
           <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
             Ready to see for yourself?

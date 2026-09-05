@@ -16,6 +16,7 @@ import PageHero from '../components/PageHero';
 import { getServiceBySlug, services } from '../data/services';
 import { locations } from '../data/locations';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { GoogleLogo } from '../components/GoogleLogo';
 
 
 const ServiceDetailPage = ({ slug }) => {
@@ -99,10 +100,13 @@ const ServiceDetailPage = ({ slug }) => {
               {/* Customer review for this service */}
               {review && (
                 <div className="mt-10 rounded-xl border border-surface-border/30 p-6">
-                  <div className="flex gap-0.5 mb-3" aria-label="5 out of 5 stars">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
-                    ))}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex gap-0.5" aria-label="5 out of 5 stars">
+                      {[...Array(5)].map((_, j) => (
+                        <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
+                      ))}
+                    </div>
+                    <GoogleLogo size={14} />
                   </div>
                   <p className="text-neutral-300 text-sm leading-relaxed mb-4">
                     &ldquo;{review.text}&rdquo;

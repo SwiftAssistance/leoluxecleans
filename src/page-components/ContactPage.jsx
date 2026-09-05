@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import { GoogleLogo } from '../components/GoogleLogo';
 import {
   Phone,
   Mail,
@@ -180,19 +181,22 @@ const ContactPage = () => {
         <div className="max-w-3xl mx-auto px-6 lg:px-12">
           <div className="flex items-start gap-5 rounded-xl border border-surface-border/30 p-6">
             <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold heading-serif text-lg flex-shrink-0">
-              S
+              L
             </div>
             <div>
-              <div className="flex gap-0.5 mb-2" aria-label="5 out of 5 stars">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
-                ))}
+              <div className="flex items-center gap-2 mb-2">
+                <div className="flex gap-0.5" aria-label="5 out of 5 stars">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
+                  ))}
+                </div>
+                <GoogleLogo size={13} />
               </div>
               <p className="text-neutral-300 text-sm leading-relaxed">
-                "Honestly can't recommend Leo Luxe enough. They cleaned our whole house before we moved in and it was absolutely spotless. The attention to detail was incredible."
+                "Kelly and Stacey are excellent, they provide a high quality service and attention to detail. Communication is great. Its a pleasure being your client."
               </p>
               <p className="text-neutral-500 text-xs mt-2">
-                Sarah Mitchell — Homeowner, Slough
+                Lucy C — Verified Google review
               </p>
             </div>
           </div>

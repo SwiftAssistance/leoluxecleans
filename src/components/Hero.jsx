@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { ArrowRight, Phone, Star, ShieldCheck, Leaf } from 'lucide-react';
+import { GoogleLogo } from './GoogleLogo';
 import { useQuoteModal } from '../context/QuoteModalContext';
 
 const Hero = () => {
@@ -98,21 +99,20 @@ const Hero = () => {
                     <Star key={i} size={13} fill="#C8A94E" strokeWidth={0} />
                   ))}
                 </div>
-                <span className="text-[10px] label-caps text-gold/60 bg-gold/10 px-2.5 py-1 rounded-full border border-gold/20">
-                  Google Review
+                <span className="text-[10px] label-caps text-neutral-300 bg-white/5 px-2.5 py-1 rounded-full border border-white/10 inline-flex items-center gap-1.5">
+                  <GoogleLogo size={12} /> Google Verified
                 </span>
               </div>
               <p className="text-neutral-200 text-sm leading-relaxed mb-5">
-                "They cleaned our whole house before we moved in and it was absolutely
-                spotless. The attention to detail was incredible."
+                "Very reliable, always to a high standard 10/10"
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-gold/15 border border-gold/25 flex items-center justify-center flex-shrink-0">
                   <span className="text-gold text-sm font-semibold">S</span>
                 </div>
                 <div>
-                  <p className="text-white text-xs font-semibold">Sarah Mitchell</p>
-                  <p className="text-neutral-500 text-xs">Homeowner · Slough</p>
+                  <p className="text-white text-xs font-semibold">Susan J</p>
+                  <p className="text-neutral-500 text-xs">Google review</p>
                 </div>
               </div>
             </div>

@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { GoogleLogo } from '../components/GoogleLogo';
 
 const values = [
   {
@@ -94,16 +95,19 @@ const AboutPage = () => {
 
               {/* Testimonial inline */}
               <div className="mt-10 rounded-xl border border-surface-border/30 p-6">
-                <div className="flex gap-0.5 mb-3" aria-label="5 out of 5 stars">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
-                  ))}
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex gap-0.5" aria-label="5 out of 5 stars">
+                    {[...Array(5)].map((_, j) => (
+                      <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
+                    ))}
+                  </div>
+                  <GoogleLogo size={14} />
                 </div>
                 <p className="text-neutral-300 text-sm leading-relaxed mb-3">
-                  "Found Leo Luxe through a neighbour's recommendation and I'm so glad I did. You can tell they genuinely care about doing a good job. My house has never been cleaner."
+                  "I used this cleaning company services for a few months now and I can say I'm very happy. They are reliable and delivers a great service. I run a few properties on short term Lettings and they have been excellent at helping me to keep my properties at a 5* level for my guests. Highly recommended 👍"
                 </p>
                 <p className="text-neutral-500 text-xs">
-                  Tom Richards — Homeowner, Slough
+                  Stefania P — Verified Google review
                 </p>
               </div>
             </div>

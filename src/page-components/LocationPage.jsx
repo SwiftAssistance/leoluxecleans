@@ -19,6 +19,7 @@ import PageHero from '../components/PageHero';
 import { getLocationBySlug, locations } from '../data/locations';
 import { services } from '../data/services';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { GoogleLogo } from '../components/GoogleLogo';
 
 const serviceIcons = {
   'home-cleaning': <Home size={22} />,
@@ -124,10 +125,13 @@ const LocationPage = ({ slug }) => {
                 {/* Review from this area */}
                 {location.reviews.length > 0 && (
                   <div className="rounded-xl border border-surface-border/40 p-6">
-                    <div className="flex gap-0.5 mb-3" aria-label="5 out of 5 stars">
-                      {[...Array(5)].map((_, j) => (
-                        <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
-                      ))}
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex gap-0.5" aria-label="5 out of 5 stars">
+                        {[...Array(5)].map((_, j) => (
+                          <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
+                        ))}
+                      </div>
+                      <GoogleLogo size={14} />
                     </div>
                     <p className="text-neutral-300 text-sm leading-relaxed mb-4">
                       &ldquo;{location.reviews[0].text}&rdquo;

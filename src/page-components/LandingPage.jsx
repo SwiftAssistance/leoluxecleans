@@ -3,9 +3,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   Phone, Mail, ShieldCheck, CheckCircle2, Star,
   Leaf, Shield, Home, Building2, Sparkles, Key,
-  ArrowRight, MapPin, Zap, Clock, ChevronDown, Users, BadgeCheck, X,
+  ArrowRight, Zap, Clock, ChevronDown, Users, BadgeCheck, X,
 } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { GoogleLogo } from '../components/GoogleLogo';
+import { featuredReviews } from '../data/reviews';
 
 function WhatsAppIcon({ size = 16 }) {
   return (
@@ -38,12 +40,13 @@ const STEPS = [
   { n: '03', title: 'Sit Back & Relax', desc: 'Your cleaner arrives, works to our exacting standard, and you come home to a spotless house.' },
 ];
 
-const REVIEWS = [
-  { name: 'Charlotte W.', location: 'Windsor', rating: 5, text: "We've had the same cleaner for six months now. She knows exactly how we like things — the house is always perfect. Wouldn't use anyone else." },
-  { name: 'James T.', location: 'Ascot', rating: 5, text: 'Booked a deep clean before putting our house on the market. Absolutely immaculate result — the estate agent actually commented on how clean it was.' },
-  { name: 'Priya K.', location: 'Maidenhead', rating: 5, text: "We use Leo Luxe for our weekly home clean. Reliable, thorough, and always leave the place looking incredible. The same cleaner every time makes such a difference." },
-  { name: 'Richard H.', location: 'Virginia Water', rating: 5, text: "Used them for an end of tenancy clean on our rental property. Tenant got their full deposit back and the new tenants were delighted. Professional from start to finish." },
-];
+// The five verified Google reviews — single source of truth in src/data/reviews.js
+const REVIEWS = featuredReviews.map((r) => ({
+  name: r.author,
+  location: r.role,
+  rating: 5,
+  text: r.text,
+}));
 
 const FAQS = [
   {
@@ -486,9 +489,10 @@ const LandingPage = ({
               <div className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 mb-6 max-w-lg">
                 <StarRow count={5} size={12} />
                 <p className="text-neutral-300 text-xs leading-relaxed">
-                  <span className="text-white font-medium">"We've had the same cleaner for six months — the house is always perfect."</span>
-                  {' '}— Charlotte W., Windsor
+                  <span className="text-white font-medium">"Very reliable, always to a high standard 10/10"</span>
+                  {' '}— Susan J
                 </p>
+                <GoogleLogo size={14} className="flex-shrink-0 mt-0.5" />
               </div>
 
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
@@ -659,16 +663,16 @@ const LandingPage = ({
           <div className="max-w-3xl mx-auto px-6 text-center">
             <StarRow count={5} size={18} />
             <blockquote className="heading-serif text-[clamp(1.6rem,3.2vw,2.6rem)] text-white leading-[1.18] mt-6 mb-8">
-              "Booked a deep clean before putting our house on the market. Absolutely immaculate — the estate agent actually commented on how clean it was."
+              "Two lovely girls came and did a brilliant job \u2014 they worked so hard, leaving my house looking and feeling amazing. Great service from start to finish."
             </blockquote>
             <div className="flex items-center justify-center gap-3">
               <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
-                <span className="text-gold font-semibold text-sm" aria-hidden="true">J</span>
+                <span className="text-gold font-semibold text-sm" aria-hidden="true">S</span>
               </div>
               <div className="text-left">
-                <p className="text-white font-medium text-sm">James T.</p>
-                <p className="text-neutral-500 text-xs flex items-center gap-1">
-                  <MapPin size={10} aria-hidden="true" /> Ascot · Google Review
+                <p className="text-white font-medium text-sm">Simon K.O</p>
+                <p className="text-neutral-500 text-xs flex items-center gap-1.5">
+                  <GoogleLogo size={11} /> Google verified review
                 </p>
               </div>
             </div>
@@ -688,8 +692,9 @@ const LandingPage = ({
                     What Our Customers Say
                   </h2>
                   <div className="flex items-center gap-2">
+                    <GoogleLogo size={16} />
                     <StarRow count={5} size={14} />
-                    <span className="text-neutral-400 text-sm">5.0 · 200+ Google reviews</span>
+                    <span className="text-neutral-400 text-sm">5.0 · Verified Google reviews</span>
                   </div>
                 </div>
                 <button
@@ -700,13 +705,16 @@ const LandingPage = ({
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {REVIEWS.map(({ name, location, rating, text }) => (
                   <article
                     key={name}
                     className="rounded-2xl bg-surface-card border border-surface-border/50 p-6 hover:border-gold/30 transition-colors flex flex-col"
                   >
-                    <StarRow count={rating} size={13} />
+                    <div className="flex items-center justify-between">
+                      <StarRow count={rating} size={13} />
+                      <GoogleLogo size={14} />
+                    </div>
                     <blockquote className="text-neutral-300 text-sm leading-relaxed my-4 flex-1">
                       &ldquo;{text}&rdquo;
                     </blockquote>
@@ -718,9 +726,7 @@ const LandingPage = ({
                       </div>
                       <div>
                         <p className="text-white text-xs font-medium">{name}</p>
-                        <p className="text-neutral-500 text-xs flex items-center gap-1">
-                          <MapPin size={9} aria-hidden="true" /> {location}
-                        </p>
+                        <p className="text-neutral-500 text-xs">{location}</p>
                       </div>
                     </div>
                   </article>

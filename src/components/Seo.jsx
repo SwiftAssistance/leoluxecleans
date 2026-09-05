@@ -1,3 +1,5 @@
+import { featuredReviews } from '../data/reviews';
+
 const BASE_URL = 'https://leoluxeclean.co.uk';
 const SITE_NAME = 'Leo Luxe Clean';
 const DEFAULT_DESCRIPTION =
@@ -76,33 +78,17 @@ export const localBusinessSchema = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: 5,
-    reviewCount: 3,
+    reviewCount: featuredReviews.length,
     bestRating: 5,
     worstRating: 1,
   },
-  review: [
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: '1' },
-      author: { '@type': 'Person', name: 'Tom Richards' },
-      reviewBody: "Found Leo Luxe through a neighbour's recommendation and I'm so glad I did. You can tell they genuinely care about doing a good job. My house has never been cleaner.",
-      datePublished: '2024-11-01',
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: '1' },
-      author: { '@type': 'Person', name: 'Priya Sharma' },
-      reviewBody: 'Had them do a deep clean before our baby arrived. They got into every nook and cranny. Brilliant service from start to finish.',
-      datePublished: '2024-12-15',
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: '1' },
-      author: { '@type': 'Person', name: 'James Taylor' },
-      reviewBody: 'End of tenancy clean was perfect. Got our full deposit back. They even cleaned inside the oven which I thought was a lost cause!',
-      datePublished: '2025-01-20',
-    },
-  ],
+  // Verified Google reviews — see src/data/reviews.js
+  review: featuredReviews.map((r) => ({
+    '@type': 'Review',
+    reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: 1 },
+    author: { '@type': r.authorType || 'Person', name: r.author },
+    reviewBody: r.text,
+  })),
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Cleaning Services',
@@ -247,10 +233,10 @@ export const createServiceSchema = (service) => ({
     review: [
       {
         '@type': 'Review',
-        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: '1' },
-        author: { '@type': 'Person', name: service.review.author },
+        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: 1 },
+        author: { '@type': service.review.authorType || 'Person', name: service.review.author },
         reviewBody: service.review.text,
-        datePublished: service.review.date,
+        ...(service.review.date && { datePublished: service.review.date }),
       },
     ],
   }),
@@ -300,10 +286,10 @@ export const createLocationSchema = (location) => ({
     },
     review: location.reviews.map((r) => ({
       '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: '1' },
-      author: { '@type': 'Person', name: r.author },
+      reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: 1 },
+      author: { '@type': r.authorType || 'Person', name: r.author },
       reviewBody: r.text,
-      datePublished: r.date || '2025-01-01',
+      ...(r.date && { datePublished: r.date }),
     })),
   }),
 });

@@ -1,3 +1,5 @@
+import { googleReviews } from './reviews';
+
 export const locations = [
   {
     slug: 'slough',
@@ -14,22 +16,7 @@ export const locations = [
       'Whether you\'re in a flat near the Queensmere, a terraced house in Langley Road, or running a business on the Trading Estate, we\'re close by and usually available within the week. Our Slough clients tend to stay with us — not because we push contracts, but because the standard stays the same every visit.',
     ],
     areas: ['Slough Town Centre', 'Cippenham', 'Upton', 'Chalvey', 'Farnham Royal', 'Langley'],
-    reviews: [
-      {
-        text: "Found Leo Luxe through a neighbour's recommendation and I'm so glad I did. You can tell they genuinely care about doing a good job. My house has never been cleaner.",
-        author: 'Tom Richards',
-        role: 'Homeowner, Slough',
-        initial: 'T',
-        date: '2024-11-01',
-      },
-      {
-        text: 'End of tenancy clean was perfect. Got our full deposit back. They even cleaned inside the oven!',
-        author: 'James Taylor',
-        role: 'Tenant, Slough',
-        initial: 'J',
-        date: '2025-01-20',
-      },
-    ],
+    reviews: [googleReviews[0]],
   },
   {
     slug: 'windsor',
@@ -46,22 +33,7 @@ export const locations = [
       'Windsor clients value consistency above most things. They want the same team, not a different person each fortnight. That\'s exactly how we work — and it\'s why most Windsor bookings become regulars.',
     ],
     areas: ['Windsor Town Centre', 'Old Windsor', 'Dedworth', 'Clewer', 'Clewer Village', 'Windsor Great Park area'],
-    reviews: [
-      {
-        text: 'We use them for our office every week. Always on time, always thorough, and the team are really lovely.',
-        author: 'David Chen',
-        role: 'Business Owner, Windsor',
-        initial: 'D',
-        date: '2024-10-14',
-      },
-      {
-        text: "After our daughter's birthday party the place was a state. Leo Luxe came next morning and had it spotless by lunchtime.",
-        author: 'Rebecca Osei',
-        role: 'Homeowner, Windsor',
-        initial: 'R',
-        date: '2025-02-03',
-      },
-    ],
+    reviews: [googleReviews[1]],
   },
   {
     slug: 'langley',
@@ -78,15 +50,7 @@ export const locations = [
       'A lot of our Langley clients came to us for a one-off deep clean or end of tenancy, liked the result, and stuck around. That\'s the typical pattern. There\'s no pressure to commit to anything — but once the standard is there, most people don\'t want to shop around again.',
     ],
     areas: ['Langley Village', 'Langley Marish', 'Brands Hill', 'Colnbrook', 'Richings Park', 'George Green'],
-    reviews: [
-      {
-        text: 'Had them do a deep clean before our baby arrived. They got into every nook and cranny. Brilliant service.',
-        author: 'Priya Sharma',
-        role: 'Homeowner, Langley',
-        initial: 'P',
-        date: '2024-12-15',
-      },
-    ],
+    reviews: [googleReviews[2]],
   },
   {
     slug: 'maidenhead',
@@ -103,15 +67,7 @@ export const locations = [
       'Our Maidenhead clients are often homeowners or Airbnb hosts who want a reliable, consistent team rather than a different person each time. We keep the same crew on every regular booking, which makes a real difference to the result.',
     ],
     areas: ['Maidenhead Town Centre', 'Bray', 'Cox Green', 'Furze Platt', 'Pinkneys Green', 'Boyne Hill'],
-    reviews: [
-      {
-        text: 'Professional, friendly, and thorough. Our reviews have improved massively since we started using them for our Airbnb.',
-        author: 'Marcus Hall',
-        role: 'Property Host, Maidenhead',
-        initial: 'M',
-        date: '2025-01-08',
-      },
-    ],
+    reviews: [googleReviews[3]],
   },
   {
     slug: 'eton',
@@ -128,15 +84,7 @@ export const locations = [
       'We\'re just across the bridge from Windsor, which means we can be in Eton within minutes. Many of our Eton clients value discretion and professionalism above all else — and that\'s exactly what we deliver.',
     ],
     areas: ['Eton High Street', 'Eton Wick', 'Dorney', 'Boveney', 'South Meadow Lane area'],
-    reviews: [
-      {
-        text: 'The team are so respectful and kind, and the house is always spotless. Couldn\'t ask for more.',
-        author: 'Claire Bennett',
-        role: 'Homeowner, Eton',
-        initial: 'C',
-        date: '2024-11-22',
-      },
-    ],
+    reviews: [googleReviews[4]],
   },
   {
     slug: 'burnham',
@@ -153,15 +101,7 @@ export const locations = [
       'Many of our Burnham clients have larger family homes that benefit from a regular clean. We also handle end of tenancy cleans for landlords with rental properties in the area. Whatever you need, we\'ll give you an honest quote and deliver a brilliant clean.',
     ],
     areas: ['Burnham Village', 'Taplow', 'Burnham Beeches', 'Hitcham', 'Lent Rise', 'Lake End'],
-    reviews: [
-      {
-        text: 'Had the full specialist treatment — oven, carpets, and windows. Everything looks incredible. Worth every penny.',
-        author: 'Nikhil Patel',
-        role: 'Homeowner, Burnham',
-        initial: 'N',
-        date: '2025-02-18',
-      },
-    ],
+    reviews: [googleReviews[5]],
   },
 
   // ==================== WEST LONDON ====================
@@ -180,15 +120,7 @@ export const locations = [
       'A lot of our Hayes clients came to us after being let down by other cleaners — different people each visit, or jobs that needed re-doing. We keep the same team on each booking and we do the job properly the first time. If something\'s not right, say so and we\'ll be back.',
     ],
     areas: ['Hayes Town', 'Hayes End', 'Yeading', 'Wood End', 'Bulls Cross', 'Townfield'],
-    reviews: [
-      {
-        text: 'Brilliant service — they came the same week I called and the house was spotless. Really friendly team too. Highly recommend.',
-        author: 'Aisha Mohammed',
-        role: 'Homeowner, Hayes',
-        initial: 'A',
-        date: '2024-10-28',
-      },
-    ],
+    reviews: [googleReviews[6]],
   },
   {
     slug: 'southall',
@@ -205,15 +137,7 @@ export const locations = [
       'Our team treats every property with care and respect. Whether it\'s a weekly home clean, an end of tenancy, or a commercial clean for a business premises, we bring the same high standards every single time.',
     ],
     areas: ['Southall Broadway', 'Norwood Green', 'Dormers Wells', 'Lady Margaret', 'Havelock', 'Osterley Park area'],
-    reviews: [
-      {
-        text: 'Used them for an end of tenancy clean in Southall. The landlord was delighted — full deposit back. Can\'t fault them at all.',
-        author: 'Gurpreet Singh',
-        role: 'Tenant, Southall',
-        initial: 'G',
-        date: '2024-12-02',
-      },
-    ],
+    reviews: [googleReviews[7]],
   },
   {
     slug: 'uxbridge',
@@ -230,15 +154,7 @@ export const locations = [
       'Uxbridge has a mix of modern apartments, family homes, and commercial offices. We tailor our service to each. Many of our Uxbridge clients started with a one-off deep clean and switched to a regular booking after seeing the results.',
     ],
     areas: ['Uxbridge Town Centre', 'Hillingdon', 'Cowley', 'Ickenham', 'Ruislip Manor', 'Denham'],
-    reviews: [
-      {
-        text: 'Booked a deep clean for our office in Uxbridge. The team were professional, discreet, and the result was excellent. We now use them every month.',
-        author: 'Rachel Davies',
-        role: 'Office Manager, Uxbridge',
-        initial: 'R',
-        date: '2025-01-14',
-      },
-    ],
+    reviews: [googleReviews[0]],
   },
 
   // ==================== MORE WEST LONDON ====================
@@ -257,15 +173,7 @@ export const locations = [
       'Our Ealing clients value reliability and consistency. Whether you need a regular home clean, a one-off deep clean, or an end of tenancy, we bring the same standards our Slough and Hayes clients know and trust.',
     ],
     areas: ['Ealing Broadway', 'West Ealing', 'Hanwell', 'Ealing Common', 'Northfields', 'Castlebar Hill'],
-    reviews: [
-      {
-        text: 'Booked a deep clean for our flat in Ealing and they did a fantastic job. Incredibly thorough and the team were really professional. Would definitely use again.',
-        author: 'Sophie Clarke',
-        role: 'Homeowner, Ealing',
-        initial: 'S',
-        date: '2025-01-29',
-      },
-    ],
+    reviews: [googleReviews[1]],
   },
   {
     slug: 'greenford',
@@ -282,15 +190,7 @@ export const locations = [
       'Whether you\'re in Greenford Broadway, Perivale, or the residential areas around Ravenor Park, our team can be with you quickly. Many of our Greenford clients have switched from ad-hoc bookings to a regular weekly or fortnightly clean after seeing the results.',
     ],
     areas: ['Greenford Broadway', 'Perivale', 'Ravenor Park', 'Rockware Avenue area', 'Horsenden', 'Oldfield Lane area'],
-    reviews: [
-      {
-        text: 'Used Leo Luxe for an end of tenancy clean in Greenford. Everything was spotless — got my full deposit back without any issues. Excellent service.',
-        author: 'Mandeep Kaur',
-        role: 'Tenant, Greenford',
-        initial: 'M',
-        date: '2024-11-18',
-      },
-    ],
+    reviews: [googleReviews[2]],
   },
   {
     slug: 'northolt',
@@ -307,15 +207,7 @@ export const locations = [
       'Our Northolt clients appreciate straightforward, honest pricing and a team that turns up on time and does the job properly. From regular cleans to large-scale end of tenancy jobs, we handle it all with the same care and attention to detail.',
     ],
     areas: ['Northolt Village', 'South Ruislip', 'Mandeville Estate', 'Racecourse Estate', 'West End', 'Islip Manor'],
-    reviews: [
-      {
-        text: 'They cleaned our family home in Northolt before we moved. Everything was immaculate. Friendly team and really reasonable pricing. Highly recommend.',
-        author: 'Daniel Okafor',
-        role: 'Homeowner, Northolt',
-        initial: 'D',
-        date: '2024-12-20',
-      },
-    ],
+    reviews: [googleReviews[3]],
   },
   {
     slug: 'west-drayton',
@@ -332,15 +224,7 @@ export const locations = [
       'Our West Drayton clients love the proximity and the speed of service. Whether you need a regular weekly clean or a one-off deep clean, our team is never far away and always delivers to the same high standard.',
     ],
     areas: ['West Drayton Village', 'Yiewsley', 'Harmondsworth', 'Sipson', 'Longford', 'Colham Green'],
-    reviews: [
-      {
-        text: 'Fast, reliable and thorough. They cleaned our rental property in West Drayton between tenancies and did a brilliant job. Will definitely be using them again.',
-        author: 'Ian Fletcher',
-        role: 'Landlord, West Drayton',
-        initial: 'I',
-        date: '2025-01-05',
-      },
-    ],
+    reviews: [googleReviews[4]],
   },
   {
     slug: 'hounslow',
@@ -357,15 +241,7 @@ export const locations = [
       'We\'ve built up a strong base of regular clients in Hounslow who value our consistent approach. Whatever the job — from a studio flat to a large family home or commercial premises — we bring the same professionalism every time.',
     ],
     areas: ['Hounslow Town Centre', 'Heston', 'Cranford', 'Brentford', 'Isleworth', 'Lampton'],
-    reviews: [
-      {
-        text: 'Booked Leo Luxe for a deep clean of our Hounslow home and was really impressed. Efficient, professional, and excellent results. Highly recommended.',
-        author: 'Anita Sharma',
-        role: 'Homeowner, Hounslow',
-        initial: 'A',
-        date: '2025-02-10',
-      },
-    ],
+    reviews: [googleReviews[5]],
   },
 
   // ==================== MORE BERKSHIRE ====================
@@ -384,15 +260,7 @@ export const locations = [
       'We\'re just a short drive from Windsor, which means fast response times and the same reliable team on every visit. Our Ascot clients often value consistency and trust above all else — and that\'s exactly what we deliver.',
     ],
     areas: ['Ascot Village', 'South Ascot', 'Sunninghill', 'Sunningdale', 'Cheapside', 'North Ascot'],
-    reviews: [
-      {
-        text: 'Exceptional attention to detail. Our home in Sunningdale is always spotless after Leo Luxe visit. Wouldn\'t use anyone else.',
-        author: 'Victoria Palmer',
-        role: 'Homeowner, Sunningdale',
-        initial: 'V',
-        date: '2024-10-07',
-      },
-    ],
+    reviews: [googleReviews[6]],
   },
   {
     slug: 'bracknell',
@@ -409,15 +277,7 @@ export const locations = [
       'Whether you\'re a family looking for a regular clean, a landlord needing an end of tenancy, or a business wanting office cleaning, we\'ll give you an honest quote and a brilliant result. No fuss, no contracts.',
     ],
     areas: ['Bracknell Town Centre', 'Sandhurst', 'Crowthorne', 'Martins Heron', 'Great Hollands', 'Wildridings'],
-    reviews: [
-      {
-        text: 'Had a full deep clean done on our Bracknell property before we put it on the market. They did an incredible job — the estate agent actually commented on how clean it was.',
-        author: 'Steven Wright',
-        role: 'Homeowner, Bracknell',
-        initial: 'S',
-        date: '2025-02-25',
-      },
-    ],
+    reviews: [googleReviews[7]],
   },
 ];
 

@@ -3,27 +3,10 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import { Star, Quote, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { GoogleLogo, GoogleVerifiedBadge } from './GoogleLogo';
+import { featuredReviews as reviews } from '../data/reviews';
+import { GBP_URL } from './Seo';
 
-const reviews = [
-  {
-    text: "Really impressed with Leo Luxe. They cleaned our whole house before we moved in and it was spotless. You can tell they take pride in what they do — I've already recommended them to two friends.",
-    author: 'Sarah Mitchell',
-    role: 'Homeowner, Slough',
-    initial: 'S',
-  },
-  {
-    text: 'We use them for our office every week. Always on time, always thorough, and the team are really lovely. Makes a real difference to the workplace.',
-    author: 'David Chen',
-    role: 'Business Owner, Windsor',
-    initial: 'D',
-  },
-  {
-    text: 'End of tenancy clean was brilliant. Got our full deposit back. They even cleaned inside the oven which I thought was a lost cause!',
-    author: 'James Taylor',
-    role: 'Tenant, Slough',
-    initial: 'J',
-  },
-];
 
 const Reviews = () => {
   const [ref, isVisible] = useScrollReveal({ threshold: 0.1 });
@@ -84,16 +67,22 @@ const Reviews = () => {
             <h2 className="heading-serif text-4xl lg:text-6xl text-white">
               What People Say
             </h2>
-            <div className="flex items-center gap-2 mt-3">
+            <a
+              href={GBP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 mt-3 group w-fit"
+            >
+              <GoogleLogo size={16} />
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, j) => (
                   <Star key={j} size={14} fill="#C8A94E" strokeWidth={0} />
                 ))}
               </div>
-              <span className="text-neutral-500 text-sm">
-                5.0 on Google
+              <span className="text-neutral-500 group-hover:text-gold transition-colors text-sm">
+                5.0 · Verified Google reviews
               </span>
-            </div>
+            </a>
           </div>
           <Link
             href="/reviews"
@@ -117,7 +106,10 @@ const Reviews = () => {
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <Quote size={32} className="text-gold/20 mb-6" />
+            <div className="flex items-center justify-between gap-4 mb-6">
+              <Quote size={32} className="text-gold/20" />
+              <GoogleVerifiedBadge />
+            </div>
 
             {/* Progress bar */}
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-surface-border/50">
@@ -157,12 +149,13 @@ const Reviews = () => {
                       </p>
                       <p className="text-neutral-500 text-xs">{r.role}</p>
                     </div>
-                    <div className="ml-auto">
+                    <div className="ml-auto flex items-center gap-2">
                       <div className="flex gap-0.5">
                         {[...Array(5)].map((_, j) => (
                           <Star key={j} size={13} fill="#C8A94E" strokeWidth={0} />
                         ))}
                       </div>
+                      <GoogleLogo size={14} />
                     </div>
                   </div>
                 </div>
