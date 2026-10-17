@@ -17,7 +17,7 @@ const CtaBand = () => {
 
       {/* Ambient glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[700px] h-[300px] bg-gold/6 rounded-full blur-[100px]" />
+        <div className="w-[700px] h-[300px] bg-gold/5 rounded-full blur-[100px]" />
       </div>
 
       <div

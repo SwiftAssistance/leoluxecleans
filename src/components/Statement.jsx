@@ -19,7 +19,7 @@ const Statement = () => {
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       {/* Giant decorative quotation mark */}
-      <div className="absolute top-8 left-8 lg:left-16 text-[180px] lg:text-[260px] leading-none text-gold/4 heading-serif select-none pointer-events-none">
+      <div className="absolute top-8 left-8 lg:left-16 text-[180px] lg:text-[260px] leading-none text-gold/5 heading-serif select-none pointer-events-none">
         &ldquo;
       </div>
 

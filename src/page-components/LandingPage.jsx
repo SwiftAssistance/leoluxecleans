@@ -437,7 +437,7 @@ const LandingPage = ({
             width={1920}
             height={1080}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/80 to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/40" />
           <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 70% 50%, rgba(200,169,78,0.12) 0%, transparent 65%)' }} />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-10 pb-28 lg:pb-16 lg:py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-[calc(100vh-5rem)]">
