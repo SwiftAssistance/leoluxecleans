@@ -22,7 +22,7 @@ const CtaBand = () => {
 
       <div
         ref={ref}
-        className={`relative max-w-4xl mx-auto px-6 lg:px-12 text-center transition-all duration-700 ${
+        className={`relative max-w-6xl mx-auto px-6 lg:px-12 text-center transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
@@ -35,7 +35,7 @@ const CtaBand = () => {
 
         <p className="label-caps text-gold text-[10px] mb-6 tracking-widest">Ready When You Are</p>
 
-        <h2 className="heading-serif text-5xl sm:text-6xl lg:text-7xl text-white leading-[0.92] mb-6">
+        <h2 className="display text-6xl sm:text-7xl lg:text-[8.5rem] text-white mb-8">
           Want your place
           <br />
           <span className="text-gold-gradient">sorted this week?</span>

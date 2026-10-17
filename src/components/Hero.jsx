@@ -1,130 +1,117 @@
 'use client';
 import React from 'react';
 import HeroImage from './HeroImage';
-import { ArrowRight, Phone, Star, ShieldCheck, Leaf } from 'lucide-react';
+import { ArrowRight, Phone, Star } from 'lucide-react';
 import { useQuoteModal } from '../context/QuoteModalContext';
 import { business } from '../config/business';
 import { getReview } from '../data/reviews';
 
 const heroReview = getReview('linda-willis');
 
+// Circular "5.0 on Google" seal that slowly turns.
+const RatingSeal = () => (
+  <a
+    href={business.google.profileUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group relative block w-32 h-32 lg:w-36 lg:h-36 rounded-full bg-surface-black"
+    aria-label={business.google.summary}
+  >
+    <svg viewBox="0 0 120 120" className="absolute inset-0 w-full h-full animate-[spin_28s_linear_infinite] motion-reduce:animate-none" aria-hidden="true">
+      <defs>
+        <path id="seal-circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" />
+      </defs>
+      <text className="fill-current text-neutral-500" style={{ fontSize: '9.5px', letterSpacing: '0.32em', fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 500 }}>
+        <textPath href="#seal-circle">RATED ON GOOGLE · {business.google.reviewCount} REVIEWS · </textPath>
+      </text>
+    </svg>
+    <span className="absolute inset-0 flex flex-col items-center justify-center">
+      <span className="heading-serif text-4xl text-white leading-none group-hover:text-gold transition-colors">
+        {business.google.ratingDisplay}
+      </span>
+      <span className="flex gap-px mt-1" aria-hidden="true">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} size={8} fill="#C8A94E" strokeWidth={0} />
+        ))}
+      </span>
+    </span>
+  </a>
+);
+
 const Hero = () => {
   const { openModal } = useQuoteModal();
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      <HeroImage className="absolute inset-0 w-full h-full object-cover object-[70%_center]" />
+    <section className="relative bg-surface-black pt-28 lg:pt-32 pb-16 lg:pb-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        {/* Masthead line */}
+        <div className="flex items-center justify-between gap-6 border-b border-surface-border/70 pb-4 mb-10 lg:mb-14">
+          <span className="label-caps text-[10px] text-neutral-500">Local cleaners · Slough, Windsor, Ascot &amp; Berkshire</span>
+          <span className="hidden sm:inline label-caps text-[10px] text-neutral-500">DBS checked · Fully insured</span>
+        </div>
 
-      {/* Multi-layer overlay for depth */}
-      {/* Solid dark panel behind the copy on the left, fading out over the photo */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            'linear-gradient(90deg, rgba(11,11,11,0.96) 0%, rgba(11,11,11,0.9) 38%, rgba(11,11,11,0.55) 62%, rgba(11,11,11,0.2) 100%)',
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/60" />
-      {/* Extra shade on small screens, where the copy sits over the bright side of the photo */}
-      <div className="absolute inset-0 bg-black/60 lg:hidden" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 min-h-screen flex items-end pb-20 lg:pb-28 pt-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full">
-
-          {/* Left content */}
-          <div className="lg:col-span-7">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2.5 bg-black/40 border border-gold/30 backdrop-blur-sm rounded-full px-4 py-2 mb-8">
-              <span className="text-gold text-xs font-semibold">Local cleaners based in Slough</span>
-              <span className="text-neutral-600 text-xs">·</span>
-              <span className="text-neutral-400 text-xs">Windsor, Ascot & Berkshire</span>
-            </div>
-
-            <h1 className="heading-serif text-[clamp(3.2rem,8.5vw,8rem)] text-white leading-[0.88] mb-8 max-w-4xl">
-              Clean Done
-              <br />
-              <span className="text-gold-gradient">Properly.</span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-end">
+          {/* Left — oversized staggered headline */}
+          <div className="lg:col-span-7 relative z-10">
+            <h1 className="display text-white text-[clamp(4.25rem,12vw,10.5rem)]">
+              <span className="block">Clean</span>
+              <span className="block pl-[14%]">Done</span>
+              <span className="block text-gold">Properly.</span>
             </h1>
 
-            <p className="text-neutral-400 text-lg max-w-lg leading-relaxed font-light mb-10">
-              Home, deep, end of tenancy and office cleaning across Slough, Windsor,
-              Ascot &amp; Berkshire. DBS-checked, fully insured, and the same team
-              each visit, so your home is in hands you know and trust.
-            </p>
+            <div className="mt-10 lg:mt-12 grid sm:grid-cols-[auto_1fr] gap-6 sm:gap-8 items-start lg:pl-[14%]">
+              <span className="hidden sm:block w-12 h-px bg-gold mt-3" aria-hidden="true" />
+              <div>
+                <p className="text-neutral-400 text-lg leading-relaxed max-w-sm">
+                  Home, deep, end of tenancy and office cleaning. The same trusted
+                  team each visit, so your home is in hands you know.
+                </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <button
-                onClick={() => openModal()}
-                className="btn-gold glow-pulse label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2 group"
-              >
-                Get a Free Quote{' '}
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-              <a
-                href={business.phone.href}
-                className="btn-outline-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2"
-                aria-label={`Call us on ${business.phone.display}`}
-              >
-                <Phone size={16} /> {business.phone.display}
-              </a>
-            </div>
-
-            {/* Trust strip */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
-              <span className="flex items-center gap-2">
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={12} fill="#C8A94E" strokeWidth={0} />
-                  ))}
+                <div className="flex flex-col sm:flex-row gap-3 mt-8">
+                  <button
+                    onClick={() => openModal()}
+                    className="btn-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2 group"
+                  >
+                    Get a Free Quote{' '}
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                  <a
+                    href={business.phone.href}
+                    className="btn-outline-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2"
+                    aria-label={`Call us on ${business.phone.display}`}
+                  >
+                    <Phone size={14} /> {business.phone.display}
+                  </a>
                 </div>
-                <a href={business.google.profileUrl} target="_blank" rel="noopener noreferrer" className="text-neutral-300 hover:text-gold">
-                  {business.google.summary}
-                </a>
-              </span>
-              <span className="text-neutral-600">·</span>
-              <span className="flex items-center gap-1.5 text-neutral-400">
-                <ShieldCheck size={13} className="text-gold/70" /> DBS checked & fully insured
-              </span>
-              <span className="text-neutral-600">·</span>
-              <span className="flex items-center gap-1.5 text-neutral-400">
-                <Leaf size={13} className="text-gold/70" /> Eco-friendly products
-              </span>
+              </div>
             </div>
           </div>
 
-          {/* Right — floating cards, desktop only */}
-          <div className="hidden lg:flex lg:col-span-5 flex-col justify-end gap-4 pb-2">
+          {/* Right — arched photo with an overlapping quote and seal */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative ml-auto w-[88%] sm:w-[70%] lg:w-full">
+              <div className="absolute -inset-3 lg:-inset-4 rounded-t-full border border-gold/50 pointer-events-none" aria-hidden="true" />
+              <div className="relative rounded-t-full overflow-hidden aspect-[3/4] bg-surface-dark">
+                <HeroImage
+                  className="absolute inset-0 w-full h-full object-cover object-[62%_center] scale-[1.15]"
+                  sizes="(min-width: 1024px) 40vw, 80vw"
+                  alt="A Leo Luxe Clean cleaner wiping down a kitchen worktop"
+                />
+              </div>
 
-            {/* Pull-quote on a gold rule — no card */}
-            <figure className="ml-auto w-full max-w-[360px] border-l-2 border-gold pl-6 [text-shadow:0_1px_12px_rgba(0,0,0,0.9)]">
-              <blockquote className="heading-serif text-2xl text-white" style={{ lineHeight: 1.3, fontWeight: 400 }}>
+              <div className="absolute -top-6 -left-10 lg:-left-16">
+                <RatingSeal />
+              </div>
+            </div>
+
+            <figure className="relative lg:absolute lg:-left-8 lg:-bottom-8 -mt-12 lg:mt-0 mr-auto w-[85%] sm:w-[60%] lg:w-[72%] bg-surface-card border-l-2 border-gold p-6 shadow-[0_24px_60px_-20px_rgba(21,19,15,0.35)]">
+              <blockquote className="heading-serif text-xl lg:text-[1.375rem] text-white" style={{ lineHeight: 1.3, fontWeight: 400 }}>
                 &ldquo;{heroReview.text}&rdquo;
               </blockquote>
-              <figcaption className="mt-4 flex items-center gap-3">
-                <span className="label-caps text-[10px] text-white">{heroReview.displayName}</span>
-                <span className="h-px w-6 bg-gold/60" aria-hidden="true" />
-                <span className="flex gap-0.5" aria-hidden="true">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={11} fill="#C8A94E" strokeWidth={0} />
-                  ))}
-                </span>
-                <span className="sr-only">Google review</span>
+              <figcaption className="mt-4 label-caps text-[10px] text-neutral-500">
+                {heroReview.displayName} · Google review
               </figcaption>
             </figure>
-
-            {/* Quick facts — a ruled row */}
-            <div className="ml-auto w-full max-w-[360px] grid grid-cols-3 divide-x divide-white/20 border-t border-white/20 pt-5 mt-6 [text-shadow:0_1px_12px_rgba(0,0,0,0.9)]">
-              {[
-                { val: business.google.ratingDisplay, label: 'On Google' },
-                { val: String(business.google.reviewCount), label: 'Reviews' },
-                { val: 'DBS', label: 'Checked' },
-              ].map((s) => (
-                <div key={s.label} className="px-4 first:pl-0 last:pr-0">
-                  <p className="heading-serif text-3xl text-gold">{s.val}</p>
-                  <p className="text-neutral-300 text-[10px] label-caps mt-0.5">{s.label}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>

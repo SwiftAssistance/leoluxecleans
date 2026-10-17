@@ -44,13 +44,13 @@ function Hero({ detail }) {
   const { page } = detail;
   if (page.hero === 'photo') {
     return (
-      <section className="relative overflow-hidden pt-32 pb-16 lg:pt-44 lg:pb-24">
+      <section className="theme-dark relative overflow-hidden pt-32 pb-16 lg:pt-44 lg:pb-24">
         <HeroImage photo={page.photo} className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/70" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
           <Breadcrumb name={detail.name} />
-          <h1 className="heading-serif text-4xl sm:text-5xl lg:text-7xl text-white max-w-3xl leading-[1.05]">{page.h1}</h1>
+          <h1 className="display text-6xl sm:text-7xl lg:text-8xl text-white max-w-4xl">{page.h1}</h1>
           <p className="text-neutral-200 text-lg max-w-xl mt-6 leading-relaxed">{page.lede}</p>
           <Postcodes detail={detail} />
           <HeroActions area={detail.name} />
@@ -64,7 +64,7 @@ function Hero({ detail }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6">
             <Breadcrumb name={detail.name} />
-            <h1 className="heading-serif text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.05]">{page.h1}</h1>
+            <h1 className="display text-6xl sm:text-7xl lg:text-8xl text-white">{page.h1}</h1>
             <p className="text-neutral-300 text-lg mt-6 leading-relaxed">{page.lede}</p>
             <Postcodes detail={detail} />
             <HeroActions area={detail.name} />
@@ -87,7 +87,7 @@ function Hero({ detail }) {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
         <div className="lg:col-span-7">
           <Breadcrumb name={detail.name} />
-          <h1 className="heading-serif text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.02]">{page.h1}</h1>
+          <h1 className="display text-6xl sm:text-7xl lg:text-[7.5rem] text-white">{page.h1}</h1>
           <p className="text-neutral-300 text-lg mt-6 leading-relaxed max-w-xl">{page.lede}</p>
           <HeroActions area={detail.name} />
         </div>
@@ -292,16 +292,17 @@ const AreaPage = ({ slug }) => {
       {page.order.map((key, i) => (
         <section key={key} className={`py-14 lg:py-20 ${i % 2 === 0 ? 'bg-surface-black' : 'bg-surface-dark'}`}>
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-8">{h[key]}</h2>
+            <p className="section-mark mb-5">({String(i + 1).padStart(2, '0')})</p>
+            <h2 className="display text-5xl lg:text-7xl text-white mb-10 lg:mb-14 max-w-4xl">{h[key]}</h2>
             {sections[key]}
           </div>
         </section>
       ))}
 
       {/* One call-to-action row */}
-      <section className="py-12 bg-surface-dark border-y border-gold/20">
+      <section className="theme-dark py-14 lg:py-16 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-          <p className="heading-serif text-2xl lg:text-3xl text-white">
+          <p className="display text-4xl lg:text-5xl text-white">
             Book a clean in {detail.name}
             <span className="block text-neutral-400 text-sm font-sans mt-1">We reply {business.responseTime}, {business.hours.short}.</span>
           </p>
@@ -313,7 +314,7 @@ const AreaPage = ({ slug }) => {
               href={business.whatsapp.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="label-caps px-6 py-3.5 rounded-lg inline-flex items-center justify-center gap-2 border border-[#25a244]/40 text-[#4ade80] hover:bg-[#25a244]/15 transition-colors"
+              className="label-caps px-6 py-3.5 rounded-lg inline-flex items-center justify-center gap-2 border border-[#25a244]/40 text-whatsapp hover:bg-[#25a244]/15 transition-colors"
             >
               <WhatsAppIcon /> WhatsApp
             </a>

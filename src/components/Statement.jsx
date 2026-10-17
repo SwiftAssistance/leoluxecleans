@@ -10,7 +10,7 @@ const Statement = () => {
   const { openModal } = useQuoteModal();
 
   return (
-    <section className="relative py-24 lg:py-36 bg-surface-dark border-y border-surface-border/50 overflow-hidden">
+    <section className="theme-dark relative py-28 lg:py-44 bg-surface-black overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[900px] h-[400px] bg-gold/5 rounded-full blur-[120px]" />
@@ -25,13 +25,13 @@ const Statement = () => {
 
       <div
         ref={ref}
-        className={`relative max-w-5xl mx-auto px-6 lg:px-12 text-center transition-all duration-800 ${
+        className={`relative max-w-6xl mx-auto px-6 lg:px-12 text-center transition-all duration-800 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
-        <p className="label-caps text-gold text-[10px] mb-8 tracking-widest">Our Promise</p>
+        <p className="section-mark mb-10">(02) Our Promise</p>
 
-        <blockquote className="heading-serif text-4xl sm:text-5xl lg:text-[4rem] text-white leading-[1.1] mb-10 lg:mb-14">
+        <blockquote className="display text-5xl sm:text-6xl lg:text-[5.5rem] text-white mb-12 lg:mb-16">
           If it's not spotless when we leave,
           <br className="hidden sm:block" />
           <span className="text-gold-gradient"> we come back and sort it.</span>

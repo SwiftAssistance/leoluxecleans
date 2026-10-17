@@ -31,7 +31,7 @@ const ReviewsPage = () => (
     <section className="py-16 lg:py-24 bg-surface-black">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-10">
-          <h2 className="heading-serif text-4xl lg:text-5xl text-white">Google reviews</h2>
+          <h2 className="display text-5xl lg:text-7xl text-white">Google reviews</h2>
           <a
             href={business.google.profileUrl}
             target="_blank"
@@ -52,7 +52,7 @@ const ReviewsPage = () => (
     {/* CTA */}
     <section className="py-16 lg:py-20 bg-surface-dark border-y border-surface-border/30">
       <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-        <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">Ready to see for yourself?</h2>
+        <h2 className="display text-5xl lg:text-7xl text-white mb-4">Ready to see for yourself?</h2>
         <p className="text-neutral-400 text-lg mb-10 max-w-xl mx-auto">
           Get a free, no-obligation quote. We reply {business.responseTime}.
         </p>

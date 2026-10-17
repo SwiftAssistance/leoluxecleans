@@ -67,23 +67,24 @@ const Navbar = () => {
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-surface-black py-3 border-b border-surface-border/50'
-          : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5'
+          ? 'bg-surface-black/95 backdrop-blur-md py-3 border-b border-surface-border/60'
+          : 'bg-surface-black py-5 border-b border-transparent'
       }`}
       role="navigation"
       aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3" aria-label="Leo Luxe Clean — Home">
-          <img
-            src="/logo.webp"
-            alt="Leo Luxe Clean"
-            width={78}
-            height={40}
-            loading="lazy"
-            decoding="async"
-            className="h-10 w-auto"
-          />
+          <span className="flex flex-col items-center leading-none">
+            <span className="heading-serif text-[1.65rem] tracking-[0.08em] text-white" style={{ fontWeight: 600 }}>
+              LEO LUXE
+            </span>
+            <span className="flex items-center gap-2 mt-1">
+              <span className="h-px w-5 bg-gold" />
+              <span className="text-[9px] tracking-[0.45em] text-gold font-medium pl-[0.45em]">CLEAN</span>
+              <span className="h-px w-5 bg-gold" />
+            </span>
+          </span>
         </Link>
 
         <div className="hidden md:flex items-center gap-10">
@@ -94,7 +95,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.to}
                 className={`label-caps transition-colors duration-300 relative group ${
-                  active ? 'text-white' : 'text-neutral-400 hover:text-white'
+                  active ? 'text-white' : 'text-neutral-500 hover:text-white'
                 }`}
               >
                 {link.name}
@@ -108,7 +109,7 @@ const Navbar = () => {
           })}
           <a
             href={business.phone.href}
-            className="label-caps text-neutral-400 hover:text-gold transition-colors duration-300 flex items-center gap-2"
+            className="label-caps text-neutral-500 hover:text-gold transition-colors duration-300 flex items-center gap-2"
             aria-label={`Call us on ${business.phone.display}`}
           >
             <Phone size={14} /> {business.phone.display}
@@ -117,14 +118,14 @@ const Navbar = () => {
             href={business.whatsapp.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="label-caps text-[#4ade80]/80 hover:text-[#4ade80] transition-colors duration-300 flex items-center gap-1.5"
+            className="label-caps text-whatsapp/80 hover:text-whatsapp transition-colors duration-300 flex items-center gap-1.5"
             aria-label="WhatsApp Leo Luxe Clean"
           >
             <WhatsAppIcon size={14} /> WhatsApp
           </a>
           <button
             onClick={() => openModal()}
-            className="btn-gold label-caps px-6 py-2.5 rounded-lg"
+            className="btn-gold label-caps px-6 py-3 rounded-lg"
           >
             Free Quote
           </button>
@@ -148,7 +149,7 @@ const Navbar = () => {
         }`}
         aria-hidden={!mobileMenuOpen}
       >
-        <div className="bg-surface-dark border-t border-surface-border/50">
+        <div className="bg-surface-black border-y border-surface-border/60 shadow-xl">
           <div className="px-6 py-8 flex flex-col gap-6">
             {navLinks.map((link) => {
               const active = isActive(link.to);
@@ -175,7 +176,7 @@ const Navbar = () => {
               href={business.whatsapp.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="label-caps text-[#4ade80] flex items-center gap-2"
+              className="label-caps text-whatsapp flex items-center gap-2"
               aria-label="WhatsApp us"
             >
               <WhatsAppIcon size={14} /> WhatsApp Us

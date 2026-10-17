@@ -9,8 +9,8 @@ const HomeFaq = () => (
     <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
       <div className="lg:col-span-4">
         <div className="lg:sticky lg:top-28">
-          <p className="label-caps text-gold mb-4 text-[10px]">Common Questions</p>
-          <h2 className="heading-serif text-4xl lg:text-6xl text-white">
+          <p className="section-mark mb-6">(06) Common Questions</p>
+          <h2 className="display text-6xl lg:text-7xl text-white">
             Before you
             <br />
             <span className="text-neutral-500">ask.</span>

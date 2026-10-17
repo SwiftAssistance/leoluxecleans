@@ -10,7 +10,7 @@ const About = () => {
 
   return (
     <section className="py-20 lg:py-28 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-surface-dark to-surface-black"></div>
+      <div className="absolute inset-0 bg-surface-dark"></div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -20,7 +20,8 @@ const About = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
           >
-            <h2 className="heading-serif text-4xl sm:text-5xl lg:text-[3.5rem] text-white leading-[1.1] mb-10">
+            <p className="section-mark mb-6">(03) Who We Are</p>
+            <h2 className="display text-5xl sm:text-6xl lg:text-[5.25rem] text-white mb-10">
               We started because we knew cleaning could be{' '}
               <span className="text-gold-gradient">
                 done better.
@@ -55,7 +56,10 @@ const About = () => {
             }`}
             style={{ transitionDelay: '200ms' }}
           >
-            <div className="overflow-hidden">
+            <div className="relative">
+              <div className="absolute -bottom-5 -right-5 lg:-bottom-8 lg:-right-8 w-2/3 h-2/3 bg-gold/15" aria-hidden="true" />
+              <div className="absolute -top-5 -left-5 lg:-top-8 lg:-left-8 w-1/2 h-1/2 border-l border-t border-gold/60" aria-hidden="true" />
+              <div className="relative overflow-hidden">
               <img
                 src="/about.jpg"
                 alt="Three Leo Luxe Clean cleaners in branded uniforms cleaning a bathroom"
@@ -65,10 +69,11 @@ const About = () => {
                 width={1200}
                 height={800}
               />
+              </div>
             </div>
 
             {/* Stats as text, not badges */}
-            <div className="grid grid-cols-3 mt-6 divide-x divide-surface-border/50">
+            <div className="grid grid-cols-3 mt-14 divide-x divide-surface-border/50">
               {[
                 { val: business.google.ratingDisplay, label: 'On Google' },
                 { val: String(business.google.reviewCount), label: 'Google reviews' },

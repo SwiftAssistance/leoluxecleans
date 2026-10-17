@@ -61,6 +61,59 @@
 }
 
 @layer base {
+  /* Ivory theme (default) */
+  :root {
+    --bg: 245 240 230;        /* paper */
+    --bg-alt: 237 230 216;    /* a shade deeper, for alternating bands */
+    --bg-deep: 228 219 202;
+    --card: 250 247 241;
+    --line: 190 178 156;
+    --fg: 21 19 15;           /* ink */
+    --n50: 21 19 15;
+    --n100: 30 27 23;
+    --n200: 42 38 33;
+    --n300: 56 51 45;
+    --n400: 84 77 68;
+    --n500: 106 98 88;
+    --n600: 128 119 107;
+    --n700: 160 150 135;
+    --n800: 200 191 175;
+    --n900: 222 214 199;
+    --n950: 235 228 214;
+    --gold: 133 103 32;       /* deepened for contrast on ivory */
+    --gold-light: 168 133 50;
+    --gold-dark: 108 83 24;
+    --gold-muted: 140 110 40;
+    --whatsapp: 21 128 61;
+  }
+
+  /* Dark bands: footer, the promise statement, photo heroes */
+  .theme-dark {
+    --bg: 14 13 11;
+    --bg-alt: 24 22 19;
+    --bg-deep: 34 31 27;
+    --card: 30 28 24;
+    --line: 88 84 76;
+    --fg: 255 255 255;
+    --n50: 250 250 249;
+    --n100: 245 245 244;
+    --n200: 231 229 228;
+    --n300: 214 211 209;
+    --n400: 168 162 158;
+    --n500: 120 113 108;
+    --n600: 87 83 78;
+    --n700: 68 64 60;
+    --n800: 41 37 36;
+    --n900: 28 25 23;
+    --n950: 12 10 9;
+    --gold: 200 169 78;
+    --gold-light: 232 212 139;
+    --gold-dark: 166 139 60;
+    --gold-muted: 184 155 69;
+    --whatsapp: 74 222 128;
+    color: rgb(var(--fg));
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -73,17 +126,17 @@
 
   ::selection {
     background-color: #C8A94E;
-    color: #0B0B0B;
+    color: #15130F;
   }
 
   ::-webkit-scrollbar {
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0B0B0B;
+    background: rgb(var(--bg));
   }
   ::-webkit-scrollbar-thumb {
-    background: #262626;
+    background: rgb(var(--line));
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
@@ -110,42 +163,50 @@
   .divider-gold {
     width: 48px;
     height: 1px;
-    background: linear-gradient(90deg, #C8A94E, #E8D48B);
+    background: rgb(var(--gold));
   }
 
+  /* Primary button: solid ink on ivory, gold on dark bands. Square corners. */
   .btn-gold {
-    background: linear-gradient(135deg, #C8A94E 0%, #E8D48B 50%, #C8A94E 100%);
-    background-size: 200% 200%;
-    color: #0B0B0B;
+    background: rgb(var(--fg));
+    color: rgb(var(--bg));
     font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 12px rgba(200, 169, 78, 0.2);
+    border-radius: 2px !important;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
   }
   @media (hover: hover) {
     .btn-gold:hover {
-      background-position: 100% 100%;
-      box-shadow: 0 4px 20px rgba(200, 169, 78, 0.35);
-      transform: translateY(-1px);
+      background: rgb(var(--gold));
+      color: #FBF8F2;
     }
   }
-  .btn-gold:active {
-    transform: translateY(0);
+  .theme-dark .btn-gold {
+    background: linear-gradient(135deg, #C8A94E 0%, #E8D48B 50%, #C8A94E 100%);
+    background-size: 200% 200%;
+    color: #15130F;
+  }
+  @media (hover: hover) {
+    .theme-dark .btn-gold:hover {
+      background-position: 100% 100%;
+      color: #15130F;
+    }
   }
 
   .btn-outline-gold {
-    border: 1px solid rgba(200, 169, 78, 0.4);
-    color: #C8A94E;
+    border: 1px solid rgb(var(--fg) / 0.35);
+    color: rgb(var(--fg));
+    border-radius: 2px !important;
     transition: all 0.3s ease;
   }
   @media (hover: hover) {
     .btn-outline-gold:hover {
-      border-color: #C8A94E;
-      background: rgba(200, 169, 78, 0.08);
+      border-color: rgb(var(--gold));
+      color: rgb(var(--gold));
     }
   }
 
   .text-gold-gradient {
-    background: linear-gradient(135deg, #C8A94E, #E8D48B, #C8A94E);
+    background: linear-gradient(135deg, rgb(var(--gold)), rgb(var(--gold-light)), rgb(var(--gold)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -156,29 +217,63 @@
     width: 100%;
     background: transparent;
     border: 0;
-    border-bottom: 1px solid rgba(88, 88, 88, 0.7);
+    border-bottom: 1px solid rgb(var(--line));
     border-radius: 0;
     padding: 0.75rem 0;
-    color: #fff;
+    color: rgb(var(--fg));
     font-size: 0.9375rem;
     transition: border-color 0.3s ease;
   }
-  .field::placeholder { color: #525252; }
-  .field:focus { outline: none; border-bottom-color: #C8A94E; }
-  select.field option { background: #0B0B0B; }
+  .field::placeholder { color: rgb(var(--n600)); }
+  .field:focus { outline: none; border-bottom-color: rgb(var(--gold)); }
+  select.field option { background: rgb(var(--bg)); color: rgb(var(--fg)); }
 
   /* Ruled list: hairlines between rows instead of boxes */
   .rule-list > * {
-    border-top: 1px solid rgba(88, 88, 88, 0.45);
+    border-top: 1px solid rgb(var(--line) / 0.7);
   }
   .rule-list > *:last-child {
-    border-bottom: 1px solid rgba(88, 88, 88, 0.45);
+    border-bottom: 1px solid rgb(var(--line) / 0.7);
+  }
+
+  /* Small editorial section marker: "(02) — What we do" */
+  .section-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 0.6875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgb(var(--gold));
+  }
+  .section-mark::after {
+    content: '';
+    width: 2.5rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.6;
+  }
+
+  /* Display type: huge, tight serif for headlines */
+  .display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 0.88;
+  }
+
+  /* Outlined serif, used for giant decorative words */
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(var(--fg) / 0.35);
   }
 
   .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee 30s linear infinite;
+    animation: marquee 60s linear infinite;
     will-change: transform;
   }
   .marquee-track:hover {
@@ -236,7 +331,7 @@
     to { opacity: 1; transform: translateX(0); }
   }
 
-  .glow-pulse {
+  .theme-dark .glow-pulse {
     animation: glowPulse 3s ease-in-out infinite;
   }
   @keyframes glowPulse {

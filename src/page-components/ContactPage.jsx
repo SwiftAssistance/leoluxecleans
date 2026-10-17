@@ -184,7 +184,7 @@ const ContactPage = () => {
             {/* Form */}
             <div className="lg:col-span-7 order-1">
               <div>
-                <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-3">
+                <h2 className="display text-5xl lg:text-7xl text-white mb-3">
                   Tell us about your space
                 </h2>
                 <p className="text-neutral-500 text-sm mb-8">
@@ -380,7 +380,7 @@ const ContactPage = () => {
           src={business.google.mapEmbedUrl}
           width="100%"
           height="300"
-          style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(0.9)' }}
+          style={{ border: 0, filter: 'grayscale(1) sepia(0.2) contrast(0.95)' }}
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
@@ -399,7 +399,7 @@ const ContactPage = () => {
       <section className="py-16 lg:py-24 bg-surface-dark border-t border-surface-border/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-4">
-            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
+            <h2 className="display text-5xl lg:text-7xl text-white mb-4">
               Common Questions
             </h2>
             <p className="text-neutral-400 text-sm max-w-xs">

@@ -1,4 +1,9 @@
 /** @type {import('tailwindcss').Config} */
+
+// Colours come from CSS variables (app/globals.css) so a section can switch
+// between the ivory theme and a dark band with a single `theme-dark` class.
+const v = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -11,19 +16,28 @@ module.exports = {
         sans: ['"Inter"', 'system-ui', 'sans-serif'],
       },
       colors: {
+        // "white" is the foreground ink: near-black on ivory, white on dark bands.
+        white: v('fg'),
+        paper: '#F5F0E6',
+        ink: '#15130F',
+        neutral: Object.fromEntries(
+          [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((n) => [n, v(`n${n}`)])
+        ),
         gold: {
-          DEFAULT: '#C8A94E',
-          light: '#E8D48B',
-          dark: '#A68B3C',
-          muted: '#B89B45',
+          DEFAULT: v('gold'),
+          light: v('gold-light'),
+          dark: v('gold-dark'),
+          muted: v('gold-muted'),
+          bright: '#C8A94E',
         },
         surface: {
-          black: '#0B0B0B',
-          dark: '#1A1A1A',    // was #111111 — clearly visible vs black sections
-          card: '#252525',    // was #1A1A1A — cards pop from section backgrounds
-          border: '#585858',  // was #262626 — borders legible at /40 opacity
-          light: '#2A2A2A',   // was #1E1E1E
+          black: v('bg'),
+          dark: v('bg-alt'),
+          card: v('card'),
+          border: v('line'),
+          light: v('bg-deep'),
         },
+        whatsapp: v('whatsapp'),
       },
       boxShadow: {
         'gold-sm': '0 2px 12px rgba(200, 169, 78, 0.15)',
