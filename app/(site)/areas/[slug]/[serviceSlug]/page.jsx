@@ -2,7 +2,8 @@ import { notFound } from 'next/navigation';
 import AreaServicePage from '../../../../../src/page-components/AreaServicePage';
 import JsonLd from '../../../../../src/components/JsonLd';
 import { breadcrumbSchema, createFaqSchema, createAreaServiceSchema } from '../../../../../src/components/Seo';
-import { absoluteUrl, business } from '../../../../../src/config/business';
+import { business } from '../../../../../src/config/business';
+import { pageMeta } from '../../../../../src/lib/meta';
 import { locations } from '../../../../../src/data/locations';
 import { services } from '../../../../../src/data/services';
 import { getAreaServiceContent } from '../../../../../src/lib/areaServiceContent';
@@ -21,19 +22,17 @@ export async function generateMetadata({ params }) {
   const c = getAreaServiceContent(params.slug, params.serviceSlug);
   if (!c) return {};
   const { location, service } = c;
-  const url = absoluteUrl(`/areas/${location.slug}/${service.slug}/`);
-  const title = `${service.title} in ${location.name} | ${business.name}`;
+  const full = `${service.title} in ${location.name} | ${business.name}`;
+  const title = full.length <= 60 ? full : full.replace(' & Commercial', '');
   const price = service.priceFrom ? `from £${service.priceFrom}` : 'by custom quote';
-  const description = `${service.title} in ${location.name} (${c.postcodes}), ${price}. Local, DBS-checked team based in Slough. Call ${business.phone.display} for a free quote.`;
-  return {
-    title: { absolute: title },
-    description,
-    alternates: { canonical: url },
+  return pageMeta({
+    title,
+    description: `${service.title} in ${location.name} (${c.postcodes}), ${price}. Local, DBS-checked team based in Slough. Call ${business.phone.display} for a free quote.`,
+    path: `/areas/${location.slug}/${service.slug}/`,
     // Only the core areas get indexable area x service pages; the rest stay
     // reachable for visitors but are kept out of the index and the sitemap.
-    ...(!c.indexable && { robots: { index: false, follow: true } }),
-    openGraph: { title, description, url },
-  };
+    noindex: !c.indexable,
+  });
 }
 
 export default function Page({ params }) {

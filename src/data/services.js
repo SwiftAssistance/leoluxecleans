@@ -14,9 +14,9 @@ export const services = [
       initial: 'T',
       date: '2024-11-01',
     },
-    metaTitle: 'Home Cleaning in Slough & Berkshire | From £60 | Leo Luxe Clean',
+    metaTitle: 'Home Cleaning in Slough & Berkshire | Leo Luxe Clean',
     metaDescription:
-      'Home cleaning in Slough, Windsor & Berkshire from £60. Weekly, fortnightly or one-off. DBS checked, fully insured. Same-week availability. Free quote.',
+      'Home cleaning in Slough, Windsor and Berkshire from £60. Weekly, fortnightly or one-off. DBS checked, fully insured. Free quote.',
     heroDesc:
       'Whether it\'s a weekly regular or a one-off before guests arrive — every room, done properly. Nothing skipped because it was taking too long.',
     longDesc: [
@@ -68,9 +68,9 @@ export const services = [
       initial: 'F',
       date: '2024-12-10',
     },
-    metaTitle: 'Office & Commercial Cleaning in Slough & Berkshire | Leo Luxe Clean',
+    metaTitle: 'Office Cleaning in Slough & Berkshire | Leo Luxe Clean',
     metaDescription:
-      'Office and commercial cleaning in Slough, Windsor & Berkshire. Flexible hours — mornings, evenings, weekends. Fully insured, DBS checked. Free quote.',
+      'Office and commercial cleaning in Slough, Windsor and Berkshire. Early morning, evening and weekend visits. Fully insured, DBS checked. Free quote.',
     heroDesc:
       'A clean office matters — for staff, for clients, for how your business looks. We keep commercial spaces across Slough and Berkshire properly clean, around your schedule.',
     longDesc: [
@@ -122,9 +122,9 @@ export const services = [
       initial: 'P',
       date: '2024-12-15',
     },
-    metaTitle: 'Deep Cleaning in Slough & Berkshire | From £120 | Leo Luxe Clean',
+    metaTitle: 'Deep Cleaning in Slough & Berkshire | Leo Luxe Clean',
     metaDescription:
-      'Deep cleaning in Slough, Windsor & Berkshire from £120. Behind appliances, inside ovens, grout scrubbing — a proper reset. DBS checked, fully insured. Free quote.',
+      'Deep cleaning in Slough, Windsor and Berkshire from £120. Behind appliances, inside ovens, grout and limescale. DBS checked, insured. Free quote.',
     heroDesc:
       'Behind the fridge, inside the oven, on top of the cabinets — all the bits that get left. We go through the whole place so you don\'t have to.',
     longDesc: [
@@ -176,9 +176,9 @@ export const services = [
       initial: 'J',
       date: '2025-01-20',
     },
-    metaTitle: 'End of Tenancy Cleaning in Slough & Berkshire | From £150 | Leo Luxe Clean',
+    metaTitle: 'End of Tenancy Cleaning in Slough | Leo Luxe Clean',
     metaDescription:
-      'End of tenancy cleaning in Slough, Windsor & Berkshire from £150. Inventory standard — get your full deposit back. DBS checked, fully insured. Free re-clean if needed.',
+      'End of tenancy cleaning in Slough, Windsor and Berkshire from £150, cleaned to inventory standard. Free re-clean within 48 hours if needed.',
     heroDesc:
       'Moving out? We clean it to inventory standard so you don\'t lose your deposit. Ovens, cupboards, behind the appliances — all of it.',
     longDesc: [
@@ -230,9 +230,9 @@ export const services = [
       initial: 'R',
       date: '2025-02-03',
     },
-    metaTitle: 'After Event & Party Cleaning in Slough & Berkshire | Leo Luxe Clean',
+    metaTitle: 'After Party & Event Cleaning in Slough | Leo Luxe Clean',
     metaDescription:
-      'After-event and party cleaning in Slough, Windsor & Berkshire. Same-day and next-day availability. Spill treatment, rubbish removal, full clean. Free quote.',
+      'After-event and party cleaning in Slough, Windsor and Berkshire from £80. Rubbish removal, spill treatment and a full clean. Free quote.',
     heroDesc:
       'Had a party? We\'ll have it back to normal. Same-day and next-day availability for when it can\'t wait.',
     longDesc: [
@@ -286,7 +286,7 @@ export const services = [
     },
     metaTitle: 'Specialist Cleaning in Slough & Berkshire | Leo Luxe Clean',
     metaDescription:
-      'Specialist cleaning in Slough, Windsor & Berkshire. Carpet cleaning, oven cleaning, upholstery, windows, hard floors. Proper equipment, visible results. Free quote.',
+      'Carpet, upholstery, oven, window and hard floor cleaning in Slough, Windsor and Berkshire from £70. Proper equipment, visible results.',
     heroDesc:
       'Carpets, upholstery, ovens, windows — the jobs that need proper equipment and someone who\'s done them before.',
     longDesc: [

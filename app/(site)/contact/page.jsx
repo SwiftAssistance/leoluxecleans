@@ -2,19 +2,15 @@ import ContactPage from '../../../src/page-components/ContactPage';
 import JsonLd from '../../../src/components/JsonLd';
 import { createFaqSchema, breadcrumbSchema } from '../../../src/components/Seo';
 import { contactFaqs } from '../../../src/data/faqs';
-import { absoluteUrl } from '../../../src/config/business';
+import { business } from '../../../src/config/business';
+import { pageMeta } from '../../../src/lib/meta';
 
 
-export const metadata = {
-  title: 'Contact Us — Free Cleaning Quote in Slough & Berkshire',
-  description: 'Get a free cleaning quote from Leo Luxe Clean. Call 07845 239774 or fill in our form. We cover Slough, Windsor, Langley & Berkshire. Response within 2 hours.',
-  alternates: { canonical: absoluteUrl('/contact/') },
-  openGraph: {
-    title: 'Contact Us — Free Cleaning Quote in Slough & Berkshire | Leo Luxe Clean',
-    description: 'Get a free cleaning quote from Leo Luxe Clean. Call 07845 239774 or fill in our form. We cover Slough, Windsor, Langley & Berkshire. Response within 2 hours.',
-    url: absoluteUrl('/contact/'),
-  },
-};
+export const metadata = pageMeta({
+  title: 'Contact Leo Luxe Clean | Free Cleaning Quote',
+  description: `Get a free cleaning quote from Leo Luxe Clean. Call ${business.phone.display} or use our form. Based in Slough, covering Windsor and Berkshire.`,
+  path: '/contact/',
+});
 
 export default function Page() {
   const schemas = [

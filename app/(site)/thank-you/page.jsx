@@ -1,10 +1,12 @@
 import Link from 'next/link';
+import { pageMeta } from '../../../src/lib/meta';
 
-export const metadata = {
-  title: 'Quote Request Received — Leo Luxe Clean',
-  description: 'Thank you — we\'ll be in touch within 2 hours with your free quote.',
-  robots: { index: false, follow: false },
-};
+export const metadata = pageMeta({
+  title: 'Quote Request Received | Leo Luxe Clean',
+  description: 'Thank you. We have your details and will be in touch with your free quote.',
+  path: '/thank-you/',
+  noindex: true,
+});
 
 export default function ThankYouPage() {
   return (

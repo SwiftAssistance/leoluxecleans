@@ -3,7 +3,7 @@ import ServiceDetailPage from '../../../../src/page-components/ServiceDetailPage
 import JsonLd from '../../../../src/components/JsonLd';
 import { createServiceSchema, createFaqSchema, breadcrumbSchema } from '../../../../src/components/Seo';
 import { getServiceBySlug, services } from '../../../../src/data/services';
-import { absoluteUrl } from '../../../../src/config/business';
+import { pageMeta } from '../../../../src/lib/meta';
 
 export async function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -12,16 +12,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const service = getServiceBySlug(params.slug);
   if (!service) return {};
-  return {
-    title: { absolute: service.metaTitle },
+  return pageMeta({
+    title: service.metaTitle,
     description: service.metaDescription,
-    alternates: { canonical: absoluteUrl(`/services/${service.slug}/`) },
-    openGraph: {
-      title: service.metaTitle,
-      description: service.metaDescription,
-      url: absoluteUrl(`/services/${service.slug}/`),
-    },
-  };
+    path: `/services/${service.slug}/`,
+  });
 }
 
 export default function Page({ params }) {

@@ -3,7 +3,7 @@ import LocationPage from '../../../../src/page-components/LocationPage';
 import JsonLd from '../../../../src/components/JsonLd';
 import { createLocationSchema, createFaqSchema, breadcrumbSchema } from '../../../../src/components/Seo';
 import { getLocationBySlug, locations } from '../../../../src/data/locations';
-import { absoluteUrl } from '../../../../src/config/business';
+import { pageMeta } from '../../../../src/lib/meta';
 
 export async function generateStaticParams() {
   return locations.map((l) => ({ slug: l.slug }));
@@ -12,16 +12,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const location = getLocationBySlug(params.slug);
   if (!location) return {};
-  return {
-    title: location.metaTitle,
-    description: location.metaDescription,
-    alternates: { canonical: absoluteUrl(`/areas/${location.slug}/`) },
-    openGraph: {
-      title: location.metaTitle,
-      description: location.metaDescription,
-      url: absoluteUrl(`/areas/${location.slug}/`),
-    },
-  };
+  return pageMeta({
+    title: `Cleaners in ${location.name} | From £60 | Leo Luxe Clean`,
+    description: `Local cleaners covering ${location.name} (${location.postcodes}). Home cleaning from £60, deep cleans from £120, end of tenancy from £150. Free quote.`,
+    path: `/areas/${location.slug}/`,
+  });
 }
 
 export default function Page({ params }) {
