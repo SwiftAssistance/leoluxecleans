@@ -5,11 +5,8 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Fallback to 404 page for unknown routes
-[[redirects]]
-  from = "/*"
-  to = "/404.html"
-  status = 404
+# No catch-all redirect: Netlify serves out/404.html with a real 404 status
+# for any path (page, image or text file) that does not exist in the build.
 
 [[headers]]
   for = "/*"
