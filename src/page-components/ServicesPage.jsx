@@ -17,6 +17,7 @@ const ServicesPage = () => {
     <>
       <PageHero
         title={<>Our <span className="text-gold-gradient">Services</span></>}
+        kicker="Cleaning services in Slough, Windsor & Berkshire"
         subtitle="From regular home cleans to specialist work — honest pricing, no hidden fees, and a team that actually cares about the result."
         breadcrumb="Services"
       />

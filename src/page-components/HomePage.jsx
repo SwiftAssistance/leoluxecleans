@@ -8,6 +8,7 @@ import Statement from '../components/Statement';
 import About from '../components/About';
 import Process from '../components/Process';
 import Reviews from '../components/Reviews';
+import HomeAreas from '../components/HomeAreas';
 import HomeFaq from '../components/HomeFaq';
 import CtaBand from '../components/CtaBand';
 import Contact from '../components/Contact';
@@ -22,6 +23,7 @@ const HomePage = () => {
       <Statement />
       <About />
       <Process />
+      <HomeAreas />
       <Reviews />
       <HomeFaq />
       <CtaBand />

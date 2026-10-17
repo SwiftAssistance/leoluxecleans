@@ -60,7 +60,7 @@ function Hero({ detail }) {
   }
   if (page.hero === 'split') {
     return (
-      <section className="pt-28 pb-14 lg:pt-36 lg:pb-20 bg-surface-dark border-b border-surface-border/30">
+      <section className="theme-dark pt-28 pb-14 lg:pt-36 lg:pb-20 bg-surface-black border-b border-gold/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6">
             <Breadcrumb name={detail.name} />
@@ -83,7 +83,7 @@ function Hero({ detail }) {
   }
   // 'panel': text-led hero with a facts panel, no photo.
   return (
-    <section className="pt-28 pb-14 lg:pt-36 lg:pb-20 bg-gradient-to-br from-surface-dark via-surface-black to-surface-black border-b border-gold/15">
+    <section className="theme-dark pt-28 pb-14 lg:pt-36 lg:pb-20 bg-gradient-to-br from-surface-dark via-surface-black to-surface-black border-b border-gold/20">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
         <div className="lg:col-span-7">
           <Breadcrumb name={detail.name} />

@@ -5,7 +5,7 @@ import { homeFaqs as faqs } from '../data/faqs';
 
 // Server-rendered: every answer is in the HTML, expandable with <details>.
 const HomeFaq = () => (
-  <section className="py-20 lg:py-28 bg-surface-black" id="faq">
+  <section className="py-20 lg:py-28 bg-surface-dark" id="faq">
     <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
       <div className="lg:col-span-4">
         <div className="lg:sticky lg:top-28">

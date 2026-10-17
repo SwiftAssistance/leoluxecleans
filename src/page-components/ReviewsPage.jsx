@@ -10,6 +10,7 @@ const ReviewsPage = () => (
   <>
     <PageHero
       title={<>What People <span className="text-gold-gradient">Say</span></>}
+      kicker="Leo Luxe Clean reviews from Google"
       subtitle="We're a small, local company, so every review matters to us. These are the reviews our customers have left on Google."
       breadcrumb="Reviews"
     />

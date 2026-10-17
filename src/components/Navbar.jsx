@@ -65,26 +65,25 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`theme-dark fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-surface-black/95 backdrop-blur-md py-3 border-b border-surface-border/60'
-          : 'bg-surface-black py-5 border-b border-transparent'
+          ? 'bg-surface-black/95 backdrop-blur-md py-3 border-b border-gold/20'
+          : 'bg-surface-black py-4 border-b border-surface-border/40'
       }`}
       role="navigation"
       aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-3" aria-label="Leo Luxe Clean — Home">
-          <span className="flex flex-col items-center leading-none">
-            <span className="heading-serif text-[1.65rem] tracking-[0.08em] text-white" style={{ fontWeight: 600 }}>
-              LEO LUXE
-            </span>
-            <span className="flex items-center gap-2 mt-1">
-              <span className="h-px w-5 bg-gold" />
-              <span className="text-[9px] tracking-[0.45em] text-gold font-medium pl-[0.45em]">CLEAN</span>
-              <span className="h-px w-5 bg-gold" />
-            </span>
-          </span>
+        <Link href="/" className="flex items-center shrink-0 mr-auto" aria-label="Leo Luxe Clean — Home">
+          <img
+            src="/logo.webp"
+            alt="Leo Luxe Clean"
+            width={372}
+            height={192}
+            fetchPriority="high"
+            decoding="async"
+            className={`w-auto transition-all duration-300 ${isScrolled ? 'h-10' : 'h-12'}`}
+          />
         </Link>
 
         <div className="hidden md:flex items-center gap-10">
@@ -149,7 +148,7 @@ const Navbar = () => {
         }`}
         aria-hidden={!mobileMenuOpen}
       >
-        <div className="bg-surface-black border-y border-surface-border/60 shadow-xl">
+        <div className="bg-surface-black border-y border-gold/20 shadow-xl">
           <div className="px-6 py-8 flex flex-col gap-6">
             {navLinks.map((link) => {
               const active = isActive(link.to);
