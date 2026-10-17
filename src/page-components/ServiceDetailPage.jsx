@@ -47,6 +47,7 @@ const ServiceDetailPage = ({ slug }) => {
         subtitle={service.heroDesc}
         breadcrumb={service.title}
         parentBreadcrumb={{ name: 'Services', to: '/services' }}
+        image={service.image ? { src: service.image, alt: service.imageAlt } : undefined}
       />
 
       {/* Trust bar */}
@@ -109,19 +110,6 @@ const ServiceDetailPage = ({ slug }) => {
 
             {/* Sticky sidebar */}
             <div className="lg:col-span-5">
-              {service.image && (
-                <div className="overflow-hidden mb-8">
-                  <img
-                    src={service.image}
-                    alt={service.imageAlt}
-                    className="w-full aspect-[4/3] object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width={800}
-                    height={600}
-                  />
-                </div>
-              )}
               <div className="border-t-2 border-gold pt-8 lg:sticky lg:top-28">
                 <h3 className="heading-serif text-2xl text-white mb-2">
                   Get a free quote
