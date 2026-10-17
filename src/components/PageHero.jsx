@@ -4,9 +4,10 @@ import HeroImage from './HeroImage';
 
 // Inner-page header: oversized title on ivory, intro set to the right, and a
 // wide photo strip underneath.
-const PageHero = ({ title, subtitle, breadcrumb, parentBreadcrumb }) => {
+// `kicker` is a short keyword line read as part of the H1 (e.g. "Cleaning services in Slough").
+const PageHero = ({ title, kicker, subtitle, breadcrumb, parentBreadcrumb }) => {
   return (
-    <section className="relative bg-surface-black pt-32 lg:pt-40 overflow-hidden">
+    <section className="theme-dark relative bg-surface-black pt-32 lg:pt-40 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <nav
           className="flex items-center gap-3 label-caps text-[10px] mb-10 lg:mb-14 border-b border-surface-border/70 pb-4"
@@ -33,6 +34,11 @@ const PageHero = ({ title, subtitle, breadcrumb, parentBreadcrumb }) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end pb-12 lg:pb-16">
           <h1 className="lg:col-span-8 display text-6xl sm:text-7xl lg:text-[8.5rem] text-white">
+            {kicker && (
+              <span className="block label-caps text-[11px] text-gold mb-6" style={{ letterSpacing: '0.2em', lineHeight: 1.4 }}>
+                {kicker}
+              </span>
+            )}
             {title}
           </h1>
 

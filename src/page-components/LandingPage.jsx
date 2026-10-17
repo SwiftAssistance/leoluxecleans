@@ -389,7 +389,7 @@ const LandingPage = ({
 
         {/* ── STICKY HEADER ────────────────────────────────────────────────── */}
         <header
-          className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          className={`theme-dark fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
             isScrolled
               ? 'bg-surface-black border-b border-gold/20 py-3 shadow-[0_1px_0_0_rgba(200,169,78,0.15)]'
               : 'bg-surface-black/95 backdrop-blur-sm py-4'
@@ -397,14 +397,7 @@ const LandingPage = ({
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
             <a href="https://leoluxeclean.co.uk" aria-label="Leo Luxe Clean — back to main site">
-              <span className="flex flex-col items-center leading-none">
-                <span className="heading-serif text-[1.5rem] tracking-[0.08em] text-white" style={{ fontWeight: 600 }}>LEO LUXE</span>
-                <span className="flex items-center gap-2 mt-1">
-                  <span className="h-px w-5 bg-gold" />
-                  <span className="text-[9px] tracking-[0.45em] text-gold font-medium pl-[0.45em]">CLEAN</span>
-                  <span className="h-px w-5 bg-gold" />
-                </span>
-              </span>
+              <img src="/logo.webp" alt="Leo Luxe Clean" width={372} height={192} fetchPriority="high" decoding="async" className="h-11 w-auto" />
             </a>
             <div className="flex items-center gap-2 sm:gap-3">
               <a

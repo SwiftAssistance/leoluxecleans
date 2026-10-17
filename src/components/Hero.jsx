@@ -42,11 +42,11 @@ const Hero = () => {
   const { openModal } = useQuoteModal();
 
   return (
-    <section className="relative bg-surface-black pt-28 lg:pt-32 pb-16 lg:pb-24 overflow-hidden">
+    <section className="theme-dark relative bg-surface-black pt-28 lg:pt-32 pb-16 lg:pb-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Masthead line */}
         <div className="flex items-center justify-between gap-6 border-b border-surface-border/70 pb-4 mb-10 lg:mb-14">
-          <span className="label-caps text-[10px] text-neutral-500">Local cleaners · Slough, Windsor, Ascot &amp; Berkshire</span>
+          <span className="label-caps text-[10px] text-neutral-500">Home · Deep · End of tenancy · Office</span>
           <span className="hidden sm:inline label-caps text-[10px] text-neutral-500">DBS checked · Fully insured</span>
         </div>
 
@@ -54,6 +54,9 @@ const Hero = () => {
           {/* Left — oversized staggered headline */}
           <div className="lg:col-span-7 relative z-10">
             <h1 className="display text-white text-[clamp(4.25rem,12vw,10.5rem)]">
+              <span className="block label-caps text-[11px] text-gold mb-8" style={{ letterSpacing: '0.2em', lineHeight: 1.4 }}>
+                Cleaners in Slough, Windsor &amp; Berkshire
+              </span>
               <span className="block">Clean</span>
               <span className="block pl-[14%]">Done</span>
               <span className="block text-gold">Properly.</span>

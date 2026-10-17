@@ -54,6 +54,7 @@ const AboutPage = () => {
     <>
       <PageHero
         title={<>About <span className="text-gold-gradient">Leo Luxe</span></>}
+        kicker="Local cleaning company in Slough, Berkshire"
         subtitle="A small cleaning team based in Slough. Not a franchise, not a call centre: a local team that does the work properly."
         breadcrumb="About"
       />

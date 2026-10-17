@@ -42,6 +42,7 @@ const ServiceDetailPage = ({ slug }) => {
             </span>
           </>
         }
+        kicker={`${service.title} in Slough & Berkshire`}
         subtitle={service.heroDesc}
         breadcrumb={service.title}
         parentBreadcrumb={{ name: 'Services', to: '/services' }}

@@ -10,7 +10,7 @@ const CtaBand = () => {
   const { openModal } = useQuoteModal();
 
   return (
-    <section className="relative py-24 lg:py-36 bg-surface-black overflow-hidden">
+    <section className="theme-dark relative py-24 lg:py-36 bg-surface-black overflow-hidden">
       {/* Decorative top/bottom lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />

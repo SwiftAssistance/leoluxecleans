@@ -30,6 +30,10 @@ export const metadata = {
   },
 };
 
+export const viewport = {
+  themeColor: '#0B0B0B',
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en-GB">
@@ -38,6 +42,7 @@ export default function RootLayout({ children }) {
         <link rel="preload" href="/fonts/cormorant-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/inter-500.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon-192.png" sizes="192x192" />
         <link rel="apple-touch-icon" href="/favicon-512.png" />

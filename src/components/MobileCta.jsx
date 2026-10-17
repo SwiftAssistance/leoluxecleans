@@ -15,7 +15,7 @@ function WhatsAppIcon() {
 const MobileCta = () => {
   const { openModal } = useQuoteModal();
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-surface-black border-t border-gold/20 px-3 py-3 flex gap-2 safe-bottom">
+    <div className="theme-dark fixed bottom-0 left-0 right-0 z-40 md:hidden bg-surface-black border-t border-gold/20 px-3 py-3 flex gap-2 safe-bottom">
       <a
         href={business.phone.href}
         className="flex-none btn-outline-gold label-caps py-4 px-4 rounded-lg text-center flex items-center justify-center gap-1.5 min-h-[44px]"

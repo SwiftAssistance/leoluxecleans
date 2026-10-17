@@ -16,6 +16,7 @@ const AreasPage = () => (
   <>
     <PageHero
       title={<>Areas We <span className="text-gold-gradient">Cover</span></>}
+      kicker="Cleaners across Berkshire, Bucks & West London"
       subtitle="Based in George Green, Slough, we clean homes and businesses across Berkshire, Buckinghamshire and West London. Each town has its own local guide."
       breadcrumb="Areas"
     />
