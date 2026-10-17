@@ -18,6 +18,8 @@ const Hero = () => {
       {/* Multi-layer overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/97 via-black/80 to-black/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+      {/* Extra shade on small screens, where the copy sits over the bright side of the photo */}
+      <div className="absolute inset-0 bg-black/55 lg:hidden" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 min-h-screen flex items-end pb-20 lg:pb-28 pt-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full">
