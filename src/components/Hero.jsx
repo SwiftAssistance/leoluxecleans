@@ -46,12 +46,6 @@ const Hero = () => {
   return (
     <section className="theme-dark relative bg-surface-black pt-28 lg:pt-32 pb-16 lg:pb-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Masthead line */}
-        <div className="flex items-center justify-between gap-6 border-b border-surface-border/70 pb-4 mb-10 lg:mb-14">
-          <span className="label-caps text-[10px] text-neutral-500">Home · Deep · End of tenancy · Office</span>
-          <span className="hidden sm:inline label-caps text-[10px] text-neutral-500">DBS checked · Fully insured</span>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-end">
           {/* Left — oversized staggered headline */}
           <div className="lg:col-span-7 relative z-10">
