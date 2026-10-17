@@ -109,17 +109,6 @@ export const createLocationSchema = (location) => ({
   areaServed: { '@type': 'City', name: location.name },
 });
 
-export const createAreaServiceSchema = (location, service) => ({
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  '@id': absoluteUrl(`/areas/${location.slug}/${service.slug}/#service`),
-  name: `${service.title} in ${location.name}`,
-  serviceType: service.title,
-  url: absoluteUrl(`/areas/${location.slug}/${service.slug}/`),
-  provider,
-  areaServed: { '@type': 'City', name: location.name },
-  ...offer(service),
-});
 
 // Only use where the same questions and answers are visible in the page body.
 export const createFaqSchema = (faqs) => ({

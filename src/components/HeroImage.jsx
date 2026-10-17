@@ -1,24 +1,30 @@
 import ReactDOM from 'react-dom';
 
-const SRC_SET = '/hero-768.webp 768w, /hero-1536.webp 1536w';
+// Pre-optimised WebP photos, each in 768w and 1536w (3:2).
+const PHOTOS = {
+  kitchen: { base: '/hero', alt: '' },
+  team: { base: '/team', alt: '' },
+};
 
-// The one high-priority image per page. Pre-optimised WebP in two widths,
-// preloaded so the browser finds it before CSS and JS.
-const HeroImage = ({ className = '', sizes = '100vw' }) => {
-  ReactDOM.preload('/hero-1536.webp', {
+// The one high-priority image per page, preloaded so the browser finds it
+// before CSS and JS.
+const HeroImage = ({ photo = 'kitchen', className = '', sizes = '100vw', alt }) => {
+  const { base, alt: defaultAlt } = PHOTOS[photo];
+  const srcSet = `${base}-768.webp 768w, ${base}-1536.webp 1536w`;
+  ReactDOM.preload(`${base}-1536.webp`, {
     as: 'image',
-    imageSrcSet: SRC_SET,
+    imageSrcSet: srcSet,
     imageSizes: sizes,
     fetchPriority: 'high',
   });
   return (
     <img
-      src="/hero-1536.webp"
-      srcSet={SRC_SET}
+      src={`${base}-1536.webp`}
+      srcSet={srcSet}
       sizes={sizes}
       width={1536}
       height={1024}
-      alt=""
+      alt={alt ?? defaultAlt}
       fetchPriority="high"
       loading="eager"
       decoding="async"

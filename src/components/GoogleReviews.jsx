@@ -2,11 +2,11 @@ import { Star, ArrowRight } from 'lucide-react';
 import { business } from '../config/business';
 
 const Stars = ({ size = 12 }) => (
-  <div className="flex gap-0.5" aria-hidden="true">
+  <span className="inline-flex gap-0.5" aria-hidden="true">
     {[...Array(5)].map((_, j) => (
       <Star key={j} size={size} fill="#C8A94E" strokeWidth={0} />
     ))}
-  </div>
+  </span>
 );
 
 export const ReviewCard = ({ review, large = false }) => (
