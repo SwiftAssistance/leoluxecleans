@@ -11,7 +11,7 @@ const page = (path, sources) => {
 };
 
 const SERVICE_DATA = ['src/data/services.js'];
-const AREA_DATA = ['src/data/locations.js', 'src/data/areas.ts'];
+const AREA_DATA = ['src/data/areas.ts'];
 
 export default function sitemap() {
   const staticPages = [
