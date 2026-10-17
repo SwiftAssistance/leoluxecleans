@@ -5,7 +5,6 @@ import {
   Mail,
   MapPin,
   Instagram,
-  Facebook,
   Star,
   Clock,
 } from 'lucide-react';
@@ -52,8 +51,7 @@ const westLondonLinks = [
 
 const socialLinks = [
   { Icon: Star, label: 'Google', href: business.google.profileUrl },
-  { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/leoluxeclean' },
-  { Icon: Facebook, label: 'Facebook', href: '#' },
+  { Icon: Instagram, label: 'Instagram', href: business.instagram },
 ];
 
 const Footer = () => {
@@ -180,8 +178,8 @@ const Footer = () => {
                 <a
                   key={label}
                   href={href}
-                  target={href === '#' ? undefined : '_blank'}
-                  rel={href === '#' ? 'nofollow' : 'noopener noreferrer'}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg border border-surface-border/40 flex items-center justify-center text-neutral-400 hover:text-gold hover:border-gold/30 transition-colors"
                   aria-label={label === 'Google' ? 'Find us on Google' : `Follow us on ${label}`}
                 >
@@ -200,17 +198,25 @@ const Footer = () => {
             reserved.
           </p>
           <div className="flex gap-6">
-            <a
-              href="#"
-              className="text-neutral-600 hover:text-neutral-400 transition-colors text-xs"
+            <Link
+              href="/privacy/"
+              className="text-neutral-500 hover:text-neutral-300 transition-colors text-xs"
             >
               Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-neutral-600 hover:text-neutral-400 transition-colors text-xs"
+            </Link>
+            <Link
+              href="/terms/"
+              className="text-neutral-500 hover:text-neutral-300 transition-colors text-xs"
             >
               Terms of Service
+            </Link>
+            <a
+              href={business.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-500 hover:text-neutral-300 transition-colors text-xs"
+            >
+              Instagram
             </a>
           </div>
         </div>

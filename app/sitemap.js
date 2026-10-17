@@ -21,6 +21,8 @@ export default function sitemap() {
     page('/about/', ['app/(site)/about/page.jsx', 'src/page-components/AboutPage.jsx']),
     page('/reviews/', ['app/(site)/reviews/page.jsx', 'src/page-components/ReviewsPage.jsx']),
     page('/contact/', ['app/(site)/contact/page.jsx', 'src/page-components/ContactPage.jsx']),
+    page('/privacy/', ['app/(site)/privacy/page.jsx', 'src/components/LegalPage.jsx']),
+    page('/terms/', ['app/(site)/terms/page.jsx', 'src/components/LegalPage.jsx']),
   ];
 
   const servicePages = services.map((s) =>
