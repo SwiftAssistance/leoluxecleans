@@ -151,6 +151,30 @@
     background-clip: text;
   }
 
+  /* Editorial form field: a single underline, no box */
+  .field {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(88, 88, 88, 0.7);
+    border-radius: 0;
+    padding: 0.75rem 0;
+    color: #fff;
+    font-size: 0.9375rem;
+    transition: border-color 0.3s ease;
+  }
+  .field::placeholder { color: #525252; }
+  .field:focus { outline: none; border-bottom-color: #C8A94E; }
+  select.field option { background: #0B0B0B; }
+
+  /* Ruled list: hairlines between rows instead of boxes */
+  .rule-list > * {
+    border-top: 1px solid rgba(88, 88, 88, 0.45);
+  }
+  .rule-list > *:last-child {
+    border-bottom: 1px solid rgba(88, 88, 88, 0.45);
+  }
+
   .marquee-track {
     display: flex;
     width: max-content;

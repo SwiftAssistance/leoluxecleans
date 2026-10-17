@@ -583,11 +583,9 @@ const LandingPage = ({
                 <div className="space-y-0 divide-y divide-surface-border/30">
                   {WHY_US.map(({ icon: Icon, title, desc }) => (
                     <div key={title} className="flex gap-5 items-start py-6 first:pt-0 last:pb-0">
-                      <div className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center text-gold flex-shrink-0 mt-0.5">
-                        <Icon size={18} aria-hidden="true" />
-                      </div>
+                      <Icon size={18} className="text-gold flex-shrink-0 mt-1.5" aria-hidden="true" />
                       <div>
-                        <p className="text-white font-semibold text-sm mb-1.5">{title}</p>
+                        <p className="heading-serif text-2xl text-white mb-1.5">{title}</p>
                         <p className="text-neutral-400 text-sm leading-relaxed">{desc}</p>
                       </div>
                     </div>
@@ -614,32 +612,30 @@ const LandingPage = ({
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {SERVICES.map(({ icon: Icon, name, price, benefit }) => (
+              <div className="rule-list">
+                {SERVICES.map(({ name, price, benefit }, i) => (
                   <button
                     key={name}
                     onClick={openModal}
-                    className="rounded-2xl bg-surface-card border border-surface-border/50 p-6 hover:border-gold/40 transition-all duration-300 hover:shadow-gold-sm group text-left w-full"
+                    className="group grid grid-cols-12 gap-x-4 lg:gap-x-8 gap-y-2 py-7 items-baseline text-left w-full"
                   >
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center text-gold group-hover:bg-gold/20 transition-colors">
-                        <Icon size={18} aria-hidden="true" />
-                      </div>
-                      <span className="text-gold label-caps text-[10px]">{price}</span>
-                    </div>
-                    <h3 className="font-semibold text-white text-sm mb-2">{name}</h3>
-                    <p className="text-neutral-400 text-sm leading-relaxed">{benefit}</p>
+                    <span className="col-span-2 lg:col-span-1 heading-serif text-3xl text-gold/30 group-hover:text-gold transition-colors leading-none">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <h3 className="col-span-10 lg:col-span-4 heading-serif text-3xl text-white group-hover:text-gold transition-colors">{name}</h3>
+                    <p className="col-start-3 col-span-10 lg:col-start-auto lg:col-span-5 text-neutral-400 text-sm leading-relaxed">{benefit}</p>
+                    <span className="col-start-3 col-span-10 lg:col-start-auto lg:col-span-2 lg:text-right text-gold label-caps text-[10px]">{price}</span>
                   </button>
                 ))}
+              </div>
 
-                <div className="rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5 border border-gold/30 p-6 flex flex-col justify-between">
-                  <p className="text-white font-medium leading-snug mb-5">
-                    Not sure what you need? Tell us — we'll recommend the right clean.
-                  </p>
-                  <button onClick={openModal} className="btn-gold label-caps px-5 py-2.5 rounded-lg text-xs flex items-center gap-2 w-full justify-center">
-                    Get a Quote <ArrowRight size={12} />
-                  </button>
-                </div>
+              <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-5">
+                <p className="heading-serif text-2xl text-white">
+                  Not sure what you need? Tell us — we'll recommend the right clean.
+                </p>
+                <button onClick={openModal} className="btn-gold label-caps px-6 py-3 rounded-lg text-xs inline-flex items-center gap-2 justify-center flex-shrink-0">
+                  Get a Quote <ArrowRight size={12} />
+                </button>
               </div>
             </div>
           </div>
@@ -691,26 +687,17 @@ const LandingPage = ({
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
                 {REVIEWS.map(({ id, displayName: name, text }) => (
-                  <article
-                    key={id}
-                    className="rounded-2xl bg-surface-card border border-surface-border/50 p-6 hover:border-gold/30 transition-colors flex flex-col"
-                  >
-                    <StarRow count={5} size={13} />
-                    <blockquote className="text-neutral-300 text-sm leading-relaxed my-4 flex-1">
+                  <article key={id} className="border-t border-gold/40 pt-6 flex flex-col">
+                    <blockquote className="heading-serif text-xl text-neutral-200 flex-1" style={{ lineHeight: 1.35, fontWeight: 400 }}>
                       &ldquo;{text}&rdquo;
                     </blockquote>
-                    <div className="flex items-center gap-2.5 pt-4 border-t border-surface-border/50">
-                      <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
-                        <span className="text-gold text-xs font-semibold" aria-hidden="true">
-                          {name.charAt(0)}
-                        </span>
-                      </div>
-                      <div>
-                        <p className="text-white text-xs font-medium">{name}</p>
-                        <p className="text-neutral-500 text-xs">Google review</p>
-                      </div>
+                    <div className="mt-5 flex items-center gap-3">
+                      <p className="label-caps text-[10px] text-white">{name}</p>
+                      <span className="h-px w-6 bg-surface-border" aria-hidden="true" />
+                      <StarRow count={5} size={10} />
+                      <span className="sr-only">Google review</span>
                     </div>
                   </article>
                 ))}
@@ -756,7 +743,7 @@ const LandingPage = ({
                 </p>
               </div>
 
-              <div className="rounded-2xl bg-surface-card border border-surface-border/50 px-7 py-2">
+              <div className="border-t border-surface-border/45">
                 {FAQS.map((faq) => (
                   <FaqItem key={faq.q} {...faq} />
                 ))}
@@ -777,15 +764,12 @@ const LandingPage = ({
               </p>
             </div>
             <QuoteForm id="form" formRef={formRef} formData={formData} setFormData={setFormData} formSubmitted={formSubmitted} submitting={submitting} formError={formError} onSubmit={handleSubmit} />
-            <div className="mt-5 grid grid-cols-2 gap-4">
+            <div className="mt-8 grid grid-cols-2 gap-6 border-t border-surface-border/45 pt-6">
               <a
                 href={business.phone.href}
-                className="flex items-center gap-3 p-4 rounded-xl bg-surface-card border border-surface-border/50 hover:border-gold/30 transition-colors group"
+                className="block group"
                 aria-label={`Call ${business.phone.display}`}
               >
-                <div className="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
-                  <Phone size={16} aria-hidden="true" />
-                </div>
                 <div>
                   <p className="label-caps text-neutral-400 text-[10px] mb-0.5">Call direct</p>
                   <p className="text-white text-sm font-medium group-hover:text-gold transition-colors"> {business.phone.display}</p>
@@ -793,12 +777,9 @@ const LandingPage = ({
               </a>
               <a
                 href={`mailto:${business.email}`}
-                className="flex items-center gap-3 p-4 rounded-xl bg-surface-card border border-surface-border/50 hover:border-gold/30 transition-colors group"
+                className="block group"
                 aria-label={`Email ${business.email}`}
               >
-                <div className="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
-                  <Mail size={16} aria-hidden="true" />
-                </div>
                 <div>
                   <p className="label-caps text-neutral-400 text-[10px] mb-0.5">Email us</p>
                   <p className="text-white text-sm font-medium group-hover:text-gold transition-colors break-all">{business.email}</p>

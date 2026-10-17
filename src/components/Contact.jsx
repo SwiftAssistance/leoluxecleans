@@ -1,39 +1,28 @@
 'use client';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import {
-  Phone,
-  Mail,
-  MapPin,
-  ShieldCheck,
-  CheckCircle2,
-  Clock,
-} from 'lucide-react';
+import { ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { business } from '../config/business';
 
 const contactItems = [
   {
-    icon: <Phone size={18} />,
     label: 'Call us',
     value: business.phone.display,
     href: business.phone.href,
   },
   {
-    icon: <Mail size={18} />,
     label: 'Email us',
     value: business.email,
     href: `mailto:${business.email}`,
   },
   {
-    icon: <MapPin size={18} />,
     label: 'Find us',
     value: business.address.singleLine,
     href: null,
   },
   {
-    icon: <Clock size={18} />,
-    label: 'Response time',
+    label: 'Response',
     value: `Reply ${business.responseTime}`,
     href: null,
   },
@@ -184,19 +173,13 @@ const Contact = () => {
               a clear, honest price. No hidden fees, no obligation.
             </p>
 
-            <div className="space-y-3 mb-8">
+            <div className="rule-list mb-8">
               {contactItems.map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-4 py-3 px-4 rounded-lg bg-surface-dark border border-surface-border/50 hover:border-gold/30 transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
-                    {item.icon}
-                  </div>
+                <div key={i} className="flex items-baseline gap-6 py-4">
+                  <p className="label-caps text-neutral-500 text-[10px] w-20 flex-shrink-0">
+                    {item.label}
+                  </p>
                   <div>
-                    <p className="text-neutral-400 text-[10px] uppercase tracking-wide">
-                      {item.label}
-                    </p>
                     {item.href ? (
                       <a
                         href={item.href}
@@ -224,7 +207,7 @@ const Contact = () => {
 
           {/* Right form */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl bg-surface-dark border border-surface-border/50 p-8 lg:p-10">
+            <div className="lg:pl-12 lg:border-l border-surface-border/50">
               {formSubmitted ? (
                 <div className="flex flex-col items-center justify-center text-center py-16">
                   <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mb-6 animate-bounce-once">
@@ -239,9 +222,9 @@ const Contact = () => {
                 </div>
               ) : (
                 <form onSubmit={handleFormSubmit}>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7 mb-7">
                     <div>
-                      <label htmlFor="contact-name" className="label-caps text-neutral-400 text-[10px] block mb-2">
+                      <label htmlFor="contact-name" className="label-caps text-neutral-500 text-[10px] block">
                         Your Name
                       </label>
                       <input
@@ -252,12 +235,12 @@ const Contact = () => {
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
                         }
-                        className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600"
+                        className="field"
                         placeholder="Your full name"
                       />
                     </div>
                     <div>
-                      <label htmlFor="contact-phone" className="label-caps text-neutral-400 text-[10px] block mb-2">
+                      <label htmlFor="contact-phone" className="label-caps text-neutral-500 text-[10px] block">
                         Phone Number
                       </label>
                       <input
@@ -268,14 +251,14 @@ const Contact = () => {
                         onChange={(e) =>
                           setFormData({ ...formData, phone: e.target.value })
                         }
-                        className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600"
+                        className="field"
                         placeholder="e.g. 07700 000 000"
                       />
                     </div>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7 mb-7">
                     <div>
-                      <label htmlFor="contact-email" className="label-caps text-neutral-400 text-[10px] block mb-2">
+                      <label htmlFor="contact-email" className="label-caps text-neutral-500 text-[10px] block">
                         Email
                       </label>
                       <input
@@ -286,12 +269,12 @@ const Contact = () => {
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
-                        className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600"
+                        className="field"
                         placeholder="you@email.com"
                       />
                     </div>
                     <div>
-                      <label htmlFor="contact-service" className="label-caps text-neutral-400 text-[10px] block mb-2">
+                      <label htmlFor="contact-service" className="label-caps text-neutral-500 text-[10px] block">
                         What Do You Need? <span className="text-neutral-600 normal-case font-normal">(optional)</span>
                       </label>
                       <select
@@ -300,7 +283,7 @@ const Contact = () => {
                         onChange={(e) =>
                           setFormData({ ...formData, service: e.target.value })
                         }
-                        className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors appearance-none"
+                        className="field appearance-none"
                       >
                         <option value="">Choose a service</option>
                         <option value="home">Home Cleaning</option>
@@ -312,8 +295,8 @@ const Contact = () => {
                       </select>
                     </div>
                   </div>
-                  <div className="mb-5">
-                    <label htmlFor="contact-postcode" className="label-caps text-neutral-400 text-[10px] block mb-2">
+                  <div className="mb-8">
+                    <label htmlFor="contact-postcode" className="label-caps text-neutral-500 text-[10px] block">
                       Postcode
                     </label>
                     <input
@@ -324,7 +307,7 @@ const Contact = () => {
                       onChange={(e) =>
                         setFormData({ ...formData, postcode: e.target.value.toUpperCase() })
                       }
-                      className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600"
+                      className="field"
                       placeholder="e.g. SL4 1AB"
                     />
                   </div>
@@ -348,7 +331,7 @@ const Contact = () => {
         </div>
 
         {/* Google Maps */}
-        <div className="mt-16 rounded-2xl overflow-hidden border border-surface-border/40">
+        <div className="mt-20 overflow-hidden">
           <iframe
             src={business.google.mapEmbedUrl}
             width="100%"

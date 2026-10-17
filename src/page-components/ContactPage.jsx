@@ -163,10 +163,10 @@ const ContactPage = () => {
       </section>
 
       {/* Social proof strip */}
-      <section className="py-8 bg-surface-black border-b border-surface-border/20">
+      <section className="py-14 bg-surface-black border-b border-surface-border/20">
         <div className="max-w-3xl mx-auto px-6 lg:px-12">
-          <ReviewCard review={contactReview} />
-          <div className="mt-4 text-center">
+          <ReviewCard review={contactReview} large />
+          <div className="mt-6">
             <RatingSummary />
           </div>
         </div>
@@ -183,8 +183,8 @@ const ContactPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             {/* Form */}
             <div className="lg:col-span-7 order-1">
-              <div className="rounded-2xl border border-surface-border/40 p-8 lg:p-10">
-                <h2 className="heading-serif text-3xl text-white mb-2">
+              <div>
+                <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-3">
                   Tell us about your space
                 </h2>
                 <p className="text-neutral-500 text-sm mb-8">
@@ -205,9 +205,9 @@ const ContactPage = () => {
                   </div>
                 ) : (
                   <form onSubmit={handleFormSubmit}>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7 mb-7">
                       <div>
-                        <label htmlFor="page-name" className="label-caps text-neutral-400 text-[10px] block mb-2">
+                        <label htmlFor="page-name" className="label-caps text-neutral-500 text-[10px] block">
                           Your Name
                         </label>
                         <input
@@ -216,12 +216,12 @@ const ContactPage = () => {
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600"
+                          className="field"
                           placeholder="Your full name"
                         />
                       </div>
                       <div>
-                        <label htmlFor="page-phone" className="label-caps text-neutral-400 text-[10px] block mb-2">
+                        <label htmlFor="page-phone" className="label-caps text-neutral-500 text-[10px] block">
                           Phone Number
                         </label>
                         <input
@@ -230,14 +230,14 @@ const ContactPage = () => {
                           required
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600"
+                          className="field"
                           placeholder="e.g. 07700 000 000"
                         />
                       </div>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7 mb-7">
                       <div>
-                        <label htmlFor="page-email" className="label-caps text-neutral-400 text-[10px] block mb-2">
+                        <label htmlFor="page-email" className="label-caps text-neutral-500 text-[10px] block">
                           Email
                         </label>
                         <input
@@ -246,12 +246,12 @@ const ContactPage = () => {
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600"
+                          className="field"
                           placeholder="you@email.com"
                         />
                       </div>
                       <div>
-                        <label htmlFor="page-service" className="label-caps text-neutral-400 text-[10px] block mb-2">
+                        <label htmlFor="page-service" className="label-caps text-neutral-500 text-[10px] block">
                           What Do You Need?
                         </label>
                         <select
@@ -259,7 +259,7 @@ const ContactPage = () => {
                           required
                           value={formData.service}
                           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                          className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors appearance-none"
+                          className="field appearance-none"
                         >
                           <option value="">Choose a service</option>
                           <option value="home">Home Cleaning</option>
@@ -271,8 +271,8 @@ const ContactPage = () => {
                         </select>
                       </div>
                     </div>
-                    <div className="mb-5">
-                      <label htmlFor="page-postcode" className="label-caps text-neutral-400 text-[10px] block mb-2">
+                    <div className="mb-8">
+                      <label htmlFor="page-postcode" className="label-caps text-neutral-500 text-[10px] block">
                         Postcode
                       </label>
                       <input
@@ -281,7 +281,7 @@ const ContactPage = () => {
                         required
                         value={formData.postcode}
                         onChange={(e) => setFormData({ ...formData, postcode: e.target.value.toUpperCase() })}
-                        className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600"
+                        className="field"
                         placeholder="e.g. SL4 1AB"
                       />
                     </div>
@@ -305,10 +305,10 @@ const ContactPage = () => {
 
             {/* Sidebar */}
             <div className="lg:col-span-5 order-2">
-              <div className="lg:sticky lg:top-28 space-y-6">
+              <div className="lg:sticky lg:top-28 lg:pl-12 lg:border-l border-surface-border/50 rule-list">
                 {/* Why contact us */}
-                <div className="rounded-xl border border-surface-border/40 p-6">
-                  <h3 className="text-white font-semibold mb-5">What happens next?</h3>
+                <div className="py-7">
+                  <h3 className="label-caps text-[10px] text-gold mb-5">What happens next?</h3>
                   <div className="space-y-5">
                     {[
                       { step: '1', text: 'We review your details and prepare a clear, honest quote.' },
@@ -328,7 +328,7 @@ const ContactPage = () => {
                 </div>
 
                 {/* Trust signals */}
-                <div className="rounded-xl border border-surface-border/40 p-6">
+                <div className="py-7">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <ShieldCheck size={16} className="text-gold flex-shrink-0" />
@@ -346,11 +346,8 @@ const ContactPage = () => {
                 </div>
 
                 {/* Address and hours */}
-                <div className="rounded-xl border border-surface-border/40 p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <MapPin size={16} className="text-gold" />
-                    <h3 className="text-white font-semibold text-sm">Find us</h3>
-                  </div>
+                <div className="py-7">
+                  <h3 className="label-caps text-[10px] text-gold mb-3">Find us</h3>
                   <address className="not-italic text-neutral-400 text-sm leading-relaxed">
                     {business.name}
                     {business.address.lines.map((l) => (
@@ -364,11 +361,8 @@ const ContactPage = () => {
                 </div>
 
                 {/* Coverage area */}
-                <div className="rounded-xl border border-surface-border/40 p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <MapPin size={16} className="text-gold" />
-                    <h3 className="text-white font-semibold text-sm">Areas We Cover</h3>
-                  </div>
+                <div className="py-7">
+                  <h3 className="label-caps text-[10px] text-gold mb-3">Areas We Cover</h3>
                   <p className="text-neutral-400 text-sm leading-relaxed">
                     Slough, Windsor, Langley, Maidenhead, Eton, Burnham and surrounding areas across Berkshire.
                   </p>
@@ -395,7 +389,7 @@ const ContactPage = () => {
           href={business.google.profileUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute top-4 right-4 bg-surface-black/90 border border-surface-border/60 text-white text-xs label-caps px-4 py-2.5 rounded-lg hover:border-gold/40 hover:text-gold transition-colors flex items-center gap-2"
+          className="absolute top-4 right-4 bg-surface-black/90 text-white text-xs label-caps px-4 py-2.5 hover:border-gold/40 hover:text-gold transition-colors flex items-center gap-2"
         >
           <MapPin size={13} className="text-gold" /> View on Google Maps
         </a>
@@ -403,30 +397,30 @@ const ContactPage = () => {
 
       {/* FAQ */}
       <section className="py-16 lg:py-24 bg-surface-dark border-t border-surface-border/30">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-14">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          <div className="lg:col-span-4">
             <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
               Common Questions
             </h2>
-            <p className="text-neutral-400 text-sm">
+            <p className="text-neutral-400 text-sm max-w-xs">
               Everything you need to know before booking.
             </p>
           </div>
 
           <div
             ref={faqRef}
-            className="space-y-4"
+            className="lg:col-span-8 rule-list"
           >
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className={`rounded-xl border border-surface-border/40 p-6 lg:p-8 transition-all duration-500 ${
+                className={`py-7 transition-all duration-500 ${
                   faqVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
                 style={{ transitionDelay: `${i * 60}ms` }}
               >
-                <h3 className="text-white font-semibold mb-3">{faq.q}</h3>
-                <p className="text-neutral-400 text-sm leading-relaxed">{faq.a}</p>
+                <h3 className="heading-serif text-2xl text-white mb-3">{faq.q}</h3>
+                <p className="text-neutral-400 text-[15px] leading-relaxed max-w-2xl">{faq.a}</p>
               </div>
             ))}
           </div>

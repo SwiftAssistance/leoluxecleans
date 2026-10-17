@@ -9,19 +9,23 @@ const Stars = ({ size = 12 }) => (
   </span>
 );
 
+// A pull-quote: hairline above, serif text, no container.
 export const ReviewCard = ({ review, large = false }) => (
-  <figure className="rounded-xl border border-surface-border/40 p-6 lg:p-7 h-full flex flex-col">
-    <div className="flex items-center justify-between mb-4">
-      <Stars size={large ? 14 : 12} />
-      <span className="text-[10px] label-caps text-gold/70 bg-gold/10 px-2.5 py-1 rounded-full border border-gold/20">
-        Google review
-      </span>
-    </div>
-    <blockquote className={`text-neutral-300 leading-relaxed flex-1 ${large ? 'text-lg' : 'text-sm'}`}>
-      <p>&ldquo;{review.text}&rdquo;</p>
+  <figure className="relative h-full flex flex-col border-t border-gold/40 pt-6">
+    <span className="heading-serif text-gold/40 text-6xl leading-none h-8 -mt-1 select-none" aria-hidden="true">
+      &ldquo;
+    </span>
+    <blockquote
+      className={`heading-serif text-neutral-200 flex-1 ${large ? 'text-2xl lg:text-3xl' : 'text-xl lg:text-[1.375rem]'}`}
+      style={{ lineHeight: 1.35, fontWeight: 400 }}
+    >
+      <p>{review.text}</p>
     </blockquote>
-    <figcaption className="mt-5 pt-4 border-t border-surface-border/30 text-white text-sm font-medium">
-      {review.displayName}
+    <figcaption className="mt-6 flex items-center gap-3">
+      <span className="label-caps text-[10px] text-white">{review.displayName}</span>
+      <span className="h-px w-6 bg-surface-border" aria-hidden="true" />
+      <Stars size={10} />
+      <span className="sr-only">Google review</span>
     </figcaption>
   </figure>
 );
@@ -57,7 +61,7 @@ const GoogleReviews = ({ reviews, heading, intro, className = 'bg-surface-dark' 
           Read all reviews on Google <ArrowRight size={12} />
         </a>
       </div>
-      <div className={`grid grid-cols-1 gap-5 ${reviews.length > 2 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2'}`}>
+      <div className={`grid grid-cols-1 gap-x-12 gap-y-12 ${reviews.length > 2 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2'}`}>
         {reviews.map((r) => (
           <ReviewCard key={r.id} review={r} />
         ))}

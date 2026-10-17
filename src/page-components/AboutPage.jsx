@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useQuoteModal } from '../context/QuoteModalContext';
 import {
   ArrowRight,
-  CheckCircle2,
   Star,
   Leaf,
   ShieldCheck,
@@ -97,23 +96,23 @@ const AboutPage = () => {
               </div>
 
               {/* Testimonial inline */}
-              <div className="mt-10 rounded-xl border border-surface-border/30 p-6">
+              <div className="mt-12 border-l-2 border-gold pl-6 lg:pl-8">
                 <div className="flex gap-0.5 mb-3" aria-label="5 out of 5 stars">
                   {[...Array(5)].map((_, j) => (
                     <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
                   ))}
                 </div>
-                <p className="text-neutral-300 text-sm leading-relaxed mb-3">
+                <p className="heading-serif text-2xl lg:text-[1.75rem] text-neutral-200 mb-4" style={{ lineHeight: 1.3, fontWeight: 400 }}>
                   &ldquo;{aboutReview.text}&rdquo;
                 </p>
-                <p className="text-neutral-500 text-xs">
+                <p className="label-caps text-[10px] text-neutral-500">
                   {aboutReview.displayName}, Google review
                 </p>
               </div>
             </div>
 
             <div className="lg:col-span-5">
-              <div className="rounded-2xl overflow-hidden">
+              <div className="overflow-hidden">
                 <img
                   src="/about.jpg"
                   alt="Three Leo Luxe Clean cleaners in branded uniforms cleaning a bathroom"
@@ -125,17 +124,17 @@ const AboutPage = () => {
                 />
               </div>
 
-              <div className="grid grid-cols-3 gap-px mt-px">
+              <div className="grid grid-cols-3 mt-6 divide-x divide-surface-border/50">
                 {[
                   { val: business.google.ratingDisplay, label: 'On Google' },
                   { val: String(business.google.reviewCount), label: 'Google reviews' },
                   { val: 'DBS', label: 'Checked' },
                 ].map((s, i) => (
-                  <div key={i} className="bg-surface-dark py-5 text-center">
-                    <span className="heading-serif text-2xl lg:text-3xl text-white block">
+                  <div key={i} className="py-2 px-4 first:pl-0">
+                    <span className="heading-serif text-3xl lg:text-4xl text-gold block">
                       {s.val}
                     </span>
-                    <span className="text-neutral-600 text-[10px] label-caps">
+                    <span className="text-neutral-400 text-[10px] label-caps">
                       {s.label}
                     </span>
                   </div>
@@ -148,22 +147,22 @@ const AboutPage = () => {
 
       {/* Our Promise — transparency section for new business trust */}
       <section className="py-16 lg:py-24 bg-surface-dark border-y border-surface-border/30">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div
             ref={promiseRef}
-            className={`text-center mb-14 transition-all duration-500 ${
+            className={`mb-14 transition-all duration-500 ${
               promiseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
               What to Expect
             </h2>
-            <p className="text-neutral-400 text-sm max-w-lg mx-auto">
+            <p className="text-neutral-400 text-sm max-w-lg">
               Here's what every booking with Leo Luxe includes, no exceptions.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-12">
             {[
               {
                 icon: <Award size={22} />,
@@ -183,15 +182,13 @@ const AboutPage = () => {
             ].map((item, i) => (
               <div
                 key={i}
-                className={`rounded-xl border border-surface-border/40 p-6 text-center hover:border-gold/20 transition-all duration-500 ${
+                className={`border-t border-gold/40 pt-6 transition-all duration-500 ${
                   promiseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center text-gold mx-auto mb-5">
-                  {item.icon}
-                </div>
-                <h3 className="text-white font-semibold mb-2">{item.title}</h3>
+                <div className="text-gold mb-4">{item.icon}</div>
+                <h3 className="heading-serif text-2xl text-white mb-2">{item.title}</h3>
                 <p className="text-neutral-500 text-sm leading-relaxed">
                   {item.desc}
                 </p>
@@ -204,7 +201,7 @@ const AboutPage = () => {
       {/* Values */}
       <section className="py-16 lg:py-24 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-14">
+          <div className="mb-14">
             <h2 className="heading-serif text-4xl lg:text-5xl text-white">
               How We Work
             </h2>
@@ -212,20 +209,18 @@ const AboutPage = () => {
 
           <div
             ref={valuesRef}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12"
           >
             {values.map((v, i) => (
               <div
                 key={i}
-                className={`rounded-xl border border-surface-border/40 p-6 text-center hover:border-gold/20 transition-all duration-500 ${
+                className={`border-t border-surface-border/60 pt-6 transition-all duration-500 ${
                   valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center text-gold mx-auto mb-5">
-                  {v.icon}
-                </div>
-                <h3 className="text-white font-semibold mb-2">{v.title}</h3>
+                <div className="text-gold mb-4">{v.icon}</div>
+                <h3 className="heading-serif text-2xl text-white mb-2">{v.title}</h3>
                 <p className="text-neutral-500 text-sm leading-relaxed">
                   {v.desc}
                 </p>
@@ -249,7 +244,7 @@ const AboutPage = () => {
 
           <div
             ref={teamRef}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto"
+            className="rule-list max-w-5xl mx-auto"
           >
             {[
               {
@@ -267,21 +262,23 @@ const AboutPage = () => {
             ].map((member, i) => (
               <div
                 key={i}
-                className={`rounded-xl border border-surface-border/40 p-8 text-center transition-all duration-500 ${
+                className={`grid grid-cols-12 gap-4 lg:gap-8 py-10 items-baseline transition-all duration-500 ${
                   teamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
-                <div className="w-20 h-20 rounded-full bg-gold/10 flex items-center justify-center text-gold heading-serif text-3xl mx-auto mb-5">
+                <span className="col-span-3 md:col-span-2 heading-serif text-6xl lg:text-8xl text-gold/30 leading-none" aria-hidden="true">
                   {member.initial}
+                </span>
+                <div className="col-span-9 md:col-span-4">
+                  <h3 className="heading-serif text-3xl text-white mb-1">
+                    {member.name}
+                  </h3>
+                  <p className="text-gold text-xs label-caps">
+                    {member.role}
+                  </p>
                 </div>
-                <h3 className="text-white text-lg font-semibold mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-gold text-xs label-caps mb-3">
-                  {member.role}
-                </p>
-                <p className="text-neutral-500 text-sm leading-relaxed">
+                <p className="col-start-4 col-span-9 md:col-start-auto md:col-span-6 text-neutral-400 text-[15px] leading-relaxed">
                   {member.desc}
                 </p>
               </div>
@@ -292,8 +289,8 @@ const AboutPage = () => {
 
       {/* Why choose us */}
       <section className="py-16 lg:py-24 bg-surface-black">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-14">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          <div className="lg:col-span-4">
             <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
               Why Clients Stick Around
             </h2>
@@ -302,7 +299,7 @@ const AboutPage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <ul className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-x-12 border-t border-surface-border/45">
             {[
               'DBS checked and fully insured',
               'Eco-friendly, professional-grade products',
@@ -314,15 +311,12 @@ const AboutPage = () => {
               'We bring all our own equipment',
               'Owner-managed — direct accountability',
             ].map((item, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3 py-3 px-4 rounded-lg border border-surface-border/40"
-              >
-                <CheckCircle2 size={16} className="text-gold flex-shrink-0" />
-                <span className="text-neutral-300 text-sm">{item}</span>
-              </div>
+              <li key={i} className="flex items-baseline gap-4 py-5 border-b border-surface-border/45">
+                <span className="text-gold" aria-hidden="true">—</span>
+                <span className="text-neutral-200 text-[15px]">{item}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2, Phone, MapPin, ChevronRight, Clock, Car } from 'lucide-react';
+import { ArrowRight, Phone, MapPin, ChevronRight, Clock, Car } from 'lucide-react';
 import HeroImage from '../components/HeroImage';
 import QuoteButton from '../components/QuoteButton';
 import WhatsAppIcon from '../components/WhatsAppIcon';
@@ -73,7 +73,7 @@ function Hero({ detail }) {
             <HeroImage
               photo={page.photo}
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="w-full aspect-[4/3] object-cover rounded-2xl border border-gold/20"
+              className="w-full aspect-[4/3] object-cover"
               alt={page.photo === 'team' ? 'Leo Luxe Clean team cleaning a bathroom' : 'A Leo Luxe Clean cleaner wiping a kitchen worktop'}
             />
           </div>
@@ -91,14 +91,14 @@ function Hero({ detail }) {
           <p className="text-neutral-300 text-lg mt-6 leading-relaxed max-w-xl">{page.lede}</p>
           <HeroActions area={detail.name} />
         </div>
-        <dl className="lg:col-span-5 grid grid-cols-2 gap-px bg-gold/15 rounded-2xl overflow-hidden border border-gold/20">
+        <dl className="lg:col-span-5 grid grid-cols-2 gap-x-8">
           {[
             ['Postcodes', detail.postcodeDistricts.join(', ')],
             ['From our base', capitalise(detail.travel.time)],
             ['Home cleaning', 'From £60'],
             ['On Google', `${business.google.ratingDisplay} from ${business.google.reviewCount} reviews`],
           ].map(([k, v]) => (
-            <div key={k} className="bg-surface-black p-5">
+            <div key={k} className="border-t border-gold/30 py-5">
               <dt className="label-caps text-[10px] text-neutral-400">{k}</dt>
               <dd className="heading-serif text-xl text-white mt-1">{v}</dd>
             </div>
@@ -114,25 +114,25 @@ function Services({ c }) {
   const layout = detail.page.servicesLayout;
   if (layout === 'table') {
     return (
-      <div className="overflow-x-auto rounded-xl border border-surface-border/40">
+      <div className="overflow-x-auto border-t border-gold/30">
         <table className="w-full text-sm">
           <caption className="sr-only">Cleaning services and starting prices in {detail.name}</caption>
           <thead>
             <tr className="text-left text-neutral-400 label-caps text-[10px] border-b border-surface-border/40">
-              <th scope="col" className="px-5 py-3 font-normal">Service</th>
-              <th scope="col" className="px-5 py-3 font-normal hidden md:table-cell">In {detail.name}</th>
-              <th scope="col" className="px-5 py-3 font-normal text-right">Price</th>
+              <th scope="col" className="pr-5 py-3 font-normal">Service</th>
+              <th scope="col" className="pr-5 py-3 font-normal hidden md:table-cell">In {detail.name}</th>
+              <th scope="col" className="pl-5 py-3 font-normal text-right">Price</th>
             </tr>
           </thead>
           <tbody>
             {c.services.map((s) => (
               <tr key={s.slug} className="border-b border-surface-border/30 last:border-0 align-top">
-                <th scope="row" className="px-5 py-5 text-left font-normal">
-                  <Link href={`/services/${s.slug}/`} className="text-white font-medium hover:text-gold transition-colors">{s.title}</Link>
+                <th scope="row" className="pr-5 py-5 text-left font-normal">
+                  <Link href={`/services/${s.slug}/`} className="heading-serif text-2xl text-white hover:text-gold transition-colors">{s.title}</Link>
                   <p className="text-neutral-400 text-sm mt-2 leading-relaxed md:hidden">{s.note}</p>
                 </th>
-                <td className="px-5 py-5 text-neutral-400 leading-relaxed hidden md:table-cell">{s.note}</td>
-                <td className="px-5 py-5 text-right heading-serif text-xl text-gold whitespace-nowrap">{priceLabel(s)}</td>
+                <td className="pr-5 py-5 text-neutral-400 leading-relaxed hidden md:table-cell">{s.note}</td>
+                <td className="pl-5 py-5 text-right heading-serif text-xl text-gold whitespace-nowrap">{priceLabel(s)}</td>
               </tr>
             ))}
           </tbody>
@@ -159,15 +159,15 @@ function Services({ c }) {
     );
   }
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
       {c.services.map((s) => (
         <Link
           key={s.slug}
           href={`/services/${s.slug}/`}
-          className="group rounded-xl border border-surface-border/40 hover:border-gold/30 p-6 flex flex-col transition-colors"
+          className="group border-t border-surface-border/50 hover:border-gold pt-6 flex flex-col transition-colors"
         >
           <div className="flex items-baseline justify-between gap-3 mb-3">
-            <h3 className="text-white font-semibold group-hover:text-gold transition-colors">{s.title}</h3>
+            <h3 className="heading-serif text-2xl text-white group-hover:text-gold transition-colors">{s.title}</h3>
             <span className="text-gold heading-serif text-lg whitespace-nowrap">{priceLabel(s)}</span>
           </div>
           <p className="text-neutral-400 text-sm leading-relaxed flex-1">{s.note}</p>
@@ -203,8 +203,8 @@ const AreaPage = ({ slug }) => {
             <h3 className="label-caps text-[11px] text-gold mb-3">Typical properties</h3>
             <ul className="space-y-2 text-neutral-300 text-sm">
               {detail.propertyTypes.map((t) => (
-                <li key={t} className="flex gap-2">
-                  <CheckCircle2 size={14} className="text-gold flex-shrink-0 mt-1" />
+                <li key={t} className="flex gap-3">
+                  <span className="text-gold flex-shrink-0" aria-hidden="true">—</span>
                   <span>{capitalise(t)}</span>
                 </li>
               ))}
@@ -212,9 +212,12 @@ const AreaPage = ({ slug }) => {
           </div>
           <div>
             <h3 className="label-caps text-[11px] text-gold mb-3">Neighbourhoods</h3>
-            <ul className="flex flex-wrap gap-2">
-              {detail.neighbourhoods.map((n) => (
-                <li key={n} className="rounded-full border border-surface-border/50 px-3 py-1 text-xs text-neutral-300">{capitalise(n)}</li>
+            <ul className="flex flex-wrap gap-x-3 gap-y-1 text-neutral-300 text-sm">
+              {detail.neighbourhoods.map((n, i) => (
+                <li key={n}>
+                  {i > 0 && <span className="text-gold/50 mr-3" aria-hidden="true">·</span>}
+                  {capitalise(n)}
+                </li>
               ))}
             </ul>
           </div>
@@ -223,11 +226,11 @@ const AreaPage = ({ slug }) => {
     ),
 
     why: (
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-10">
         {detail.why.map((w, i) => (
-          <div key={w.title} className="rounded-xl border border-surface-border/40 p-6">
-            <span className="heading-serif text-3xl text-gold/40">{i + 1}</span>
-            <h3 className="text-white font-semibold mt-2 mb-2">{w.title}</h3>
+          <div key={w.title} className="border-t border-gold/30 pt-6">
+            <span className="heading-serif text-5xl text-gold/30 leading-none">{String(i + 1).padStart(2, '0')}</span>
+            <h3 className="heading-serif text-2xl text-white mt-4 mb-2">{w.title}</h3>
             <p className="text-neutral-400 text-sm leading-relaxed">{w.text}</p>
           </div>
         ))}
@@ -235,20 +238,20 @@ const AreaPage = ({ slug }) => {
     ),
 
     visit: (
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div className="rounded-xl border border-surface-border/40 p-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-10 md:divide-x divide-surface-border/40">
+        <div className="md:pr-10">
           <Car size={18} className="text-gold mb-3" />
-          <h3 className="text-white font-semibold mb-2">{capitalise(detail.travel.time)} away</h3>
+          <h3 className="heading-serif text-2xl text-white mb-2">{capitalise(detail.travel.time)} away</h3>
           <p className="text-neutral-400 text-sm leading-relaxed">{capitalise(detail.travel.route)}.</p>
         </div>
-        <div className="rounded-xl border border-surface-border/40 p-6">
+        <div className="md:px-10">
           <MapPin size={18} className="text-gold mb-3" />
-          <h3 className="text-white font-semibold mb-2">Parking and access</h3>
+          <h3 className="heading-serif text-2xl text-white mb-2">Parking and access</h3>
           <p className="text-neutral-400 text-sm leading-relaxed">{detail.access}</p>
         </div>
-        <div className="rounded-xl border border-surface-border/40 p-6">
+        <div className="md:pl-10">
           <Clock size={18} className="text-gold mb-3" />
-          <h3 className="text-white font-semibold mb-2">When we work</h3>
+          <h3 className="heading-serif text-2xl text-white mb-2">When we work</h3>
           <p className="text-neutral-400 text-sm leading-relaxed">
             {business.hours.display} We reply to quote requests {business.responseTime}.
           </p>
@@ -259,7 +262,7 @@ const AreaPage = ({ slug }) => {
     reviews: (
       <>
         <div className="mb-6"><RatingSummary /></div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-12">
           {c.reviews.map((r) => (
             <ReviewCard key={r.id} review={r} />
           ))}
@@ -268,14 +271,14 @@ const AreaPage = ({ slug }) => {
     ),
 
     faq: (
-      <div className="space-y-3 max-w-4xl">
+      <div className="rule-list max-w-4xl">
         {c.faqs.map((f) => (
-          <details key={f.q} className="group rounded-xl border border-surface-border/40 bg-surface-dark/40 open:border-gold/20">
-            <summary className="cursor-pointer list-none px-6 py-5 text-white text-sm font-medium flex justify-between gap-4">
+          <details key={f.q} className="group">
+            <summary className="cursor-pointer list-none py-6 text-white text-base lg:text-lg flex justify-between gap-4 group-open:text-gold hover:text-gold transition-colors">
               <span>{f.q}</span>
-              <span className="text-gold transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+              <span className="text-gold text-xl leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
-            <p className="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">{f.a}</p>
+            <p className="pb-6 pr-8 text-neutral-400 text-[15px] leading-relaxed max-w-2xl">{f.a}</p>
           </details>
         ))}
       </div>
@@ -325,17 +328,17 @@ const AreaPage = ({ slug }) => {
       <section className="py-12 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <h2 className="heading-serif text-2xl text-white mb-5">Also near {detail.name}</h2>
-          <ul className="flex flex-wrap gap-3">
+          <ul className="flex flex-wrap items-baseline gap-x-8 gap-y-3">
             {c.nearby.map((n) => (
               <li key={n.slug}>
-                <Link href={`/areas/${n.slug}/`} className="rounded-lg border border-surface-border/40 px-4 py-2.5 inline-flex items-center gap-2 text-sm text-neutral-300 hover:text-gold hover:border-gold/30 transition-colors">
-                  <MapPin size={14} className="text-gold" /> Cleaners in {n.name}
+                <Link href={`/areas/${n.slug}/`} className="heading-serif text-2xl text-neutral-300 hover:text-gold border-b border-transparent hover:border-gold/50 transition-colors">
+                  <span className="sr-only">Cleaners in </span>{n.name}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/areas/" className="rounded-lg border border-surface-border/40 px-4 py-2.5 inline-flex items-center gap-2 text-sm text-neutral-300 hover:text-gold hover:border-gold/30 transition-colors">
-                All areas we cover
+              <Link href="/areas/" className="label-caps text-[11px] text-gold inline-flex items-center gap-1.5 hover:gap-3 transition-all">
+                All areas we cover <ArrowRight size={12} />
               </Link>
             </li>
           </ul>
