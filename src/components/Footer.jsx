@@ -39,7 +39,7 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-surface-dark border-t border-surface-border/30 pb-20 md:pb-0">
+    <footer className="theme-dark bg-surface-black pb-20 md:pb-0">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-10 lg:gap-8">
           {/* Logo & description */}

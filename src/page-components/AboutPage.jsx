@@ -68,7 +68,7 @@ const AboutPage = () => {
                 storyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-8">
+              <h2 className="display text-4xl lg:text-6xl text-white mb-8">
                 Leo Luxe Clean was started by cleaners who were tired of{' '}
                 <span className="text-gold-gradient">
                   how it was being done.
@@ -154,7 +154,7 @@ const AboutPage = () => {
               promiseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
+            <h2 className="display text-5xl lg:text-7xl text-white mb-4">
               What to Expect
             </h2>
             <p className="text-neutral-400 text-sm max-w-lg">
@@ -202,7 +202,7 @@ const AboutPage = () => {
       <section className="py-16 lg:py-24 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="mb-14">
-            <h2 className="heading-serif text-4xl lg:text-5xl text-white">
+            <h2 className="display text-5xl lg:text-7xl text-white">
               How We Work
             </h2>
           </div>
@@ -234,7 +234,7 @@ const AboutPage = () => {
       <section className="py-16 lg:py-24 bg-surface-dark">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-14">
-            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
+            <h2 className="display text-5xl lg:text-7xl text-white mb-4">
               The Team
             </h2>
             <p className="text-neutral-400 text-sm max-w-md mx-auto">
@@ -291,7 +291,7 @@ const AboutPage = () => {
       <section className="py-16 lg:py-24 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-4">
-            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
+            <h2 className="display text-5xl lg:text-7xl text-white mb-4">
               Why Clients Stick Around
             </h2>
             <p className="text-neutral-400 text-sm">
@@ -323,7 +323,7 @@ const AboutPage = () => {
       {/* CTA */}
       <section className="py-16 lg:py-20 bg-surface-dark border-y border-surface-border/30">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-          <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
+          <h2 className="display text-5xl lg:text-7xl text-white mb-4">
             Want to see what proper clean looks like?
           </h2>
           <p className="text-neutral-400 text-lg mb-10 max-w-xl mx-auto">

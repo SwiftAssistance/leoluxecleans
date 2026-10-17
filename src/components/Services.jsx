@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -34,6 +34,14 @@ const services = [
 
 const Services = () => {
   const [ref, isVisible] = useScrollReveal({ threshold: 0.05 });
+  // Desktop: a photo of the hovered service follows the cursor over the list.
+  const listRef = useRef(null);
+  const [hovered, setHovered] = useState(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const onMove = (e) => {
+    const box = listRef.current?.getBoundingClientRect();
+    if (box) setPos({ x: e.clientX - box.left, y: e.clientY - box.top });
+  };
 
   return (
     <section className="py-20 lg:py-28 bg-surface-black">
@@ -41,15 +49,15 @@ const Services = () => {
 
         {/* Section header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 mb-16 lg:mb-20">
-          <div className="lg:col-span-5">
-            <p className="label-caps text-gold text-[10px] mb-4">What We Do</p>
-            <h2 className="heading-serif text-4xl lg:text-6xl text-white leading-tight">
+          <div className="lg:col-span-7">
+            <p className="section-mark mb-6">(01) What We Do</p>
+            <h2 className="display text-6xl lg:text-8xl text-white">
               Every job,
               <br />
               <span className="text-neutral-500">done properly.</span>
             </h2>
           </div>
-          <div className="lg:col-span-7 lg:flex lg:items-end">
+          <div className="lg:col-span-5 lg:flex lg:items-end">
             <p className="text-neutral-400 text-base leading-relaxed max-w-lg lg:pb-2">
               Whether it's a regular weekly clean or a demanding end-of-tenancy job, we hold every visit to the
               same high standard. No shortcuts, no rushing — just spotless results.
@@ -57,24 +65,44 @@ const Services = () => {
           </div>
         </div>
 
+        <div ref={listRef} onMouseMove={onMove} onMouseLeave={() => setHovered(null)} className="relative">
+        <div
+          className={`hidden lg:block pointer-events-none absolute z-20 w-60 aspect-[4/5] overflow-hidden transition-opacity duration-300 ${
+            hovered === null ? 'opacity-0' : 'opacity-100'
+          }`}
+          style={{ left: pos.x, top: pos.y, transform: 'translate(-50%, -50%) rotate(-3deg)' }}
+          aria-hidden="true"
+        >
+          {services.map((s, i) => (
+            <img
+              key={s.slug}
+              src={`/service-${s.slug}.jpg`}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${hovered === i ? 'opacity-100' : 'opacity-0'}`}
+            />
+          ))}
+        </div>
         <div ref={ref} className="border-t border-surface-border/60">
           {services.map((s, i) => {
             return (
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
+                onMouseEnter={() => setHovered(i)}
                 className={`group block border-b border-surface-border/60 transition-all duration-500 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <div className="relative py-8 lg:py-12 grid grid-cols-12 gap-4 lg:gap-8 items-baseline">
-                  <span className="col-span-2 lg:col-span-1 heading-serif text-3xl lg:text-5xl text-gold/30 group-hover:text-gold transition-colors duration-300">
+                  <span className="col-span-2 lg:col-span-1 font-mono text-xs text-neutral-500 group-hover:text-gold transition-colors duration-300">
                     {s.num}
                   </span>
 
                   <div className="col-span-10 lg:col-span-6">
-                    <h3 className="heading-serif text-3xl lg:text-6xl text-white group-hover:translate-x-2 transition-transform duration-500">
+                    <h3 className="display text-4xl lg:text-7xl text-white group-hover:text-gold group-hover:translate-x-3 transition-all duration-500">
                       {s.title}
                     </h3>
                     {s.tag && (
@@ -96,6 +124,7 @@ const Services = () => {
               </Link>
             );
           })}
+        </div>
         </div>
 
         <div className="mt-12 text-center">

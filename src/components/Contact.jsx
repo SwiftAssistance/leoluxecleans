@@ -163,7 +163,7 @@ const Contact = () => {
           {/* Left info */}
           <div className="lg:col-span-5">
             <p className="label-caps text-gold mb-4">Get Started</p>
-            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-6">
+            <h2 className="display text-6xl lg:text-7xl text-white mb-8">
               Get Your Free
               <br />
               <span className="text-gold-gradient">Quote Today</span>
@@ -336,7 +336,7 @@ const Contact = () => {
             src={business.google.mapEmbedUrl}
             width="100%"
             height="350"
-            style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.95) contrast(0.9)' }}
+            style={{ border: 0, filter: 'grayscale(1) sepia(0.2) contrast(0.95)' }}
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

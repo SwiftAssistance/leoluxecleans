@@ -33,9 +33,9 @@ const Process = () => {
 
         <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           {/* Section header */}
-          <div className="lg:col-span-4">
-            <p className="label-caps text-gold text-[10px] mb-4">How It Works</p>
-            <h2 className="heading-serif text-4xl lg:text-6xl text-white">
+          <div className="lg:col-span-4 lg:sticky lg:top-32 self-start">
+            <p className="section-mark mb-6">(04) How It Works</p>
+            <h2 className="display text-6xl lg:text-8xl text-white">
               Three steps.
               <br />
               <span className="text-neutral-500">That's it.</span>
@@ -52,7 +52,7 @@ const Process = () => {
                 }`}
                 style={{ transitionDelay: `${i * 180}ms` }}
               >
-                <span className="col-span-3 lg:col-span-2 heading-serif text-6xl lg:text-8xl text-gold/25 leading-none">
+                <span className="col-span-3 lg:col-span-2 display text-7xl lg:text-9xl text-outline">
                   {step.num}
                 </span>
                 <div className="col-span-9 lg:col-span-10">

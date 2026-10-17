@@ -27,7 +27,7 @@ const MobileCta = () => {
         href={business.whatsapp.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-none bg-[#25a244]/15 border border-[#25a244]/40 text-[#4ade80] label-caps py-4 px-4 rounded-lg flex items-center justify-center gap-1.5 min-h-[44px] transition-colors hover:bg-[#25a244]/25"
+        className="flex-none bg-[#25a244]/15 border border-[#25a244]/40 text-whatsapp label-caps py-4 px-4 rounded-lg flex items-center justify-center gap-1.5 min-h-[44px] transition-colors hover:bg-[#25a244]/25"
         aria-label="WhatsApp us"
       >
         <WhatsAppIcon />

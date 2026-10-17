@@ -271,7 +271,7 @@ const QuoteForm = ({ id, compact = false, formRef, formData, setFormData, formSu
           href={business.whatsapp.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full flex items-center justify-center gap-2 bg-[#25a244]/10 hover:bg-[#25a244]/20 border border-[#25a244]/40 hover:border-[#25a244]/70 text-[#4ade80] label-caps py-3 rounded-lg text-xs transition-colors font-semibold"
+          className="w-full flex items-center justify-center gap-2 bg-[#25a244]/10 hover:bg-[#25a244]/20 border border-[#25a244]/40 hover:border-[#25a244]/70 text-whatsapp label-caps py-3 rounded-lg text-xs transition-colors font-semibold"
         >
           <WhatsAppIcon size={13} /> Message us on WhatsApp
         </a>
@@ -397,7 +397,14 @@ const LandingPage = ({
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
             <a href="https://leoluxeclean.co.uk" aria-label="Leo Luxe Clean — back to main site">
-              <img src="/logo.webp" alt="Leo Luxe Clean" width={85} height={44} loading="lazy" decoding="async" className="h-11 w-auto" />
+              <span className="flex flex-col items-center leading-none">
+                <span className="heading-serif text-[1.5rem] tracking-[0.08em] text-white" style={{ fontWeight: 600 }}>LEO LUXE</span>
+                <span className="flex items-center gap-2 mt-1">
+                  <span className="h-px w-5 bg-gold" />
+                  <span className="text-[9px] tracking-[0.45em] text-gold font-medium pl-[0.45em]">CLEAN</span>
+                  <span className="h-px w-5 bg-gold" />
+                </span>
+              </span>
             </a>
             <div className="flex items-center gap-2 sm:gap-3">
               <a
@@ -417,7 +424,7 @@ const LandingPage = ({
                 href={business.whatsapp.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="sm:hidden flex items-center gap-2 bg-[#25a244] hover:bg-[#1e9138] text-white label-caps px-4 py-2.5 rounded-lg text-xs font-semibold transition-colors"
+                className="sm:hidden flex items-center gap-2 bg-[#25a244] hover:bg-[#1e9138] text-[#fff] label-caps px-4 py-2.5 rounded-lg text-xs font-semibold transition-colors"
               >
                 <WhatsAppIcon size={13} /> WhatsApp Us
               </a>
@@ -426,7 +433,7 @@ const LandingPage = ({
         </header>
 
         {/* ── HERO ─────────────────────────────────────────────────────────── */}
-        <section className="relative pt-20 lg:pt-24 min-h-screen overflow-hidden flex items-center" aria-labelledby="hero-heading">
+        <section className="theme-dark relative pt-20 lg:pt-24 min-h-screen overflow-hidden flex items-center" aria-labelledby="hero-heading">
           <img
             src="/hero.svg"
             alt=""
@@ -604,7 +611,7 @@ const LandingPage = ({
               className={`transition-all duration-700 ${servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             >
               <div className="mb-10">
-                <h2 id="services-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-3">
+                <h2 id="services-heading" className="display text-5xl lg:text-7xl text-white mb-3">
                   Cleaning Services
                 </h2>
                 <p className="text-neutral-400 text-base max-w-lg">
@@ -642,7 +649,7 @@ const LandingPage = ({
         </section>
 
         {/* ── PULL QUOTE ───────────────────────────────────────────────────── */}
-        <section className="py-20 lg:py-28" style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #0e0b00 60%, #0a0a0a 100%)' }}>
+        <section className="theme-dark py-20 lg:py-28" style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #0e0b00 60%, #0a0a0a 100%)' }}>
           <div className="max-w-3xl mx-auto px-6 text-center">
             <StarRow count={5} size={18} />
             <blockquote className="heading-serif text-[clamp(1.6rem,3.2vw,2.6rem)] text-white leading-[1.18] mt-6 mb-8">
@@ -671,7 +678,7 @@ const LandingPage = ({
             >
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
                 <div>
-                  <h2 id="reviews-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-3">
+                  <h2 id="reviews-heading" className="display text-5xl lg:text-7xl text-white mb-3">
                     What Our Customers Say
                   </h2>
                   <div className="flex items-center gap-2">
@@ -731,7 +738,7 @@ const LandingPage = ({
               className={`transition-all duration-700 ${faqVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             >
               <div className="mb-10">
-                <h2 id="faq-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-3">
+                <h2 id="faq-heading" className="display text-5xl lg:text-7xl text-white mb-3">
                   Common Questions
                 </h2>
                 <p className="text-neutral-400 text-sm">
@@ -756,7 +763,7 @@ const LandingPage = ({
         <section id="form" className="py-20 lg:py-28 bg-surface-black" aria-labelledby="form-heading">
           <div className="max-w-xl mx-auto px-6 lg:px-8">
             <div className="mb-8">
-              <h2 id="form-heading" className="heading-serif text-4xl lg:text-5xl text-white mb-3">
+              <h2 id="form-heading" className="display text-5xl lg:text-7xl text-white mb-3">
                 Book Your Clean
               </h2>
               <p className="text-neutral-400 text-sm">
@@ -790,7 +797,7 @@ const LandingPage = ({
         </section>
 
         {/* ── FOOTER ───────────────────────────────────────────────────────── */}
-        <footer className="bg-surface-dark border-t border-surface-border/30 py-10">
+        <footer className="theme-dark bg-surface-black py-10">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
               <div>
@@ -812,7 +819,7 @@ const LandingPage = ({
                     href={business.whatsapp.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-neutral-400 hover:text-[#4ade80] transition-colors text-sm"
+                    className="flex items-center gap-2 text-neutral-400 hover:text-whatsapp transition-colors text-sm"
                   >
                     <WhatsAppIcon size={13} /> WhatsApp us
                   </a>
