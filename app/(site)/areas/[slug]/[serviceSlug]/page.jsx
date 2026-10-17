@@ -4,6 +4,7 @@ import JsonLd from '../../../../../src/components/JsonLd';
 import { breadcrumbSchema } from '../../../../../src/components/Seo';
 import { getLocationBySlug, locations } from '../../../../../src/data/locations';
 import { getServiceBySlug, services } from '../../../../../src/data/services';
+import { absoluteUrl } from '../../../../../src/config/business';
 
 export async function generateStaticParams() {
   const params = [];
@@ -25,11 +26,11 @@ export async function generateMetadata({ params }) {
   return {
     title: { absolute: title },
     description,
-    alternates: { canonical: `https://leoluxeclean.co.uk/areas/${location.slug}/${service.slug}` },
+    alternates: { canonical: absoluteUrl(`/areas/${location.slug}/${service.slug}/`) },
     openGraph: {
       title,
       description,
-      url: `https://leoluxeclean.co.uk/areas/${location.slug}/${service.slug}`,
+      url: absoluteUrl(`/areas/${location.slug}/${service.slug}/`),
     },
   };
 }
@@ -41,8 +42,9 @@ export default function Page({ params }) {
   const schemas = [
     breadcrumbSchema([
       { name: 'Home', url: '/' },
-      { name: location.name, url: `/areas/${location.slug}` },
-      { name: service.title },
+      { name: 'Areas', url: '/areas/' },
+      { name: location.name, url: `/areas/${location.slug}/` },
+      { name: service.title, url: `/areas/${location.slug}/${service.slug}/` },
     ]),
   ];
   return (

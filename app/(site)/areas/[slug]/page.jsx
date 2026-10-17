@@ -3,6 +3,7 @@ import LocationPage from '../../../../src/page-components/LocationPage';
 import JsonLd from '../../../../src/components/JsonLd';
 import { createLocationSchema, createFaqSchema, breadcrumbSchema } from '../../../../src/components/Seo';
 import { getLocationBySlug, locations } from '../../../../src/data/locations';
+import { absoluteUrl } from '../../../../src/config/business';
 
 export async function generateStaticParams() {
   return locations.map((l) => ({ slug: l.slug }));
@@ -14,11 +15,11 @@ export async function generateMetadata({ params }) {
   return {
     title: location.metaTitle,
     description: location.metaDescription,
-    alternates: { canonical: `https://leoluxeclean.co.uk/areas/${location.slug}` },
+    alternates: { canonical: absoluteUrl(`/areas/${location.slug}/`) },
     openGraph: {
       title: location.metaTitle,
       description: location.metaDescription,
-      url: `https://leoluxeclean.co.uk/areas/${location.slug}`,
+      url: absoluteUrl(`/areas/${location.slug}/`),
     },
   };
 }
@@ -32,8 +33,8 @@ export default function Page({ params }) {
     ...(faqs.length > 0 ? [createFaqSchema(faqs)] : []),
     breadcrumbSchema([
       { name: 'Home', url: '/' },
-      { name: 'Areas', url: '/areas' },
-      { name: location.name },
+      { name: 'Areas', url: '/areas/' },
+      { name: location.name, url: `/areas/${location.slug}/` },
     ]),
   ];
   return (

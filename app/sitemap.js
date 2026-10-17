@@ -1,40 +1,48 @@
 import { services } from '../src/data/services';
 import { locations } from '../src/data/locations';
+import { absoluteUrl, isCoreArea } from '../src/config/business';
+import { gitLastModified } from '../src/lib/lastmod';
 
-const BASE_URL = 'https://leoluxeclean.co.uk';
+// Only indexable pages, each URL identical to that page's canonical
+// (trailing slash). lastmod is the git commit date of the page's source.
+const page = (path, sources) => {
+  const lastModified = gitLastModified(sources);
+  return { url: absoluteUrl(path), ...(lastModified && { lastModified }) };
+};
+
+const SERVICE_DATA = ['src/data/services.js'];
+const AREA_DATA = ['src/data/locations.js', 'src/data/areas.ts'];
 
 export default function sitemap() {
   const staticPages = [
-    { url: BASE_URL, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
-    { url: `${BASE_URL}/services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${BASE_URL}/areas`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/reviews`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${BASE_URL}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    page('/', ['app/(site)/page.jsx', 'src/page-components/HomePage.jsx']),
+    page('/services/', ['app/(site)/services/page.jsx', 'src/page-components/ServicesPage.jsx', ...SERVICE_DATA]),
+    page('/areas/', ['app/(site)/areas/page.jsx', 'src/page-components/AreasPage.jsx', ...AREA_DATA]),
+    page('/about/', ['app/(site)/about/page.jsx', 'src/page-components/AboutPage.jsx']),
+    page('/reviews/', ['app/(site)/reviews/page.jsx', 'src/page-components/ReviewsPage.jsx']),
+    page('/contact/', ['app/(site)/contact/page.jsx', 'src/page-components/ContactPage.jsx']),
   ];
 
-  const servicePages = services.map((s) => ({
-    url: `${BASE_URL}/services/${s.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
-    priority: 0.8,
-  }));
-
-  const locationPages = locations.map((l) => ({
-    url: `${BASE_URL}/areas/${l.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  }));
-
-  const areaServicePages = locations.flatMap((l) =>
-    services.map((s) => ({
-      url: `${BASE_URL}/areas/${l.slug}/${s.slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    }))
+  const servicePages = services.map((s) =>
+    page(`/services/${s.slug}/`, ['app/(site)/services/[slug]/page.jsx', 'src/page-components/ServiceDetailPage.jsx', ...SERVICE_DATA])
   );
+
+  const locationPages = locations.map((l) =>
+    page(`/areas/${l.slug}/`, ['app/(site)/areas/[slug]/page.jsx', 'src/page-components/LocationPage.jsx', ...AREA_DATA])
+  );
+
+  const areaServicePages = locations
+    .filter((l) => isCoreArea(l.slug))
+    .flatMap((l) =>
+      services.map((s) =>
+        page(`/areas/${l.slug}/${s.slug}/`, [
+          'app/(site)/areas/[slug]/[serviceSlug]/page.jsx',
+          'src/page-components/AreaServicePage.jsx',
+          ...AREA_DATA,
+          ...SERVICE_DATA,
+        ])
+      )
+    );
 
   return [...staticPages, ...servicePages, ...locationPages, ...areaServicePages];
 }

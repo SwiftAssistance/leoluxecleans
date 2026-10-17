@@ -1,4 +1,4 @@
-const BASE_URL = 'https://leoluxeclean.co.uk';
+import { SITE_URL as BASE_URL, absoluteUrl } from '../config/business';
 const SITE_NAME = 'Leo Luxe Clean';
 const DEFAULT_DESCRIPTION =
   'Local cleaners based in Slough, covering Windsor, Maidenhead, Hayes, Uxbridge, Ealing, Hounslow & surrounding areas. Home cleaning, deep cleans, end of tenancy, office cleaning. DBS checked, fully insured. Free quotes.';
@@ -21,7 +21,7 @@ export const localBusinessSchema = {
   '@id': `${BASE_URL}/#business`,
   name: 'Leo Luxe Clean',
   description: DEFAULT_DESCRIPTION,
-  url: BASE_URL,
+  url: absoluteUrl('/'),
   telephone: '+447845239774',
   email: 'info@leoluxeclean.co.uk',
   logo: {
@@ -107,12 +107,12 @@ export const localBusinessSchema = {
     '@type': 'OfferCatalog',
     name: 'Cleaning Services',
     itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Home Cleaning', url: `${BASE_URL}/services/home-cleaning` } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Deep Cleaning', url: `${BASE_URL}/services/deep-clean` } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'End of Tenancy Cleaning', url: `${BASE_URL}/services/end-of-tenancy` } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Office & Commercial Cleaning', url: `${BASE_URL}/services/office-cleaning` } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'After Event Cleaning', url: `${BASE_URL}/services/after-events` } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Specialist Cleaning', url: `${BASE_URL}/services/specialist-cleaning` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Home Cleaning', url: absoluteUrl('/services/home-cleaning/') } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Deep Cleaning', url: absoluteUrl('/services/deep-clean/') } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'End of Tenancy Cleaning', url: absoluteUrl('/services/end-of-tenancy/') } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Office & Commercial Cleaning', url: absoluteUrl('/services/office-cleaning/') } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'After Event Cleaning', url: absoluteUrl('/services/after-events/') } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Specialist Cleaning', url: absoluteUrl('/services/specialist-cleaning/') } },
     ],
   },
   sameAs: [
@@ -127,7 +127,7 @@ export const websiteSchema = {
   '@type': 'WebSite',
   '@id': `${BASE_URL}/#website`,
   name: SITE_NAME,
-  url: BASE_URL,
+  url: absoluteUrl('/'),
   description: DEFAULT_DESCRIPTION,
   publisher: {
     '@id': `${BASE_URL}/#business`,
@@ -147,7 +147,7 @@ export const organizationSchema = {
   '@type': 'Organization',
   '@id': `${BASE_URL}/#organization`,
   name: SITE_NAME,
-  url: BASE_URL,
+  url: absoluteUrl('/'),
   logo: {
     '@type': 'ImageObject',
     url: `${BASE_URL}/favicon-512.png`,
@@ -181,7 +181,7 @@ export const createItemListSchema = (services) => ({
     position: i + 1,
     name: s.title,
     description: s.metaDescription,
-    url: `${BASE_URL}/services/${s.slug}`,
+    url: absoluteUrl(`/services/${s.slug}/`),
     ...(s.priceFrom && {
       offers: {
         '@type': 'Offer',
@@ -196,11 +196,11 @@ export const createItemListSchema = (services) => ({
 export const createServiceSchema = (service) => ({
   '@context': 'https://schema.org',
   '@type': 'Service',
-  '@id': `${BASE_URL}/services/${service.slug}#service`,
+  '@id': absoluteUrl(`/services/${service.slug}/#service`),
   name: service.title,
   alternateName: service.tagline,
   description: service.metaDescription,
-  url: `${BASE_URL}/services/${service.slug}`,
+  url: absoluteUrl(`/services/${service.slug}/`),
   ...(service.image && { image: `${BASE_URL}${service.image}` }),
   provider: {
     '@type': 'LocalBusiness',
@@ -259,10 +259,10 @@ export const createServiceSchema = (service) => ({
 export const createLocationSchema = (location) => ({
   '@context': 'https://schema.org',
   '@type': ['LocalBusiness', 'HousekeepingBusiness'],
-  '@id': `${BASE_URL}/areas/${location.slug}#business`,
+  '@id': absoluteUrl(`/areas/${location.slug}/#business`),
   name: `Leo Luxe Clean — ${location.name}`,
   description: location.metaDescription,
-  url: `${BASE_URL}/areas/${location.slug}`,
+  url: absoluteUrl(`/areas/${location.slug}/`),
   telephone: '+447845239774',
   email: 'info@leoluxeclean.co.uk',
   logo: {
@@ -328,7 +328,7 @@ export const breadcrumbSchema = (items) => ({
     '@type': 'ListItem',
     position: i + 1,
     name: item.name,
-    item: item.url ? `${BASE_URL}${item.url}` : undefined,
+    ...(item.url && { item: absoluteUrl(item.url) }),
   })),
 });
 

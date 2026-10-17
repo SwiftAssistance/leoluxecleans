@@ -3,6 +3,7 @@ import ServiceDetailPage from '../../../../src/page-components/ServiceDetailPage
 import JsonLd from '../../../../src/components/JsonLd';
 import { createServiceSchema, createFaqSchema, breadcrumbSchema } from '../../../../src/components/Seo';
 import { getServiceBySlug, services } from '../../../../src/data/services';
+import { absoluteUrl } from '../../../../src/config/business';
 
 export async function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -14,11 +15,11 @@ export async function generateMetadata({ params }) {
   return {
     title: { absolute: service.metaTitle },
     description: service.metaDescription,
-    alternates: { canonical: `https://leoluxeclean.co.uk/services/${service.slug}` },
+    alternates: { canonical: absoluteUrl(`/services/${service.slug}/`) },
     openGraph: {
       title: service.metaTitle,
       description: service.metaDescription,
-      url: `https://leoluxeclean.co.uk/services/${service.slug}`,
+      url: absoluteUrl(`/services/${service.slug}/`),
     },
   };
 }
@@ -31,8 +32,8 @@ export default function Page({ params }) {
     createFaqSchema(service.faqs),
     breadcrumbSchema([
       { name: 'Home', url: '/' },
-      { name: 'Services', url: '/services' },
-      { name: service.title },
+      { name: 'Services', url: '/services/' },
+      { name: service.title, url: `/services/${service.slug}/` },
     ]),
   ];
   return (

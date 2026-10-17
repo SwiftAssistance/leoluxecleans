@@ -1,6 +1,7 @@
 import HomePage from '../../src/page-components/HomePage';
 import JsonLd from '../../src/components/JsonLd';
 import { localBusinessSchema, websiteSchema, organizationSchema, createFaqSchema } from '../../src/components/Seo';
+import { absoluteUrl } from '../../src/config/business';
 
 const homeFaqSchema = createFaqSchema([
   { q: 'How much does home cleaning cost in Slough?', a: 'Home cleaning in Slough starts from £60. The exact price depends on the size of your property and how often you want us. We give you a clear, fixed quote before any work starts.' },
@@ -14,11 +15,11 @@ const homeFaqSchema = createFaqSchema([
 export const metadata = {
   title: { absolute: 'Leo Luxe Clean | Cleaners in Slough, Windsor & Berkshire' },
   description: 'Local cleaners based in Slough. Home cleaning from £60, deep cleans, end of tenancy, office cleaning across Windsor, Berkshire & West London. DBS checked, fully insured. Same-week bookings. Free quote.',
-  alternates: { canonical: 'https://leoluxeclean.co.uk' },
+  alternates: { canonical: absoluteUrl('/') },
   openGraph: {
     title: 'Leo Luxe Clean | Cleaners in Slough, Windsor & Berkshire',
     description: 'Local cleaners based in Slough. Home cleaning from £60, deep cleans, end of tenancy, office cleaning across Windsor, Berkshire & West London. DBS checked, fully insured.',
-    url: 'https://leoluxeclean.co.uk',
+    url: absoluteUrl('/'),
   },
 };
 
