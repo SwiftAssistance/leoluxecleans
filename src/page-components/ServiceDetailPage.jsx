@@ -13,6 +13,7 @@ import {
 import PageHero from '../components/PageHero';
 import { getServiceBySlug, services } from '../data/services';
 import { areas } from '../data/areas';
+import { hasCombo, comboPath } from '../lib/comboContent';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { reviewsForService } from '../data/reviews';
 import { ReviewCard } from '../components/GoogleReviews';
@@ -235,10 +236,10 @@ const ServiceDetailPage = ({ slug }) => {
             {areas.map((loc) => (
               <Link
                 key={loc.slug}
-                href={`/areas/${loc.slug}/`}
+                href={hasCombo(loc.slug, service.slug) ? comboPath(loc.slug, service.slug) : `/areas/${loc.slug}/`}
                 className="heading-serif text-2xl text-neutral-300 hover:text-gold border-b border-transparent hover:border-gold/50 transition-colors"
               >
-                <span className="sr-only">Cleaners in </span>{loc.name}
+                <span className="sr-only">{hasCombo(loc.slug, service.slug) ? `${service.title} in ` : 'Cleaners in '}</span>{loc.name}
               </Link>
             ))}
           </div>

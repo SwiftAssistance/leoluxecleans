@@ -7,8 +7,12 @@ import WhatsAppIcon from '../components/WhatsAppIcon';
 import { ReviewCard, RatingSummary, GoogleRatingBadge } from '../components/GoogleReviews';
 import { business } from '../config/business';
 import { getAreaPageContent, priceLabel } from '../lib/areaContent';
+import { hasCombo, comboPath } from '../lib/comboContent';
 
 const capitalise = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
+// The town's own page for a service where there is one, else the service page.
+const serviceHref = (area, service) => (hasCombo(area, service) ? comboPath(area, service) : `/services/${service}/`);
 
 const Breadcrumb = ({ name }) => (
   <nav className="flex flex-wrap items-center gap-2 text-sm mb-6" aria-label="Breadcrumb">
@@ -128,7 +132,7 @@ function Services({ c }) {
             {c.services.map((s) => (
               <tr key={s.slug} className="border-b border-surface-border/30 last:border-0 align-top">
                 <th scope="row" className="pr-5 py-5 text-left font-normal">
-                  <Link href={`/services/${s.slug}/`} className="heading-serif text-2xl text-white hover:text-gold transition-colors">{s.title}</Link>
+                  <Link href={serviceHref(detail.slug, s.slug)} className="heading-serif text-2xl text-white hover:text-gold transition-colors">{s.title}</Link>
                   <p className="text-neutral-400 text-sm mt-2 leading-relaxed md:hidden">{s.note}</p>
                 </th>
                 <td className="pr-5 py-5 text-neutral-400 leading-relaxed hidden md:table-cell">{s.note}</td>
@@ -148,7 +152,7 @@ function Services({ c }) {
             <div className="md:col-span-4">
               <span className="text-neutral-500 font-mono text-xs">0{i + 1}</span>
               <h3 className="heading-serif text-2xl text-white mt-1">
-                <Link href={`/services/${s.slug}/`} className="hover:text-gold transition-colors">{s.title}</Link>
+                <Link href={serviceHref(detail.slug, s.slug)} className="hover:text-gold transition-colors">{s.title}</Link>
               </h3>
               <p className="text-gold heading-serif text-lg mt-1">{priceLabel(s)}</p>
             </div>
@@ -163,7 +167,7 @@ function Services({ c }) {
       {c.services.map((s) => (
         <Link
           key={s.slug}
-          href={`/services/${s.slug}/`}
+          href={serviceHref(detail.slug, s.slug)}
           className="group border-t border-surface-border/50 hover:border-gold pt-6 flex flex-col transition-colors"
         >
           <div className="flex items-baseline justify-between gap-3 mb-3">

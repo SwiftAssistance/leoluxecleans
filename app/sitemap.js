@@ -2,6 +2,7 @@ import { services } from '../src/data/services';
 import { areas } from '../src/data/areas';
 import { absoluteUrl } from '../src/config/business';
 import { gitLastModified } from '../src/lib/lastmod';
+import { allCombos, comboPath } from '../src/lib/comboContent';
 
 // Only indexable pages, each URL identical to that page's canonical
 // (trailing slash). lastmod is the git commit date of the page's source.
@@ -33,5 +34,15 @@ export default function sitemap() {
     page(`/areas/${a.slug}/`, ['app/(site)/areas/[slug]/page.jsx', 'src/page-components/AreaPage.jsx', 'src/lib/areaContent.js', ...AREA_DATA])
   );
 
-  return [...staticPages, ...servicePages, ...areaPages];
+  const comboPages = allCombos().map(({ area, service }) =>
+    page(comboPath(area, service), [
+      'app/(site)/areas/[slug]/[service]/page.jsx',
+      'src/page-components/ComboPage.jsx',
+      'src/lib/comboContent.js',
+      ...SERVICE_DATA,
+      ...AREA_DATA,
+    ])
+  );
+
+  return [...staticPages, ...servicePages, ...areaPages, ...comboPages];
 }
