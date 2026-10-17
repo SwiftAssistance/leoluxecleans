@@ -4,10 +4,8 @@ import Link from 'next/link';
 import { useQuoteModal } from '../context/QuoteModalContext';
 import {
   ArrowRight,
-  CheckCircle2,
   Phone,
   Star,
-  MapPin,
   ShieldCheck,
   Clock,
   Leaf,
@@ -93,9 +91,9 @@ const ServiceDetailPage = ({ slug }) => {
               </div>
 
               {service.pricing && (
-                <div className="mt-10 inline-flex items-center gap-4 rounded-xl border border-surface-border/40 px-6 py-4">
+                <div className="mt-10 flex items-baseline gap-5 py-5 border-y border-surface-border/45">
                   <span className="label-caps text-neutral-500 text-[10px]">Starting from</span>
-                  <span className="heading-serif text-3xl text-gold">{service.pricing}</span>
+                  <span className="heading-serif text-4xl lg:text-5xl text-gold">{service.pricing}</span>
                 </div>
               )}
 
@@ -110,7 +108,7 @@ const ServiceDetailPage = ({ slug }) => {
             {/* Sticky sidebar */}
             <div className="lg:col-span-5">
               {service.image && (
-                <div className="rounded-2xl overflow-hidden mb-6">
+                <div className="overflow-hidden mb-8">
                   <img
                     src={service.image}
                     alt={service.imageAlt}
@@ -122,7 +120,7 @@ const ServiceDetailPage = ({ slug }) => {
                   />
                 </div>
               )}
-              <div className="rounded-2xl border border-gold/20 p-8 lg:sticky lg:top-28">
+              <div className="border-t-2 border-gold pt-8 lg:sticky lg:top-28">
                 <h3 className="heading-serif text-2xl text-white mb-2">
                   Get a free quote
                 </h3>
@@ -151,8 +149,8 @@ const ServiceDetailPage = ({ slug }) => {
                     '100% satisfaction guarantee',
                     'No contracts or hidden fees',
                   ].map((item) => (
-                    <div key={item} className="flex items-center gap-3 text-neutral-400 text-xs">
-                      <CheckCircle2 size={14} className="text-gold flex-shrink-0" />
+                    <div key={item} className="flex items-baseline gap-3 text-neutral-400 text-xs">
+                      <span className="text-gold" aria-hidden="true">—</span>
                       <span>{item}</span>
                     </div>
                   ))}
@@ -172,25 +170,26 @@ const ServiceDetailPage = ({ slug }) => {
               featuresVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
-            <div className="text-center mb-12">
-              <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-                What&apos;s Included
-              </h2>
-              <p className="text-neutral-400 text-sm">
-                Everything listed below comes as standard — no add-ons, no extras.
-              </p>
-            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+              <div className="lg:col-span-4">
+                <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
+                  What&apos;s Included
+                </h2>
+                <p className="text-neutral-400 text-sm max-w-xs">
+                  Everything listed below comes as standard — no add-ons, no extras.
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
-              {service.features.map((feature, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-3 py-4 px-5 rounded-xl border border-surface-border/40"
-                >
-                  <CheckCircle2 size={16} className="text-gold mt-0.5 flex-shrink-0" />
-                  <span className="text-neutral-300 text-sm">{feature}</span>
-                </div>
-              ))}
+              <ol className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-x-12 border-t border-surface-border/45">
+                {service.features.map((feature, i) => (
+                  <li key={i} className="flex items-baseline gap-4 py-5 border-b border-surface-border/45">
+                    <span className="font-mono text-[11px] text-gold/60 flex-shrink-0">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="text-neutral-200 text-[15px]">{feature}</span>
+                  </li>
+                ))}
+              </ol>
             </div>
           </div>
         </div>
@@ -198,24 +197,21 @@ const ServiceDetailPage = ({ slug }) => {
 
       {/* FAQ */}
       <section className="py-16 lg:py-24 bg-surface-black">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          <div className="lg:col-span-4">
             <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
               {service.title} FAQ
             </h2>
-            <p className="text-neutral-400 text-sm">
+            <p className="text-neutral-400 text-sm max-w-xs">
               Got questions? Here are the ones we get asked most.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="lg:col-span-8 rule-list">
             {service.faqs.map((faq, i) => (
-              <div
-                key={i}
-                className="rounded-xl border border-surface-border/40 p-6 lg:p-8"
-              >
-                <h3 className="text-white font-semibold mb-3">{faq.q}</h3>
-                <p className="text-neutral-400 text-sm leading-relaxed">{faq.a}</p>
+              <div key={i} className="py-7">
+                <h3 className="heading-serif text-2xl text-white mb-3">{faq.q}</h3>
+                <p className="text-neutral-400 text-[15px] leading-relaxed max-w-2xl">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -234,15 +230,14 @@ const ServiceDetailPage = ({ slug }) => {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 max-w-4xl mx-auto">
             {areas.map((loc) => (
               <Link
                 key={loc.slug}
                 href={`/areas/${loc.slug}/`}
-                className="rounded-lg border border-surface-border/40 px-5 py-3 flex items-center gap-2 text-sm text-neutral-300 hover:text-gold hover:border-gold/30 transition-colors"
+                className="heading-serif text-2xl text-neutral-300 hover:text-gold border-b border-transparent hover:border-gold/50 transition-colors"
               >
-                <MapPin size={14} className="text-gold" />
-                Cleaners in {loc.name}
+                <span className="sr-only">Cleaners in </span>{loc.name}
               </Link>
             ))}
           </div>
@@ -252,36 +247,30 @@ const ServiceDetailPage = ({ slug }) => {
       {/* Other services */}
       <section className="py-16 lg:py-20 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-10">
-            <h2 className="heading-serif text-3xl lg:text-4xl text-white">
-              Other Services
-            </h2>
-          </div>
+          <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-8">
+            Other Services
+          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="rule-list">
             {otherServices.map((s) => (
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className="rounded-xl border border-surface-border/40 p-6 group block hover:border-gold/20 transition-colors"
+                className="group grid grid-cols-12 gap-4 py-6 items-baseline"
               >
-                <h3 className="heading-serif text-xl text-white mb-2 group-hover:text-gold transition-colors">
+                <h3 className="col-span-12 md:col-span-4 heading-serif text-2xl lg:text-3xl text-white group-hover:text-gold transition-colors">
                   {s.title}
                 </h3>
-                <p className="text-neutral-500 text-sm mb-4 line-clamp-2">{s.heroDesc}</p>
-                <div className="flex items-center justify-between">
-                  {s.pricing && (
-                    <span className="text-gold text-sm heading-serif">{s.pricing}</span>
-                  )}
-                  <span className="label-caps text-[10px] text-gold flex items-center gap-1">
-                    Learn More <ArrowRight size={12} />
-                  </span>
-                </div>
+                <p className="col-span-12 md:col-span-6 text-neutral-500 text-sm line-clamp-2">{s.heroDesc}</p>
+                <span className="col-span-12 md:col-span-2 md:text-right heading-serif text-xl text-gold flex md:justify-end items-baseline gap-2">
+                  {s.pricing}
+                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </span>
               </Link>
             ))}
           </div>
 
-          <div className="text-center mt-10">
+          <div className="mt-10">
             <Link
               href="/services"
               className="btn-outline-gold label-caps px-8 py-3.5 rounded-lg inline-flex items-center gap-2 group"

@@ -95,38 +95,35 @@ const Hero = () => {
           {/* Right — floating cards, desktop only */}
           <div className="hidden lg:flex lg:col-span-5 flex-col justify-end gap-4 pb-2">
 
-            {/* Testimonial card */}
-            <div className="ml-auto w-full max-w-[340px] bg-black/55 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-2xl">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={13} fill="#C8A94E" strokeWidth={0} />
-                  ))}
-                </div>
-                <span className="text-[10px] label-caps text-gold/60 bg-gold/10 px-2.5 py-1 rounded-full border border-gold/20">
-                  Google review
-                </span>
-              </div>
-              <p className="text-neutral-200 text-sm leading-relaxed mb-5">
+            {/* Pull-quote on a gold rule — no card */}
+            <figure className="ml-auto w-full max-w-[360px] border-l-2 border-gold pl-6 [text-shadow:0_1px_12px_rgba(0,0,0,0.9)]">
+              <blockquote className="heading-serif text-2xl text-white" style={{ lineHeight: 1.3, fontWeight: 400 }}>
                 &ldquo;{heroReview.text}&rdquo;
-              </p>
-              <p className="text-white text-xs font-semibold">{heroReview.displayName}</p>
-            </div>
+              </blockquote>
+              <figcaption className="mt-4 flex items-center gap-3">
+                <span className="label-caps text-[10px] text-white">{heroReview.displayName}</span>
+                <span className="h-px w-6 bg-gold/60" aria-hidden="true" />
+                <span className="flex gap-0.5" aria-hidden="true">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={11} fill="#C8A94E" strokeWidth={0} />
+                  ))}
+                </span>
+                <span className="sr-only">Google review</span>
+              </figcaption>
+            </figure>
 
-            {/* Quick facts card */}
-            <div className="ml-auto w-full max-w-[340px] bg-gold/10 backdrop-blur-md border border-gold/20 rounded-2xl px-6 py-5 shadow-2xl">
-              <div className="grid grid-cols-3 divide-x divide-gold/20">
-                {[
-                  { val: business.google.ratingDisplay, label: 'On Google' },
-                  { val: String(business.google.reviewCount), label: 'Reviews' },
-                  { val: 'DBS', label: 'Checked' },
-                ].map((s) => (
-                  <div key={s.label} className="text-center px-4 first:pl-0 last:pr-0">
-                    <p className="heading-serif text-2xl text-gold">{s.val}</p>
-                    <p className="text-neutral-400 text-[10px] label-caps mt-0.5">{s.label}</p>
-                  </div>
-                ))}
-              </div>
+            {/* Quick facts — a ruled row */}
+            <div className="ml-auto w-full max-w-[360px] grid grid-cols-3 divide-x divide-white/20 border-t border-white/20 pt-5 mt-6 [text-shadow:0_1px_12px_rgba(0,0,0,0.9)]">
+              {[
+                { val: business.google.ratingDisplay, label: 'On Google' },
+                { val: String(business.google.reviewCount), label: 'Reviews' },
+                { val: 'DBS', label: 'Checked' },
+              ].map((s) => (
+                <div key={s.label} className="px-4 first:pl-0 last:pr-0">
+                  <p className="heading-serif text-3xl text-gold">{s.val}</p>
+                  <p className="text-neutral-300 text-[10px] label-caps mt-0.5">{s.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

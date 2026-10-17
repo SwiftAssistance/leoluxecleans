@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, MapPin, Phone } from 'lucide-react';
+import { ArrowRight, Phone } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import QuoteButton from '../components/QuoteButton';
 import { RatingSummary } from '../components/GoogleReviews';
@@ -31,21 +31,22 @@ const AreasPage = () => (
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-2">{g.title}</h2>
           <p className="text-neutral-400 text-sm mb-10">{g.intro}</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="rule-list">
             {g.items.map((a) => (
               <Link
                 key={a.slug}
                 href={`/areas/${a.slug}/`}
-                className="group block rounded-xl border border-surface-border/40 hover:border-gold/30 p-6 transition-colors"
+                className="group grid grid-cols-12 gap-x-4 lg:gap-x-8 gap-y-2 py-7 items-baseline"
               >
-                <div className="flex items-center gap-2 mb-1">
-                  <MapPin size={14} className="text-gold flex-shrink-0" />
-                  <h3 className="text-white font-semibold group-hover:text-gold transition-colors">{a.name}</h3>
-                  <span className="text-neutral-500 text-xs ml-auto">{a.postcodeDistricts.join(', ')}</span>
-                </div>
-                <p className="text-neutral-400 text-sm leading-relaxed mt-3">{a.page.lede}</p>
-                <span className="label-caps text-[10px] text-gold mt-4 inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                  Cleaners in {a.name} <ArrowRight size={11} />
+                <h3 className="col-span-8 lg:col-span-3 heading-serif text-3xl lg:text-4xl text-white group-hover:text-gold transition-colors">
+                  {a.name}
+                </h3>
+                <span className="col-span-4 lg:col-span-2 lg:order-last text-right font-mono text-xs text-neutral-500">
+                  {a.postcodeDistricts.join(', ')}
+                </span>
+                <p className="col-span-12 lg:col-span-6 text-neutral-400 text-sm leading-relaxed">{a.page.lede}</p>
+                <span className="col-span-12 lg:col-span-1 label-caps text-[10px] text-gold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                  <span className="sr-only">Cleaners in {a.name}</span> <ArrowRight size={14} />
                 </span>
               </Link>
             ))}

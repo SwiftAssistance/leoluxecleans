@@ -1,14 +1,13 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Home, Layers, Key, Building2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const services = [
   {
     slug: 'home-cleaning',
     num: '01',
-    icon: Home,
     title: 'Home Cleaning',
     desc: 'Weekly, fortnightly, or one-off. We treat your place like our own — every room done properly, nothing rushed.',
     tag: 'Most Popular',
@@ -16,21 +15,18 @@ const services = [
   {
     slug: 'deep-clean',
     num: '02',
-    icon: Layers,
     title: 'Deep Clean',
     desc: 'Behind the fridge, inside the oven, on top of the cabinets. All the bits you keep putting off.',
   },
   {
     slug: 'end-of-tenancy',
     num: '03',
-    icon: Key,
     title: 'End of Tenancy',
     desc: "Moving out? We'll leave it landlord-ready. We know exactly what they look for.",
   },
   {
     slug: 'office-cleaning',
     num: '04',
-    icon: Building2,
     title: 'Office & Commercial',
     desc: 'Keep your workspace spotless. Flexible scheduling — mornings, evenings, weekends.',
   },
@@ -63,7 +59,6 @@ const Services = () => {
 
         <div ref={ref} className="border-t border-surface-border/60">
           {services.map((s, i) => {
-            const Icon = s.icon;
             return (
               <Link
                 key={s.slug}
@@ -73,36 +68,28 @@ const Services = () => {
                 }`}
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div className="relative py-7 lg:py-9 flex items-center gap-5 lg:gap-8 px-3 -mx-3 rounded-lg group-hover:bg-surface-dark/60 transition-colors duration-300">
-
-                  {/* Icon circle */}
-                  <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-surface-dark border border-surface-border/60 group-hover:border-gold/30 group-hover:bg-gold/5 flex items-center justify-center text-neutral-500 group-hover:text-gold transition-all duration-300">
-                    <Icon size={18} />
-                  </div>
-
-                  <div className="flex-1 min-w-0">
-                    <div className="flex flex-col lg:flex-row lg:items-center gap-1 lg:gap-5">
-                      <h3 className="heading-serif text-2xl lg:text-4xl text-white group-hover:text-gold transition-colors duration-300">
-                        {s.title}
-                      </h3>
-                      {s.tag && (
-                        <span className="text-[10px] label-caps text-gold/50 group-hover:text-gold/80 border border-gold/20 group-hover:border-gold/40 px-2.5 py-1 rounded-full self-start lg:self-auto transition-colors">
-                          {s.tag}
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-neutral-500 text-sm mt-1.5 max-w-lg">
-                      {s.desc}
-                    </p>
-                  </div>
-
-                  <span className="hidden lg:block text-neutral-700 text-sm font-mono flex-shrink-0">
+                <div className="relative py-8 lg:py-12 grid grid-cols-12 gap-4 lg:gap-8 items-baseline">
+                  <span className="col-span-2 lg:col-span-1 heading-serif text-3xl lg:text-5xl text-gold/30 group-hover:text-gold transition-colors duration-300">
                     {s.num}
                   </span>
 
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full border border-surface-border/60 flex items-center justify-center text-neutral-600 group-hover:border-gold/50 group-hover:text-gold transition-all duration-300 group-hover:translate-x-1">
-                    <ArrowRight size={16} />
+                  <div className="col-span-10 lg:col-span-6">
+                    <h3 className="heading-serif text-3xl lg:text-6xl text-white group-hover:translate-x-2 transition-transform duration-500">
+                      {s.title}
+                    </h3>
+                    {s.tag && (
+                      <span className="label-caps text-[10px] text-gold/70 mt-2 inline-block">— {s.tag}</span>
+                    )}
                   </div>
+
+                  <p className="col-start-3 col-span-10 lg:col-start-auto lg:col-span-4 text-neutral-500 group-hover:text-neutral-300 text-sm leading-relaxed transition-colors">
+                    {s.desc}
+                  </p>
+
+                  <ArrowRight
+                    size={20}
+                    className="hidden lg:block lg:col-span-1 justify-self-end text-neutral-700 group-hover:text-gold -rotate-45 group-hover:rotate-0 transition-all duration-300"
+                  />
                 </div>
 
                 <div className="h-px w-0 group-hover:w-full bg-gradient-to-r from-gold/60 to-gold/0 transition-all duration-700" />

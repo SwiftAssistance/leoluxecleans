@@ -2,31 +2,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { useQuoteModal } from '../context/QuoteModalContext';
-import {
-  ArrowRight,
-  Home,
-  Gem,
-  Sparkles,
-  Building2,
-  Clock,
-  ShieldCheck,
-  Star,
-  CheckCircle2,
-  Phone,
-} from 'lucide-react';
+import { ArrowRight, Star, CheckCircle2, Phone } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import { services } from '../data/services';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { business } from '../config/business';
-
-const serviceIcons = {
-  'home-cleaning': <Home size={24} />,
-  'office-cleaning': <Building2 size={24} />,
-  'deep-clean': <Gem size={24} />,
-  'end-of-tenancy': <Sparkles size={24} />,
-  'after-events': <Clock size={24} />,
-  'specialist-cleaning': <ShieldCheck size={24} />,
-};
 
 const ServicesPage = () => {
   const { openModal } = useQuoteModal();
@@ -65,71 +45,42 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      {/* Services grid — each service is a proper card with pricing + features */}
+      {/* Services index — numbered rows on hairlines, price on the right */}
       <section className="py-16 lg:py-24 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div ref={gridRef} className="space-y-6">
+          <div ref={gridRef} className="rule-list">
             {services.map((s, i) => (
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className={`group block rounded-xl border border-surface-border/40 hover:border-gold/20 transition-all duration-500 ${
+                className={`group grid grid-cols-12 gap-x-4 lg:gap-x-8 gap-y-4 py-10 lg:py-14 transition-all duration-500 ${
                   gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
                 style={{ transitionDelay: `${i * 60}ms` }}
               >
-                <div className="p-6 lg:p-8">
-                  <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-10">
-                    {/* Icon + title + desc */}
-                    <div className="flex items-start gap-5 flex-1 min-w-0">
-                      <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center text-gold flex-shrink-0 group-hover:bg-gold/20 transition-colors">
-                        {serviceIcons[s.slug]}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-3 mb-2">
-                          <h2 className="text-white text-xl font-semibold group-hover:text-gold transition-colors">
-                            {s.title}
-                          </h2>
-                          {i === 0 && (
-                            <span className="label-caps text-[9px] text-gold bg-gold/10 px-2.5 py-1 rounded-full">
-                              Most Popular
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-neutral-400 text-sm leading-relaxed mb-4 max-w-lg">
-                          {s.heroDesc}
-                        </p>
-                        {/* Quick features */}
-                        <div className="flex flex-wrap gap-2">
-                          {s.features.slice(0, 4).map((f, j) => (
-                            <span
-                              key={j}
-                              className="text-[11px] text-neutral-500 border border-surface-border/40 rounded-md px-2.5 py-1"
-                            >
-                              {f.split(' — ')[0].split(' and ')[0]}
-                            </span>
-                          ))}
-                          {s.features.length > 4 && (
-                            <span className="text-[11px] text-gold">
-                              +{s.features.length - 4} more
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    </div>
+                <span className="col-span-2 lg:col-span-1 heading-serif text-3xl lg:text-5xl text-gold/30 group-hover:text-gold transition-colors leading-none">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
 
-                    {/* Pricing + CTA */}
-                    <div className="flex flex-row lg:flex-col items-center lg:items-end gap-4 lg:gap-3 flex-shrink-0 lg:text-right lg:min-w-[140px]">
-                      {s.pricing && (
-                        <span className="heading-serif text-2xl lg:text-3xl text-gold">
-                          {s.pricing}
-                        </span>
-                      )}
-                      <span className="label-caps text-[10px] text-gold flex items-center gap-1 group-hover:gap-2 transition-all">
-                        View Details <ArrowRight size={12} />
-                      </span>
-                    </div>
+                <div className="col-span-10 lg:col-span-8">
+                  <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-3">
+                    <h2 className="heading-serif text-3xl lg:text-5xl text-white group-hover:text-gold transition-colors">
+                      {s.title}
+                    </h2>
+                    {i === 0 && <span className="label-caps text-[10px] text-gold/70">— Most Popular</span>}
                   </div>
+                  <p className="text-neutral-400 text-[15px] leading-relaxed mb-4 max-w-xl">{s.heroDesc}</p>
+                  <p className="text-neutral-600 text-xs leading-relaxed max-w-xl">
+                    {s.features.slice(0, 4).map((f) => f.split(' — ')[0].split(' and ')[0]).join('  ·  ')}
+                    {s.features.length > 4 && <span className="text-gold/70">  ·  +{s.features.length - 4} more</span>}
+                  </p>
+                </div>
+
+                <div className="col-start-3 col-span-10 lg:col-start-auto lg:col-span-3 flex lg:flex-col items-baseline lg:items-end justify-between gap-3">
+                  {s.pricing && <span className="heading-serif text-2xl lg:text-4xl text-gold">{s.pricing}</span>}
+                  <span className="label-caps text-[10px] text-neutral-500 group-hover:text-gold flex items-center gap-1 group-hover:gap-2 transition-all">
+                    View Details <ArrowRight size={12} />
+                  </span>
                 </div>
               </Link>
             ))}
@@ -139,20 +90,15 @@ const ServicesPage = () => {
 
       {/* How it works */}
       <section className="py-16 lg:py-24 bg-surface-dark border-y border-surface-border/30">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-14">
-            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-              How It Works
-            </h2>
-            <p className="text-neutral-400 text-sm max-w-md mx-auto">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          <div className="lg:col-span-4">
+            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">How It Works</h2>
+            <p className="text-neutral-400 text-sm max-w-xs">
               From first contact to finished clean — we keep it straightforward.
             </p>
           </div>
 
-          <div
-            ref={processRef}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12"
-          >
+          <ol ref={processRef} className="lg:col-span-8 rule-list">
             {[
               {
                 step: '01',
@@ -170,41 +116,37 @@ const ServicesPage = () => {
                 desc: "We don't leave until it's done properly. Not happy? We come back and sort it for free. That's our guarantee.",
               },
             ].map((item, i) => (
-              <div
-                key={i}
-                className={`text-center transition-all duration-500 ${
+              <li
+                key={item.step}
+                className={`grid grid-cols-12 gap-4 lg:gap-8 py-8 items-baseline transition-all duration-500 ${
                   processVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
-                <span className="heading-serif text-5xl text-gold/20 block mb-4">
+                <span className="col-span-3 lg:col-span-2 heading-serif text-5xl lg:text-6xl text-gold/25 leading-none">
                   {item.step}
                 </span>
-                <h3 className="text-white font-semibold text-lg mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-neutral-500 text-sm leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
+                <div className="col-span-9 lg:col-span-10">
+                  <h3 className="heading-serif text-2xl lg:text-3xl text-white mb-2">{item.title}</h3>
+                  <p className="text-neutral-500 text-sm leading-relaxed max-w-md">{item.desc}</p>
+                </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
       {/* What every clean includes */}
       <section className="py-16 lg:py-24 bg-surface-black">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-14">
-            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-              Every Clean Includes
-            </h2>
-            <p className="text-neutral-400 text-sm max-w-md mx-auto">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          <div className="lg:col-span-4">
+            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">Every Clean Includes</h2>
+            <p className="text-neutral-400 text-sm max-w-xs">
               These aren't add-ons. They're standard with every single booking.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <ul className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-x-12 border-t border-surface-border/45">
             {[
               'Fully DBS-checked, insured team',
               'Eco-friendly, professional-grade products',
@@ -212,16 +154,13 @@ const ServicesPage = () => {
               '100% satisfaction guarantee',
               'No contracts or hidden fees',
               'Free re-clean if anything is missed',
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3 py-4 px-5 rounded-xl border border-surface-border/40"
-              >
-                <CheckCircle2 size={16} className="text-gold flex-shrink-0" />
-                <span className="text-neutral-300 text-sm">{item}</span>
-              </div>
+            ].map((item) => (
+              <li key={item} className="flex items-baseline gap-4 py-5 border-b border-surface-border/45">
+                <span className="text-gold" aria-hidden="true">—</span>
+                <span className="text-neutral-200 text-[15px]">{item}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 

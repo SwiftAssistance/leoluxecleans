@@ -55,7 +55,7 @@ const About = () => {
             }`}
             style={{ transitionDelay: '200ms' }}
           >
-            <div className="rounded-2xl overflow-hidden">
+            <div className="overflow-hidden">
               <img
                 src="/about.jpg"
                 alt="Three Leo Luxe Clean cleaners in branded uniforms cleaning a bathroom"
@@ -68,17 +68,14 @@ const About = () => {
             </div>
 
             {/* Stats as text, not badges */}
-            <div className="grid grid-cols-3 gap-px mt-px bg-surface-border/20">
+            <div className="grid grid-cols-3 mt-6 divide-x divide-surface-border/50">
               {[
                 { val: business.google.ratingDisplay, label: 'On Google' },
                 { val: String(business.google.reviewCount), label: 'Google reviews' },
                 { val: 'DBS', label: 'Checked' },
-              ].map((s, i) => (
-                <div
-                  key={s.label}
-                  className="bg-surface-card py-5 text-center"
-                >
-                  <span className="heading-serif text-2xl lg:text-3xl text-gold block">
+              ].map((s) => (
+                <div key={s.label} className="py-2 px-4 first:pl-0">
+                  <span className="heading-serif text-3xl lg:text-4xl text-gold block">
                     {s.val}
                   </span>
                   <span className="text-neutral-400 text-[10px] label-caps">
