@@ -5,6 +5,140 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Removed pages (site reduced to one page per core area). Old area x service
+# URLs 301 to their area page; towns without their own page 301 to /areas/.
+# Rules are not forced, so a file that exists (e.g. /areas/slough/index.html)
+# is always served instead of being redirected.
+
+[[redirects]]
+  from = "/areas/slough/*"
+  to = "/areas/slough/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/windsor/*"
+  to = "/areas/windsor/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/maidenhead/*"
+  to = "/areas/maidenhead/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/langley/*"
+  to = "/areas/langley/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/ascot/*"
+  to = "/areas/ascot/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/eton/*"
+  to = "/areas/eton/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/burnham"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/burnham/*"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/bracknell"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/bracknell/*"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/hayes"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/hayes/*"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/southall"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/southall/*"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/uxbridge"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/uxbridge/*"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/ealing"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/ealing/*"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/greenford"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/greenford/*"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/northolt"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/northolt/*"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/west-drayton"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/west-drayton/*"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/hounslow"
+  to = "/areas/"
+  status = 301
+
+[[redirects]]
+  from = "/areas/hounslow/*"
+  to = "/areas/"
+  status = 301
 # No catch-all redirect: Netlify serves out/404.html with a real 404 status
 # for any path (page, image or text file) that does not exist in the build.
 

@@ -23,6 +23,21 @@ export type AreaDetail = {
   why: { title: string; text: string }[];
   serviceNotes: Record<AreaService, string>;
   nearby: string[];
+  page: AreaPageDesign;
+};
+
+// Each core area page has its own design: headline, hero style, photo,
+// services layout, section order and one question specific to the town.
+export type AreaSection = 'services' | 'local' | 'why' | 'visit' | 'reviews' | 'faq';
+export type AreaPageDesign = {
+  h1: string;
+  lede: string;
+  hero: 'panel' | 'split' | 'photo';
+  photo: 'kitchen' | 'team';
+  servicesLayout: 'grid' | 'rows' | 'table';
+  order: AreaSection[];
+  headings: Partial<Record<AreaSection, string>>;
+  faq: { q: string; a: string };
 };
 
 export const areas: AreaDetail[] = [
@@ -74,7 +89,27 @@ export const areas: AreaDetail[] = [
       'specialist-cleaning':
         "Specialist jobs we take on in Slough include oven degreasing, carpet and upholstery extraction, and windows. Older Victorian houses in Upton often have original sash windows and fireplaces, and the newer flats tend to have large glazed balcony doors, so we bring the right kit for each.",
     },
-    nearby: ['langley', 'windsor', 'eton', 'burnham'],
+    nearby: ['langley', 'windsor', 'eton'],
+    page: {
+      h1: 'Cleaners in Slough',
+      lede: 'Our home town. A ten-minute drive from our George Green base to anywhere in SL1, SL2 and SL3, for homes, rentals and business premises.',
+      hero: 'panel',
+      photo: 'kitchen',
+      servicesLayout: 'grid',
+      order: ['services', 'local', 'why', 'reviews', 'faq', 'visit'],
+      headings: {
+        services: 'What we clean in Slough',
+        local: 'From Upton terraces to station flats',
+        why: 'Why Slough customers choose us',
+        reviews: 'Reviews from our customers',
+        faq: 'Slough cleaning questions',
+        visit: 'Getting to you',
+      },
+      faq: {
+        q: 'Do you clean business premises on the Slough Trading Estate?',
+        a: 'Yes. We clean offices and commercial units across Slough, including premises around the Trading Estate, before or after your working day. Every office quote is tailored to the size of the premises and how often you need us.',
+      },
+    },
   },
   {
     slug: 'windsor',
@@ -125,6 +160,26 @@ export const areas: AreaDetail[] = [
         "Specialist work in Windsor often involves period features: original sash windows, tiled hallways, fireplaces and older carpets. We use extraction equipment for carpets and upholstery and suitable products for older surfaces, and degrease ovens on site.",
     },
     nearby: ['eton', 'slough', 'ascot', 'maidenhead'],
+    page: {
+      h1: 'Cleaning for Windsor homes, old and new',
+      lede: 'Georgian townhouses by the castle, Victorian terraces towards Clewer, family homes in Dedworth and flats along the Thames: careful, consistent cleaning across SL4.',
+      hero: 'split',
+      photo: 'team',
+      servicesLayout: 'rows',
+      order: ['local', 'services', 'why', 'faq', 'reviews', 'visit'],
+      headings: {
+        local: 'Windsor homes we know well',
+        services: 'Services for Windsor homes and businesses',
+        why: 'Why Windsor customers choose us',
+        faq: 'Questions from Windsor customers',
+        reviews: 'What customers say',
+        visit: 'Parking and arrival in Windsor',
+      },
+      faq: {
+        q: 'Are you careful with period features in older Windsor homes?',
+        a: 'Yes. Many homes near Windsor Castle are Georgian or Victorian, with original floors, sash windows and fireplaces. We use products that are safe on older surfaces, take extra care around period features, and check anything unusual with you first.',
+      },
+    },
   },
   {
     slug: 'maidenhead',
@@ -174,7 +229,27 @@ export const areas: AreaDetail[] = [
       'specialist-cleaning':
         "Maidenhead's riverside homes and garden rooms mean a lot of glass, while family homes in Furze Platt and Cox Green tend to need carpets, sofas and ovens done. We bring extraction machines, degreasers and window cleaning kit for each job.",
     },
-    nearby: ['windsor', 'slough', 'burnham', 'ascot'],
+    nearby: ['windsor', 'slough', 'ascot'],
+    page: {
+      h1: 'Maidenhead cleaners, from the river to Furze Platt',
+      lede: "Riverside homes near Boulter's Lock and Bray, new flats in the regenerated town centre and family estates across SL6, cleaned on a planned weekly route from Slough.",
+      hero: 'photo',
+      photo: 'kitchen',
+      servicesLayout: 'table',
+      order: ['why', 'services', 'visit', 'reviews', 'local', 'faq'],
+      headings: {
+        why: 'Why Maidenhead customers choose us',
+        services: 'Maidenhead cleaning services and prices',
+        visit: 'How Maidenhead visits work',
+        reviews: 'Customer reviews',
+        local: 'Around SL6',
+        faq: 'Maidenhead FAQs',
+      },
+      faq: {
+        q: 'Do you clean glass and conservatories in riverside homes?',
+        a: "Yes. Homes near the Thames around Boulter's Lock and Bray often have large glazed doors, conservatories and garden rooms. We bring kit for glass and hard floors as standard, and can add internal and accessible external windows as a specialist clean.",
+      },
+    },
   },
   {
     slug: 'langley',
@@ -224,7 +299,27 @@ export const areas: AreaDetail[] = [
       'specialist-cleaning':
         'For Langley homes we regularly do oven degreasing, carpet and upholstery extraction, and windows. With our base so close, a single specialist job like an oven clean is still worth booking on its own.',
     },
-    nearby: ['slough', 'windsor', 'eton', 'west-drayton'],
+    nearby: ['slough', 'windsor', 'eton'],
+    page: {
+      h1: 'Cleaners on Langley’s doorstep',
+      lede: 'Our base in George Green sits just north of Langley, so we are a few minutes from Langley village, Middlegreen, Parlaunt Park, Brands Hill and Colnbrook.',
+      hero: 'panel',
+      photo: 'team',
+      servicesLayout: 'rows',
+      order: ['visit', 'services', 'reviews', 'why', 'faq', 'local'],
+      headings: {
+        visit: 'Right next door',
+        services: 'Cleaning services in Langley',
+        reviews: 'What our customers say',
+        why: 'Why Langley customers choose us',
+        faq: 'Langley questions answered',
+        local: 'Langley streets and homes',
+      },
+      faq: {
+        q: 'Can you fit in a Langley clean at short notice?',
+        a: "Often, yes. Because we are based just up the road in George Green, travel doesn't eat into the day, so short-notice and same-week Langley bookings are usually easier to fit in. Call us and we will tell you the earliest slot.",
+      },
+    },
   },
   {
     slug: 'ascot',
@@ -245,7 +340,7 @@ export const areas: AreaDetail[] = [
     access:
       'Many Ascot homes are on private roads or behind electric gates, so please share gate codes or access arrangements when you book. Traffic around the racecourse is heavy on race days, especially during Royal Ascot in June, and we plan bookings around those dates.',
     intro:
-      'Ascot, together with Sunninghill, Sunningdale, North Ascot and South Ascot, has some of the largest homes we clean. Many are detached houses on private roads or in gated developments, alongside period homes and flats near the High Street. We reach SL5 from Windsor along the A332 through Windsor Great Park.',
+      'Ascot, together with Sunninghill, Sunningdale, North Ascot and South Ascot, has many large homes. Many are detached houses on private roads or in gated developments, alongside period homes and flats near the High Street. We reach SL5 from Windsor along the A332 through Windsor Great Park.',
     why: [
       {
         title: 'Sized for larger homes',
@@ -274,7 +369,27 @@ export const areas: AreaDetail[] = [
       'specialist-cleaning':
         "Larger Ascot homes mean more carpet, more upholstery and more glass. We do carpet and upholstery extraction, oven degreasing, hard floor cleaning and internal and accessible external windows.",
     },
-    nearby: ['windsor', 'maidenhead', 'bracknell', 'slough'],
+    nearby: ['windsor', 'maidenhead', 'slough'],
+    page: {
+      h1: 'Cleaning for larger homes in Ascot',
+      lede: 'Detached houses on private roads, gated developments and period homes across Ascot, Sunninghill and Sunningdale, with a team sized to the property.',
+      hero: 'photo',
+      photo: 'team',
+      servicesLayout: 'grid',
+      order: ['local', 'why', 'services', 'faq', 'reviews', 'visit'],
+      headings: {
+        local: 'Ascot, Sunninghill and Sunningdale homes',
+        why: 'Why Ascot customers choose us',
+        services: 'Services for Ascot properties',
+        faq: 'Ascot cleaning questions',
+        reviews: 'Reviews from our customers',
+        visit: 'Access, gates and race days',
+      },
+      faq: {
+        q: 'Can you work around Royal Ascot and race days?',
+        a: 'Yes. Race days, and Royal Ascot in June in particular, bring heavy traffic around the racecourse. We check the fixture list when we book Ascot visits and plan around it, so your clean is not caught up in race traffic.',
+      },
+    },
   },
   {
     slug: 'eton',
@@ -325,6 +440,26 @@ export const areas: AreaDetail[] = [
         "Specialist work in Eton often involves older carpets and rugs, upholstery, period windows and fireplaces. We pick products and methods that suit older materials, and do ovens and hard floors too.",
     },
     nearby: ['windsor', 'slough', 'langley', 'maidenhead'],
+    page: {
+      h1: 'Eton cleaning, with care for historic homes',
+      lede: 'Listed buildings and period cottages on and around the High Street, plus family homes in Eton Wick, Dorney and Boveney.',
+      hero: 'split',
+      photo: 'kitchen',
+      servicesLayout: 'table',
+      order: ['local', 'visit', 'services', 'why', 'reviews', 'faq'],
+      headings: {
+        local: 'Old town and village homes',
+        visit: 'Reaching Eton',
+        services: 'Eton cleaning services',
+        why: 'Why Eton customers choose us',
+        reviews: 'Customer reviews',
+        faq: 'Eton FAQs',
+      },
+      faq: {
+        q: 'Do you clean listed buildings?',
+        a: 'Yes. Many buildings on and around Eton High Street are listed, with original floors, panelling and fittings. We use gentle products suited to older surfaces and agree anything unusual with you before we start.',
+      },
+    },
   },
 ];
 

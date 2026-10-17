@@ -1,6 +1,6 @@
 import { services } from '../src/data/services';
-import { locations } from '../src/data/locations';
-import { absoluteUrl, isCoreArea } from '../src/config/business';
+import { areas } from '../src/data/areas';
+import { absoluteUrl } from '../src/config/business';
 import { gitLastModified } from '../src/lib/lastmod';
 
 // Only indexable pages, each URL identical to that page's canonical
@@ -29,22 +29,9 @@ export default function sitemap() {
     page(`/services/${s.slug}/`, ['app/(site)/services/[slug]/page.jsx', 'src/page-components/ServiceDetailPage.jsx', ...SERVICE_DATA])
   );
 
-  const locationPages = locations.map((l) =>
-    page(`/areas/${l.slug}/`, ['app/(site)/areas/[slug]/page.jsx', 'src/page-components/LocationPage.jsx', ...AREA_DATA])
+  const areaPages = areas.map((a) =>
+    page(`/areas/${a.slug}/`, ['app/(site)/areas/[slug]/page.jsx', 'src/page-components/AreaPage.jsx', 'src/lib/areaContent.js', ...AREA_DATA])
   );
 
-  const areaServicePages = locations
-    .filter((l) => isCoreArea(l.slug))
-    .flatMap((l) =>
-      services.map((s) =>
-        page(`/areas/${l.slug}/${s.slug}/`, [
-          'app/(site)/areas/[slug]/[serviceSlug]/page.jsx',
-          'src/page-components/AreaServicePage.jsx',
-          ...AREA_DATA,
-          ...SERVICE_DATA,
-        ])
-      )
-    );
-
-  return [...staticPages, ...servicePages, ...locationPages, ...areaServicePages];
+  return [...staticPages, ...servicePages, ...areaPages];
 }

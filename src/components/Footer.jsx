@@ -8,7 +8,9 @@ import {
   Star,
   Clock,
 } from 'lucide-react';
-import { business } from '../config/business';
+import { business, isCoreArea } from '../config/business';
+import { areas } from '../data/areas';
+import { locations } from '../data/locations';
 
 const footerLinks = [
   { name: 'Home', to: '/' },
@@ -27,27 +29,13 @@ const serviceLinks = [
   { name: 'Specialist Cleaning', to: '/services/specialist-cleaning' },
 ];
 
-const berkshireLinks = [
-  { name: 'Slough', to: '/areas/slough' },
-  { name: 'Windsor', to: '/areas/windsor' },
-  { name: 'Langley', to: '/areas/langley' },
-  { name: 'Maidenhead', to: '/areas/maidenhead' },
-  { name: 'Ascot', to: '/areas/ascot' },
-  { name: 'Bracknell', to: '/areas/bracknell' },
-  { name: 'Eton', to: '/areas/eton' },
-  { name: 'Burnham', to: '/areas/burnham' },
+const areaLinks = [
+  ...areas.map((a) => ({ name: a.name, to: `/areas/${a.slug}/` })),
+  { name: 'All areas', to: '/areas/' },
 ];
 
-const westLondonLinks = [
-  { name: 'Hayes', to: '/areas/hayes' },
-  { name: 'Southall', to: '/areas/southall' },
-  { name: 'Uxbridge', to: '/areas/uxbridge' },
-  { name: 'Ealing', to: '/areas/ealing' },
-  { name: 'Greenford', to: '/areas/greenford' },
-  { name: 'Northolt', to: '/areas/northolt' },
-  { name: 'West Drayton', to: '/areas/west-drayton' },
-  { name: 'Hounslow', to: '/areas/hounslow' },
-];
+// Towns we cover without their own page (listed on /areas/).
+const otherAreaNames = locations.filter((l) => !isCoreArea(l.slug)).map((l) => l.name);
 
 const socialLinks = [
   { Icon: Star, label: 'Google', href: business.google.profileUrl },
@@ -140,9 +128,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="label-caps text-neutral-300 mb-6">Berkshire</h4>
+            <h4 className="label-caps text-neutral-300 mb-6">Areas</h4>
             <ul className="space-y-3">
-              {berkshireLinks.map((link) => (
+              {areaLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.to}
@@ -156,19 +144,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="label-caps text-neutral-300 mb-6">West London</h4>
-            <ul className="space-y-3">
-              {westLondonLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.to}
-                    className="text-neutral-500 hover:text-gold transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <h4 className="label-caps text-neutral-300 mb-6">Also covering</h4>
+            <p className="text-neutral-500 text-sm leading-relaxed">{otherAreaNames.join(', ')}</p>
           </div>
 
           <div>

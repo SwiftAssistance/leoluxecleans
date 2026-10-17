@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import { getServiceBySlug, services } from '../data/services';
-import { locations } from '../data/locations';
+import { areas } from '../data/areas';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { reviewsForService } from '../data/reviews';
 import { ReviewCard } from '../components/GoogleReviews';
@@ -230,19 +230,19 @@ const ServiceDetailPage = ({ slug }) => {
               {service.title} Near You
             </h2>
             <p className="text-neutral-400 text-sm">
-              We cover all of these areas and more across Berkshire.
+              Our core areas, plus <Link href="/areas/" className="text-gold hover:underline">nearby towns</Link> across Berkshire and West London.
             </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-3">
-            {locations.map((loc) => (
+            {areas.map((loc) => (
               <Link
                 key={loc.slug}
-                href={`/areas/${loc.slug}/${slug}`}
+                href={`/areas/${loc.slug}/`}
                 className="rounded-lg border border-surface-border/40 px-5 py-3 flex items-center gap-2 text-sm text-neutral-300 hover:text-gold hover:border-gold/30 transition-colors"
               >
                 <MapPin size={14} className="text-gold" />
-                {service.title} in {loc.name}
+                Cleaners in {loc.name}
               </Link>
             ))}
           </div>
