@@ -8,9 +8,8 @@ import {
   Star,
   Clock,
 } from 'lucide-react';
-import { business, isCoreArea } from '../config/business';
+import { business } from '../config/business';
 import { areas } from '../data/areas';
-import { locations } from '../data/locations';
 
 const footerLinks = [
   { name: 'Home', to: '/' },
@@ -29,13 +28,9 @@ const serviceLinks = [
   { name: 'Specialist Cleaning', to: '/services/specialist-cleaning' },
 ];
 
-const areaLinks = [
-  ...areas.map((a) => ({ name: a.name, to: `/areas/${a.slug}/` })),
-  { name: 'All areas', to: '/areas/' },
-];
-
-// Towns we cover without their own page (listed on /areas/).
-const otherAreaNames = locations.filter((l) => !isCoreArea(l.slug)).map((l) => l.name);
+const areaLink = (a) => ({ name: a.name, to: `/areas/${a.slug}/` });
+const berkshireLinks = areas.filter((a) => a.region !== 'West London').map(areaLink);
+const westLondonLinks = areas.filter((a) => a.region === 'West London').map(areaLink);
 
 const socialLinks = [
   { Icon: Star, label: 'Google', href: business.google.profileUrl },
@@ -128,9 +123,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="label-caps text-neutral-300 mb-6">Areas</h4>
+            <h4 className="label-caps text-neutral-300 mb-6">Berkshire &amp; Bucks</h4>
             <ul className="space-y-3">
-              {areaLinks.map((link) => (
+              {berkshireLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.to}
@@ -144,8 +139,19 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="label-caps text-neutral-300 mb-6">Also covering</h4>
-            <p className="text-neutral-500 text-sm leading-relaxed">{otherAreaNames.join(', ')}</p>
+            <h4 className="label-caps text-neutral-300 mb-6">West London</h4>
+            <ul className="space-y-3">
+              {westLondonLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.to}
+                    className="text-neutral-500 hover:text-gold transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div>

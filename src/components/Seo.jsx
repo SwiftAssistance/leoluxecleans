@@ -1,14 +1,14 @@
 // JSON-LD generators. Every business fact comes from src/config/business.ts.
 // No Review or AggregateRating markup: reviews are shown to visitors only.
 import { business, sameAs, absoluteUrl, BUSINESS_ID, SITE_URL, CORE_AREA_SLUGS } from '../config/business';
-import { getLocationBySlug } from '../data/locations';
+import { getAreaDetail } from '../data/areas';
 
 const DESCRIPTION =
   'Local cleaning company based in Slough. Home cleaning, deep cleans, end of tenancy, office and specialist cleaning across Slough, Windsor, Maidenhead, Langley, Ascot and Eton.';
 
 const coreAreasServed = CORE_AREA_SLUGS.map((slug) => ({
   '@type': 'City',
-  name: getLocationBySlug(slug).name,
+  name: getAreaDetail(slug).name,
 }));
 
 const provider = { '@id': BUSINESS_ID };
