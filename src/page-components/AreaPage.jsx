@@ -4,7 +4,7 @@ import { ArrowRight, Phone, MapPin, ChevronRight, Clock, Car } from 'lucide-reac
 import HeroImage from '../components/HeroImage';
 import QuoteButton from '../components/QuoteButton';
 import WhatsAppIcon from '../components/WhatsAppIcon';
-import { ReviewCard, RatingSummary } from '../components/GoogleReviews';
+import { ReviewCard, RatingSummary, GoogleRatingBadge } from '../components/GoogleReviews';
 import { business } from '../config/business';
 import { getAreaPageContent, priceLabel } from '../lib/areaContent';
 
@@ -261,8 +261,8 @@ const AreaPage = ({ slug }) => {
 
     reviews: (
       <>
-        <div className="mb-6"><RatingSummary /></div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-12">
+        <div className="mb-8"><GoogleRatingBadge /></div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {c.reviews.map((r) => (
             <ReviewCard key={r.id} review={r} />
           ))}

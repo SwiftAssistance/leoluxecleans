@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight, Phone } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import QuoteButton from '../components/QuoteButton';
-import { ReviewCard, RatingSummary } from '../components/GoogleReviews';
+import { ReviewCard, GoogleRatingBadge } from '../components/GoogleReviews';
 import { business } from '../config/business';
 import { writtenReviews } from '../data/reviews';
 
@@ -18,10 +18,7 @@ const ReviewsPage = () => (
     {/* Rating summary */}
     <section className="py-10 bg-surface-dark border-b border-surface-border/30">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 text-center">
-        <div>
-          <span className="heading-serif text-6xl text-gold block">{business.google.ratingDisplay}</span>
-          <RatingSummary className="mt-2" />
-        </div>
+        <GoogleRatingBadge />
         <p className="text-neutral-400 text-sm max-w-md">
           Shown exactly as written on our Google Business Profile. Longer reviews are cut short by Google; read them in full there.
         </p>
@@ -42,7 +39,7 @@ const ReviewsPage = () => (
             Read all reviews on Google <ArrowRight size={12} />
           </a>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {writtenReviews.map((review) => (
             <ReviewCard key={review.id} review={review} />
           ))}
