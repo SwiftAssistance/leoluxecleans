@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { X, CheckCircle2, ArrowRight, Phone, Loader2 } from 'lucide-react';
 import { useQuoteModal } from '../context/QuoteModalContext';
 import { services } from '../data/services';
+import { business } from '../config/business';
 
 const QuoteModal = () => {
   const { isOpen, closeModal, preselectedService } = useQuoteModal();
@@ -96,7 +97,7 @@ const QuoteModal = () => {
         setError('Something went wrong. Please try again or call us directly.');
       }
     } catch {
-      setError('Something went wrong. Please try again or call us on 07845 239774.');
+      setError(`Something went wrong. Please try again or call us on ${business.phone.display}.`);
     } finally {
       setSubmitting(false);
     }
@@ -151,7 +152,7 @@ const QuoteModal = () => {
               Get a Free Quote
             </h2>
             <p className="text-neutral-400 text-xs mt-1">
-              No obligation — we reply within 2 hours.
+              No obligation — we reply {business.responseTime}.
             </p>
           </div>
           <button
@@ -177,13 +178,13 @@ const QuoteModal = () => {
               </div>
               <h3 className="heading-serif text-2xl text-white mb-2">Quote Sent!</h3>
               <p className="text-neutral-400 text-sm max-w-xs mx-auto leading-relaxed">
-                We've got your request. Expect a reply within 2 hours — usually sooner.
+                We've got your request. Expect a reply {business.responseTime} — usually sooner.
               </p>
               <div className="mt-4 flex items-center justify-center gap-1.5 text-xs text-neutral-500">
                 <Phone size={12} />
                 <span>Or call us now: </span>
-                <a href="tel:07845239774" className="text-gold hover:underline">
-                  07845 239774
+                <a href={business.phone.href} className="text-gold hover:underline">
+                  {business.phone.display}
                 </a>
               </div>
               <button
@@ -383,8 +384,8 @@ const QuoteModal = () => {
               {error && (
                 <p className="text-red-400 text-xs text-center bg-red-400/10 border border-red-400/20 rounded-lg px-4 py-3">
                   {error}{' '}
-                  <a href="tel:07845239774" className="text-red-300 underline font-medium">
-                    07845 239774
+                  <a href={business.phone.href} className="text-red-300 underline font-medium">
+                    {business.phone.display}
                   </a>
                 </p>
               )}
@@ -395,7 +396,7 @@ const QuoteModal = () => {
                 <div className="h-px flex-1 bg-surface-border/30" />
               </div>
               <a
-                href="https://wa.me/447845239774?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
+                href={business.whatsapp.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 bg-[#25a244]/10 hover:bg-[#25a244]/20 border border-[#25a244]/40 hover:border-[#25a244]/70 text-[#4ade80] label-caps py-3 rounded-lg text-[10px] transition-colors"

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Phone } from 'lucide-react';
 import { useQuoteModal } from '../context/QuoteModalContext';
+import { business } from '../config/business';
 
 function WhatsAppIcon() {
   return (
@@ -16,14 +17,14 @@ const MobileCta = () => {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-surface-black border-t border-gold/20 px-3 py-3 flex gap-2 safe-bottom">
       <a
-        href="tel:07845239774"
+        href={business.phone.href}
         className="flex-none btn-outline-gold label-caps py-4 px-4 rounded-lg text-center flex items-center justify-center gap-1.5 min-h-[44px]"
-        aria-label="Call 07845 239774"
+        aria-label={`Call ${business.phone.display}`}
       >
         <Phone size={14} />
       </a>
       <a
-        href="https://wa.me/447845239774?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
+        href={business.whatsapp.href}
         target="_blank"
         rel="noopener noreferrer"
         className="flex-none bg-[#25a244]/15 border border-[#25a244]/40 text-[#4ade80] label-caps py-4 px-4 rounded-lg flex items-center justify-center gap-1.5 min-h-[44px] transition-colors hover:bg-[#25a244]/25"

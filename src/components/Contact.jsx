@@ -10,30 +10,31 @@ import {
   Clock,
 } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { business } from '../config/business';
 
 const contactItems = [
   {
     icon: <Phone size={18} />,
     label: 'Call us',
-    value: '07845 239774',
-    href: 'tel:07845239774',
+    value: business.phone.display,
+    href: business.phone.href,
   },
   {
     icon: <Mail size={18} />,
     label: 'Email us',
-    value: 'info@leoluxeclean.co.uk',
-    href: 'mailto:info@leoluxeclean.co.uk',
+    value: business.email,
+    href: `mailto:${business.email}`,
   },
   {
     icon: <MapPin size={18} />,
-    label: 'We cover',
-    value: 'Slough, Windsor, Langley & Berkshire',
+    label: 'Find us',
+    value: business.address.singleLine,
     href: null,
   },
   {
     icon: <Clock size={18} />,
     label: 'Response time',
-    value: 'Within 2 hours',
+    value: `Reply ${business.responseTime}`,
     href: null,
   },
 ];
@@ -101,7 +102,7 @@ const buildEmailHtml = (data) => `
         <!-- Footer -->
         <tr>
           <td style="background:#f4f4f4;padding:20px 40px;text-align:center;border-top:1px solid #eeeeee;">
-            <p style="margin:0;font-size:11px;color:#aaaaaa;">Leo Luxe Clean · Slough, Berkshire · 07845 239774</p>
+            <p style="margin:0;font-size:11px;color:#aaaaaa;">${business.name} · ${business.address.singleLine} · ${business.phone.display}</p>
           </td>
         </tr>
       </table>
@@ -179,7 +180,7 @@ const Contact = () => {
               <span className="text-gold-gradient">Quote Today</span>
             </h2>
             <p className="text-neutral-400 leading-relaxed font-light mb-10">
-              Drop us your details and we'll get back to you within 2 hours with
+              Drop us your details and we'll get back to you {business.responseTime} with
               a clear, honest price. No hidden fees, no obligation.
             </p>
 
@@ -233,7 +234,7 @@ const Contact = () => {
                     Thank You!
                   </h3>
                   <p className="text-neutral-400 text-sm">
-                    We'll be in touch within 2 hours with your quote.
+                    We'll be in touch {business.responseTime} with your quote.
                   </p>
                 </div>
               ) : (
@@ -252,7 +253,7 @@ const Contact = () => {
                           setFormData({ ...formData, name: e.target.value })
                         }
                         className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600"
-                        placeholder="e.g. Sarah Mitchell"
+                        placeholder="Your full name"
                       />
                     </div>
                     <div>
@@ -338,7 +339,7 @@ const Contact = () => {
                     <p className="text-red-400 text-xs text-center mt-3">{error}</p>
                   )}
                   <p className="text-neutral-500 text-xs text-center mt-4">
-                    No obligation — Free quote — Response within 2 hours
+                    No obligation — Free quote — Response {business.responseTime}
                   </p>
                 </form>
               )}
@@ -349,14 +350,14 @@ const Contact = () => {
         {/* Google Maps */}
         <div className="mt-16 rounded-2xl overflow-hidden border border-surface-border/40">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39783.14812455106!2d-0.6306!3d51.5105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48767a1e7e50f031%3A0xbb6e4f13d6c9d913!2sSlough!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
+            src={business.google.mapEmbedUrl}
             width="100%"
             height="350"
             style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.95) contrast(0.9)' }}
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Leo Luxe Clean coverage area — Slough, Berkshire"
+            title="Leo Luxe Clean on Google Maps"
             className="w-full"
           ></iframe>
         </div>

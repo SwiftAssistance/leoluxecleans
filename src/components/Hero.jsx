@@ -1,27 +1,25 @@
 'use client';
 import React from 'react';
-import Image from 'next/image';
+import HeroImage from './HeroImage';
 import { ArrowRight, Phone, Star, ShieldCheck, Leaf } from 'lucide-react';
 import { useQuoteModal } from '../context/QuoteModalContext';
+import { business } from '../config/business';
+import { getReview } from '../data/reviews';
+
+const heroReview = getReview('linda-willis');
 
 const Hero = () => {
   const { openModal } = useQuoteModal();
 
   return (
     <section className="relative min-h-screen overflow-hidden">
-      <Image
-        src="/hero.png"
-        alt=""
-        fill
-        priority
-        className="object-cover"
-        sizes="100vw"
-        quality={85}
-      />
+      <HeroImage className="absolute inset-0 w-full h-full object-cover" />
 
       {/* Multi-layer overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/97 via-black/80 to-black/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+      {/* Extra shade on small screens, where the copy sits over the bright side of the photo */}
+      <div className="absolute inset-0 bg-black/55 lg:hidden" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 min-h-screen flex items-end pb-20 lg:pb-28 pt-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full">
@@ -29,9 +27,8 @@ const Hero = () => {
           {/* Left content */}
           <div className="lg:col-span-7">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2.5 bg-emerald-500/10 border border-emerald-500/30 backdrop-blur-sm rounded-full px-4 py-2 mb-8">
-              <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-              <span className="text-emerald-400 text-xs font-semibold">Limited slots available this week</span>
+            <div className="inline-flex items-center gap-2.5 bg-black/40 border border-gold/30 backdrop-blur-sm rounded-full px-4 py-2 mb-8">
+              <span className="text-gold text-xs font-semibold">Local cleaners based in Slough</span>
               <span className="text-neutral-600 text-xs">·</span>
               <span className="text-neutral-400 text-xs">Windsor, Ascot & Berkshire</span>
             </div>
@@ -43,9 +40,9 @@ const Hero = () => {
             </h1>
 
             <p className="text-neutral-400 text-lg max-w-lg leading-relaxed font-light mb-10">
-              Trusted by 200+ homeowners across Windsor, Ascot &amp; Berkshire.
-              DBS-checked, fully insured — and always the same dedicated cleaner,
-              so your home is always in hands you know and trust.
+              Home, deep, end of tenancy and office cleaning across Slough, Windsor,
+              Ascot &amp; Berkshire. DBS-checked, fully insured, and the same team
+              each visit, so your home is in hands you know and trust.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -57,11 +54,11 @@ const Hero = () => {
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </button>
               <a
-                href="tel:07845239774"
+                href={business.phone.href}
                 className="btn-outline-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2"
-                aria-label="Call us at 07845 239774"
+                aria-label={`Call us on ${business.phone.display}`}
               >
-                <Phone size={16} /> 07845 239774
+                <Phone size={16} /> {business.phone.display}
               </a>
             </div>
 
@@ -73,8 +70,9 @@ const Hero = () => {
                     <Star key={i} size={12} fill="#C8A94E" strokeWidth={0} />
                   ))}
                 </div>
-                <span className="text-white font-medium">5.0</span>
-                <span className="text-neutral-500">on Google</span>
+                <a href={business.google.profileUrl} target="_blank" rel="noopener noreferrer" className="text-neutral-300 hover:text-gold">
+                  {business.google.summary}
+                </a>
               </span>
               <span className="text-neutral-600">·</span>
               <span className="flex items-center gap-1.5 text-neutral-400">
@@ -99,33 +97,24 @@ const Hero = () => {
                   ))}
                 </div>
                 <span className="text-[10px] label-caps text-gold/60 bg-gold/10 px-2.5 py-1 rounded-full border border-gold/20">
-                  Google Review
+                  Google review
                 </span>
               </div>
               <p className="text-neutral-200 text-sm leading-relaxed mb-5">
-                "They cleaned our whole house before we moved in and it was absolutely
-                spotless. The attention to detail was incredible."
+                &ldquo;{heroReview.text}&rdquo;
               </p>
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-gold/15 border border-gold/25 flex items-center justify-center flex-shrink-0">
-                  <span className="text-gold text-sm font-semibold">S</span>
-                </div>
-                <div>
-                  <p className="text-white text-xs font-semibold">Sarah Mitchell</p>
-                  <p className="text-neutral-500 text-xs">Homeowner · Slough</p>
-                </div>
-              </div>
+              <p className="text-white text-xs font-semibold">{heroReview.displayName}</p>
             </div>
 
-            {/* Quick stats card */}
+            {/* Quick facts card */}
             <div className="ml-auto w-full max-w-[340px] bg-gold/8 backdrop-blur-md border border-gold/20 rounded-2xl px-6 py-5 shadow-2xl">
               <div className="grid grid-cols-3 divide-x divide-gold/20">
                 {[
-                  { val: '200+', label: 'Homes Cleaned' },
-                  { val: '5.0', label: 'Google Rating' },
-                  { val: '100%', label: 'Satisfaction' },
-                ].map((s, i) => (
-                  <div key={i} className="text-center px-4 first:pl-0 last:pr-0">
+                  { val: business.google.ratingDisplay, label: 'On Google' },
+                  { val: String(business.google.reviewCount), label: 'Reviews' },
+                  { val: 'DBS', label: 'Checked' },
+                ].map((s) => (
+                  <div key={s.label} className="text-center px-4 first:pl-0 last:pr-0">
                     <p className="heading-serif text-2xl text-gold">{s.val}</p>
                     <p className="text-neutral-400 text-[10px] label-caps mt-0.5">{s.label}</p>
                   </div>

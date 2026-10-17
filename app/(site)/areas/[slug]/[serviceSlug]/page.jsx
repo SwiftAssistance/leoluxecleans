@@ -1,9 +1,12 @@
 import { notFound } from 'next/navigation';
 import AreaServicePage from '../../../../../src/page-components/AreaServicePage';
 import JsonLd from '../../../../../src/components/JsonLd';
-import { breadcrumbSchema } from '../../../../../src/components/Seo';
-import { getLocationBySlug, locations } from '../../../../../src/data/locations';
-import { getServiceBySlug, services } from '../../../../../src/data/services';
+import { breadcrumbSchema, createFaqSchema, createAreaServiceSchema } from '../../../../../src/components/Seo';
+import { business } from '../../../../../src/config/business';
+import { pageMeta } from '../../../../../src/lib/meta';
+import { locations } from '../../../../../src/data/locations';
+import { services } from '../../../../../src/data/services';
+import { getAreaServiceContent } from '../../../../../src/lib/areaServiceContent';
 
 export async function generateStaticParams() {
   const params = [];
@@ -16,33 +19,34 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const location = getLocationBySlug(params.slug);
-  const service = getServiceBySlug(params.serviceSlug);
-  if (!location || !service) return {};
-  const priceClause = service.priceFrom ? ` From £${service.priceFrom}.` : '';
-  const title = `${service.title} in ${location.name} | Leo Luxe Clean`;
-  const description = `Looking for ${service.title.toLowerCase()} in ${location.name}? Leo Luxe Clean covers ${location.postcodes} and all of ${location.county}.${priceClause} DBS-checked, eco-friendly, 5-star rated. Same-week availability. Free quotes — call 07845 239774.`;
-  return {
-    title: { absolute: title },
-    description,
-    alternates: { canonical: `https://leoluxeclean.co.uk/areas/${location.slug}/${service.slug}` },
-    openGraph: {
-      title,
-      description,
-      url: `https://leoluxeclean.co.uk/areas/${location.slug}/${service.slug}`,
-    },
-  };
+  const c = getAreaServiceContent(params.slug, params.serviceSlug);
+  if (!c) return {};
+  const { location, service } = c;
+  const full = `${service.title} in ${location.name} | ${business.name}`;
+  const title = full.length <= 60 ? full : full.replace(' & Commercial', '');
+  const price = service.priceFrom ? `from £${service.priceFrom}` : 'by custom quote';
+  return pageMeta({
+    title,
+    description: `${service.title} in ${location.name} (${c.postcodes}), ${price}. Local, DBS-checked team based in Slough. Call ${business.phone.display} for a free quote.`,
+    path: `/areas/${location.slug}/${service.slug}/`,
+    // Only the core areas get indexable area x service pages; the rest stay
+    // reachable for visitors but are kept out of the index and the sitemap.
+    noindex: !c.indexable,
+  });
 }
 
 export default function Page({ params }) {
-  const location = getLocationBySlug(params.slug);
-  const service = getServiceBySlug(params.serviceSlug);
-  if (!location || !service) notFound();
+  const c = getAreaServiceContent(params.slug, params.serviceSlug);
+  if (!c) notFound();
+  const { location, service } = c;
   const schemas = [
+    createAreaServiceSchema(location, service),
+    createFaqSchema(c.faqs),
     breadcrumbSchema([
       { name: 'Home', url: '/' },
-      { name: location.name, url: `/areas/${location.slug}` },
-      { name: service.title },
+      { name: 'Areas', url: '/areas/' },
+      { name: location.name, url: `/areas/${location.slug}/` },
+      { name: service.title, url: `/areas/${location.slug}/${service.slug}/` },
     ]),
   ];
   return (

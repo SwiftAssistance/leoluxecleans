@@ -6,6 +6,7 @@ import { ArrowRight, MapPin, Star, CheckCircle2, Phone } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import { locations } from '../data/locations';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { business } from '../config/business';
 
 const AreasPage = () => {
   const { openModal } = useQuoteModal();
@@ -28,7 +29,7 @@ const AreasPage = () => {
           <div className="flex flex-wrap justify-center gap-x-10 gap-y-3 text-sm text-neutral-400">
             <span className="flex items-center gap-2">
               <Star size={14} fill="#C8A94E" strokeWidth={0} />
-              <span className="text-white font-medium">5.0</span> Google Rating
+              {business.google.summary}
             </span>
             <span className="flex items-center gap-2">
               <CheckCircle2 size={14} className="text-gold" />
@@ -146,11 +147,11 @@ const AreasPage = () => {
               Get a Free Quote <ArrowRight size={14} />
             </button>
             <a
-              href="tel:07845239774"
+              href={business.phone.href}
               className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
-              aria-label="Call us at 07845 239774"
+              aria-label={`Call us on ${business.phone.display}`}
             >
-              <Phone size={16} /> 07845 239774
+              <Phone size={16} /> {business.phone.display}
             </a>
           </div>
         </div>

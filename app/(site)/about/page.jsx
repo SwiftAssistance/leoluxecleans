@@ -1,20 +1,17 @@
 import AboutPage from '../../../src/page-components/AboutPage';
 import JsonLd from '../../../src/components/JsonLd';
 import { breadcrumbSchema } from '../../../src/components/Seo';
+import { pageMeta } from '../../../src/lib/meta';
 
-export const metadata = {
-  title: { absolute: 'About Leo Luxe Clean | Professional Cleaners in Slough' },
-  description: 'Meet the Leo Luxe Clean team. Local cleaners based in Slough, Berkshire. DBS checked, fully insured, with a commitment to proper cleaning standards across Berkshire and West London.',
-  alternates: { canonical: 'https://leoluxeclean.co.uk/about' },
-  openGraph: {
-    title: 'About Leo Luxe Clean | Professional Cleaners in Slough',
-    description: 'Meet the Leo Luxe Clean team. Local cleaners based in Slough, Berkshire. DBS checked, fully insured, with a commitment to proper cleaning standards across Berkshire and West London.',
-    url: 'https://leoluxeclean.co.uk/about',
-  },
-};
+export const metadata = pageMeta({
+  title: 'About Leo Luxe Clean | Local Cleaners in Slough',
+  description:
+    'Leo Luxe Clean is a small, local cleaning team based in Slough. DBS checked, fully insured, and serving homes and businesses across Berkshire.',
+  path: '/about/',
+});
 
 export default function Page() {
-  const schemas = [breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'About' }])];
+  const schemas = [breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'About', url: '/about/' }])];
   return (
     <>
       <JsonLd schema={schemas} />

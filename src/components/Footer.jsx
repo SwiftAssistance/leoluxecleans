@@ -5,10 +5,10 @@ import {
   Mail,
   MapPin,
   Instagram,
-  Facebook,
   Star,
+  Clock,
 } from 'lucide-react';
-import { GBP_URL } from './Seo';
+import { business } from '../config/business';
 
 const footerLinks = [
   { name: 'Home', to: '/' },
@@ -50,9 +50,8 @@ const westLondonLinks = [
 ];
 
 const socialLinks = [
-  { Icon: Star, label: 'Google', href: GBP_URL },
-  { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/leoluxeclean' },
-  { Icon: Facebook, label: 'Facebook', href: '#' },
+  { Icon: Star, label: 'Google', href: business.google.profileUrl },
+  { Icon: Instagram, label: 'Instagram', href: business.instagram },
 ];
 
 const Footer = () => {
@@ -64,10 +63,12 @@ const Footer = () => {
           <div className="col-span-2 sm:col-span-3 lg:col-span-2">
             <Link href="/" className="inline-block mb-6" aria-label="Leo Luxe Clean — Home">
               <img
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Leo Luxe Clean"
-                width="160"
-                height="50"
+                width={186}
+                height={96}
+                loading="lazy"
+                decoding="async"
                 className="h-24 w-auto"
               />
             </Link>
@@ -77,28 +78,32 @@ const Footer = () => {
             </p>
             <div className="space-y-3 text-sm">
               <a
-                href="tel:07845239774"
+                href={business.phone.href}
                 className="flex items-center gap-3 text-neutral-400 hover:text-gold transition-colors"
-                aria-label="Call us at 07845 239774"
+                aria-label={`Call us on ${business.phone.display}`}
               >
                 <Phone size={14} className="text-gold" />
-                <span>07845 239774</span>
+                <span> {business.phone.display}</span>
               </a>
               <a
-                href="mailto:info@leoluxeclean.co.uk"
+                href={`mailto:${business.email}`}
                 className="flex items-center gap-3 text-neutral-500 hover:text-gold transition-colors"
               >
-                <Mail size={14} className="text-gold" /> info@leoluxeclean.co.uk
+                <Mail size={14} className="text-gold" /> {business.email}
               </a>
               <a
-                href={GBP_URL}
+                href={business.google.profileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-neutral-500 hover:text-gold transition-colors"
+                className="flex items-start gap-3 text-neutral-500 hover:text-gold transition-colors"
                 aria-label="Find Leo Luxe Clean on Google Maps"
               >
-                <MapPin size={14} className="text-gold" /> Slough, Berkshire
+                <MapPin size={14} className="text-gold mt-1 flex-shrink-0" />
+                <address className="not-italic">{business.address.singleLine}</address>
               </a>
+              <p className="flex items-center gap-3 text-neutral-500">
+                <Clock size={14} className="text-gold" /> {business.hours.short}
+              </p>
             </div>
           </div>
 
@@ -173,8 +178,8 @@ const Footer = () => {
                 <a
                   key={label}
                   href={href}
-                  target={href === '#' ? undefined : '_blank'}
-                  rel={href === '#' ? 'nofollow' : 'noopener noreferrer'}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg border border-surface-border/40 flex items-center justify-center text-neutral-400 hover:text-gold hover:border-gold/30 transition-colors"
                   aria-label={label === 'Google' ? 'Find us on Google' : `Follow us on ${label}`}
                 >
@@ -193,17 +198,25 @@ const Footer = () => {
             reserved.
           </p>
           <div className="flex gap-6">
-            <a
-              href="#"
-              className="text-neutral-600 hover:text-neutral-400 transition-colors text-xs"
+            <Link
+              href="/privacy/"
+              className="text-neutral-500 hover:text-neutral-300 transition-colors text-xs"
             >
               Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-neutral-600 hover:text-neutral-400 transition-colors text-xs"
+            </Link>
+            <Link
+              href="/terms/"
+              className="text-neutral-500 hover:text-neutral-300 transition-colors text-xs"
             >
               Terms of Service
+            </Link>
+            <a
+              href={business.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-500 hover:text-neutral-300 transition-colors text-xs"
+            >
+              Instagram
             </a>
           </div>
         </div>

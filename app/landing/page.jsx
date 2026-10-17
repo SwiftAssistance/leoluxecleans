@@ -1,15 +1,19 @@
 import { Suspense } from 'react';
 import LandingPageWrapper from './LandingPageWrapper';
+import LandingPage from '../../src/page-components/LandingPage';
+import { pageMeta } from '../../src/lib/meta';
 
-export const metadata = {
-  title: 'Leo Luxe Clean | Premium Home Cleaning — Windsor, Ascot & Berkshire',
-  description: 'DBS-checked, fully insured home cleaning in Windsor, Ascot, Maidenhead, Bracknell & across Berkshire and Surrey. Same trusted cleaner every visit. Free quote — we reply within 60 minutes.',
-  robots: { index: false, follow: false },
-};
+export const metadata = pageMeta({
+  title: 'Home Cleaning in Windsor, Ascot & Berkshire | Leo Luxe Clean',
+  description:
+    'DBS-checked, fully insured home cleaning in Windsor, Ascot, Maidenhead and across Berkshire. Free quote.',
+  path: '/landing/',
+  noindex: true,
+});
 
 export default function Page() {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<LandingPage areaName="Windsor & Berkshire" utmSource="" utmCampaign="" utmTerm="" />}>
       <LandingPageWrapper />
     </Suspense>
   );

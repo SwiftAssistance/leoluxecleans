@@ -1,12 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
+import HeroImage from './HeroImage';
 
 const PageHero = ({ title, subtitle, breadcrumb, parentBreadcrumb }) => {
   return (
     <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
       {/* Background image */}
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/hero.png')" }} />
+      <HeroImage className="absolute inset-0 w-full h-full object-cover" />
       {/* Heavy dark overlay */}
       <div className="absolute inset-0 bg-black/80" />
       {/* Gold ambient glow — top right */}

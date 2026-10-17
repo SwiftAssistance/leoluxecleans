@@ -1,20 +1,17 @@
 import ReviewsPage from '../../../src/page-components/ReviewsPage';
 import JsonLd from '../../../src/components/JsonLd';
 import { breadcrumbSchema } from '../../../src/components/Seo';
+import { pageMeta } from '../../../src/lib/meta';
 
-export const metadata = {
-  title: { absolute: 'Customer Reviews | Leo Luxe Clean — Slough & Berkshire' },
-  description: 'Read verified customer reviews for Leo Luxe Clean. 5-star rated cleaning service across Slough, Windsor, Maidenhead, Hayes and surrounding areas.',
-  alternates: { canonical: 'https://leoluxeclean.co.uk/reviews' },
-  openGraph: {
-    title: 'Customer Reviews | Leo Luxe Clean — Slough & Berkshire',
-    description: 'Read verified customer reviews for Leo Luxe Clean. 5-star rated cleaning service across Slough, Windsor, Maidenhead, Hayes and surrounding areas.',
-    url: 'https://leoluxeclean.co.uk/reviews',
-  },
-};
+export const metadata = pageMeta({
+  title: 'Customer Reviews | Leo Luxe Clean, Slough',
+  description:
+    'Read what customers say about Leo Luxe Clean on Google: home, deep, office and short-let cleaning across Slough, Windsor and Berkshire.',
+  path: '/reviews/',
+});
 
 export default function Page() {
-  const schemas = [breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Reviews' }])];
+  const schemas = [breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Reviews', url: '/reviews/' }])];
   return (
     <>
       <JsonLd schema={schemas} />

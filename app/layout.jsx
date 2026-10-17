@@ -1,40 +1,32 @@
 import './globals.css';
 
-const BASE_URL = 'https://leoluxeclean.co.uk';
+import { business, SITE_URL } from '../src/config/business';
 
+// Defaults for pages that don't build their own metadata (e.g. the 404 page).
+// Pages use pageMeta() from src/lib/meta.js, which sets og:image explicitly.
 export const metadata = {
-  metadataBase: new URL(BASE_URL),
-  title: {
-    default: 'Leo Luxe Clean | Cleaners in Slough, Windsor & Berkshire',
-    template: '%s | Leo Luxe Clean',
-  },
-  description: 'Premium home cleaning across Windsor, Berkshire & Surrey. DBS-checked, fully insured — the same trusted cleaner every visit. Home cleaning, deep cleans, end of tenancy. Free quotes.',
+  metadataBase: new URL(SITE_URL),
+  title: { default: 'Leo Luxe Clean | Cleaners in Slough & Berkshire', template: '%s | Leo Luxe Clean' },
+  description: 'Local cleaners based in Slough, covering Windsor, Maidenhead, Langley, Ascot and Eton. Home, deep, end of tenancy and office cleaning.',
   openGraph: {
     type: 'website',
-    siteName: 'Leo Luxe Clean',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Leo Luxe Clean' }],
+    siteName: business.name,
+    images: [{ url: business.ogImage.url, width: business.ogImage.width, height: business.ogImage.height, alt: business.name }],
     locale: 'en_GB',
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/og-image.png'],
+    images: [business.ogImage.url],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
-    },
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
   other: {
-    'geo.region': 'GB-BRK',
-    'geo.placename': 'Slough',
-    'geo.position': '51.5105;-0.5950',
-    'ICBM': '51.5105, -0.5950',
+    'geo.placename': business.address.addressLocality,
+    'geo.position': `${business.geo.latitude};${business.geo.longitude}`,
+    ICBM: `${business.geo.latitude}, ${business.geo.longitude}`,
   },
 };
 

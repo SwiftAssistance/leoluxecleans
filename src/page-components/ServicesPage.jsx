@@ -17,6 +17,7 @@ import {
 import PageHero from '../components/PageHero';
 import { services } from '../data/services';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { business } from '../config/business';
 
 const serviceIcons = {
   'home-cleaning': <Home size={24} />,
@@ -46,7 +47,7 @@ const ServicesPage = () => {
           <div className="flex flex-wrap justify-center gap-x-10 gap-y-3 text-sm text-neutral-400">
             <span className="flex items-center gap-2">
               <Star size={14} fill="#C8A94E" strokeWidth={0} />
-              <span className="text-white font-medium">5.0</span> Google Rating
+              {business.google.summary}
             </span>
             <span className="flex items-center gap-2">
               <CheckCircle2 size={14} className="text-gold" />
@@ -226,27 +227,15 @@ const ServicesPage = () => {
 
       {/* Social proof */}
       <section className="py-14 bg-surface-dark border-y border-surface-border/30">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 text-center">
-            <div>
-              <span className="heading-serif text-4xl text-gold block">500+</span>
-              <span className="label-caps text-[10px] text-neutral-500">Homes Cleaned</span>
-            </div>
-            <div className="hidden md:block w-px h-12 bg-surface-border/40"></div>
-            <div>
-              <span className="heading-serif text-4xl text-gold block">10+</span>
-              <span className="label-caps text-[10px] text-neutral-500">Years Experience</span>
-            </div>
-            <div className="hidden md:block w-px h-12 bg-surface-border/40"></div>
-            <div>
-              <div className="flex gap-0.5 justify-center mb-1">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} size={16} fill="#C8A94E" strokeWidth={0} />
-                ))}
-              </div>
-              <span className="label-caps text-[10px] text-neutral-500">200+ 5-Star Reviews</span>
-            </div>
-          </div>
+        <div className="max-w-5xl mx-auto px-6 lg:px-12 text-center">
+          <a href={business.google.profileUrl} target="_blank" rel="noopener noreferrer" className="inline-flex flex-col items-center gap-2 hover:opacity-90">
+            <span className="flex gap-0.5">
+              {[...Array(5)].map((_, j) => (
+                <Star key={j} size={16} fill="#C8A94E" strokeWidth={0} />
+              ))}
+            </span>
+            <span className="heading-serif text-3xl text-white">{business.google.summary}</span>
+          </a>
         </div>
       </section>
 
@@ -268,11 +257,11 @@ const ServicesPage = () => {
               Get a Free Quote <ArrowRight size={14} />
             </button>
             <a
-              href="tel:07845239774"
+              href={business.phone.href}
               className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
-              aria-label="Call us at 07845 239774"
+              aria-label={`Call us on ${business.phone.display}`}
             >
-              <Phone size={16} /> 07845 239774
+              <Phone size={16} /> {business.phone.display}
             </a>
           </div>
         </div>
