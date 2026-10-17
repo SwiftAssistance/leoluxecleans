@@ -19,6 +19,7 @@ const AreasPage = () => (
       kicker="Cleaners across Berkshire, Bucks & West London"
       subtitle="Based in George Green, Slough, we clean homes and businesses across Berkshire, Buckinghamshire and West London. Each town has its own local guide."
       breadcrumb="Areas"
+      photo="team"
     />
 
     <section className="py-6 bg-surface-dark border-b border-surface-border/30">

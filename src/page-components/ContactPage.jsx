@@ -135,6 +135,7 @@ const ContactPage = () => {
     <>
       <PageHero
         title={<>Get a Free <span className="text-gold-gradient">Quote</span></>}
+        actions={false}
         kicker="Contact Leo Luxe Clean, Slough"
         subtitle={`Tell us what you need and we'll get back to you ${business.responseTime} with an honest price. No obligation, no hidden fees.`}
         breadcrumb="Contact"

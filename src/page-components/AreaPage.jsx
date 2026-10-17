@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Phone, MapPin, ChevronRight, Clock, Car } from 'lucide-react';
+import { ArrowRight, Phone, MapPin, Clock, Car } from 'lucide-react';
 import HeroImage from '../components/HeroImage';
+import { Breadcrumb as SiteBreadcrumb } from '../components/PageHero';
 import QuoteButton from '../components/QuoteButton';
 import WhatsAppIcon from '../components/WhatsAppIcon';
 import { ReviewCard, RatingSummary, GoogleRatingBadge } from '../components/GoogleReviews';
@@ -14,15 +15,7 @@ const capitalise = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 // The town's own page for a service where there is one, else the service page.
 const serviceHref = (area, service) => (hasCombo(area, service) ? comboPath(area, service) : `/services/${service}/`);
 
-const Breadcrumb = ({ name }) => (
-  <nav className="flex flex-wrap items-center gap-2 text-sm mb-6" aria-label="Breadcrumb">
-    <Link href="/" className="text-neutral-400 hover:text-gold transition-colors">Home</Link>
-    <ChevronRight size={14} className="text-neutral-600" />
-    <Link href="/areas/" className="text-neutral-400 hover:text-gold transition-colors">Areas</Link>
-    <ChevronRight size={14} className="text-neutral-600" />
-    <span className="text-gold">{name}</span>
-  </nav>
-);
+const Breadcrumb = ({ name }) => <SiteBreadcrumb trail={[{ name: 'Areas', to: '/areas/' }]} current={name} />;
 
 const HeroActions = ({ area }) => (
   <div className="flex flex-col sm:flex-row gap-3 mt-8">
