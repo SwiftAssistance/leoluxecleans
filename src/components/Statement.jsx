@@ -3,6 +3,7 @@ import React from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { ArrowRight } from 'lucide-react';
 import { useQuoteModal } from '../context/QuoteModalContext';
+import { business } from '../config/business';
 
 const Statement = () => {
   const [ref, isVisible] = useScrollReveal({ threshold: 0.2 });
@@ -48,7 +49,7 @@ const Statement = () => {
           </button>
           <div className="flex items-center gap-3 text-neutral-500 text-xs">
             <div className="h-px w-8 bg-surface-border" />
-            No obligation · Response within 2 hours
+            No obligation · Response {business.responseTime}
             <div className="h-px w-8 bg-surface-border" />
           </div>
         </div>

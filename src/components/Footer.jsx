@@ -7,6 +7,7 @@ import {
   Instagram,
   Facebook,
   Star,
+  Clock,
 } from 'lucide-react';
 import { business } from '../config/business';
 
@@ -79,28 +80,32 @@ const Footer = () => {
             </p>
             <div className="space-y-3 text-sm">
               <a
-                href="tel:07845239774"
+                href={business.phone.href}
                 className="flex items-center gap-3 text-neutral-400 hover:text-gold transition-colors"
-                aria-label="Call us at 07845 239774"
+                aria-label={`Call us on ${business.phone.display}`}
               >
                 <Phone size={14} className="text-gold" />
-                <span>07845 239774</span>
+                <span> {business.phone.display}</span>
               </a>
               <a
-                href="mailto:info@leoluxeclean.co.uk"
+                href={`mailto:${business.email}`}
                 className="flex items-center gap-3 text-neutral-500 hover:text-gold transition-colors"
               >
-                <Mail size={14} className="text-gold" /> info@leoluxeclean.co.uk
+                <Mail size={14} className="text-gold" /> {business.email}
               </a>
               <a
                 href={business.google.profileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-neutral-500 hover:text-gold transition-colors"
+                className="flex items-start gap-3 text-neutral-500 hover:text-gold transition-colors"
                 aria-label="Find Leo Luxe Clean on Google Maps"
               >
-                <MapPin size={14} className="text-gold" /> Slough, Berkshire
+                <MapPin size={14} className="text-gold mt-1 flex-shrink-0" />
+                <address className="not-italic">{business.address.singleLine}</address>
               </a>
+              <p className="flex items-center gap-3 text-neutral-500">
+                <Clock size={14} className="text-gold" /> {business.hours.short}
+              </p>
             </div>
           </div>
 

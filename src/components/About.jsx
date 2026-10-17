@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { business } from '../config/business';
 
 const About = () => {
   const [ref, isVisible] = useScrollReveal({ threshold: 0.15 });
@@ -28,10 +29,9 @@ const About = () => {
 
             <div className="space-y-5 text-neutral-400 leading-relaxed font-light text-[15px] max-w-xl">
               <p>
-                Leo Luxe is based in Slough. It&apos;s a small team — Leo is
-                involved in most jobs himself, and the rest of the crew are
-                people he&apos;s trained and trusts. That&apos;s not a selling point,
-                it&apos;s just how it works.
+                Leo Luxe Clean is a small team based in Slough. Everyone who
+                cleans for us is trained in-house to the same standard, and the
+                people who run the business are involved in the work day to day.
               </p>
               <p>
                 Everyone who comes to your home is DBS checked. We bring all
@@ -70,12 +70,12 @@ const About = () => {
             {/* Stats as text, not badges */}
             <div className="grid grid-cols-3 gap-px mt-px bg-surface-border/20">
               {[
-                { val: '75+', label: 'Homes' },
-                { val: '5.0', label: 'Rating' },
-                { val: '100%', label: 'Insured' },
+                { val: business.google.ratingDisplay, label: 'On Google' },
+                { val: String(business.google.reviewCount), label: 'Google reviews' },
+                { val: 'DBS', label: 'Checked' },
               ].map((s, i) => (
                 <div
-                  key={i}
+                  key={s.label}
                   className="bg-surface-card py-5 text-center"
                 >
                   <span className="heading-serif text-2xl lg:text-3xl text-gold block">

@@ -6,6 +6,10 @@ import {
   ArrowRight, MapPin, Zap, Clock, ChevronDown, Users, BadgeCheck, X,
 } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { rotatingReviews, getReview } from '../data/reviews';
+
+const heroReview = getReview('susan-jones');
+import { business } from '../config/business';
 
 function WhatsAppIcon({ size = 16 }) {
   return (
@@ -19,10 +23,8 @@ function WhatsAppIcon({ size = 16 }) {
 
 const SERVICES = [
   { icon: Home, name: 'Regular Domestic Cleaning', price: 'From £60', benefit: 'The same trusted cleaner every visit — weekly, fortnightly, or monthly.' },
-  { icon: Sparkles, name: 'Deep Cleaning', price: 'From £180', benefit: 'Inside ovens, behind furniture, every neglected corner. A thorough reset for your home.' },
-  { icon: Key, name: 'End of Tenancy', price: 'From £200', benefit: 'Landlord-approved standard — give yourself the best chance of a full deposit return.' },
-  { icon: Building2, name: 'After Builders Clean', price: 'From £200', benefit: 'Dust, debris, and residue removed. Your new space handed over spotless.' },
-  { icon: Zap, name: 'Airbnb & Holiday Let', price: 'From £80', benefit: 'Fast turnovers between guests. Linen-ready, guest-ready, every time.' },
+  { icon: Sparkles, name: 'Deep Cleaning', price: 'From £120', benefit: 'Inside ovens, behind furniture, every neglected corner. A thorough reset for your home.' },
+  { icon: Key, name: 'End of Tenancy', price: 'From £150', benefit: 'Landlord-approved standard — give yourself the best chance of a full deposit return.' },
 ];
 
 const WHY_US = [
@@ -33,22 +35,17 @@ const WHY_US = [
 ];
 
 const STEPS = [
-  { n: '01', title: 'Request a Free Quote', desc: 'Fill in the form or call us. We reply within 1 hour, 7 days a week.' },
+  { n: '01', title: 'Request a Free Quote', desc: `Fill in the form or call us. We reply ${business.responseTime}.` },
   { n: '02', title: 'We Match & Schedule', desc: 'We assign your dedicated cleaner and confirm a time that suits you — same-week slots available.' },
   { n: '03', title: 'Sit Back & Relax', desc: 'Your cleaner arrives, works to our exacting standard, and you come home to a spotless house.' },
 ];
 
-const REVIEWS = [
-  { name: 'Charlotte W.', location: 'Windsor', rating: 5, text: "We've had the same cleaner for six months now. She knows exactly how we like things — the house is always perfect. Wouldn't use anyone else." },
-  { name: 'James T.', location: 'Ascot', rating: 5, text: 'Booked a deep clean before putting our house on the market. Absolutely immaculate result — the estate agent actually commented on how clean it was.' },
-  { name: 'Priya K.', location: 'Maidenhead', rating: 5, text: "We use Leo Luxe for our weekly home clean. Reliable, thorough, and always leave the place looking incredible. The same cleaner every time makes such a difference." },
-  { name: 'Richard H.', location: 'Virginia Water', rating: 5, text: "Used them for an end of tenancy clean on our rental property. Tenant got their full deposit back and the new tenants were delighted. Professional from start to finish." },
-];
+const REVIEWS = rotatingReviews(0, 4);
 
 const FAQS = [
   {
     q: 'How quickly can you book me in?',
-    a: 'We offer same-week bookings across Windsor, Ascot, Maidenhead, Bracknell, Wokingham, and the wider Berkshire and Surrey area. For urgent cleans, call us on 07845 239774 and we\'ll do our best to accommodate you.',
+    a: `We offer same-week bookings across Windsor, Ascot, Maidenhead, Bracknell, Wokingham, and the wider Berkshire and Surrey area. For urgent cleans, call us on ${business.phone.display} and we\'ll do our best to accommodate you.`,
   },
   {
     q: 'Will I get the same cleaner each time?',
@@ -136,30 +133,29 @@ const QuoteForm = ({ id, compact = false, formRef, formData, setFormData, formSu
           Thanks{formData.name ? ` ${formData.name.split(' ')[0]}` : ''}!
         </h3>
         <p className="text-neutral-400 text-sm mb-4 max-w-xs">
-          We'll call you back within the hour to arrange your clean. Or reach us right now on{' '}
-          <a href="tel:07845239774" className="text-gold hover:text-gold-light transition-colors font-medium">
-            07845 239774
+          We'll call you back {business.responseTime} to arrange your clean. Or reach us right now on{' '}
+          <a href={business.phone.href} className="text-gold hover:text-gold-light transition-colors font-medium">
+            {business.phone.display}
           </a>
           . We'll match you with a dedicated cleaner from your very first visit.
         </p>
         <div className="flex gap-1 mt-2">
           <StarRow count={5} size={16} />
         </div>
-        <p className="text-neutral-500 text-xs mt-2">Trusted by 200+ customers across Berkshire</p>
+        <p className="text-neutral-500 text-xs mt-2">{business.google.summary}</p>
       </div>
     ) : (
       <form onSubmit={onSubmit} noValidate>
         <div className="flex items-center gap-2 mb-4">
-          <span className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-3 py-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-emerald-400 text-[10px] font-semibold tracking-wide uppercase">Slots available this week</span>
+          <span className="flex items-center gap-1.5 bg-gold/10 border border-gold/30 rounded-full px-3 py-1">
+            <span className="text-gold text-[10px] font-semibold tracking-wide uppercase">Free, no-obligation quote</span>
           </span>
         </div>
 
         <h2 className="heading-serif text-2xl text-white mb-1 leading-tight">
           Get Your Free Quote
         </h2>
-        <p className="text-neutral-400 text-xs mb-5">We reply within 60 minutes — no obligation.</p>
+        <p className="text-neutral-400 text-xs mb-5">We reply {business.responseTime} — no obligation.</p>
 
         <div className="space-y-3 mb-4">
           <div>
@@ -174,7 +170,7 @@ const QuoteForm = ({ id, compact = false, formRef, formData, setFormData, formSu
               value={formData.name}
               onChange={(e) => setFormData((f) => ({ ...f, name: e.target.value }))}
               className={inputClass}
-              placeholder="e.g. Sarah Mitchell"
+              placeholder="Your full name"
             />
           </div>
 
@@ -207,10 +203,8 @@ const QuoteForm = ({ id, compact = false, formRef, formData, setFormData, formSu
             >
               <option value="">Choose a service…</option>
               <option value="regular-domestic">Regular Domestic Cleaning — from £60</option>
-              <option value="deep-clean">Deep Cleaning — from £180</option>
-              <option value="end-of-tenancy">End of Tenancy — from £200</option>
-              <option value="after-builders">After Builders Clean — from £200</option>
-              <option value="airbnb-holiday-let">Airbnb & Holiday Let — from £80</option>
+              <option value="deep-clean">Deep Cleaning — from £120</option>
+              <option value="end-of-tenancy">End of Tenancy — from £150</option>
               <option value="other">Other / Not Sure</option>
             </select>
           </div>
@@ -274,7 +268,7 @@ const QuoteForm = ({ id, compact = false, formRef, formData, setFormData, formSu
           <div className="h-px flex-1 bg-surface-border/30" />
         </div>
         <a
-          href="https://wa.me/447845239774?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
+          href={business.whatsapp.href}
           target="_blank"
           rel="noopener noreferrer"
           className="w-full flex items-center justify-center gap-2 bg-[#25a244]/10 hover:bg-[#25a244]/20 border border-[#25a244]/40 hover:border-[#25a244]/70 text-[#4ade80] label-caps py-3 rounded-lg text-xs transition-colors font-semibold"
@@ -288,7 +282,7 @@ const QuoteForm = ({ id, compact = false, formRef, formData, setFormData, formSu
               <ShieldCheck size={10} className="text-gold" /> No obligation
             </span>
             <span className="flex items-center gap-1">
-              <Clock size={10} className="text-gold" /> Reply in 60 mins
+              <Clock size={10} className="text-gold" /> Reply {business.responseTime}
             </span>
             <span className="flex items-center gap-1">
               <BadgeCheck size={10} className="text-gold" /> DBS checked team
@@ -296,7 +290,7 @@ const QuoteForm = ({ id, compact = false, formRef, formData, setFormData, formSu
           </div>
           <div className="flex items-center justify-center gap-1.5 mt-1">
             <StarRow count={5} size={10} />
-            <span className="text-[10px] text-neutral-500">Rated 5.0 by 200+ customers</span>
+            <span className="text-[10px] text-neutral-500">{business.google.summary}</span>
           </div>
         </div>
       </form>
@@ -407,11 +401,11 @@ const LandingPage = ({
             </a>
             <div className="flex items-center gap-2 sm:gap-3">
               <a
-                href="tel:07845239774"
+                href={business.phone.href}
                 className="hidden sm:flex items-center gap-1.5 text-neutral-300 hover:text-gold transition-colors text-sm font-medium"
-                aria-label="Call 07845 239774"
+                aria-label={`Call ${business.phone.display}`}
               >
-                <Phone size={13} className="text-gold" /> 07845 239774
+                <Phone size={13} className="text-gold" /> {business.phone.display}
               </a>
               <button
                 onClick={openModal}
@@ -420,7 +414,7 @@ const LandingPage = ({
                 Claim Free Quote
               </button>
               <a
-                href="https://wa.me/447845239774?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
+                href={business.whatsapp.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="sm:hidden flex items-center gap-2 bg-[#25a244] hover:bg-[#1e9138] text-white label-caps px-4 py-2.5 rounded-lg text-xs font-semibold transition-colors"
@@ -450,9 +444,8 @@ const LandingPage = ({
 
             {/* Left: copy */}
             <div>
-              <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-4 py-2 mb-6">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-                <span className="text-emerald-400 text-xs font-semibold">Limited slots left this week in {areaName}</span>
+              <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-2 mb-6">
+                <span className="text-gold text-xs font-semibold">Local cleaners covering {areaName}</span>
               </div>
 
               <h1
@@ -465,7 +458,7 @@ const LandingPage = ({
               </h1>
 
               <p className="text-neutral-200 text-lg leading-relaxed font-light mb-5 max-w-lg">
-                Trusted by <strong className="text-white font-semibold">200+ homeowners</strong> across {areaName}.
+                Rated <strong className="text-white font-semibold">{business.google.ratingDisplay} on Google</strong> from {business.google.reviewCount} reviews.
                 DBS-checked, fully insured, no contracts — and always the same cleaner you know and trust.
               </p>
 
@@ -486,25 +479,25 @@ const LandingPage = ({
               <div className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 mb-6 max-w-lg">
                 <StarRow count={5} size={12} />
                 <p className="text-neutral-300 text-xs leading-relaxed">
-                  <span className="text-white font-medium">"We've had the same cleaner for six months — the house is always perfect."</span>
-                  {' '}— Charlotte W., Windsor
+                  <span className="text-white font-medium">&ldquo;{heroReview.text}&rdquo;</span>
+                  {' '}— {heroReview.displayName}, Google review
                 </p>
               </div>
 
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
                 <a
-                  href="tel:07845239774"
+                  href={business.phone.href}
                   className="flex items-center gap-2 text-white font-semibold hover:text-gold transition-colors"
-                  aria-label="Call 07845 239774"
+                  aria-label={`Call ${business.phone.display}`}
                 >
                   <div className="w-8 h-8 rounded-full bg-gold/15 flex items-center justify-center">
                     <Phone size={14} className="text-gold" />
                   </div>
-                  07845 239774
+                  {business.phone.display}
                 </a>
                 <span className="text-neutral-600">·</span>
                 <span className="flex items-center gap-1.5 text-xs text-neutral-400">
-                  <StarRow count={5} size={11} /><span className="text-white font-medium ml-0.5">5.0</span> Google
+                  <StarRow count={5} size={11} /><span className="text-white font-medium ml-0.5">{business.google.summary}</span>
                 </span>
                 <span className="text-neutral-600">·</span>
                 <span className="text-neutral-400 text-xs">DBS checked &amp; insured</span>
@@ -520,13 +513,13 @@ const LandingPage = ({
                 <div className="h-px flex-1 bg-surface-border/30" />
               </div>
               <a
-                href="tel:07845239774"
+                href={business.phone.href}
                 className="mt-3 flex items-center justify-center gap-2 text-white font-semibold text-lg hover:text-gold transition-colors"
               >
-                <Phone size={18} className="text-gold" /> 07845 239774
+                <Phone size={18} className="text-gold" /> {business.phone.display}
               </a>
               <p className="text-center text-neutral-500 text-xs mt-2 flex items-center justify-center gap-1.5">
-                <Clock size={11} /> Mon–Sat 08:00–19:00 · We answer fast
+                <Clock size={11} /> {business.hours.short}
               </p>
             </div>
           </div>
@@ -537,10 +530,8 @@ const LandingPage = ({
           <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center items-center gap-x-5 gap-y-2">
             <span className="flex items-center gap-1.5">
               <StarRow count={5} size={11} />
-              <span className="text-white text-xs font-medium">5.0 on Google</span>
+              <span className="text-white text-xs font-medium">{business.google.summary}</span>
             </span>
-            <span className="text-neutral-700 hidden sm:inline">·</span>
-            <span className="text-neutral-400 text-xs">Trusted by 200+ homeowners</span>
             <span className="text-neutral-700 hidden sm:inline">·</span>
             <span className="text-neutral-400 text-xs">DBS-checked &amp; fully insured</span>
             <span className="text-neutral-700 hidden sm:inline">·</span>
@@ -580,10 +571,10 @@ const LandingPage = ({
                       Claim Free Quote <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     </button>
                     <a
-                      href="tel:07845239774"
+                      href={business.phone.href}
                       className="btn-outline-gold label-caps px-7 py-4 rounded-lg inline-flex items-center justify-center gap-2 text-sm"
                     >
-                      <Phone size={14} /> 07845 239774
+                      <Phone size={14} /> {business.phone.display}
                     </a>
                   </div>
                 </div>
@@ -689,7 +680,7 @@ const LandingPage = ({
                   </h2>
                   <div className="flex items-center gap-2">
                     <StarRow count={5} size={14} />
-                    <span className="text-neutral-400 text-sm">5.0 · 200+ Google reviews</span>
+                    <a href={business.google.profileUrl} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-gold text-sm">{business.google.summary}</a>
                   </div>
                 </div>
                 <button
@@ -701,12 +692,12 @@ const LandingPage = ({
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-                {REVIEWS.map(({ name, location, rating, text }) => (
+                {REVIEWS.map(({ id, displayName: name, text }) => (
                   <article
-                    key={name}
+                    key={id}
                     className="rounded-2xl bg-surface-card border border-surface-border/50 p-6 hover:border-gold/30 transition-colors flex flex-col"
                   >
-                    <StarRow count={rating} size={13} />
+                    <StarRow count={5} size={13} />
                     <blockquote className="text-neutral-300 text-sm leading-relaxed my-4 flex-1">
                       &ldquo;{text}&rdquo;
                     </blockquote>
@@ -718,9 +709,7 @@ const LandingPage = ({
                       </div>
                       <div>
                         <p className="text-white text-xs font-medium">{name}</p>
-                        <p className="text-neutral-500 text-xs flex items-center gap-1">
-                          <MapPin size={9} aria-hidden="true" /> {location}
-                        </p>
+                        <p className="text-neutral-500 text-xs">Google review</p>
                       </div>
                     </div>
                   </article>
@@ -760,8 +749,8 @@ const LandingPage = ({
                 </h2>
                 <p className="text-neutral-400 text-sm">
                   Can't find what you're looking for?{' '}
-                  <a href="tel:07845239774" className="text-gold hover:underline">
-                    Call us on 07845 239774
+                  <a href={business.phone.href} className="text-gold hover:underline">
+                    Call us on {business.phone.display}
                   </a>
                   {' '}— we're happy to help.
                 </p>
@@ -784,35 +773,35 @@ const LandingPage = ({
                 Book Your Clean
               </h2>
               <p className="text-neutral-400 text-sm">
-                Free quote · No obligation · We reply in under 60 minutes
+                Free quote · No obligation · We reply {business.responseTime}
               </p>
             </div>
             <QuoteForm id="form" formRef={formRef} formData={formData} setFormData={setFormData} formSubmitted={formSubmitted} submitting={submitting} formError={formError} onSubmit={handleSubmit} />
             <div className="mt-5 grid grid-cols-2 gap-4">
               <a
-                href="tel:07845239774"
+                href={business.phone.href}
                 className="flex items-center gap-3 p-4 rounded-xl bg-surface-card border border-surface-border/50 hover:border-gold/30 transition-colors group"
-                aria-label="Call 07845 239774"
+                aria-label={`Call ${business.phone.display}`}
               >
                 <div className="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
                   <Phone size={16} aria-hidden="true" />
                 </div>
                 <div>
                   <p className="label-caps text-neutral-400 text-[10px] mb-0.5">Call direct</p>
-                  <p className="text-white text-sm font-medium group-hover:text-gold transition-colors">07845 239774</p>
+                  <p className="text-white text-sm font-medium group-hover:text-gold transition-colors"> {business.phone.display}</p>
                 </div>
               </a>
               <a
-                href="mailto:info@leoluxeclean.co.uk"
+                href={`mailto:${business.email}`}
                 className="flex items-center gap-3 p-4 rounded-xl bg-surface-card border border-surface-border/50 hover:border-gold/30 transition-colors group"
-                aria-label="Email info@leoluxeclean.co.uk"
+                aria-label={`Email ${business.email}`}
               >
                 <div className="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
                   <Mail size={16} aria-hidden="true" />
                 </div>
                 <div>
                   <p className="label-caps text-neutral-400 text-[10px] mb-0.5">Email us</p>
-                  <p className="text-white text-sm font-medium group-hover:text-gold transition-colors break-all">info@leoluxeclean.co.uk</p>
+                  <p className="text-white text-sm font-medium group-hover:text-gold transition-colors break-all">{business.email}</p>
                 </div>
               </a>
             </div>
@@ -832,14 +821,14 @@ const LandingPage = ({
               <div>
                 <p className="label-caps text-gold text-[10px] mb-4 tracking-widest">Contact</p>
                 <div className="space-y-2.5">
-                  <a href="tel:07845239774" className="flex items-center gap-2 text-neutral-400 hover:text-gold transition-colors text-sm">
-                    <Phone size={13} className="text-gold" /> 07845 239774
+                  <a href={business.phone.href} className="flex items-center gap-2 text-neutral-400 hover:text-gold transition-colors text-sm">
+                    <Phone size={13} className="text-gold" /> {business.phone.display}
                   </a>
-                  <a href="mailto:info@leoluxeclean.co.uk" className="flex items-center gap-2 text-neutral-400 hover:text-gold transition-colors text-sm">
-                    <Mail size={13} className="text-gold" /> info@leoluxeclean.co.uk
+                  <a href={`mailto:${business.email}`} className="flex items-center gap-2 text-neutral-400 hover:text-gold transition-colors text-sm">
+                    <Mail size={13} className="text-gold" /> {business.email}
                   </a>
                   <a
-                    href="https://wa.me/447845239774?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
+                    href={business.whatsapp.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-neutral-400 hover:text-[#4ade80] transition-colors text-sm"
@@ -856,7 +845,7 @@ const LandingPage = ({
               </div>
             </div>
             <div className="border-t border-surface-border/20 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-600">
-              <p>© 2025 Leo Luxe Clean Ltd · Berkshire &amp; Surrey</p>
+              <p>© {new Date().getFullYear()} {business.name} · {business.address.singleLine}</p>
               <a href="https://leoluxeclean.co.uk" className="hover:text-gold transition-colors">
                 Back to main site →
               </a>

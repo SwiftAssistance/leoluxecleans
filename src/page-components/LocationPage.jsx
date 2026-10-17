@@ -19,6 +19,9 @@ import PageHero from '../components/PageHero';
 import { getLocationBySlug, locations } from '../data/locations';
 import { services } from '../data/services';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { rotatingReviews } from '../data/reviews';
+import { ReviewCard } from '../components/GoogleReviews';
+import { business } from '../config/business';
 
 const serviceIcons = {
   'home-cleaning': <Home size={22} />,
@@ -39,6 +42,7 @@ const LocationPage = ({ slug }) => {
   if (!location) return null;
 
   const otherLocations = locations.filter((l) => l.slug !== slug);
+  const areaReviews = rotatingReviews(locations.findIndex((l) => l.slug === slug), 2);
 
   return (
     <>
@@ -60,7 +64,7 @@ const LocationPage = ({ slug }) => {
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-neutral-400">
             <span className="flex items-center gap-2">
               <Star size={14} fill="#C8A94E" strokeWidth={0} />
-              <span className="text-white font-medium">5.0</span> Google Rating
+              {business.google.summary}
             </span>
             <span className="flex items-center gap-2">
               <CheckCircle2 size={14} className="text-gold" />
@@ -109,11 +113,11 @@ const LocationPage = ({ slug }) => {
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </button>
                 <a
-                  href="tel:07845239774"
+                  href={business.phone.href}
                   className="btn-outline-gold label-caps px-8 py-4 rounded-lg text-center flex items-center justify-center gap-2"
-                  aria-label="Call us at 07845 239774"
+                  aria-label={`Call us on ${business.phone.display}`}
                 >
-                  <Phone size={16} /> 07845 239774
+                  <Phone size={16} /> {business.phone.display}
                 </a>
               </div>
             </div>
@@ -121,28 +125,8 @@ const LocationPage = ({ slug }) => {
             {/* Sidebar with review + trust */}
             <div className="lg:col-span-5">
               <div className="space-y-5">
-                {/* Review from this area */}
-                {location.reviews.length > 0 && (
-                  <div className="rounded-xl border border-surface-border/40 p-6">
-                    <div className="flex gap-0.5 mb-3" aria-label="5 out of 5 stars">
-                      {[...Array(5)].map((_, j) => (
-                        <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
-                      ))}
-                    </div>
-                    <p className="text-neutral-300 text-sm leading-relaxed mb-4">
-                      &ldquo;{location.reviews[0].text}&rdquo;
-                    </p>
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm heading-serif">
-                        {location.reviews[0].initial}
-                      </div>
-                      <div>
-                        <p className="text-white text-sm font-medium">{location.reviews[0].author}</p>
-                        <p className="text-neutral-600 text-xs">{location.reviews[0].role}</p>
-                      </div>
-                    </div>
-                  </div>
-                )}
+                {/* Real Google review (rotated by area) */}
+                <ReviewCard review={areaReviews[0]} />
 
                 {/* Trust signals */}
                 <div className="rounded-xl border border-surface-border/40 p-6">
@@ -242,53 +226,24 @@ const LocationPage = ({ slug }) => {
       </section>
 
       {/* More reviews */}
-      {location.reviews.length > 1 && (
-        <section className="py-16 lg:py-24 bg-surface-dark">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="text-center mb-12">
-              <h2 className="heading-serif text-3xl lg:text-4xl text-white">
-                What {location.name} Clients Say
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {location.reviews.slice(1).map((review, i) => (
-                <div
-                  key={i}
-                  className="rounded-xl border border-surface-border/40 p-7"
-                >
-                  <div className="flex gap-0.5 mb-4" aria-label="5 out of 5 stars">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} size={13} fill="#C8A94E" strokeWidth={0} />
-                    ))}
-                  </div>
-                  <p className="text-neutral-300 text-sm leading-relaxed mb-4">
-                    &ldquo;{review.text}&rdquo;
-                  </p>
-                  <div className="flex items-center gap-3 border-t border-surface-border/30 pt-4">
-                    <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm heading-serif">
-                      {review.initial}
-                    </div>
-                    <div>
-                      <p className="text-white text-sm font-medium">{review.author}</p>
-                      <p className="text-neutral-600 text-xs">{review.role}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center mt-10">
-              <Link
-                href="/reviews"
-                className="label-caps text-gold text-[11px] hover:text-gold-light transition-colors inline-flex items-center gap-1"
-              >
-                See All Reviews <ArrowRight size={12} />
-              </Link>
-            </div>
+      <section className="py-16 lg:py-24 bg-surface-dark">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-12">
+            <h2 className="heading-serif text-3xl lg:text-4xl text-white">What Our Customers Say</h2>
+            <a href={business.google.profileUrl} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-gold text-sm mt-3 inline-block">
+              {business.google.summary}
+            </a>
           </div>
-        </section>
-      )}
+          <div className="max-w-xl mx-auto">
+            <ReviewCard review={areaReviews[1]} />
+          </div>
+          <div className="text-center mt-10">
+            <Link href="/reviews/" className="label-caps text-gold text-[11px] hover:text-gold-light transition-colors inline-flex items-center gap-1">
+              See All Reviews <ArrowRight size={12} />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Other areas */}
       <section className="py-16 lg:py-20 bg-surface-black border-t border-surface-border/20">
@@ -331,11 +286,11 @@ const LocationPage = ({ slug }) => {
               Get a Free Quote <ArrowRight size={14} />
             </button>
             <a
-              href="tel:07845239774"
+              href={business.phone.href}
               className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
-              aria-label="Call us at 07845 239774"
+              aria-label={`Call us on ${business.phone.display}`}
             >
-              <Phone size={16} /> 07845 239774
+              <Phone size={16} /> {business.phone.display}
             </a>
           </div>
         </div>

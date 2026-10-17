@@ -3,6 +3,7 @@ import React from 'react';
 import { Phone, ArrowRight, Star } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useQuoteModal } from '../context/QuoteModalContext';
+import { business } from '../config/business';
 
 const CtaBand = () => {
   const [ref, isVisible] = useScrollReveal({ threshold: 0.2 });
@@ -41,8 +42,8 @@ const CtaBand = () => {
         </h2>
 
         <p className="text-neutral-400 text-base max-w-lg mx-auto mb-10 leading-relaxed">
-          Free quote, no obligation. Join 30+ happy clients across Berkshire who
-          trust Leo Luxe to keep their space spotless.
+          Free quote, no obligation. Tell us what you need and we&apos;ll come
+          back to you with a clear, fixed price.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -54,16 +55,16 @@ const CtaBand = () => {
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </button>
           <a
-            href="tel:07845239774"
+            href={business.phone.href}
             className="btn-outline-gold label-caps px-10 py-4 rounded-lg text-center flex items-center justify-center gap-2"
-            aria-label="Call us at 07845 239774"
+            aria-label={`Call us on ${business.phone.display}`}
           >
-            <Phone size={16} /> 07845 239774
+            <Phone size={16} /> {business.phone.display}
           </a>
         </div>
 
         <p className="text-neutral-600 text-xs">
-          Response within 2 hours · No contracts · No deposit required
+          Response {business.responseTime} · No contracts · No deposit required
         </p>
       </div>
     </section>

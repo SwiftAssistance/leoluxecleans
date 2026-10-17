@@ -14,6 +14,10 @@ import PageHero from '../components/PageHero';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { business } from '../config/business';
 import { contactFaqs as faqs } from '../data/faqs';
+import { getReview } from '../data/reviews';
+import { ReviewCard, RatingSummary } from '../components/GoogleReviews';
+
+const contactReview = getReview('reece-lane');
 
 const SERVICE_LABELS = {
   home: 'Home Cleaning',
@@ -72,7 +76,7 @@ const buildEmailHtml = (data) => `
         </tr>
         <tr>
           <td style="background:#f4f4f4;padding:20px 40px;text-align:center;border-top:1px solid #eeeeee;">
-            <p style="margin:0;font-size:11px;color:#aaaaaa;">Leo Luxe Clean · Slough, Berkshire · 07845 239774</p>
+            <p style="margin:0;font-size:11px;color:#aaaaaa;">${business.name} · ${business.address.singleLine} · ${business.phone.display}</p>
           </td>
         </tr>
       </table>
@@ -131,7 +135,7 @@ const ContactPage = () => {
     <>
       <PageHero
         title={<>Get a Free <span className="text-gold-gradient">Quote</span></>}
-        subtitle="Tell us what you need and we'll get back to you within 2 hours with an honest price. No obligation, no hidden fees."
+        subtitle={`Tell us what you need and we'll get back to you ${business.responseTime} with an honest price. No obligation, no hidden fees.`}
         breadcrumb="Contact"
       />
 
@@ -140,19 +144,19 @@ const ContactPage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
             <a
-              href="tel:07845239774"
+              href={business.phone.href}
               className="flex items-center gap-3 text-white hover:text-gold transition-colors"
             >
               <Phone size={16} className="text-gold" />
-              <span className="text-sm font-medium">07845 239774</span>
-              <span className="text-neutral-500 text-xs">Mon–Sat 8am–7pm</span>
+              <span className="text-sm font-medium"> {business.phone.display}</span>
+              <span className="text-neutral-500 text-xs">{business.hours.short}</span>
             </a>
             <a
-              href="mailto:info@leoluxeclean.co.uk"
+              href={`mailto:${business.email}`}
               className="flex items-center gap-3 text-white hover:text-gold transition-colors"
             >
               <Mail size={16} className="text-gold" />
-              <span className="text-sm font-medium">info@leoluxeclean.co.uk</span>
+              <span className="text-sm font-medium">{business.email}</span>
             </a>
           </div>
         </div>
@@ -161,23 +165,9 @@ const ContactPage = () => {
       {/* Social proof strip */}
       <section className="py-8 bg-surface-black border-b border-surface-border/20">
         <div className="max-w-3xl mx-auto px-6 lg:px-12">
-          <div className="flex items-start gap-5 rounded-xl border border-surface-border/30 p-6">
-            <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold heading-serif text-lg flex-shrink-0">
-              S
-            </div>
-            <div>
-              <div className="flex gap-0.5 mb-2" aria-label="5 out of 5 stars">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
-                ))}
-              </div>
-              <p className="text-neutral-300 text-sm leading-relaxed">
-                "Honestly can't recommend Leo Luxe enough. They cleaned our whole house before we moved in and it was absolutely spotless. The attention to detail was incredible."
-              </p>
-              <p className="text-neutral-500 text-xs mt-2">
-                Sarah Mitchell — Homeowner, Slough
-              </p>
-            </div>
+          <ReviewCard review={contactReview} />
+          <div className="mt-4 text-center">
+            <RatingSummary />
           </div>
         </div>
       </section>
@@ -210,7 +200,7 @@ const ContactPage = () => {
                       Thank You!
                     </h3>
                     <p className="text-neutral-400 text-sm">
-                      We'll be in touch within 2 hours with your quote.
+                      We'll be in touch {business.responseTime} with your quote.
                     </p>
                   </div>
                 ) : (
@@ -227,7 +217,7 @@ const ContactPage = () => {
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           className="w-full bg-surface-black border border-surface-border rounded-lg px-4 py-3.5 text-white text-sm focus:border-gold focus:outline-none transition-colors placeholder:text-neutral-600"
-                          placeholder="e.g. Sarah Mitchell"
+                          placeholder="Your full name"
                         />
                       </div>
                       <div>
@@ -306,7 +296,7 @@ const ContactPage = () => {
                       <p className="text-red-400 text-xs text-center mt-3">{error}</p>
                     )}
                     <p className="text-neutral-600 text-xs text-center mt-4">
-                      No obligation · Free quote · Response within 2 hours
+                      No obligation · Free quote · Response {business.responseTime}
                     </p>
                   </form>
                 )}
@@ -322,7 +312,7 @@ const ContactPage = () => {
                   <div className="space-y-5">
                     {[
                       { step: '1', text: 'We review your details and prepare a clear, honest quote.' },
-                      { step: '2', text: 'We get back to you within 2 hours — usually much sooner.' },
+                      { step: '2', text: `We get back to you ${business.responseTime} — usually much sooner.` },
                       { step: '3', text: 'If you\'re happy, we book you in. No deposit, no contracts.' },
                     ].map((item) => (
                       <div key={item.step} className="flex items-start gap-4">
@@ -346,13 +336,31 @@ const ContactPage = () => {
                     </div>
                     <div className="flex items-center gap-3">
                       <Clock size={16} className="text-gold flex-shrink-0" />
-                      <span className="text-neutral-400 text-sm">We respond to every enquiry within 2 hours</span>
+                      <span className="text-neutral-400 text-sm">We respond to every enquiry {business.responseTime}</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <CheckCircle2 size={16} className="text-gold flex-shrink-0" />
                       <span className="text-neutral-400 text-sm">No obligation — just an honest, transparent quote</span>
                     </div>
                   </div>
+                </div>
+
+                {/* Address and hours */}
+                <div className="rounded-xl border border-surface-border/40 p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <MapPin size={16} className="text-gold" />
+                    <h3 className="text-white font-semibold text-sm">Find us</h3>
+                  </div>
+                  <address className="not-italic text-neutral-400 text-sm leading-relaxed">
+                    {business.name}
+                    {business.address.lines.map((l) => (
+                      <span key={l} className="block">{l}</span>
+                    ))}
+                  </address>
+                  <p className="text-neutral-400 text-sm leading-relaxed mt-3">
+                    <Clock size={14} className="inline text-gold mr-1.5 -mt-0.5" />
+                    {business.hours.display}
+                  </p>
                 </div>
 
                 {/* Coverage area */}

@@ -16,6 +16,9 @@ import PageHero from '../components/PageHero';
 import { getServiceBySlug, services } from '../data/services';
 import { locations } from '../data/locations';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { reviewsForService } from '../data/reviews';
+import { ReviewCard } from '../components/GoogleReviews';
+import { business } from '../config/business';
 
 
 const ServiceDetailPage = ({ slug }) => {
@@ -28,7 +31,7 @@ const ServiceDetailPage = ({ slug }) => {
   if (!service) return null;
 
   const otherServices = services.filter((s) => s.slug !== slug).slice(0, 3);
-  const review = service.review;
+  const serviceReviews = reviewsForService(slug, services.findIndex((s) => s.slug === slug), 1);
 
   return (
     <>
@@ -64,7 +67,7 @@ const ServiceDetailPage = ({ slug }) => {
             </span>
             <span className="flex items-center gap-2">
               <Star size={14} fill="#C8A94E" strokeWidth={0} />
-              <span className="text-white font-medium">5.0</span> Google Rating
+              {business.google.summary}
             </span>
           </div>
         </div>
@@ -96,28 +99,12 @@ const ServiceDetailPage = ({ slug }) => {
                 </div>
               )}
 
-              {/* Customer review for this service */}
-              {review && (
-                <div className="mt-10 rounded-xl border border-surface-border/30 p-6">
-                  <div className="flex gap-0.5 mb-3" aria-label="5 out of 5 stars">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
-                    ))}
-                  </div>
-                  <p className="text-neutral-300 text-sm leading-relaxed mb-4">
-                    &ldquo;{review.text}&rdquo;
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm heading-serif">
-                      {review.initial}
-                    </div>
-                    <div>
-                      <p className="text-white text-sm font-medium">{review.author}</p>
-                      <p className="text-neutral-600 text-xs">{review.role}</p>
-                    </div>
-                  </div>
+              {/* Real Google review for this service */}
+              {serviceReviews.map((r) => (
+                <div key={r.id} className="mt-10">
+                  <ReviewCard review={r} />
                 </div>
-              )}
+              ))}
             </div>
 
             {/* Sticky sidebar */}
@@ -140,7 +127,7 @@ const ServiceDetailPage = ({ slug }) => {
                   Get a free quote
                 </h3>
                 <p className="text-neutral-400 text-sm mb-6">
-                  No obligation. We usually reply within 2 hours.
+                  No obligation. We usually reply {business.responseTime}.
                 </p>
                 <button
                   onClick={() => openModal()}
@@ -150,11 +137,11 @@ const ServiceDetailPage = ({ slug }) => {
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </button>
                 <a
-                  href="tel:07845239774"
+                  href={business.phone.href}
                   className="btn-outline-gold label-caps px-6 py-3.5 rounded-lg w-full text-center flex items-center justify-center gap-2"
-                  aria-label="Call us at 07845 239774"
+                  aria-label={`Call us on ${business.phone.display}`}
                 >
-                  <Phone size={14} /> 07845 239774
+                  <Phone size={14} /> {business.phone.display}
                 </a>
 
                 <div className="mt-6 pt-6 border-t border-surface-border/30 space-y-3">
@@ -323,11 +310,11 @@ const ServiceDetailPage = ({ slug }) => {
               Get a Free Quote <ArrowRight size={14} />
             </button>
             <a
-              href="tel:07845239774"
+              href={business.phone.href}
               className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
-              aria-label="Call us at 07845 239774"
+              aria-label={`Call us on ${business.phone.display}`}
             >
-              <Phone size={16} /> 07845 239774
+              <Phone size={16} /> {business.phone.display}
             </a>
           </div>
         </div>

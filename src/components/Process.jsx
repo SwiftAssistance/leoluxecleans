@@ -3,13 +3,14 @@ import React from 'react';
 import { ArrowRight, MessageSquare, Sparkles, CheckCircle2 } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useQuoteModal } from '../context/QuoteModalContext';
+import { business } from '../config/business';
 
 const steps = [
   {
     num: '01',
     icon: MessageSquare,
     title: 'Get in Touch',
-    desc: "Drop us a message or call. We'll get back within 2 hours with an honest quote — no hard sell, no obligation.",
+    desc: `Drop us a message or call. We'll get back ${business.responseTime} with an honest quote — no hard sell, no obligation.`,
   },
   {
     num: '02',
@@ -91,7 +92,7 @@ const Process = () => {
             Start with Step One{' '}
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </button>
-          <p className="text-neutral-600 text-xs mt-4">Free quote · No commitment · Response within 2 hours</p>
+          <p className="text-neutral-600 text-xs mt-4">Free quote · No commitment · Response {business.responseTime}</p>
         </div>
       </div>
     </section>

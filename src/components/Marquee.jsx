@@ -4,7 +4,7 @@ const marqueeItems = [
   'Fully Insured',
   'DBS Checked',
   'Eco-Friendly Products',
-  '5-Star Google Rating',
+  'Rated 5.0 on Google',
   'Free Quotes',
   'Slough & Berkshire',
   'Same-Week Bookings',

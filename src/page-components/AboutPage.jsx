@@ -16,6 +16,10 @@ import {
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { business } from '../config/business';
+import { getReview } from '../data/reviews';
+
+const aboutReview = getReview('lucy-charge');
 
 const values = [
   {
@@ -51,7 +55,7 @@ const AboutPage = () => {
     <>
       <PageHero
         title={<>About <span className="text-gold-gradient">Leo Luxe</span></>}
-        subtitle="A small cleaning team based in Slough. Not a franchise, not a call centre — just Leo and a team he trusts, doing the work properly."
+        subtitle="A small cleaning team based in Slough. Not a franchise, not a call centre: a local team that does the work properly."
         breadcrumb="About"
       />
 
@@ -66,7 +70,7 @@ const AboutPage = () => {
               }`}
             >
               <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-8">
-                Leo started this because he was tired of{' '}
+                Leo Luxe Clean was started by cleaners who were tired of{' '}
                 <span className="text-gold-gradient">
                   how it was being done.
                 </span>
@@ -74,21 +78,21 @@ const AboutPage = () => {
 
               <div className="space-y-5 text-neutral-400 leading-relaxed font-light">
                 <p>
-                  Before Leo Luxe, Leo spent years doing cleaning work for
-                  other companies across Slough and Berkshire. The jobs got
-                  done. But rarely the way you'd want your own home done —
+                  Leo Luxe Clean was started by cleaners who were tired of how
+                  it was being done. Across Slough and Berkshire, the jobs got
+                  done, but rarely the way you&apos;d want your own home done:
                   quick in, quick out, whoever happened to be free that day.
                 </p>
                 <p>
-                  He started Leo Luxe to do it differently. Small enough that
-                  every job matters. The same team on every visit. Leo himself
-                  on most jobs, or close enough to know exactly what happened.
+                  The idea was to do it differently. Small enough that every
+                  job matters. The same team on every visit where we can. The
+                  people running the business close enough to the work to know
+                  exactly what happened on each job.
                 </p>
                 <p>
-                  The business has grown through word of mouth from day one.
-                  Clients tell their neighbours, their letting agents, their
-                  colleagues. That means the work has to hold up every time —
-                  and it does.
+                  We are still a small, local business, based in George Green on
+                  the edge of Slough. Every review we get on Google matters to
+                  us, and so does every repeat booking.
                 </p>
               </div>
 
@@ -100,10 +104,10 @@ const AboutPage = () => {
                   ))}
                 </div>
                 <p className="text-neutral-300 text-sm leading-relaxed mb-3">
-                  "Found Leo Luxe through a neighbour's recommendation and I'm so glad I did. You can tell they genuinely care about doing a good job. My house has never been cleaner."
+                  &ldquo;{aboutReview.text}&rdquo;
                 </p>
                 <p className="text-neutral-500 text-xs">
-                  Tom Richards — Homeowner, Slough
+                  {aboutReview.displayName}, Google review
                 </p>
               </div>
             </div>
@@ -123,9 +127,9 @@ const AboutPage = () => {
 
               <div className="grid grid-cols-3 gap-px mt-px">
                 {[
-                  { val: '75+', label: 'Homes' },
-                  { val: '5.0', label: 'Rating' },
-                  { val: '100%', label: 'Insured' },
+                  { val: business.google.ratingDisplay, label: 'On Google' },
+                  { val: String(business.google.reviewCount), label: 'Google reviews' },
+                  { val: 'DBS', label: 'Checked' },
                 ].map((s, i) => (
                   <div key={i} className="bg-surface-dark py-5 text-center">
                     <span className="heading-serif text-2xl lg:text-3xl text-white block">
@@ -173,8 +177,8 @@ const AboutPage = () => {
               },
               {
                 icon: <Handshake size={22} />,
-                title: 'You Deal With Leo Directly',
-                desc: "If there's a problem, you call Leo — not a team, not a system. He'll sort it himself.",
+                title: 'You Deal With Us Directly',
+                desc: `If there's a problem, you call ${business.phone.display} and speak to the people who run the business, not a call centre.`,
               },
             ].map((item, i) => (
               <div
@@ -249,9 +253,9 @@ const AboutPage = () => {
           >
             {[
               {
-                name: 'Leo',
-                role: 'Founder & Lead Cleaner',
-                desc: 'Years of hands-on cleaning experience before starting Leo Luxe. Still personally involved in every job — because standards start at the top.',
+                name: 'Who Runs It',
+                role: 'Owner-Managed',
+                desc: 'The business is run by people who clean themselves and are involved in the work day to day, so standards are set by people who know the job.',
                 initial: 'L',
               },
               {
@@ -309,7 +313,6 @@ const AboutPage = () => {
               'Same-week availability',
               'We bring all our own equipment',
               'Owner-managed — direct accountability',
-              'Growing through recommendations, not ads',
             ].map((item, i) => (
               <div
                 key={i}
@@ -340,11 +343,11 @@ const AboutPage = () => {
               Get a Free Quote <ArrowRight size={14} />
             </button>
             <a
-              href="tel:07845239774"
+              href={business.phone.href}
               className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
-              aria-label="Call us at 07845 239774"
+              aria-label={`Call us on ${business.phone.display}`}
             >
-              <Phone size={16} /> 07845 239774
+              <Phone size={16} /> {business.phone.display}
             </a>
           </div>
         </div>

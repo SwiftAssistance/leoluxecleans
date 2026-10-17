@@ -10,7 +10,7 @@ const stats = [
     sub: `From ${business.google.reviewCount} reviews`,
     href: business.google.profileUrl,
   },
-  { value: '2 hrs', label: 'Quote response', sub: `Response ${business.responseTime}` },
+  { value: 'Free', label: 'No-obligation quotes', sub: `Response ${business.responseTime}` },
   { value: 'DBS', label: 'Checked team', sub: 'Fully insured' },
   { value: '6 days', label: 'Open each week', sub: business.hours.short },
 ];

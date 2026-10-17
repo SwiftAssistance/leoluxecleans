@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Phone, Menu, X } from 'lucide-react';
 import { useQuoteModal } from '../context/QuoteModalContext';
+import { business } from '../config/business';
 
 function WhatsAppIcon({ size = 14 }) {
   return (
@@ -106,14 +107,14 @@ const Navbar = () => {
             );
           })}
           <a
-            href="tel:07845239774"
+            href={business.phone.href}
             className="label-caps text-neutral-400 hover:text-gold transition-colors duration-300 flex items-center gap-2"
-            aria-label="Call us at 07845 239774"
+            aria-label={`Call us on ${business.phone.display}`}
           >
-            <Phone size={14} /> 07845 239774
+            <Phone size={14} /> {business.phone.display}
           </a>
           <a
-            href="https://wa.me/447845239774?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
+            href={business.whatsapp.href}
             target="_blank"
             rel="noopener noreferrer"
             className="label-caps text-[#4ade80]/80 hover:text-[#4ade80] transition-colors duration-300 flex items-center gap-1.5"
@@ -164,14 +165,14 @@ const Navbar = () => {
               );
             })}
             <a
-              href="tel:07845239774"
+              href={business.phone.href}
               className="label-caps text-gold flex items-center gap-2"
-              aria-label="Call us at 07845 239774"
+              aria-label={`Call us on ${business.phone.display}`}
             >
-              <Phone size={14} /> 07845 239774
+              <Phone size={14} /> {business.phone.display}
             </a>
             <a
-              href="https://wa.me/447845239774?text=Hi%20Leo%20Luxe%20Clean%2C%20I%27d%20like%20a%20quote%20please"
+              href={business.whatsapp.href}
               target="_blank"
               rel="noopener noreferrer"
               className="label-caps text-[#4ade80] flex items-center gap-2"
