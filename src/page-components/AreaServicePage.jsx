@@ -1,368 +1,225 @@
-'use client';
 import React from 'react';
 import Link from 'next/link';
-import { useQuoteModal } from '../context/QuoteModalContext';
-import {
-  ArrowRight,
-  CheckCircle2,
-  Phone,
-  Star,
-  MapPin,
-  ShieldCheck,
-  Clock,
-  Leaf,
-  Home,
-  Gem,
-  Sparkles,
-  Building2,
-} from 'lucide-react';
-import PageHero from '../components/PageHero';
-import { getServiceBySlug, services } from '../data/services';
-import { getLocationBySlug, locations } from '../data/locations';
-import { useScrollReveal } from '../hooks/useScrollReveal';
+import { ArrowRight, CheckCircle2, Phone, MapPin, ChevronRight } from 'lucide-react';
+import QuoteButton from '../components/QuoteButton';
+import WhatsAppIcon from '../components/WhatsAppIcon';
+import { ReviewCard, RatingSummary } from '../components/GoogleReviews';
+import { business } from '../config/business';
+import { getAreaServiceContent } from '../lib/areaServiceContent';
 
-const serviceIcons = {
-  'home-cleaning': <Home size={22} />,
-  'office-cleaning': <Building2 size={22} />,
-  'deep-clean': <Gem size={22} />,
-  'end-of-tenancy': <Sparkles size={22} />,
-  'after-events': <Clock size={22} />,
-  'specialist-cleaning': <ShieldCheck size={22} />,
-};
+const sectionBg = (i) => (i % 2 === 0 ? 'bg-surface-black' : 'bg-surface-dark');
 
 const AreaServicePage = ({ areaSlug, serviceSlug }) => {
-  const location = getLocationBySlug(areaSlug);
-  const service = getServiceBySlug(serviceSlug);
-  const { openModal } = useQuoteModal();
+  const c = getAreaServiceContent(areaSlug, serviceSlug);
+  if (!c) return null;
+  const { location, service, detail, layout } = c;
+  const area = location.name;
+  const h = layout.headings;
 
-  const [contentRef, contentVisible] = useScrollReveal({ threshold: 0.1 });
-  const [featuresRef, featuresVisible] = useScrollReveal({ threshold: 0.05 });
+  const sections = {
+    local: (
+      <>
+        <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-6">{h.local(area)}</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-7 space-y-4 text-neutral-300 leading-relaxed">
+            {c.serviceNote ? <p>{c.serviceNote}</p> : <p>{service.heroDesc}</p>}
+            {detail ? <p className="text-neutral-400">{detail.intro}</p> : location.intro.map((p, i) => <p key={i} className="text-neutral-400">{p}</p>)}
+          </div>
+          {detail && (
+            <div className="lg:col-span-5 rounded-xl border border-surface-border/40 p-6">
+              <h3 className="text-white font-semibold text-sm mb-4">Typical {area} properties</h3>
+              <ul className="space-y-2 text-neutral-400 text-sm">
+                {detail.propertyTypes.map((t) => (
+                  <li key={t} className="flex gap-2">
+                    <CheckCircle2 size={14} className="text-gold flex-shrink-0 mt-1" />
+                    <span>{t.charAt(0).toUpperCase() + t.slice(1)}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-neutral-500 text-xs mt-5 leading-relaxed">
+                Neighbourhoods we cover: {detail.neighbourhoods.join(', ')}.
+              </p>
+            </div>
+          )}
+        </div>
+      </>
+    ),
 
-  if (!location || !service) return null;
+    pricing: (
+      <>
+        <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-6">{h.pricing(area)}</h2>
+        <div className="max-w-3xl overflow-x-auto rounded-xl border border-surface-border/40">
+          <table className="w-full text-sm">
+            <caption className="sr-only">{service.title} prices in {area}</caption>
+            <thead>
+              <tr className="text-left text-neutral-500 label-caps text-[10px] border-b border-surface-border/40">
+                <th scope="col" className="px-5 py-3 font-normal">Service</th>
+                <th scope="col" className="px-5 py-3 font-normal text-right">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {c.pricing.map((row) => (
+                <tr key={row.label} className={`border-b border-surface-border/30 last:border-0 ${row.current ? 'bg-gold/5' : ''}`}>
+                  <th scope="row" className="px-5 py-4 text-left font-normal">
+                    {row.current ? (
+                      <span className="text-white font-medium">{row.label}</span>
+                    ) : (
+                      <Link href={row.href} className="text-neutral-300 hover:text-gold transition-colors">{row.label}</Link>
+                    )}
+                  </th>
+                  <td className={`px-5 py-4 text-right heading-serif text-xl ${row.current ? 'text-gold' : 'text-neutral-300'}`}>{row.price}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-neutral-500 text-sm mt-4 max-w-3xl">
+          Prices are starting points. We confirm a fixed price for your {area} property before any work starts, with no contract and no hidden extras.
+        </p>
+      </>
+    ),
 
-  const otherServices = services.filter((s) => s.slug !== serviceSlug);
-  const otherLocations = locations.filter((l) => l.slug !== areaSlug);
+    why: c.why && (
+      <>
+        <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-8">
+          Why {area} {service.slug === 'office-cleaning' ? 'businesses' : 'customers'} choose us
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {c.why.map((w) => (
+            <div key={w.title} className="rounded-xl border border-surface-border/40 p-6">
+              <h3 className="text-white font-semibold mb-2">{w.title}</h3>
+              <p className="text-neutral-400 text-sm leading-relaxed">{w.text}</p>
+            </div>
+          ))}
+        </div>
+      </>
+    ),
+
+    included: (
+      <>
+        <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-6">{h.included(area)}</h2>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 max-w-4xl">
+          {service.features.slice(0, 6).map((f) => (
+            <li key={f} className="flex items-start gap-3 text-neutral-300 text-sm">
+              <CheckCircle2 size={16} className="text-gold mt-0.5 flex-shrink-0" />
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
+        <Link href={`/services/${service.slug}/`} className="inline-flex items-center gap-1.5 label-caps text-gold text-[11px] mt-6 hover:gap-3 transition-all">
+          Full {service.title.toLowerCase()} details <ArrowRight size={12} />
+        </Link>
+      </>
+    ),
+
+    faq: (
+      <>
+        <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-6">{h.faq(area)}</h2>
+        <div className="space-y-3 max-w-4xl">
+          {c.faqs.map((f) => (
+            <details key={f.q} className="group rounded-xl border border-surface-border/40 bg-surface-dark/40 open:border-gold/20">
+              <summary className="cursor-pointer list-none px-6 py-5 text-white text-sm font-medium flex justify-between gap-4">
+                <span>{f.q}</span>
+                <span className="text-gold transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+              </summary>
+              <p className="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </>
+    ),
+
+    reviews: c.reviews.length > 0 && (
+      <>
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8">
+          <h2 className="heading-serif text-3xl lg:text-4xl text-white">{h.reviews(area)}</h2>
+          <RatingSummary />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {c.reviews.map((r) => (
+            <ReviewCard key={r.id} review={r} />
+          ))}
+        </div>
+      </>
+    ),
+  };
+
+  const ordered = layout.order.filter((k) => sections[k]);
 
   return (
     <>
-      <PageHero
-        title={
-          <>
-            {service.title} in{' '}
-            <span className="text-gold-gradient">{location.name}</span>
-          </>
-        }
-        subtitle={`${service.heroDesc} Covering ${location.name} and the surrounding ${location.county} area.`}
-        breadcrumb={service.title}
-        parentBreadcrumb={{ name: location.name, to: `/areas/${areaSlug}` }}
-      />
-
-      {/* Trust bar */}
-      <section className="py-5 bg-surface-dark border-b border-surface-border/30">
+      {/* Compact hero */}
+      <section className="relative pt-28 pb-10 lg:pt-36 lg:pb-14 bg-gradient-to-b from-surface-dark to-surface-black border-b border-surface-border/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-neutral-400">
-            <span className="flex items-center gap-2">
-              <Star size={14} fill="#C8A94E" strokeWidth={0} />
-              <span className="text-white font-medium">5.0</span> Google Rating
-            </span>
-            <span className="flex items-center gap-2">
-              <ShieldCheck size={14} className="text-gold" />
-              Fully Insured & DBS Checked
-            </span>
-            <span className="flex items-center gap-2">
-              <Leaf size={14} className="text-gold" />
-              Eco-Friendly Products
-            </span>
-            <span className="flex items-center gap-2">
-              <Clock size={14} className="text-gold" />
-              Same Week Availability
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* Main content + sidebar */}
-      <section className="py-16 lg:py-24 bg-surface-black">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            <div
-              ref={contentRef}
-              className={`lg:col-span-7 transition-all duration-500 ${
-                contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <MapPin size={18} className="text-gold" />
-                <span className="label-caps text-gold text-[11px]">
-                  {location.name}, {location.county}
-                </span>
-                <span className="text-neutral-600 text-sm">— {location.postcodes}</span>
-              </div>
-
-              <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-8">
-                {service.tagline}
-              </h2>
-
-              <div className="space-y-4 text-neutral-400 leading-relaxed font-light">
-                {service.longDesc.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </div>
-
-              {/* Area-specific callout */}
-              <div className="mt-8 p-5 rounded-xl border border-surface-border/40 bg-surface-dark/50">
-                <p className="text-neutral-400 text-sm leading-relaxed">
-                  Based in Slough, we serve all of {location.name} including{' '}
-                  {location.areas.slice(0, 3).join(', ')}
-                  {location.areas.length > 3 ? ' and more' : ''}. Our team is local,
-                  reliable, and available for same-week bookings across {location.postcodes}.
-                </p>
-              </div>
-
-              {service.pricing && (
-                <div className="mt-8 inline-flex items-center gap-4 rounded-xl border border-surface-border/40 px-6 py-4">
-                  <span className="label-caps text-neutral-500 text-[10px]">Starting from</span>
-                  <span className="heading-serif text-3xl text-gold">{service.pricing}</span>
-                </div>
-              )}
-
-              {/* Local review */}
-              {location.reviews.length > 0 && (
-                <div className="mt-10 rounded-xl border border-surface-border/30 p-6">
-                  <div className="flex gap-0.5 mb-3" aria-label="5 out of 5 stars">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} size={12} fill="#C8A94E" strokeWidth={0} />
-                    ))}
-                  </div>
-                  <p className="text-neutral-300 text-sm leading-relaxed mb-4">
-                    &ldquo;{location.reviews[0].text}&rdquo;
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm heading-serif">
-                      {location.reviews[0].initial}
-                    </div>
-                    <div>
-                      <p className="text-white text-sm font-medium">
-                        {location.reviews[0].author}
-                      </p>
-                      <p className="text-neutral-600 text-xs">{location.reviews[0].role}</p>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Sticky sidebar */}
-            <div className="lg:col-span-5">
-              <div className="rounded-2xl border border-gold/20 p-8 lg:sticky lg:top-28">
-                <h3 className="heading-serif text-2xl text-white mb-2">
-                  Get a free quote in {location.name}
-                </h3>
-                <p className="text-neutral-400 text-sm mb-6">
-                  No obligation. We usually reply within 2 hours.
-                </p>
-                <button
-                  onClick={() => openModal()}
-                  className="btn-gold label-caps px-6 py-3.5 rounded-lg w-full text-center flex items-center justify-center gap-2 group mb-4"
-                >
-                  Get Your Quote{' '}
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-                <a
-                  href="tel:07845239774"
-                  className="btn-outline-gold label-caps px-6 py-3.5 rounded-lg w-full text-center flex items-center justify-center gap-2"
-                  aria-label="Call us at 07845 239774"
-                >
-                  <Phone size={14} /> 07845 239774
-                </a>
-
-                <div className="mt-6 pt-6 border-t border-surface-border/30 space-y-3">
-                  {[
-                    'Fully insured & DBS checked',
-                    'Eco-friendly products',
-                    '100% satisfaction guarantee',
-                    'No contracts or hidden fees',
-                    `Local to ${location.name}`,
-                  ].map((item) => (
-                    <div key={item} className="flex items-center gap-3 text-neutral-400 text-xs">
-                      <CheckCircle2 size={14} className="text-gold flex-shrink-0" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What's included */}
-      <section className="py-16 lg:py-24 bg-surface-dark">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div
-            ref={featuresRef}
-            className={`transition-all duration-500 ${
-              featuresVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
-          >
-            <div className="text-center mb-12">
-              <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-                What&apos;s Included
-              </h2>
-              <p className="text-neutral-400 text-sm">
-                Everything listed below comes as standard for your{' '}
-                {service.title.toLowerCase()} in {location.name} — no add-ons, no extras.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
-              {service.features.map((feature, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-3 py-4 px-5 rounded-xl border border-surface-border/40"
-                >
-                  <CheckCircle2 size={16} className="text-gold mt-0.5 flex-shrink-0" />
-                  <span className="text-neutral-300 text-sm">{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-16 lg:py-24 bg-surface-black">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-12">
-            <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-              {service.title} FAQ
-            </h2>
-            <p className="text-neutral-400 text-sm">
-              Common questions about our {service.title.toLowerCase()} in {location.name}.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {service.faqs.map((faq, i) => (
-              <div key={i} className="rounded-xl border border-surface-border/40 p-6 lg:p-8">
-                <h3 className="text-white font-semibold mb-3">{faq.q}</h3>
-                <p className="text-neutral-400 text-sm leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Areas covered within this location */}
-      <section className="py-16 lg:py-20 bg-surface-dark">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-10">
-            <h2 className="heading-serif text-3xl lg:text-4xl text-white mb-3">
-              Where We Cover in {location.name}
-            </h2>
-            <p className="text-neutral-400 text-sm">
-              Postcodes: {location.postcodes} and surrounding areas.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
-            {location.areas.map((area, i) => (
-              <span
-                key={i}
-                className="rounded-lg border border-surface-border/40 px-5 py-3 text-sm text-neutral-300"
-              >
-                {area}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* More services in this area */}
-      <section className="py-16 lg:py-20 bg-surface-black">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-10">
-            <h2 className="heading-serif text-3xl lg:text-4xl text-white">
-              More Services in {location.name}
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {otherServices.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/areas/${areaSlug}/${s.slug}`}
-                className="rounded-xl border border-surface-border/40 p-6 group block hover:border-gold/20 transition-colors"
-              >
-                <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold mb-4 group-hover:bg-gold/20 transition-colors">
-                  {serviceIcons[s.slug]}
-                </div>
-                <h3 className="heading-serif text-xl text-white mb-2 group-hover:text-gold transition-colors">
-                  {s.title}
-                </h3>
-                <p className="text-neutral-500 text-sm mb-4 line-clamp-2">{s.heroDesc}</p>
-                <div className="flex items-center justify-between">
-                  {s.pricing && (
-                    <span className="text-gold text-sm heading-serif">{s.pricing}</span>
-                  )}
-                  <span className="label-caps text-[10px] text-gold flex items-center gap-1">
-                    Learn More <ArrowRight size={12} />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Same service in other areas */}
-      <section className="py-16 lg:py-20 bg-surface-dark border-t border-surface-border/20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-10">
-            <h2 className="heading-serif text-3xl lg:text-4xl text-white">
-              {service.title} in Other Areas
-            </h2>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-3">
-            {otherLocations.map((loc) => (
-              <Link
-                key={loc.slug}
-                href={`/areas/${loc.slug}/${serviceSlug}`}
-                className="rounded-lg border border-surface-border/40 px-5 py-3 flex items-center gap-2 text-sm text-neutral-300 hover:text-gold hover:border-gold/30 transition-colors"
-              >
-                <MapPin size={14} className="text-gold" />
-                {service.title} in {loc.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 lg:py-20 bg-surface-black border-y border-surface-border/30">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-          <h2 className="heading-serif text-4xl lg:text-5xl text-white mb-4">
-            Ready to book your {service.title.toLowerCase()} in {location.name}?
-          </h2>
-          <p className="text-neutral-400 text-lg mb-10 max-w-xl mx-auto">
-            Get a free, no-obligation quote today. We cover all of {location.name} and the surrounding area.
+          <nav className="flex flex-wrap items-center gap-2 text-sm mb-6" aria-label="Breadcrumb">
+            <Link href="/" className="text-neutral-500 hover:text-gold transition-colors">Home</Link>
+            <ChevronRight size={14} className="text-neutral-700" />
+            <Link href="/areas/" className="text-neutral-500 hover:text-gold transition-colors">Areas</Link>
+            <ChevronRight size={14} className="text-neutral-700" />
+            <Link href={`/areas/${location.slug}/`} className="text-neutral-500 hover:text-gold transition-colors">{area}</Link>
+            <ChevronRight size={14} className="text-neutral-700" />
+            <span className="text-gold">{service.title}</span>
+          </nav>
+          <h1 className="heading-serif text-4xl sm:text-5xl lg:text-6xl text-white mb-4">
+            {service.title} in <span className="text-gold-gradient">{area}</span>
+          </h1>
+          <p className="flex flex-wrap items-center gap-x-4 gap-y-2 text-neutral-300">
+            <span className="inline-flex items-center gap-1.5"><MapPin size={15} className="text-gold" /> {area}, {c.postcodes}</span>
+            <span className="text-gold heading-serif text-xl">{c.priceLine}</span>
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => openModal()}
-              className="btn-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
-            >
-              Get a Free Quote <ArrowRight size={14} />
-            </button>
-            <a
-              href="tel:07845239774"
-              className="btn-outline-gold label-caps px-10 py-4 rounded-lg inline-flex items-center justify-center gap-2"
-              aria-label="Call us at 07845 239774"
-            >
-              <Phone size={16} /> 07845 239774
+        </div>
+      </section>
+
+      {ordered.map((key, i) => (
+        <section key={key} className={`py-14 lg:py-20 ${sectionBg(i)}`}>
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">{sections[key]}</div>
+        </section>
+      ))}
+
+      {/* One call-to-action row */}
+      <section className="py-12 bg-surface-dark border-y border-gold/20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+          <p className="heading-serif text-2xl lg:text-3xl text-white">
+            Book {service.title.toLowerCase()} in {area}
+            <span className="block text-neutral-400 text-sm font-sans mt-1">We reply {business.responseTime}, {business.hours.short}.</span>
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a href={business.phone.href} className="btn-gold label-caps px-6 py-3.5 rounded-lg inline-flex items-center justify-center gap-2">
+              <Phone size={14} /> Call {business.phone.display}
             </a>
+            <a
+              href={business.whatsapp.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="label-caps px-6 py-3.5 rounded-lg inline-flex items-center justify-center gap-2 border border-[#25a244]/40 text-[#4ade80] hover:bg-[#25a244]/15 transition-colors"
+            >
+              <WhatsAppIcon /> WhatsApp
+            </a>
+            <QuoteButton service={service.slug} className="btn-outline-gold label-caps px-6 py-3.5 rounded-lg inline-flex items-center justify-center gap-2">
+              Get a quote <ArrowRight size={14} />
+            </QuoteButton>
           </div>
+        </div>
+      </section>
+
+      {/* Nearby areas */}
+      <section className="py-12 lg:py-16 bg-surface-black">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <h2 className="heading-serif text-2xl lg:text-3xl text-white mb-6">Near {area}</h2>
+          <ul className="flex flex-wrap gap-3">
+            {c.nearby.map((n) => (
+              <li key={n.href}>
+                <Link href={n.href} className="rounded-lg border border-surface-border/40 px-4 py-2.5 inline-flex items-center gap-2 text-sm text-neutral-300 hover:text-gold hover:border-gold/30 transition-colors">
+                  <MapPin size={14} className="text-gold" /> {n.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link href={`/areas/${location.slug}/`} className="rounded-lg border border-surface-border/40 px-4 py-2.5 inline-flex items-center gap-2 text-sm text-neutral-300 hover:text-gold hover:border-gold/30 transition-colors">
+                All services in {area}
+              </Link>
+            </li>
+          </ul>
         </div>
       </section>
     </>

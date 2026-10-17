@@ -4,9 +4,10 @@
   "version": "2.0.0",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npm run check",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check": "node scripts/checks/uniqueness.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.462.0",
