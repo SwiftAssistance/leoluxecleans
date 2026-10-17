@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import Image from 'next/image';
+import HeroImage from './HeroImage';
 import { ArrowRight, Phone, Star, ShieldCheck, Leaf } from 'lucide-react';
 import { useQuoteModal } from '../context/QuoteModalContext';
 
@@ -9,15 +9,7 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden">
-      <Image
-        src="/hero.png"
-        alt=""
-        fill
-        priority
-        className="object-cover"
-        sizes="100vw"
-        quality={85}
-      />
+      <HeroImage className="absolute inset-0 w-full h-full object-cover" />
 
       {/* Multi-layer overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/97 via-black/80 to-black/40" />

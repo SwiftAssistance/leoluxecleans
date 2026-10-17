@@ -126,7 +126,7 @@ const ServiceDetailPage = ({ slug }) => {
                 <div className="rounded-2xl overflow-hidden mb-6">
                   <img
                     src={service.image}
-                    alt={`${service.title} in Slough and Berkshire`}
+                    alt={service.imageAlt}
                     className="w-full aspect-[4/3] object-cover"
                     loading="lazy"
                     decoding="async"

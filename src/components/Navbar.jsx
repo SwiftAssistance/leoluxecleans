@@ -75,12 +75,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3" aria-label="Leo Luxe Clean — Home">
           <img
-            src="/logo.png"
+            src="/logo.webp"
             alt="Leo Luxe Clean"
-            width="120"
-            height="40"
-            fetchPriority="high"
-            decoding="sync"
+            width={78}
+            height={40}
+            loading="lazy"
+            decoding="async"
             className="h-10 w-auto"
           />
         </Link>

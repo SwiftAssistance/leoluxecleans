@@ -6,6 +6,7 @@ export const services = [
     pricing: 'From £60',
     priceFrom: 60,
     image: '/service-home-cleaning.jpg',
+    imageAlt: 'A Leo Luxe Clean cleaner wiping down a kitchen worktop',
     review: {
       text: "I've tried several cleaning companies in the Slough area and Leo Luxe is by far the best. Consistent quality every single time.",
       author: 'Tom Richards',
@@ -59,6 +60,7 @@ export const services = [
     pricing: 'Custom quote',
     priceFrom: null,
     image: '/service-office-cleaning.jpg',
+    imageAlt: 'Leo Luxe Clean team members cleaning a bathroom mirror',
     review: {
       text: 'Booked a regular weekly clean for our dental practice. The difference is night and day. Patients have commented on how clean everything feels.',
       author: 'Dr. Fatima Ali',
@@ -112,6 +114,7 @@ export const services = [
     pricing: 'From £120',
     priceFrom: 120,
     image: '/service-deep-clean.jpg',
+    imageAlt: 'Leo Luxe Clean team cleaning a bathroom, one carrying fresh towels',
     review: {
       text: 'Had them do a deep clean before our baby arrived. They got into every nook and cranny. Brilliant service from start to finish.',
       author: 'Priya Sharma',
@@ -165,6 +168,7 @@ export const services = [
     pricing: 'From £150',
     priceFrom: 150,
     image: '/service-end-of-tenancy.jpg',
+    imageAlt: 'A Leo Luxe Clean cleaner wiping a kitchen island',
     review: {
       text: 'End of tenancy clean was perfect. Got our full deposit back. They even cleaned inside the oven which I thought was a lost cause!',
       author: 'James Taylor',
@@ -218,6 +222,7 @@ export const services = [
     pricing: 'From £80',
     priceFrom: 80,
     image: '/service-after-events.jpg',
+    imageAlt: 'A Leo Luxe Clean cleaner working in a kitchen',
     review: {
       text: "After our daughter's birthday party the place was a state. Leo Luxe came next morning and had it spotless by lunchtime. Absolute lifesaver.",
       author: 'Rebecca Osei',
@@ -271,6 +276,7 @@ export const services = [
     pricing: 'From £70',
     priceFrom: 70,
     image: '/service-specialist-cleaning.jpg',
+    imageAlt: 'A Leo Luxe Clean cleaner cleaning kitchen surfaces',
     review: {
       text: 'Had the full specialist treatment — oven, carpets, and windows. Everything looks incredible. Genuinely worth every penny and then some.',
       author: 'Nikhil Patel',

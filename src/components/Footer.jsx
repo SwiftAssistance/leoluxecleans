@@ -64,10 +64,12 @@ const Footer = () => {
           <div className="col-span-2 sm:col-span-3 lg:col-span-2">
             <Link href="/" className="inline-block mb-6" aria-label="Leo Luxe Clean — Home">
               <img
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Leo Luxe Clean"
-                width="160"
-                height="50"
+                width={186}
+                height={96}
+                loading="lazy"
+                decoding="async"
                 className="h-24 w-auto"
               />
             </Link>

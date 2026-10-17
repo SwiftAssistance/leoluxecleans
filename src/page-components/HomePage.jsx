@@ -4,7 +4,6 @@ import Hero from '../components/Hero';
 import Marquee from '../components/Marquee';
 import Stats from '../components/Stats';
 import Services from '../components/Services';
-import BeforeAfter from '../components/BeforeAfter';
 import Statement from '../components/Statement';
 import About from '../components/About';
 import Process from '../components/Process';
@@ -20,7 +19,6 @@ const HomePage = () => {
       <Marquee />
       <Stats />
       <Services />
-      <BeforeAfter />
       <Statement />
       <About />
       <Process />

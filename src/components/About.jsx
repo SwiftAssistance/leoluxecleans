@@ -58,11 +58,11 @@ const About = () => {
             <div className="rounded-2xl overflow-hidden">
               <img
                 src="/about.jpg"
-                alt="Our cleaning team at work"
+                alt="Three Leo Luxe Clean cleaners in branded uniforms cleaning a bathroom"
                 className="w-full aspect-[3/4] object-cover"
                 loading="lazy"
                 decoding="async"
-                width={600}
+                width={1200}
                 height={800}
               />
             </div>
