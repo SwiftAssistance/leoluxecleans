@@ -5,9 +5,10 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Old area x service URLs (e.g. /areas/slough/home-cleaning/) 301 to their
-# area page. Rules are not forced, so a file that exists (e.g.
-# /areas/slough/index.html) is always served instead of being redirected.
+# Area x service URLs that have no page (e.g. /areas/slough/after-events/)
+# 301 to their area page. Rules are not forced, so a file that exists (the
+# area page itself, and any service x town page listed in PUBLISHED_COMBOS in
+# src/lib/comboContent.js) is always served instead of being redirected.
 
 [[redirects]]
   from = "/areas/slough/*"

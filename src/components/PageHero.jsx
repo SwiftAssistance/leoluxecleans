@@ -5,30 +5,33 @@ import HeroImage from './HeroImage';
 // Inner-page header: oversized title on ivory, intro set to the right, and a
 // wide photo strip underneath.
 // `kicker` is a short keyword line read as part of the H1 (e.g. "Cleaning services in Slough").
-const PageHero = ({ title, kicker, subtitle, breadcrumb, parentBreadcrumb }) => {
+// `parents` is the breadcrumb trail between Home and this page ([{ name, to }]);
+// `image` ({ src, alt }) replaces the default kitchen photo in the strip.
+const PageHero = ({ title, kicker, subtitle, breadcrumb, parentBreadcrumb, parents, image }) => {
+  const trail = parents || (parentBreadcrumb ? [parentBreadcrumb] : []);
   return (
     <section className="theme-dark relative bg-surface-black pt-28 lg:pt-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <nav
-          className="flex items-center gap-3 label-caps text-[10px] mb-10 lg:mb-14 border-b border-surface-border/70 pb-4"
+          className="flex flex-wrap items-center gap-3 label-caps text-[10px] mb-10 lg:mb-14 border-b border-surface-border/70 pb-4"
           aria-label="Breadcrumb"
         >
           <Link href="/" className="text-neutral-500 hover:text-gold transition-colors">
             Home
           </Link>
           <span className="text-neutral-700" aria-hidden="true">/</span>
-          {parentBreadcrumb && (
-            <>
-              {parentBreadcrumb.to ? (
-                <Link href={parentBreadcrumb.to} className="text-neutral-500 hover:text-gold transition-colors">
-                  {parentBreadcrumb.name}
+          {trail.map((crumb) => (
+            <React.Fragment key={crumb.name}>
+              {crumb.to ? (
+                <Link href={crumb.to} className="text-neutral-500 hover:text-gold transition-colors">
+                  {crumb.name}
                 </Link>
               ) : (
-                <span className="text-neutral-500">{parentBreadcrumb.name}</span>
+                <span className="text-neutral-500">{crumb.name}</span>
               )}
               <span className="text-neutral-700" aria-hidden="true">/</span>
-            </>
-          )}
+            </React.Fragment>
+          ))}
           <span className="text-gold">{breadcrumb}</span>
         </nav>
 
@@ -51,7 +54,19 @@ const PageHero = ({ title, kicker, subtitle, breadcrumb, parentBreadcrumb }) => 
       </div>
 
       <div className="relative h-40 sm:h-52 lg:h-64 overflow-hidden">
-        <HeroImage className="absolute inset-0 w-full h-full object-cover object-[center_40%]" />
+        {image ? (
+          <img
+            src={image.src}
+            alt={image.alt}
+            width={1200}
+            height={800}
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover object-[center_45%]"
+          />
+        ) : (
+          <HeroImage className="absolute inset-0 w-full h-full object-cover object-[center_40%]" />
+        )}
       </div>
     </section>
   );
