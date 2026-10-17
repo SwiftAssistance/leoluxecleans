@@ -82,7 +82,7 @@ const ServiceDetailPage = ({ slug }) => {
                 contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <h2 className="display text-4xl lg:text-6xl text-white mb-8">
+              <h2 className="display text-[2rem] lg:text-[2.75rem] text-white mb-8">
                 {service.tagline}
               </h2>
               <div className="space-y-4 text-neutral-400 leading-relaxed font-light">
@@ -173,7 +173,7 @@ const ServiceDetailPage = ({ slug }) => {
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               <div className="lg:col-span-4">
-                <h2 className="display text-5xl lg:text-7xl text-white mb-4">
+                <h2 className="display text-4xl lg:text-5xl text-white mb-4">
                   What&apos;s Included
                 </h2>
                 <p className="text-neutral-400 text-sm max-w-xs">
@@ -200,7 +200,7 @@ const ServiceDetailPage = ({ slug }) => {
       <section className="py-16 lg:py-24 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-4">
-            <h2 className="display text-5xl lg:text-7xl text-white mb-4">
+            <h2 className="display text-4xl lg:text-5xl text-white mb-4">
               {service.title} FAQ
             </h2>
             <p className="text-neutral-400 text-sm max-w-xs">
@@ -223,7 +223,7 @@ const ServiceDetailPage = ({ slug }) => {
       <section className="py-16 lg:py-20 bg-surface-dark">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-10">
-            <h2 className="display text-4xl lg:text-6xl text-white mb-3">
+            <h2 className="display text-[2rem] lg:text-[2.75rem] text-white mb-3">
               {service.title} Near You
             </h2>
             <p className="text-neutral-400 text-sm">
@@ -248,7 +248,7 @@ const ServiceDetailPage = ({ slug }) => {
       {/* Other services */}
       <section className="py-16 lg:py-20 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <h2 className="display text-4xl lg:text-6xl text-white mb-8">
+          <h2 className="display text-[2rem] lg:text-[2.75rem] text-white mb-8">
             Other Services
           </h2>
 
@@ -286,7 +286,7 @@ const ServiceDetailPage = ({ slug }) => {
       {/* CTA */}
       <section className="py-16 lg:py-20 bg-surface-dark border-y border-surface-border/30">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-          <h2 className="display text-5xl lg:text-7xl text-white mb-4">
+          <h2 className="display text-4xl lg:text-5xl text-white mb-4">
             Ready to book your {service.title.toLowerCase()}?
           </h2>
           <p className="text-neutral-400 text-lg mb-10 max-w-xl mx-auto">

@@ -28,14 +28,14 @@ const Process = () => {
   const [ref, isVisible] = useScrollReveal({ threshold: 0.1 });
 
   return (
-    <section className="py-20 lg:py-28 bg-surface-black">
+    <section className="py-16 lg:py-20 bg-surface-black">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
         <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           {/* Section header */}
           <div className="lg:col-span-4 lg:sticky lg:top-32 self-start">
             <p className="section-mark mb-6">(04) How It Works</p>
-            <h2 className="display text-6xl lg:text-8xl text-white">
+            <h2 className="display text-[2.75rem] lg:text-6xl text-white">
               Three steps.
               <br />
               <span className="text-neutral-500">That's it.</span>
@@ -47,12 +47,12 @@ const Process = () => {
             {steps.map((step, i) => (
               <li
                 key={step.num}
-                className={`grid grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 items-baseline transition-all duration-700 ${
+                className={`grid grid-cols-12 gap-4 lg:gap-8 py-6 lg:py-7 items-baseline transition-all duration-700 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ transitionDelay: `${i * 180}ms` }}
               >
-                <span className="col-span-3 lg:col-span-2 display text-7xl lg:text-9xl text-outline">
+                <span className="col-span-3 lg:col-span-2 display text-5xl lg:text-7xl text-outline">
                   {step.num}
                 </span>
                 <div className="col-span-9 lg:col-span-10">

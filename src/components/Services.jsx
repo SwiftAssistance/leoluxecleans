@@ -44,14 +44,14 @@ const Services = () => {
   };
 
   return (
-    <section className="py-20 lg:py-28 bg-surface-black">
+    <section className="py-16 lg:py-20 bg-surface-black">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
         {/* Section header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 mb-16 lg:mb-20">
           <div className="lg:col-span-7">
             <p className="section-mark mb-6">(01) What We Do</p>
-            <h2 className="display text-6xl lg:text-8xl text-white">
+            <h2 className="display text-[2.75rem] lg:text-6xl text-white">
               Every job,
               <br />
               <span className="text-neutral-500">done properly.</span>
@@ -96,13 +96,13 @@ const Services = () => {
                 }`}
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div className="relative py-8 lg:py-12 grid grid-cols-12 gap-4 lg:gap-8 items-baseline">
+                <div className="relative py-6 lg:py-8 grid grid-cols-12 gap-4 lg:gap-8 items-baseline">
                   <span className="col-span-2 lg:col-span-1 font-mono text-xs text-neutral-500 group-hover:text-gold transition-colors duration-300">
                     {s.num}
                   </span>
 
                   <div className="col-span-10 lg:col-span-6">
-                    <h3 className="display text-4xl lg:text-7xl text-white group-hover:text-gold group-hover:translate-x-3 transition-all duration-500">
+                    <h3 className="display text-[1.75rem] lg:text-4xl text-white group-hover:text-gold group-hover:translate-x-3 transition-all duration-500">
                       {s.title}
                     </h3>
                     {s.tag && (

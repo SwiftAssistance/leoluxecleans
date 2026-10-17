@@ -185,7 +185,7 @@ const ContactPage = () => {
             {/* Form */}
             <div className="lg:col-span-7 order-1">
               <div>
-                <h2 className="display text-5xl lg:text-7xl text-white mb-3">
+                <h2 className="display text-4xl lg:text-5xl text-white mb-3">
                   Tell us about your space
                 </h2>
                 <p className="text-neutral-500 text-sm mb-8">
@@ -400,7 +400,7 @@ const ContactPage = () => {
       <section className="py-16 lg:py-24 bg-surface-dark border-t border-surface-border/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-4">
-            <h2 className="display text-5xl lg:text-7xl text-white mb-4">
+            <h2 className="display text-4xl lg:text-5xl text-white mb-4">
               Common Questions
             </h2>
             <p className="text-neutral-400 text-sm max-w-xs">

@@ -543,7 +543,7 @@ const LandingPage = ({
         </div>
 
         {/* ── THE PROMISE ───────────────────────────────────────────────────── */}
-        <section className="py-20 lg:py-28 bg-surface-dark" aria-labelledby="promise-heading">
+        <section className="py-16 lg:py-20 bg-surface-dark" aria-labelledby="promise-heading">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div
               ref={whyRef}
@@ -598,14 +598,14 @@ const LandingPage = ({
         </section>
 
         {/* ── SERVICES ─────────────────────────────────────────────────────── */}
-        <section id="services" className="py-20 lg:py-28 bg-surface-black" aria-labelledby="services-heading">
+        <section id="services" className="py-16 lg:py-20 bg-surface-black" aria-labelledby="services-heading">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div
               ref={servicesRef}
               className={`transition-all duration-700 ${servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             >
               <div className="mb-10">
-                <h2 id="services-heading" className="display text-5xl lg:text-7xl text-white mb-3">
+                <h2 id="services-heading" className="display text-4xl lg:text-5xl text-white mb-3">
                   Cleaning Services
                 </h2>
                 <p className="text-neutral-400 text-base max-w-lg">
@@ -643,7 +643,7 @@ const LandingPage = ({
         </section>
 
         {/* ── PULL QUOTE ───────────────────────────────────────────────────── */}
-        <section className="theme-dark py-20 lg:py-28" style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #0e0b00 60%, #0a0a0a 100%)' }}>
+        <section className="theme-dark py-16 lg:py-20" style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #0e0b00 60%, #0a0a0a 100%)' }}>
           <div className="max-w-3xl mx-auto px-6 text-center">
             <StarRow count={5} size={18} />
             <blockquote className="heading-serif text-[clamp(1.6rem,3.2vw,2.6rem)] text-white leading-[1.18] mt-6 mb-8">
@@ -672,7 +672,7 @@ const LandingPage = ({
             >
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
                 <div>
-                  <h2 id="reviews-heading" className="display text-5xl lg:text-7xl text-white mb-3">
+                  <h2 id="reviews-heading" className="display text-4xl lg:text-5xl text-white mb-3">
                     What Our Customers Say
                   </h2>
                   <div className="flex items-center gap-2">
@@ -716,14 +716,14 @@ const LandingPage = ({
         </div>
 
         {/* ── FAQ ──────────────────────────────────────────────────────────── */}
-        <section className="py-20 lg:py-28 bg-surface-dark" aria-labelledby="faq-heading">
+        <section className="py-16 lg:py-20 bg-surface-dark" aria-labelledby="faq-heading">
           <div className="max-w-3xl mx-auto px-6 lg:px-8">
             <div
               ref={faqRef}
               className={`transition-all duration-700 ${faqVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             >
               <div className="mb-10">
-                <h2 id="faq-heading" className="display text-5xl lg:text-7xl text-white mb-3">
+                <h2 id="faq-heading" className="display text-4xl lg:text-5xl text-white mb-3">
                   Common Questions
                 </h2>
                 <p className="text-neutral-400 text-sm">
@@ -745,10 +745,10 @@ const LandingPage = ({
         </section>
 
         {/* ── LEAD CAPTURE FORM ────────────────────────────────────────────── */}
-        <section id="form" className="py-20 lg:py-28 bg-surface-black" aria-labelledby="form-heading">
+        <section id="form" className="py-16 lg:py-20 bg-surface-black" aria-labelledby="form-heading">
           <div className="max-w-xl mx-auto px-6 lg:px-8">
             <div className="mb-8">
-              <h2 id="form-heading" className="display text-5xl lg:text-7xl text-white mb-3">
+              <h2 id="form-heading" className="display text-4xl lg:text-5xl text-white mb-3">
                 Book Your Clean
               </h2>
               <p className="text-neutral-400 text-sm">

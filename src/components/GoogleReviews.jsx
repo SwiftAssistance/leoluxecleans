@@ -109,7 +109,7 @@ const GoogleReviews = ({ reviews, heading, intro, className = 'bg-surface-dark' 
     <div className="max-w-7xl mx-auto px-6 lg:px-12">
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
         <div>
-          <h2 className="display text-5xl lg:text-7xl text-white">{heading}</h2>
+          <h2 className="display text-4xl lg:text-5xl text-white">{heading}</h2>
           {intro && <p className="text-neutral-400 text-sm mt-3 max-w-xl">{intro}</p>}
         </div>
         <GoogleRatingBadge className="self-start lg:self-auto" />

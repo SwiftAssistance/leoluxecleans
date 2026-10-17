@@ -9,7 +9,7 @@ const About = () => {
   const [ref, isVisible] = useScrollReveal({ threshold: 0.15 });
 
   return (
-    <section className="py-20 lg:py-28 relative overflow-hidden">
+    <section className="py-16 lg:py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-surface-dark"></div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto px-6 lg:px-12">
@@ -21,7 +21,7 @@ const About = () => {
             }`}
           >
             <p className="section-mark mb-6">(03) Who We Are</p>
-            <h2 className="display text-5xl sm:text-6xl lg:text-[5.25rem] text-white mb-10">
+            <h2 className="display text-4xl sm:text-5xl lg:text-5xl text-white mb-10">
               We started because we knew cleaning could be{' '}
               <span className="text-gold-gradient">
                 done better.

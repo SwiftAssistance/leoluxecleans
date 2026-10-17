@@ -10,7 +10,7 @@ const CtaBand = () => {
   const { openModal } = useQuoteModal();
 
   return (
-    <section className="theme-dark relative py-24 lg:py-36 bg-surface-black overflow-hidden">
+    <section className="theme-dark relative py-16 lg:py-24 bg-surface-black overflow-hidden">
       {/* Decorative top/bottom lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
@@ -35,7 +35,7 @@ const CtaBand = () => {
 
         <p className="label-caps text-gold text-[10px] mb-6 tracking-widest">Ready When You Are</p>
 
-        <h2 className="display text-6xl sm:text-7xl lg:text-[8.5rem] text-white mb-8">
+        <h2 className="display text-[2.75rem] sm:text-5xl lg:text-6xl text-white mb-8">
           Want your place
           <br />
           <span className="text-gold-gradient">sorted this week?</span>

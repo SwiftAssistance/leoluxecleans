@@ -7,7 +7,7 @@ import HeroImage from './HeroImage';
 // `kicker` is a short keyword line read as part of the H1 (e.g. "Cleaning services in Slough").
 const PageHero = ({ title, kicker, subtitle, breadcrumb, parentBreadcrumb }) => {
   return (
-    <section className="theme-dark relative bg-surface-black pt-32 lg:pt-40 overflow-hidden">
+    <section className="theme-dark relative bg-surface-black pt-28 lg:pt-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <nav
           className="flex items-center gap-3 label-caps text-[10px] mb-10 lg:mb-14 border-b border-surface-border/70 pb-4"
@@ -32,8 +32,8 @@ const PageHero = ({ title, kicker, subtitle, breadcrumb, parentBreadcrumb }) => 
           <span className="text-gold">{breadcrumb}</span>
         </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end pb-12 lg:pb-16">
-          <h1 className="lg:col-span-8 display text-6xl sm:text-7xl lg:text-[8.5rem] text-white">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end pb-10 lg:pb-12">
+          <h1 className="lg:col-span-8 display text-[2.75rem] sm:text-5xl lg:text-6xl text-white">
             {kicker && (
               <span className="block label-caps text-[11px] text-gold mb-6" style={{ letterSpacing: '0.2em', lineHeight: 1.4 }}>
                 {kicker}
@@ -43,14 +43,14 @@ const PageHero = ({ title, kicker, subtitle, breadcrumb, parentBreadcrumb }) => 
           </h1>
 
           {subtitle && (
-            <p className="lg:col-span-4 text-neutral-400 text-lg leading-relaxed lg:pb-3 border-l border-gold pl-6">
+            <p className="lg:col-span-4 text-neutral-400 text-base leading-relaxed lg:pb-2 border-l border-gold pl-6">
               {subtitle}
             </p>
           )}
         </div>
       </div>
 
-      <div className="relative h-48 sm:h-64 lg:h-80 overflow-hidden">
+      <div className="relative h-40 sm:h-52 lg:h-64 overflow-hidden">
         <HeroImage className="absolute inset-0 w-full h-full object-cover object-[center_40%]" />
       </div>
     </section>

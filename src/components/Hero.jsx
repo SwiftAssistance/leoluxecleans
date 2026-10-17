@@ -55,8 +55,8 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-end">
           {/* Left — oversized staggered headline */}
           <div className="lg:col-span-7 relative z-10">
-            <h1 className="display text-white text-[clamp(4.25rem,12vw,10.5rem)]">
-              <span className="block label-caps text-[11px] text-gold mb-8" style={{ letterSpacing: '0.2em', lineHeight: 1.4 }}>
+            <h1 className="display text-white text-[clamp(3rem,7vw,6.25rem)]">
+              <span className="block label-caps text-[11px] text-gold mb-5" style={{ letterSpacing: '0.2em', lineHeight: 1.4 }}>
                 Cleaners in Slough, Windsor &amp; Berkshire
               </span>
               <span className="block">Clean</span>
@@ -67,7 +67,7 @@ const Hero = () => {
             <div className="mt-10 lg:mt-12 grid sm:grid-cols-[auto_1fr] gap-6 sm:gap-8 items-start lg:pl-[14%]">
               <span className="hidden sm:block w-12 h-px bg-gold mt-3" aria-hidden="true" />
               <div>
-                <p className="text-neutral-400 text-lg leading-relaxed max-w-sm">
+                <p className="text-neutral-400 text-base leading-relaxed max-w-sm">
                   Home, deep, end of tenancy and office cleaning. The same trusted
                   team each visit, so your home is in hands you know.
                 </p>
@@ -94,7 +94,7 @@ const Hero = () => {
 
           {/* Right — arched photo with an overlapping quote and seal */}
           <div className="lg:col-span-5 relative">
-            <div className="relative ml-auto w-[88%] sm:w-[70%] lg:w-full">
+            <div className="relative ml-auto w-[80%] sm:w-[60%] lg:w-[82%]">
               <div className="absolute -inset-3 lg:-inset-4 rounded-t-full border border-gold/50 pointer-events-none" aria-hidden="true" />
               <div className="relative rounded-t-full overflow-hidden aspect-[3/4] bg-surface-dark">
                 <HeroImage
