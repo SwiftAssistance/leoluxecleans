@@ -7,7 +7,7 @@
     "build": "next build && npm run check",
     "start": "next start",
     "lint": "next lint",
-    "check": "node scripts/checks/jsonld.mjs && node scripts/checks/uniqueness.mjs"
+    "check": "node scripts/checks/jsonld.mjs && node scripts/checks/visible.mjs && node scripts/checks/uniqueness.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.462.0",
