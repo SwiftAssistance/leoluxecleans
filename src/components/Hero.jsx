@@ -13,13 +13,20 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden">
-      <HeroImage className="absolute inset-0 w-full h-full object-cover" />
+      <HeroImage className="absolute inset-0 w-full h-full object-cover object-[70%_center]" />
 
       {/* Multi-layer overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/97 via-black/80 to-black/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+      {/* Solid dark panel behind the copy on the left, fading out over the photo */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(90deg, rgba(11,11,11,0.96) 0%, rgba(11,11,11,0.9) 38%, rgba(11,11,11,0.55) 62%, rgba(11,11,11,0.2) 100%)',
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/60" />
       {/* Extra shade on small screens, where the copy sits over the bright side of the photo */}
-      <div className="absolute inset-0 bg-black/55 lg:hidden" />
+      <div className="absolute inset-0 bg-black/60 lg:hidden" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 min-h-screen flex items-end pb-20 lg:pb-28 pt-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full">
@@ -107,7 +114,7 @@ const Hero = () => {
             </div>
 
             {/* Quick facts card */}
-            <div className="ml-auto w-full max-w-[340px] bg-gold/8 backdrop-blur-md border border-gold/20 rounded-2xl px-6 py-5 shadow-2xl">
+            <div className="ml-auto w-full max-w-[340px] bg-gold/10 backdrop-blur-md border border-gold/20 rounded-2xl px-6 py-5 shadow-2xl">
               <div className="grid grid-cols-3 divide-x divide-gold/20">
                 {[
                   { val: business.google.ratingDisplay, label: 'On Google' },

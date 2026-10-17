@@ -11,7 +11,7 @@ const PageHero = ({ title, subtitle, breadcrumb, parentBreadcrumb }) => {
       {/* Heavy dark overlay */}
       <div className="absolute inset-0 bg-black/80" />
       {/* Gold ambient glow — top right */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[280px] bg-gold/6 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-[500px] h-[280px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
       {/* Subtle gradient fill */}
       <div className="absolute inset-0 bg-gradient-to-b from-surface-dark/30 to-transparent pointer-events-none" />
       {/* Gold accent line at bottom */}

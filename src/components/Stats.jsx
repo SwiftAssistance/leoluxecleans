@@ -17,7 +17,7 @@ const stats = [
 
 const Stats = () => (
   <section className="relative py-16 lg:py-20 bg-surface-dark border-y border-surface-border/50 overflow-hidden">
-    <div className="absolute inset-0 bg-gradient-to-r from-gold/3 via-transparent to-gold/3 pointer-events-none" />
+    <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-gold/5 pointer-events-none" />
     <div className="max-w-7xl mx-auto px-6 lg:px-12">
       <ul className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-0 lg:divide-x lg:divide-surface-border/40">
         {stats.map((stat) => {

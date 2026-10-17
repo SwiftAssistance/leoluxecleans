@@ -68,7 +68,7 @@ const Navbar = () => {
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-surface-black py-3 border-b border-surface-border/50'
-          : 'bg-transparent py-5'
+          : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5'
       }`}
       role="navigation"
       aria-label="Main navigation"
