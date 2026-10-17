@@ -5,6 +5,7 @@ import { ArrowRight, Phone, Star } from 'lucide-react';
 import { useQuoteModal } from '../context/QuoteModalContext';
 import { business } from '../config/business';
 import { getReview } from '../data/reviews';
+import { ReviewCard, GoogleLogo } from './GoogleReviews';
 
 const heroReview = getReview('linda-willis');
 
@@ -26,12 +27,13 @@ const RatingSeal = () => (
       </text>
     </svg>
     <span className="absolute inset-0 flex flex-col items-center justify-center">
+      <GoogleLogo size={16} className="mb-1" />
       <span className="heading-serif text-4xl text-white leading-none group-hover:text-gold transition-colors">
         {business.google.ratingDisplay}
       </span>
       <span className="flex gap-px mt-1" aria-hidden="true">
         {[...Array(5)].map((_, i) => (
-          <Star key={i} size={8} fill="#C8A94E" strokeWidth={0} />
+          <Star key={i} size={8} fill="#FBBC05" strokeWidth={0} />
         ))}
       </span>
     </span>
@@ -107,14 +109,9 @@ const Hero = () => {
               </div>
             </div>
 
-            <figure className="relative lg:absolute lg:-left-8 lg:-bottom-8 -mt-12 lg:mt-0 mr-auto w-[85%] sm:w-[60%] lg:w-[72%] bg-surface-card border-l-2 border-gold p-6 shadow-[0_24px_60px_-20px_rgba(21,19,15,0.35)]">
-              <blockquote className="heading-serif text-xl lg:text-[1.375rem] text-white" style={{ lineHeight: 1.3, fontWeight: 400 }}>
-                &ldquo;{heroReview.text}&rdquo;
-              </blockquote>
-              <figcaption className="mt-4 label-caps text-[10px] text-neutral-500">
-                {heroReview.displayName} · Google review
-              </figcaption>
-            </figure>
+            <div className="relative lg:absolute lg:-left-8 lg:-bottom-8 -mt-12 lg:mt-0 mr-auto w-[88%] sm:w-[60%] lg:w-[74%] shadow-[0_24px_60px_-20px_rgba(0,0,0,0.6)] rounded-xl">
+              <ReviewCard review={heroReview} />
+            </div>
           </div>
         </div>
       </div>

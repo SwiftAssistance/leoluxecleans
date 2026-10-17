@@ -10,6 +10,7 @@ import { rotatingReviews, getReview } from '../data/reviews';
 
 const heroReview = getReview('susan-jones');
 import { business } from '../config/business';
+import { ReviewCard, GoogleLogo } from '../components/GoogleReviews';
 
 function WhatsAppIcon({ size = 16 }) {
   return (
@@ -675,6 +676,7 @@ const LandingPage = ({
                     What Our Customers Say
                   </h2>
                   <div className="flex items-center gap-2">
+                    <GoogleLogo size={16} />
                     <StarRow count={5} size={14} />
                     <a href={business.google.profileUrl} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-gold text-sm">{business.google.summary}</a>
                   </div>
@@ -687,19 +689,9 @@ const LandingPage = ({
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
-                {REVIEWS.map(({ id, displayName: name, text }) => (
-                  <article key={id} className="border-t border-gold/40 pt-6 flex flex-col">
-                    <blockquote className="heading-serif text-xl text-neutral-200 flex-1" style={{ lineHeight: 1.35, fontWeight: 400 }}>
-                      &ldquo;{text}&rdquo;
-                    </blockquote>
-                    <div className="mt-5 flex items-center gap-3">
-                      <p className="label-caps text-[10px] text-white">{name}</p>
-                      <span className="h-px w-6 bg-surface-border" aria-hidden="true" />
-                      <StarRow count={5} size={10} />
-                      <span className="sr-only">Google review</span>
-                    </div>
-                  </article>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                {REVIEWS.map((r) => (
+                  <ReviewCard key={r.id} review={r} />
                 ))}
               </div>
             </div>
