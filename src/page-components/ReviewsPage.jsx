@@ -4,7 +4,7 @@ import { useQuoteModal } from '../context/QuoteModalContext';
 import { Star, Quote, ArrowRight, Phone, CheckCircle2 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { GBP_URL } from '../components/Seo';
+import { business } from '../config/business';
 
 const StarRating = ({ size = 12 }) => (
   <div className="flex gap-0.5" aria-label="5 out of 5 stars">
@@ -84,7 +84,7 @@ const ReviewsPage = () => {
               <div>
                 <StarRating size={18} />
                 <a
-                  href={GBP_URL}
+                  href={business.google.profileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-neutral-500 hover:text-gold transition-colors text-sm mt-1 inline-block"
@@ -212,7 +212,7 @@ const ReviewsPage = () => {
             </a>
           </div>
           <a
-            href={GBP_URL}
+            href={business.google.profileUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-500 hover:text-gold transition-colors text-xs label-caps mt-8 inline-flex items-center gap-1.5"

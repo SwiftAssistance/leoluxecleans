@@ -8,7 +8,7 @@ import {
   Facebook,
   Star,
 } from 'lucide-react';
-import { GBP_URL } from './Seo';
+import { business } from '../config/business';
 
 const footerLinks = [
   { name: 'Home', to: '/' },
@@ -50,7 +50,7 @@ const westLondonLinks = [
 ];
 
 const socialLinks = [
-  { Icon: Star, label: 'Google', href: GBP_URL },
+  { Icon: Star, label: 'Google', href: business.google.profileUrl },
   { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/leoluxeclean' },
   { Icon: Facebook, label: 'Facebook', href: '#' },
 ];
@@ -93,7 +93,7 @@ const Footer = () => {
                 <Mail size={14} className="text-gold" /> info@leoluxeclean.co.uk
               </a>
               <a
-                href={GBP_URL}
+                href={business.google.profileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-neutral-500 hover:text-gold transition-colors"

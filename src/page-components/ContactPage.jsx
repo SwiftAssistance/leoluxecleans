@@ -12,7 +12,8 @@ import {
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { GBP_URL, GBP_CID } from '../components/Seo';
+import { business } from '../config/business';
+import { contactFaqs as faqs } from '../data/faqs';
 
 const SERVICE_LABELS = {
   home: 'Home Cleaning',
@@ -125,24 +126,6 @@ const ContactPage = () => {
     }
   };
 
-  const faqs = [
-    {
-      q: 'How quickly can you start?',
-      a: "We can usually book you in within the same week. For urgent jobs, we offer same-day and next-day availability where possible.",
-    },
-    {
-      q: 'Do I need to provide cleaning products?',
-      a: "No — we bring everything we need, including professional-grade eco-friendly products and all equipment. You don't need to lift a finger.",
-    },
-    {
-      q: 'Are your team DBS checked?',
-      a: "Absolutely. Every team member is fully DBS checked, insured, and trained to our high standards before they enter your home.",
-    },
-    {
-      q: "What if I'm not happy with the clean?",
-      a: "We offer a 100% satisfaction guarantee. If you're not completely happy, we'll come back and sort it at no extra charge.",
-    },
-  ];
 
   return (
     <>
@@ -392,7 +375,7 @@ const ContactPage = () => {
       <section className="bg-surface-dark relative">
         <iframe
           title="Leo Luxe Clean location on Google Maps"
-          src={`https://www.google.com/maps?cid=${GBP_CID}&output=embed`}
+          src={business.google.mapEmbedUrl}
           width="100%"
           height="300"
           style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(0.9)' }}
@@ -401,7 +384,7 @@ const ContactPage = () => {
           referrerPolicy="no-referrer-when-downgrade"
         />
         <a
-          href={GBP_URL}
+          href={business.google.profileUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="absolute top-4 right-4 bg-surface-black/90 border border-surface-border/60 text-white text-xs label-caps px-4 py-2.5 rounded-lg hover:border-gold/40 hover:text-gold transition-colors flex items-center gap-2"

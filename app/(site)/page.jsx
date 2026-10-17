@@ -1,16 +1,8 @@
 import HomePage from '../../src/page-components/HomePage';
 import JsonLd from '../../src/components/JsonLd';
-import { localBusinessSchema, websiteSchema, organizationSchema, createFaqSchema } from '../../src/components/Seo';
+import { localBusinessSchema, websiteSchema, createFaqSchema } from '../../src/components/Seo';
+import { homeFaqs } from '../../src/data/faqs';
 import { absoluteUrl } from '../../src/config/business';
-
-const homeFaqSchema = createFaqSchema([
-  { q: 'How much does home cleaning cost in Slough?', a: 'Home cleaning in Slough starts from £60. The exact price depends on the size of your property and how often you want us. We give you a clear, fixed quote before any work starts.' },
-  { q: 'What areas do you cover?', a: "We're based in Slough (SL1) and cover Windsor, Langley, Maidenhead, Eton, Burnham, Ascot, Bracknell, and West London including Hayes, Southall, Uxbridge, Ealing, Greenford, Northolt, West Drayton, and Hounslow." },
-  { q: 'Are your cleaners DBS checked?', a: "Yes — every team member is DBS checked and fully insured. We don't use agency staff or sub-contractors." },
-  { q: 'Do you bring your own products and equipment?', a: "We bring everything — products, equipment, and supplies. You don't need to provide anything." },
-  { q: 'How quickly can you start?', a: "Most weeks we can fit a new booking within the same week. Call us on 07845 239774 or fill in the quote form and we'll confirm availability within a couple of hours." },
-  { q: "What if I'm not happy with the clean?", a: "Tell us. If something's been missed or not done to standard, we'll come back and sort it — same week, no charge." },
-]);
 
 export const metadata = {
   title: { absolute: 'Leo Luxe Clean | Cleaners in Slough, Windsor & Berkshire' },
@@ -26,7 +18,7 @@ export const metadata = {
 export default function Page() {
   return (
     <>
-      <JsonLd schema={[localBusinessSchema, websiteSchema, organizationSchema, homeFaqSchema]} />
+      <JsonLd schema={[localBusinessSchema, websiteSchema, createFaqSchema(homeFaqs)]} />
       <HomePage />
     </>
   );

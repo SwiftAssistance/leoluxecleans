@@ -1,14 +1,9 @@
 import ContactPage from '../../../src/page-components/ContactPage';
 import JsonLd from '../../../src/components/JsonLd';
 import { createFaqSchema, breadcrumbSchema } from '../../../src/components/Seo';
+import { contactFaqs } from '../../../src/data/faqs';
 import { absoluteUrl } from '../../../src/config/business';
 
-const faqs = [
-  { q: 'How quickly can you start?', a: "We can usually book you in within the same week. For urgent jobs, we offer same-day and next-day availability where possible." },
-  { q: 'Do I need to provide cleaning products?', a: "No — we bring everything we need, including professional-grade eco-friendly products and all equipment." },
-  { q: 'Are your team DBS checked?', a: "Absolutely. Every team member is fully DBS checked, insured, and trained to our high standards." },
-  { q: "What if I'm not happy with the clean?", a: "We offer a 100% satisfaction guarantee. If you're not completely happy, we'll come back and sort it at no extra charge." },
-];
 
 export const metadata = {
   title: 'Contact Us — Free Cleaning Quote in Slough & Berkshire',
@@ -23,7 +18,7 @@ export const metadata = {
 
 export default function Page() {
   const schemas = [
-    createFaqSchema(faqs),
+    createFaqSchema(contactFaqs),
     breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Contact', url: '/contact/' }]),
   ];
   return (

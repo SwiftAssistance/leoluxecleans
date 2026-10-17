@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import AreaServicePage from '../../../../../src/page-components/AreaServicePage';
 import JsonLd from '../../../../../src/components/JsonLd';
-import { breadcrumbSchema, createFaqSchema } from '../../../../../src/components/Seo';
+import { breadcrumbSchema, createFaqSchema, createAreaServiceSchema } from '../../../../../src/components/Seo';
 import { absoluteUrl, business } from '../../../../../src/config/business';
 import { locations } from '../../../../../src/data/locations';
 import { services } from '../../../../../src/data/services';
@@ -41,6 +41,7 @@ export default function Page({ params }) {
   if (!c) notFound();
   const { location, service } = c;
   const schemas = [
+    createAreaServiceSchema(location, service),
     createFaqSchema(c.faqs),
     breadcrumbSchema([
       { name: 'Home', url: '/' },

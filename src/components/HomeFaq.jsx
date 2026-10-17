@@ -3,41 +3,9 @@ import React, { useState } from 'react';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { homeFaqs } from '../data/faqs';
 
-const faqs = [
-  {
-    q: 'How much does home cleaning cost in Slough?',
-    a: 'Home cleaning in Slough starts from £60. The exact price depends on the size of your property and how often you want us. We give you a clear, fixed quote before any work starts — no hidden extras.',
-  },
-  {
-    q: 'What areas do you cover?',
-    a: 'We\'re based in Slough (SL1) and cover Windsor, Langley, Maidenhead, Eton, Burnham, Ascot, Bracknell, and most of West London including Hayes, Southall, Uxbridge, Ealing, Greenford, Northolt, West Drayton, and Hounslow.',
-  },
-  {
-    q: 'Are your cleaners DBS checked?',
-    a: 'Yes — every member of our team is DBS checked and fully insured. We can provide documentation on request. We don\'t use agency staff or sub-contractors.',
-  },
-  {
-    q: 'Do you bring your own products and equipment?',
-    a: 'We bring everything — cleaning products, equipment, and supplies. You don\'t need to provide anything. If you have specific product preferences (for allergies or sensitivities), just let us know when booking.',
-  },
-  {
-    q: 'How quickly can you start?',
-    a: 'Most weeks we can fit a new booking within the same week. Call us on 07845 239774 or fill in the quote form and we\'ll confirm availability, usually within a couple of hours.',
-  },
-  {
-    q: 'Do I need to be home when you clean?',
-    a: 'Not at all. Most of our regular clients give us a key or leave access instructions. We\'re DBS checked and insured, so your home is in safe hands.',
-  },
-  {
-    q: 'What does an end of tenancy clean include?',
-    a: 'Everything on a standard inventory checklist: inside all cupboards and drawers, behind appliances, oven degreased, bathroom descaled, carpets vacuumed and spot-treated, windows cleaned inside, all surfaces done. If your landlord raises any cleaning issues, we come back within 48 hours at no extra charge.',
-  },
-  {
-    q: 'What if I\'m not happy with the clean?',
-    a: 'Tell us. If something\'s been missed or hasn\'t been done to standard, we\'ll come back and sort it — same week, no charge. That\'s the guarantee on every job.',
-  },
-];
+const faqs = homeFaqs;
 
 const HomeFaq = () => {
   const [open, setOpen] = useState(null);
