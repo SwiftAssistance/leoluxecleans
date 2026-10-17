@@ -5,12 +5,12 @@ import { homeFaqs as faqs } from '../data/faqs';
 
 // Server-rendered: every answer is in the HTML, expandable with <details>.
 const HomeFaq = () => (
-  <section className="py-20 lg:py-28 bg-surface-dark" id="faq">
+  <section className="py-16 lg:py-20 bg-surface-dark" id="faq">
     <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
       <div className="lg:col-span-4">
         <div className="lg:sticky lg:top-28">
           <p className="section-mark mb-6">(06) Common Questions</p>
-          <h2 className="display text-6xl lg:text-7xl text-white">
+          <h2 className="display text-[2.75rem] lg:text-5xl text-white">
             Before you
             <br />
             <span className="text-neutral-500">ask.</span>

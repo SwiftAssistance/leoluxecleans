@@ -163,7 +163,7 @@ const Contact = () => {
           {/* Left info */}
           <div className="lg:col-span-5">
             <p className="label-caps text-gold mb-4">Get Started</p>
-            <h2 className="display text-6xl lg:text-7xl text-white mb-8">
+            <h2 className="display text-[2.75rem] lg:text-5xl text-white mb-8">
               Get Your Free
               <br />
               <span className="text-gold-gradient">Quote Today</span>

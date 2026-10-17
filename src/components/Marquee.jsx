@@ -17,12 +17,12 @@ const marqueeItems = [
 
 const Marquee = () => {
   return (
-    <section className="theme-dark relative z-20 py-6 lg:py-8 bg-surface-black border-y border-gold/25 overflow-hidden" aria-label="Why choose us">
+    <section className="theme-dark relative z-20 py-4 lg:py-5 bg-surface-black border-y border-gold/25 overflow-hidden" aria-label="Why choose us">
       <div className="marquee-track">
         {[...marqueeItems, ...marqueeItems].map((item, i) => (
           <span
             key={i}
-            className="flex items-center gap-10 pr-10 heading-serif text-3xl lg:text-5xl text-white whitespace-nowrap"
+            className="flex items-center gap-8 pr-8 heading-serif text-lg lg:text-2xl text-white whitespace-nowrap"
             aria-hidden={i >= marqueeItems.length ? 'true' : undefined}
           >
             {item}

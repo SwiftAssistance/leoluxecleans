@@ -54,7 +54,7 @@ const ServicesPage = () => {
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className={`group grid grid-cols-12 gap-x-4 lg:gap-x-8 gap-y-4 py-10 lg:py-14 transition-all duration-500 ${
+                className={`group grid grid-cols-12 gap-x-4 lg:gap-x-8 gap-y-4 py-7 lg:py-9 transition-all duration-500 ${
                   gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
                 style={{ transitionDelay: `${i * 60}ms` }}
@@ -93,7 +93,7 @@ const ServicesPage = () => {
       <section className="py-16 lg:py-24 bg-surface-dark border-y border-surface-border/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-4">
-            <h2 className="display text-5xl lg:text-7xl text-white mb-4">How It Works</h2>
+            <h2 className="display text-4xl lg:text-5xl text-white mb-4">How It Works</h2>
             <p className="text-neutral-400 text-sm max-w-xs">
               From first contact to finished clean — we keep it straightforward.
             </p>
@@ -141,7 +141,7 @@ const ServicesPage = () => {
       <section className="py-16 lg:py-24 bg-surface-black">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-4">
-            <h2 className="display text-5xl lg:text-7xl text-white mb-4">Every Clean Includes</h2>
+            <h2 className="display text-4xl lg:text-5xl text-white mb-4">Every Clean Includes</h2>
             <p className="text-neutral-400 text-sm max-w-xs">
               These aren't add-ons. They're standard with every single booking.
             </p>
@@ -182,7 +182,7 @@ const ServicesPage = () => {
       {/* CTA */}
       <section className="py-16 lg:py-20 bg-surface-black">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-          <h2 className="display text-5xl lg:text-7xl text-white mb-4">
+          <h2 className="display text-4xl lg:text-5xl text-white mb-4">
             Not sure what you need?
           </h2>
           <p className="text-neutral-400 text-lg mb-10 max-w-xl mx-auto">

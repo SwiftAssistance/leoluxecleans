@@ -24,7 +24,7 @@ const Stats = () => (
           const body = (
             <>
               <div className="w-8 h-px bg-gold/50 mx-auto mb-5" />
-              <span className="heading-serif text-5xl sm:text-6xl text-white block mb-1.5">{stat.value}</span>
+              <span className="heading-serif text-4xl sm:text-5xl text-white block mb-1.5">{stat.value}</span>
               <span className="label-caps text-[11px] text-gold/80 block mb-1">{stat.label}</span>
               <span className="text-neutral-500 text-xs">{stat.sub}</span>
             </>

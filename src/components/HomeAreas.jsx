@@ -11,11 +11,11 @@ const regions = [
 ];
 
 const HomeAreas = () => (
-  <section className="py-20 lg:py-28 bg-surface-dark" aria-labelledby="home-areas-heading">
+  <section className="py-16 lg:py-20 bg-surface-dark" aria-labelledby="home-areas-heading">
     <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
       <div className="lg:col-span-4">
         <p className="section-mark mb-6">(05) Where We Clean</p>
-        <h2 id="home-areas-heading" className="display text-6xl lg:text-7xl text-white">
+        <h2 id="home-areas-heading" className="display text-[2.75rem] lg:text-5xl text-white">
           Local to
           <br />
           <span className="text-neutral-500">Slough.</span>
