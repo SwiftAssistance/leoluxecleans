@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -34,14 +34,6 @@ const services = [
 
 const Services = () => {
   const [ref, isVisible] = useScrollReveal({ threshold: 0.05 });
-  // Desktop: a photo of the hovered service follows the cursor over the list.
-  const listRef = useRef(null);
-  const [hovered, setHovered] = useState(null);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-  const onMove = (e) => {
-    const box = listRef.current?.getBoundingClientRect();
-    if (box) setPos({ x: e.clientX - box.left, y: e.clientY - box.top });
-  };
 
   return (
     <section className="py-16 lg:py-20 bg-surface-black">
@@ -65,32 +57,13 @@ const Services = () => {
           </div>
         </div>
 
-        <div ref={listRef} onMouseMove={onMove} onMouseLeave={() => setHovered(null)} className="relative">
-        <div
-          className={`hidden lg:block pointer-events-none absolute z-20 w-60 aspect-[4/5] overflow-hidden transition-opacity duration-300 ${
-            hovered === null ? 'opacity-0' : 'opacity-100'
-          }`}
-          style={{ left: pos.x, top: pos.y, transform: 'translate(-50%, -50%) rotate(-3deg)' }}
-          aria-hidden="true"
-        >
-          {services.map((s, i) => (
-            <img
-              key={s.slug}
-              src={`/service-${s.slug}.jpg`}
-              alt=""
-              loading="lazy"
-              decoding="async"
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${hovered === i ? 'opacity-100' : 'opacity-0'}`}
-            />
-          ))}
-        </div>
+        <div className="relative">
         <div ref={ref} className="border-t border-surface-border/60">
           {services.map((s, i) => {
             return (
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                onMouseEnter={() => setHovered(i)}
                 className={`group block border-b border-surface-border/60 transition-all duration-500 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
