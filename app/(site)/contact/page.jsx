@@ -8,7 +8,7 @@ import { pageMeta } from '../../../src/lib/meta';
 
 export const metadata = pageMeta({
   title: 'Contact Leo Luxe Clean | Free Cleaning Quote',
-  description: `Get a free cleaning quote from Leo Luxe Clean. Call ${business.phone.display} or use our form. Based in Slough, covering Windsor and Berkshire.`,
+  description: `Get a free cleaning quote from Leo Luxe Clean. Call ${business.phone.display} or use our form. Based in Slough, covering West London and Berkshire.`,
   path: '/contact/',
 });
 

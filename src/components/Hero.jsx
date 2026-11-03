@@ -47,19 +47,19 @@ const Hero = () => {
     <section className="theme-dark relative bg-surface-black pt-28 lg:pt-32 pb-16 lg:pb-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-end">
-          {/* Left — oversized staggered headline */}
+          {/* Left — oversized headline */}
           <div className="lg:col-span-7 relative z-10">
             <h1 className="display text-white text-[clamp(3rem,7vw,6.25rem)]">
               <span className="block label-caps text-[11px] text-gold mb-5" style={{ letterSpacing: '0.2em', lineHeight: 1.4 }}>
-                Cleaners in Slough, Windsor &amp; Berkshire
+                Cleaners in West London &amp; Berkshire
               </span>
               <span className="block">Clean</span>
-              <span className="block pl-[14%]">Done</span>
+              <span className="block">Done</span>
               <span className="block text-gold">Properly.</span>
             </h1>
 
-            <div className="mt-10 lg:mt-12 grid sm:grid-cols-[auto_1fr] gap-6 sm:gap-8 items-start lg:pl-[14%]">
-              <span className="hidden sm:block w-12 h-px bg-gold mt-3" aria-hidden="true" />
+            <div className="mt-10 lg:mt-12">
+              <span className="block w-12 h-px bg-gold mb-6" aria-hidden="true" />
               <div>
                 <p className="text-neutral-400 text-base leading-relaxed max-w-sm">
                   Home, deep, end of tenancy and office cleaning. The same trusted

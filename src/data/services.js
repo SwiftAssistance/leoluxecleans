@@ -7,9 +7,9 @@ export const services = [
     priceFrom: 60,
     image: '/service-home-cleaning.jpg',
     imageAlt: 'A Leo Luxe Clean cleaner wiping down a kitchen worktop',
-    metaTitle: 'Home Cleaning in Slough & Berkshire | Leo Luxe Clean',
+    metaTitle: 'Home Cleaning in Slough & West London | Leo Luxe Clean',
     metaDescription:
-      'Home cleaning in Slough, Windsor and Berkshire from £60. Weekly, fortnightly or one-off. DBS checked, fully insured. Free quote.',
+      'Home cleaning in Slough, West London and Berkshire from £60. Weekly, fortnightly or one-off. DBS checked, fully insured. Free quote.',
     heroDesc:
       'Whether it\'s a weekly regular or a one-off before guests arrive — every room, done properly. Nothing skipped because it was taking too long.',
     longDesc: [
@@ -54,13 +54,13 @@ export const services = [
     priceFrom: null,
     image: '/service-office-cleaning.jpg',
     imageAlt: 'Leo Luxe Clean team members cleaning a bathroom mirror',
-    metaTitle: 'Office Cleaning in Slough & Berkshire | Leo Luxe Clean',
+    metaTitle: 'Office Cleaning in Slough & West London | Leo Luxe Clean',
     metaDescription:
-      'Office and commercial cleaning in Slough, Windsor and Berkshire. Early morning, evening and weekend visits. Fully insured, DBS checked. Free quote.',
+      'Office and commercial cleaning in Slough, West London and Berkshire. Early morning, evening and weekend visits. Fully insured, DBS checked. Free quote.',
     heroDesc:
-      'A clean office matters — for staff, for clients, for how your business looks. We keep commercial spaces across Slough and Berkshire properly clean, around your schedule.',
+      'A clean office matters — for staff, for clients, for how your business looks. We keep commercial spaces across West London and Berkshire properly clean, around your schedule.',
     longDesc: [
-      'A dirty workplace puts people off — staff, visitors, clients. We work with businesses across Slough, Windsor, and Berkshire to keep offices, retail spaces, and commercial premises in good shape.',
+      'A dirty workplace puts people off — staff, visitors, clients. We work with businesses across West London and Berkshire to keep offices, retail spaces, and commercial premises in good shape.',
       'We fit around your hours. Early mornings, evenings, weekends — whatever works. Most commercial clients don\'t want cleaners wandering around during the working day, and we understand that.',
       'Public liability insurance is included. Every team member is DBS checked and properly trained. We can provide documentation on request.',
     ],
@@ -101,9 +101,9 @@ export const services = [
     priceFrom: 120,
     image: '/service-deep-clean.jpg',
     imageAlt: 'Leo Luxe Clean team cleaning a bathroom, one carrying fresh towels',
-    metaTitle: 'Deep Cleaning in Slough & Berkshire | Leo Luxe Clean',
+    metaTitle: 'Deep Cleaning in Slough & West London | Leo Luxe Clean',
     metaDescription:
-      'Deep cleaning in Slough, Windsor and Berkshire from £120. Behind appliances, inside ovens, grout and limescale. DBS checked, insured. Free quote.',
+      'Deep cleaning in Slough, West London and Berkshire from £120. Behind appliances, inside ovens, grout and limescale. DBS checked, insured. Free quote.',
     heroDesc:
       'Behind the fridge, inside the oven, on top of the cabinets — all the bits that get left. We go through the whole place so you don\'t have to.',
     longDesc: [
@@ -150,11 +150,11 @@ export const services = [
     imageAlt: 'A Leo Luxe Clean cleaner wiping a kitchen island',
     metaTitle: 'End of Tenancy Cleaning in Slough | Leo Luxe Clean',
     metaDescription:
-      'End of tenancy cleaning in Slough, Windsor and Berkshire from £150, cleaned to inventory standard. Free re-clean within 48 hours if needed.',
+      'End of tenancy cleaning in Slough, West London and Berkshire from £150, cleaned to inventory standard. Free re-clean within 48 hours if needed.',
     heroDesc:
       'Moving out? We clean it to inventory standard so you don\'t lose your deposit. Ovens, cupboards, behind the appliances — all of it.',
     longDesc: [
-      'End of tenancy cleans are one of our busiest services. We know what landlords, letting agents, and inventory clerks are checking — and we clean to that level every time across Slough, Windsor, Langley, and the wider Berkshire area.',
+      'End of tenancy cleans are one of our busiest services. We know what landlords, letting agents, and inventory clerks are checking — and we clean to that level every time across West London, Slough, Windsor and the wider Berkshire area.',
       'That means inside every cupboard, behind every appliance, oven degreased, bathroom descaled, carpets vacuumed and spot-treated, windows cleaned inside, every surface done. We don\'t skip anything that goes on an inventory check.',
       'If any cleaning issues are raised after our visit, we come back within 48 hours at no extra charge.',
     ],
@@ -197,7 +197,7 @@ export const services = [
     imageAlt: 'A Leo Luxe Clean cleaner working in a kitchen',
     metaTitle: 'After Party & Event Cleaning in Slough | Leo Luxe Clean',
     metaDescription:
-      'After-event and party cleaning in Slough, Windsor and Berkshire from £80. Rubbish removal, spill treatment and a full clean. Free quote.',
+      'After-event and party cleaning in Slough, West London and Berkshire from £80. Rubbish removal, spill treatment and a full clean. Free quote.',
     heroDesc:
       'Had a party? We\'ll have it back to normal. Same-day and next-day availability for when it can\'t wait.',
     longDesc: [
@@ -242,9 +242,9 @@ export const services = [
     priceFrom: 70,
     image: '/service-specialist-cleaning.jpg',
     imageAlt: 'A Leo Luxe Clean cleaner cleaning kitchen surfaces',
-    metaTitle: 'Specialist Cleaning in Slough & Berkshire | Leo Luxe Clean',
+    metaTitle: 'Specialist Cleaning in Slough & West London | Leo Luxe Clean',
     metaDescription:
-      'Carpet, upholstery, oven, window and hard floor cleaning in Slough, Windsor and Berkshire from £70. Proper equipment, visible results.',
+      'Carpet, upholstery, oven, window and hard floor cleaning in Slough, West London and Berkshire from £70. Proper equipment, visible results.',
     heroDesc:
       'Carpets, upholstery, ovens, windows — the jobs that need proper equipment and someone who\'s done them before.',
     longDesc: [

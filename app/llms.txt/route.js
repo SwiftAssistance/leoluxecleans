@@ -9,7 +9,7 @@ export const dynamic = 'force-static';
 export function GET() {
   const body = `# ${business.name}
 
-> Local cleaning company based in Slough, Berkshire. Home cleaning, deep cleans, end of tenancy, office and commercial, after-event and specialist cleaning for homes and businesses across Slough, Windsor, Maidenhead, Langley, Ascot and Eton. DBS-checked, insured team. Rated ${business.google.summary}.
+> Local cleaning company based in Slough, Berkshire. Home cleaning, deep cleans, end of tenancy, office and commercial, after-event and specialist cleaning for homes and businesses across West London and Berkshire, including Slough, Windsor, Maidenhead, Langley, Hayes, Southall, Uxbridge, Ealing and Hounslow. DBS-checked, insured team. Rated ${business.google.summary}.
 
 ## Contact
 

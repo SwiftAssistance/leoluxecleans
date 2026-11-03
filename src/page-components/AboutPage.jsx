@@ -80,7 +80,7 @@ const AboutPage = () => {
               <div className="space-y-5 text-neutral-400 leading-relaxed font-light">
                 <p>
                   Leo Luxe Clean was started by cleaners who were tired of how
-                  it was being done. Across Slough and Berkshire, the jobs got
+                  it was being done. Across West London and Berkshire, the jobs got
                   done, but rarely the way you&apos;d want your own home done:
                   quick in, quick out, whoever happened to be free that day.
                 </p>

@@ -6,7 +6,7 @@ const marqueeItems = [
   'Eco-Friendly Products',
   'Rated 5.0 on Google',
   'Free Quotes',
-  'Slough & Berkshire',
+  'West London & Berkshire',
   'Same-Week Bookings',
   'Satisfaction Guaranteed',
   'No Contracts',

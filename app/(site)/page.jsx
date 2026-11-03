@@ -7,7 +7,7 @@ import { pageMeta } from '../../src/lib/meta';
 export const metadata = pageMeta({
   title: 'Leo Luxe Clean | Slough Cleaners, Rated 5.0 on Google',
   description:
-    'Local cleaners based in Slough. Home cleaning from £60, deep cleans, end of tenancy and office cleaning across Windsor, Maidenhead and Berkshire.',
+    'Local cleaners based in Slough. Home cleaning from £60, deep cleans, end of tenancy and office cleaning across West London and Berkshire.',
   path: '/',
 });
 

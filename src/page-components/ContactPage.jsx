@@ -366,7 +366,7 @@ const ContactPage = () => {
                 <div className="py-7">
                   <h3 className="label-caps text-[10px] text-gold mb-3">Areas We Cover</h3>
                   <p className="text-neutral-400 text-sm leading-relaxed">
-                    Slough, Windsor, Langley, Maidenhead, Eton, Burnham and surrounding areas across Berkshire.
+                    Slough, Windsor, Langley, Maidenhead, Eton, Burnham and surrounding areas across Berkshire, plus West London including Hayes, Southall, Uxbridge, Ealing and Hounslow.
                   </p>
                 </div>
               </div>

@@ -6,8 +6,8 @@ import { business, SITE_URL } from '../src/config/business';
 // Pages use pageMeta() from src/lib/meta.js, which sets og:image explicitly.
 export const metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: 'Leo Luxe Clean | Cleaners in Slough & Berkshire', template: '%s | Leo Luxe Clean' },
-  description: 'Local cleaners based in Slough, covering Windsor, Maidenhead, Langley, Ascot and Eton. Home, deep, end of tenancy and office cleaning.',
+  title: { default: 'Leo Luxe Clean | Cleaners in West London & Berkshire', template: '%s | Leo Luxe Clean' },
+  description: 'Local cleaners based in Slough, covering West London and Berkshire, including Windsor, Maidenhead, Hayes, Uxbridge and Ealing. Home, deep, end of tenancy and office cleaning.',
   openGraph: {
     type: 'website',
     siteName: business.name,
