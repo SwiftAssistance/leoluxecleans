@@ -382,7 +382,7 @@ const ContactPage = () => {
           src={business.google.mapEmbedUrl}
           width="100%"
           height="300"
-          style={{ border: 0, filter: 'grayscale(1) sepia(0.2) contrast(0.95)' }}
+          style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.95) contrast(0.9)' }}
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
