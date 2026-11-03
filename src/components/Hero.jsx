@@ -53,9 +53,9 @@ const Hero = () => {
               <span className="block label-caps text-[11px] text-gold mb-5" style={{ letterSpacing: '0.2em', lineHeight: 1.4 }}>
                 Cleaners in West London &amp; Berkshire
               </span>
-              <span className="block">Come home</span>
-              <span className="block">to that</span>
-              <span className="block text-gold italic">hotel feeling.</span>
+              <span className="block">Your home,</span>
+              <span className="block">at its</span>
+              <span className="block text-gold italic">very best.</span>
             </h1>
 
             <div className="mt-10 lg:mt-12">
