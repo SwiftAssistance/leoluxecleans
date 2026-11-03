@@ -5,9 +5,9 @@ import { services } from '../../../src/data/services';
 import { pageMeta } from '../../../src/lib/meta';
 
 export const metadata = pageMeta({
-  title: 'Cleaning Services in Slough & Windsor | Leo Luxe Clean',
+  title: 'Cleaning Services in West London & Berkshire | Leo Luxe Clean',
   description:
-    'Home cleaning from £60, deep cleans from £120, end of tenancy from £150, plus office, after-event and specialist cleaning across Slough and Berkshire.',
+    'Home cleaning from £60, deep cleans from £120, end of tenancy from £150, plus office, after-event and specialist cleaning across Slough, West London and Berkshire.',
   path: '/services/',
 });
 

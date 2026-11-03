@@ -4,7 +4,7 @@ import { business, sameAs, absoluteUrl, BUSINESS_ID, SITE_URL, CORE_AREA_SLUGS }
 import { getAreaDetail } from '../data/areas';
 
 const DESCRIPTION =
-  'Local cleaning company based in Slough. Home cleaning, deep cleans, end of tenancy, office and specialist cleaning across Slough, Windsor, Maidenhead, Langley, Ascot and Eton.';
+  'Local cleaning company based in Slough. Home cleaning, deep cleans, end of tenancy, office and specialist cleaning across West London and Berkshire, including Slough, Windsor, Maidenhead, Hayes, Uxbridge and Ealing.';
 
 const coreAreasServed = CORE_AREA_SLUGS.map((slug) => ({
   '@type': 'City',

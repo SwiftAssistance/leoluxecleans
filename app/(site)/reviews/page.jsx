@@ -6,7 +6,7 @@ import { pageMeta } from '../../../src/lib/meta';
 export const metadata = pageMeta({
   title: 'Customer Reviews | Leo Luxe Clean, Slough',
   description:
-    'Read what customers say about Leo Luxe Clean on Google: home, deep, office and short-let cleaning across Slough, Windsor and Berkshire.',
+    'Read what customers say about Leo Luxe Clean on Google: home, deep, office and short-let cleaning across West London and Berkshire.',
   path: '/reviews/',
 });
 

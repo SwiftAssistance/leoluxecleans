@@ -6,7 +6,7 @@ import { pageMeta } from '../../../src/lib/meta';
 export const metadata = pageMeta({
   title: 'About Leo Luxe Clean | Local Cleaners in Slough',
   description:
-    'Leo Luxe Clean is a small, local cleaning team based in Slough. DBS checked, fully insured, and serving homes and businesses across Berkshire.',
+    'Leo Luxe Clean is a small, local cleaning team based in Slough. DBS checked, fully insured, and serving homes and businesses across West London and Berkshire.',
   path: '/about/',
 });
 

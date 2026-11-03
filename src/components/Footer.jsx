@@ -56,7 +56,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-neutral-500 text-sm leading-relaxed max-w-xs mb-6">
-              Professional cleaning across Slough, Windsor & Berkshire. Local team,
+              Professional cleaning across West London & Berkshire. Local team,
               proper standards, honest prices.
             </p>
             <div className="space-y-3 text-sm">
