@@ -53,17 +53,18 @@ const Hero = () => {
               <span className="block label-caps text-[11px] text-gold mb-5" style={{ letterSpacing: '0.2em', lineHeight: 1.4 }}>
                 Cleaners in West London &amp; Berkshire
               </span>
-              <span className="block">Clean</span>
-              <span className="block">Done</span>
-              <span className="block text-gold">Properly.</span>
+              <span className="block">Your home,</span>
+              <span className="block">in hands</span>
+              <span className="block text-gold italic">you know.</span>
             </h1>
 
             <div className="mt-10 lg:mt-12">
               <span className="block w-12 h-px bg-gold mb-6" aria-hidden="true" />
               <div>
                 <p className="text-neutral-400 text-base leading-relaxed max-w-sm">
-                  Home, deep, end of tenancy and office cleaning. The same trusted
-                  team each visit, so your home is in hands you know.
+                  Regular, deep, end of tenancy and office cleaning by the same
+                  DBS-checked team every visit. Fixed quotes, no surprises, and
+                  rated 5.0 on Google.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 mt-8">
