@@ -302,7 +302,7 @@ const QuoteForm = ({ id, compact = false, formRef, formData, setFormData, formSu
 // ── main component ────────────────────────────────────────────────────────────
 
 const LandingPage = ({
-  areaName = 'Windsor & Berkshire',
+  areaName = 'West London and Berkshire',
   utmSource = '',
   utmCampaign = '',
   utmTerm = '',

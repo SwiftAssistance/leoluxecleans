@@ -13,7 +13,7 @@ export const metadata = pageMeta({
 
 export default function Page() {
   return (
-    <Suspense fallback={<LandingPage areaName="Windsor & Berkshire" utmSource="" utmCampaign="" utmTerm="" />}>
+    <Suspense fallback={<LandingPage areaName="West London and Berkshire" utmSource="" utmCampaign="" utmTerm="" />}>
       <LandingPageWrapper />
     </Suspense>
   );
