@@ -11,10 +11,10 @@ export default function LandingPageWrapper() {
         try {
           return decodeURIComponent(raw).replace(/\b\w/g, (c) => c.toUpperCase());
         } catch {
-          return 'Windsor & Berkshire';
+          return 'West London and Berkshire';
         }
       })()
-    : 'Windsor & Berkshire';
+    : 'West London and Berkshire';
 
   return (
     <LandingPage
